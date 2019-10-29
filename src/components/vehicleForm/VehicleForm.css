@@ -1,41 +1,146 @@
-.vehicle-form-wrap{
+.WidgetWrapper{
   width: 100%;
   padding-top: 20px;
 }
 
+.FormContainer{
+  padding: 10px 20px;
+}
+
+.measurementsParent{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputsFieldsContainer{
+  width: 150px;
+  margin: 0;
+  padding: 0;
+}
 
 .form-group{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-right: 16px;
 }
 .form-section{
+  width: 140px;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  margin: 0px;
+}
+.thirdRow{
+  display:flex;
+  flex-direction: row;
+  margin: 5px;
+  padding:5px;
 }
 .vehicle-spec{
-  font-size: 1.2rem;
-  margin-top: 4px;
-  margin-bottom: 1px;
+
+  /* H4 Mobile / Helvetica Regular 18 */
+
+  font-family: Helvetica;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+
+  display: flex;
+  flex-direction: row;
+
+  /* White text */
+
+  color: rgba(237, 238, 241, 0.95);
+
+
 }
 .plus{
-  margin-top: 34px;
-  margin-right: 16px;
+  display: flex;
+
+  margin:0px;
   font-size: 1.3rem;
 }
 .radio-label{
-  margin-right: 80x;
-  padding-bottom: 42px;
+  margin-right: 60px;
+  padding-bottom: 22px;
 }
 .class-radios{
+ 
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 6px;
+  justify-content: space-between;
+  margin: 20px;
+  padding-top:20px;
 }
 .vehicle-form{
-  margin-top: -10px;
+  /* margin-top: -10px;
   color: white;
   width: 100%;
-  background-color: #0f0f0f;
+  background-color: #0f0f0f; */
+  /* Rectangle 30 */
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+/* Grayscale 100% */
+background: #F8F9FA;
+}
+
+h2{
+  width: 340.88px;
+  height: 70px;
+  left: 0px;
+  top: 0px;
+  background-color: #F8F9FA;
+  padding: 5%;
+  font-family: Helvetica;
+  font-size: 36px;
+  line-height: 41px;
+  display: flex;
+  align-items: center;
+  color: #00B2D9;
+  font-weight: bold;
+  margin: 0;
+}
+
+h6{
+  color: #00B2D9;
+  font-weight: bold;
+  text-align: left;
+}
+
+#vehicleAddTitle{
+  font-family: Helvetica;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  /* White text */
+  color: rgba(237, 238, 241, 0.95);
+}
+
+.measurements{
+  display:flex;
+  flex-direction:column;
+  
+
+}
+
+p.vehicle-spec{
+  width:120px;
+}
+
+.tires{
+  width:210px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding-bottom: 5px;
+}
+.vehicle-name{
+  width: 300px;
+
+  padding:0px;
+  margin:0px;
 }
