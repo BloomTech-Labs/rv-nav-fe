@@ -40,7 +40,7 @@ class MapPage extends Component {
     loadModules([
       'esri/Map',
       'esri/views/MapView',
-      'esri/widgets/Track'
+      'esri/widgets/Track',
     ], { css: true })
       .then(([ArcGISMap, MapView, Track]) => {
         const map = new ArcGISMap({
@@ -55,7 +55,8 @@ class MapPage extends Component {
         var track = new Track({
           view: view
         });
-        view.ui.add(track, "top-left");
+        view.ui.add(track, "bottom-right");
+        view.ui.move("zoom", "bottom-right");
 
         view.when(function () {
           track.start();
@@ -429,7 +430,8 @@ class MapPage extends Component {
           let track = new Track({
             view: view
           });
-          view.ui.add(track, "top-left");
+          view.ui.add(track, "bottom-right");
+          view.ui.move("zoom", "bottom-right");
 
           this.setState({ loading: "routing successful" })
         })
