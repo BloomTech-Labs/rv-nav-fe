@@ -517,10 +517,8 @@ class MapPage extends Component {
           start={this.state.start}
           end={this.state.end}
           toggleSidebar={this.toggleSidebar} sidebarOpen={this.state.sidebarOpen} />
-          
-        <SidebarMenu />
         <div className="webmap" ref={this.mapRef} />
-
+        
       </div>
     );
   }
