@@ -1,13 +1,14 @@
 import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import SplitButton from 'react-bootstrap/SplitButton'
 import './sidebar.css';
 
 const SidebarMenu = () => {
     return (
         <Dropdown className='dropdown'>
 
-            <Dropdown.Toggle variant="success" id="dropdown-basic" className="hamcolor">
+            <Dropdown.Toggle split variant="success" id="dropdown-split-basic" className="hamcolor">
                 RV Way
             </Dropdown.Toggle>
 
