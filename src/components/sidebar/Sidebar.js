@@ -47,7 +47,7 @@ const Sidebar = (props) => {
             <div className='overlay-content'>
 
                 <div >
-                    <div className="sidebar-tabs">
+                    {/* <div className="sidebar-tabs">
                         <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
                             onClick={buttonSelect}>Route</p>
@@ -59,7 +59,7 @@ const Sidebar = (props) => {
                         <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
                             onClick={buttonSelect}>Add a Vehicle</p>
-                    </div>
+                    </div> */}
 
                     <div className={`${state.routing}`}>
                         <RoutingForm
