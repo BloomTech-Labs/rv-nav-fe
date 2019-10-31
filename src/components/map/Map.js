@@ -8,7 +8,10 @@ import { connect } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import { loadModules } from 'esri-loader';
 import "./Map.css"
+
 import MapHeader from '../header/MapHeader';
+import SidebarMenu from '../sidebar/SidebarMenu'
+
 
 class MapPage extends Component {
   constructor(props) {
@@ -515,6 +518,7 @@ class MapPage extends Component {
           end={this.state.end}
           toggleSidebar={this.toggleSidebar} sidebarOpen={this.state.sidebarOpen} />
         <div className="webmap" ref={this.mapRef} />
+        
       </div>
     );
   }

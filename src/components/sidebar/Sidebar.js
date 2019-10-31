@@ -92,7 +92,7 @@ const Sidebar = (props) => {
                                 Login or create an account to add and view vehicle information.
                             </NavLink>
                         </div>}
-
+                      
                     {localStorage.token ? <div className={`${state.vehicleForm}`}>
                         <VehicleForm closeVehicleForm={closeVehicleForm} />
                     </div> :

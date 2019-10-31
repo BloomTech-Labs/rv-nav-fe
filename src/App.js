@@ -5,7 +5,6 @@ import Auth from './components/auth/Auth';
 import Map from './components/map/Map';
 import LandingPage from './components/landingPage/LandingPage';
 
-
 import WebMap from './components/arcgismap/WebMap'
 import DoNotUseMap from './components/map/DoNotUseMap'
 
