@@ -15,7 +15,7 @@ const Sidebar = (props) => {
     })
     // console.log('props on Sidebar', props)
 
-
+   
     const closeVehicleForm = () => setState({ ...state, vehicleForm: "off", vehicles: "on" })
 
     //selects the tab when it is clicked on, deselects all others
@@ -88,7 +88,7 @@ const Sidebar = (props) => {
                         </div>}
                       
                     {localStorage.token ? <div className={`${state.vehicleForm}`}>
-                        <VehicleForm closeVehicleForm={closeVehicleForm} />
+                        <VehicleForm closeVehicleForm={closeVehicleForm} buttonSelect={buttonSelect} />
                     </div> :
                         <div className={`login-to-add ${state.vehicleForm}`}>
                             <NavLink to="/auth" style={{ marginRight: 10 }}>

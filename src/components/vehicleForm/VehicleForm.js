@@ -104,40 +104,40 @@ class VehicleForm extends React.Component {
   //occurs when the submit button is clicked
   //converts inputs from user to correct values to send to the backend, then send them
   
-   buttonSelect = (event) => {
-    console.log("event", event.target);
-    if(this.state.specifications.routing === "off"){
-      this.setState({
-      specifications: {
-        name: '',
-      // height: 0, // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
-       heightFeet: '', // value that stores the user entry of height in feet
-       heightInches: '', // value that stores the user entry of height in inches
-     //  width: 0, // these 3 width values follow the same structure as height
-       widthFeet: '',
-       widthInches: '',
-    //   length: 0, // these 3 length values follow the same structure as height
-       lengthFeet: '', 
-       lengthInches: '',
-       weight: '',  //this will be sent in pounds? check BE docs
-       axel_count: '', //integer, unit implied
-       class_name: '', //controlled input of one letter
-       //created_at: '', //check BE for format, generate date with js
-       dual_tires: false, //Bool, checkbox
-       trailer: false,  //Bool, checkbox
-       routing: "on"
-      }
-    })
-  }else{
+//    buttonSelect = (event) => {
+//     console.log("event", event.target);
+//     if(this.state.specifications.routing === "off"){
+//       this.setState({
+//       specifications: {
+//         name: '',
+//       // height: 0, // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
+//        heightFeet: '', // value that stores the user entry of height in feet
+//        heightInches: '', // value that stores the user entry of height in inches
+//      //  width: 0, // these 3 width values follow the same structure as height
+//        widthFeet: '',
+//        widthInches: '',
+//     //   length: 0, // these 3 length values follow the same structure as height
+//        lengthFeet: '', 
+//        lengthInches: '',
+//        weight: '',  //this will be sent in pounds? check BE docs
+//        axel_count: '', //integer, unit implied
+//        class_name: '', //controlled input of one letter
+//        //created_at: '', //check BE for format, generate date with js
+//        dual_tires: false, //Bool, checkbox
+//        trailer: false,  //Bool, checkbox
+//        routing: "on"
+//       }
+//     })
+//   }else{
     
-    this.setState({
-        vehicleForm: "on",
-        routing: "off",
-        vehicles: "off",
-        directions: "off"
-    })
-  }
-}
+//     this.setState({
+//         vehicleForm: "on",
+//         routing: "off",
+//         vehicles: "off",
+//         directions: "off"
+//     })
+//   }
+// }
 
   vehicleSubmit = (event) => {
     
@@ -230,25 +230,35 @@ class VehicleForm extends React.Component {
 
   render(){
     console.log('ROUTING', this.state.specifications.routing)
-    // console.log("form props", this.props)
+    console.log("form props", this.props)
     return(
       <>
       {this.state.specifications.routing === 'off' ? 
       <div className='WidgetWrapper'> 
         <div className='vehicle-form-wrap'>
         <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
-          <h2>RV WAY</h2>
+          <div className="nav">
+           <h2>RV WAY</h2>
+           {/* <img class="back-arrow"
+             src="/media/examples/grapefruit-slice-332-332.jpg"
+            
+             >
+          </img> */}
+          </div>
+         
           <div className='FormContainer'>
-          <div className="sidebar-tabs">
-          <p className={` ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
+          <div className="back">
+          <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
-                            onClick={this.buttonSelect}>Back</p>
+                            onClick={this.props.buttonSelect}>Back</p>
+
                 </div>
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
             <h4 className="vehicle-spec">Name (required)</h4>
             <input className = "vehicleName"
               type= "text"
               name ="vehicleName"
+              placeholder="The Mystery Machine"
               >
 
               </input>
@@ -482,7 +492,7 @@ class VehicleForm extends React.Component {
               </div>
             </div>
           </div> {/* End of Vehicle Class Div */}
-          <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a>
+         
 
           <p className="vehicle-spec">Tires</p>
           <Form.Check 
@@ -494,7 +504,7 @@ class VehicleForm extends React.Component {
           id={`inline-text-2`} 
           />
 
-          <Button type="submit" variant="warning" onClick={this.vehicleSubmit}>Submit</Button>
+          <Button type="submit" variant="warning" onClick={this.vehicleSubmit}>Add Vehicle</Button>
           </div>
           </div>
         </div>
