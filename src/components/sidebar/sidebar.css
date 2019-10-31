@@ -1,5 +1,5 @@
 .overlay {
-    height: 70%;
+    height: 75%;
     width: 0;
     position: fixed;
     z-index: 1000;
@@ -51,8 +51,9 @@
 }
 
 .sidebar-tab{
-    color: white;
-    background-color: #6C757D;
+    color:  #00B2D9;
+    width:50px;
+    background-color: #2A2E43;
     margin: 1px;
     padding: 8px;
     white-space: nowrap;

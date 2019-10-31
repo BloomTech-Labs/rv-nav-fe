@@ -57,7 +57,9 @@
   display: flex;
   flex-direction: column;
   width:10px;
-  margin-top :33px;
+  margin-top: 27px;
+  margin-right: 5px;
+  margin-left: 5px;
   padding: 1px;
   font-size: 1.3rem;
 }
@@ -88,6 +90,9 @@ bottom: 0%;
 background: #F8F9FA;
 }
 
+.nav{}
+
+
 h2{
   width: 340.88px;
   height: 70px;
@@ -97,12 +102,12 @@ h2{
   padding: 5%;
   font-family: Helvetica;
   font-size: 36px;
-  line-height: 41px;
+  line-height: 30px;
   display: flex;
   align-items: center;
   color: #00B2D9;
   font-weight: bold;
-  margin: 0;
+  margin: 0 5px;
 }
 
 h6{
@@ -120,6 +125,7 @@ h6{
   align-items: center;
   /* White text */
   color: rgba(237, 238, 241, 0.95);
+  padding:5px 0;
 }
 
 .measurements{
@@ -132,8 +138,9 @@ p.vehicle-spec{
   height: 10px;
 }
 h4.vehicle-spec{
-  width:120px;
-  margin:0px;
+ 
+  margin:5px 0px;
+ 
 }
 
 .tires{
@@ -176,3 +183,29 @@ h4.vehicle-spec{
 .poundsInput{
   width: 47.95px;
 }
+
+.backButton{
+  background-color: #2A2E43;
+}
+p{
+  margin-bottom:3px;
+}
+
+.form-check-label{
+  padding:5px;
+}
+
+.form-check-input{
+  margin-top: .6rem;
+}
+
+.btn{
+  width:255px;
+  background-color: #00B2D9;
+}
+.btn:hover{
+background-color: #00B2D9;
+}
+
+
+
