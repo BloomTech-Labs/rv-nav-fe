@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom'
+import "../sidebar/sidebar.css"
 
 const RoutingForm = (props) => {
   //changes "you are routing with" message at the top of the routing form
@@ -35,6 +35,13 @@ const RoutingForm = (props) => {
           <i class="selected-vehicle-truck-icon"></i>
           <p class="selected-vehicle-text">Class B</p>
           <i class="selected-vehicle-pencil-icon"></i>
+        </div>
+        <div class="dropdown-menu-class">
+          <span class="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
+          <select class="selected-vehicle-dropdown-menu">
+            <option class="selected-vehicle-dropdown-option"></option>
+            <option >+ Select Vehicle</option>
+          </select>
         </div>
         <form className="route-form" onSubmit={(event) => {
           event.preventDefault()

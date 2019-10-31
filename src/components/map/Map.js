@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 import { getVehicles } from "../../store/actions";
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
-import Button from 'react-bootstrap/Button';
 import { loadModules } from 'esri-loader';
 import "./Map.css"
-
-import MapHeader from '../header/MapHeader';
-import SidebarMenu from '../sidebar/SidebarMenu'
 
 
 class MapPage extends Component {
@@ -40,9 +35,10 @@ class MapPage extends Component {
     loadModules([
       'esri/Map',
       'esri/views/MapView',
-      'esri/widgets/Track'
+      'esri/widgets/Track',
+      "esri/widgets/BasemapToggle"
     ], { css: true })
-      .then(([ArcGISMap, MapView, Track]) => {
+      .then(([ArcGISMap, MapView, Track, BasemapToggle]) => {
         const map = new ArcGISMap({
           basemap: 'streets-navigation-vector'
         });
@@ -52,10 +48,21 @@ class MapPage extends Component {
           map: map,
         });
 
+        var basemapToggle = new BasemapToggle({
+          view: view,  // The view that provides access to the map's "streets" basemap
+          nextBasemap: "hybrid",
+ // Allows for toggling to the "hybrid" basemap
+
+        });
+        view.ui.add(basemapToggle, {
+          position: "bottom-right"
+        });
+
         var track = new Track({
           view: view
         });
-        view.ui.add(track, "top-left");
+        view.ui.add(track, "bottom-right");
+        view.ui.move("zoom", "bottom-right");
 
         view.when(function () {
           track.start();
@@ -346,7 +353,7 @@ class MapPage extends Component {
           'esri/views/MapView',
           "esri/Graphic",
           "esri/layers/GraphicsLayer",
-          "esri/widgets/Track"
+          "esri/widgets/Track",
         ]).then(([ArcGISMap, MapView, Graphic, GraphicsLayer, Track]) => {
 
           const map = new ArcGISMap({
@@ -382,7 +389,7 @@ class MapPage extends Component {
 
           let startMarkerSymbol = {
             type: "simple-marker",
-            color: "dodgerblue",
+            color: "green",
             outline: {
               color: [255, 255, 255], // white
               width: 1
@@ -392,7 +399,7 @@ class MapPage extends Component {
 
           let endMarkerSymbol = {
             type: "simple-marker",
-            color: "green",
+            color: "dodgerblue",
             outline: {
               color: [255, 255, 255], // white
               width: 1
@@ -429,7 +436,8 @@ class MapPage extends Component {
           let track = new Track({
             view: view
           });
-          view.ui.add(track, "top-left");
+          view.ui.add(track, "bottom-right");
+          view.ui.move("zoom", "bottom-right");
 
           this.setState({ loading: "routing successful" })
         })
@@ -504,7 +512,6 @@ class MapPage extends Component {
   render() {
     return (
       <div>
-        <MapHeader />
         <Sidebar
           textDirections={this.state.textDirections}
           toggle={this.toggle}
@@ -518,7 +525,6 @@ class MapPage extends Component {
           end={this.state.end}
           toggleSidebar={this.toggleSidebar} sidebarOpen={this.state.sidebarOpen} />
         <div className="webmap" ref={this.mapRef} />
-        
       </div>
     );
   }
