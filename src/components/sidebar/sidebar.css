@@ -9,9 +9,25 @@
     background: #2A2E43;
     overflow-x: hidden;
     transition: 0.5s;
+    margin-left: 20px;
+    margin-top: 23px;
+}
+
+.navbar {
+    background-color: white;
+    background-image: url(../../assets/img/blue-menu.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-origin: content-box;
+    height: 18.7%;
+    color: rgba(53, 195, 226, 0.95);
+    font-weight: bold;
 }
 
 .open{
+    width: 340px;
+    height: 40%;
+    overflow: hidden;
     width: 300px;
 }
 
@@ -20,7 +36,8 @@
     top: 0%;
     width: 100%;
     text-align: center;
-    /* margin-top: 83px; */
+    margin-top: 25px;
+    /* margin-top: 83px; */  /*  */
 }
 
 .overlay.close .overlay-content{
@@ -83,15 +100,56 @@
     display: block;
 }
 
-.route-form{
-    padding: 6px;
-    margin: 35px 5px 5px 5px;
+.route-form {
+    /* padding: 6px; */
+    /* margin: 35px 5px 5px 5px; */
+    font-family: Helvetica;
+    margin-left: 18px;
+    margin-right: 18px;
 }
 
-.route-input{
-    margin-bottom: 22px;
+.dropdown-menu-class {
+    margin-top: -45px;
+    margin-left: 18px;
+    margin-right: 18px;
+    text-align: left;
+}
+
+.route-input, .selected-vehicle-dropdown-menu{
+    /* margin-bottom: 22px; */
     border-radius: 4px;
     padding: 10px;
+    width: 100%;
+    font-family: Helvetica;
+    padding-left: 30px;
+}
+
+.selected-vehicle-dropdown-menu {
+    background-image: url(../../assets/img/gray-car.svg), url(../../assets/img/gray-down.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center left, center right;
+    content: '';
+    background-position-x: 5px, 275px;
+}
+
+#start {
+    background-image: url(../../assets/img/gray-location.svg);
+    background-repeat:no-repeat;
+    background-position: center left;
+    background-position-x: 5px;
+    height: 40px;
+    margin-bottom: 18px;
+}
+
+#end {
+    background-image: url(../../assets/img/gray-search.svg);
+    background-repeat:no-repeat;
+    background-position: center left;
+    background-position-x: 5px;
+    height: 40px;
+}
+.start-input-div {
+    margin-top: 16px;
 }
 
 #route-button{
@@ -106,6 +164,9 @@
     /* Primary 100% */
     background: #00B2D9;
     border-radius: 3px;
+
+    /* We need to make it display when we need it -Noor */
+    visibility: hidden;
 }
 
 .login-to-add{
@@ -121,6 +182,35 @@ a.rv-way-text {
     color: rgba(53, 195, 226, 0.95);
 }
 
+.what-vehcile-are-you-routing-with,
+.where-are-you-going,
+.choose-a-starting-point {
+    font-family: Helvetica;
+    color: #F8F9FA;
+    margin-bottom: 2px;
+    font-size: 13px;
+}
+
+
+a.rv-way-text {
+    color: rgba(53, 195, 226, 0.95);
+    position: absolute;
+    /* left: 6.67%; */
+    right: 60.53%;
+    top: 24.29%;
+    bottom: 22.86%;
+    /* H1 Mobile/ Helvetica Bold 32 */
+    font-family: Helvetica;
+    font-size: 29px;
+    /* identical to box height */ 
+    display: flex;
+    align-items: center;
+    /* Primary 100% */
+}
+
+.selected-vehicle {
+    visibility: hidden;
+}
 .dropdown {
     width: 360px;
     margin-left: 400px;
@@ -204,16 +294,6 @@ a.rv-way-text {
         margin-bottom: 10px;
         margin-left: 8px;
         margin-top: -3px;
-    }
-
-    .choose-a-starting-point {
-        color: #F8F9FA;
-        margin-bottom: 2px;
-    }
-    
-    .where-are-you-going {
-        color: #F8F9FA;
-        margin-bottom: 2px;
     }
 
     a.rv-way-text {
