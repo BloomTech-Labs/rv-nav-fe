@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 import { getVehicles } from "../../store/actions";
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
-import Button from 'react-bootstrap/Button';
 import { loadModules } from 'esri-loader';
 import "./Map.css"
-import SidebarMenu from '../sidebar/SidebarMenu'
 
 
 class MapPage extends Component {
@@ -515,7 +512,6 @@ class MapPage extends Component {
   render() {
     return (
       <div>
-        <SidebarMenu />
         <Sidebar
           textDirections={this.state.textDirections}
           toggle={this.toggle}
