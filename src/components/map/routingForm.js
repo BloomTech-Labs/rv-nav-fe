@@ -109,7 +109,7 @@ const RoutingForm = (props) => {
               </div>
             </Accordion.Collapse>
           </Accordion>*/}
-          <Button variant="warning" id="route-button" type="submit">Get Directions</Button>
+          <Button variant="warning" id="route-button" type="submit" onClick={props.buttonSelect}>Get Directions</Button>
         </form>
       </>
       {/* <p className="route-loading">{props.loading}</p>
