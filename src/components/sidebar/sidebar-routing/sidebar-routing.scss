@@ -7,7 +7,7 @@
         h2{
             width: 110%;
         }
-    
+
         .directionsContainer{
             
              .directions{
@@ -20,14 +20,78 @@
             }
         }
     }
+
+    .backbuttonContainer{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border-bottom: 2px solid gray;
+        justify-content: space-between;
+        // width: 120%; //<-- pop out toggle icon?
+
+        i{
+            margin: 0;
+            overflow: visible;
+        }
+    }
+
+    .startEndContainer{
+        padding: 20px;
+
+        p{
+            margin: 0;
+        }
+
+        .startAndEnd{
+            color: darkgray;
+            margin-top: 10px;
+        }
+    }
+    
+    .sidebarOptions{
+        background-color: white;
+        height: 10.25rem;
+        p{
+            color: black;
+            text-align: left;
+            padding: 15px;
+        }
+    }
+
+    .routingBackButton{
+        padding: 12px 30px;
+        margin: 0;
+    }
             .instruction{
                 color: white;
                 font-size: 12px;
                 border-bottom: 1px solid gray;
-                padding: 10px 20px 10px 10px;
+                padding: 10px 20px 10px 30px;
                 width: 90%;
                 text-align: left;
             }
+
+        
+        #startPointContainer{
+            text-align: left;
+            font-size: 12px;
+            padding-left: 30px;
+        }
+
+        #destinationPointContainer{
+            text-align: left;
+            font-size: 12px;
+            padding-left: 30px;
+        }
+
+        #estimatedTime{
+            background-color: #2A2E43;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+        }
         
         #directionsTitle{
             // font-family: Heebo; //<---??
@@ -37,7 +101,7 @@
             width: 100%;
             margin: 0;
             text-align: left;
-            padding: 20px 0;
+            padding: 20px 0 5px;
         }
 
         
@@ -47,6 +111,7 @@
             text-align: left;
             font-size: 8px;
             font-weight: 0;
+            color: darkgray;
         }
 }
 

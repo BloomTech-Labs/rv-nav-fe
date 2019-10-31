@@ -31,11 +31,17 @@ const Sidebar = (props) => {
         })
 
     }
+    
+    const checkState = () => { //Necessary to go back and forth from the Sidebar that renders directions to the routing form - Jerry
+        if(state.directions === "on"){
+            setState({...state, directions: 'off', routing: "on"})
+        }
+    }
 
     //console.log("sidebar props", props);
     return (
         <div id='overlayNav' className={`overlay ${props.sidebarOpen ? 'open' : 'close'}`}>
-            {/* <div >
+            {/* <div>
                 <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i>
             </div> */}
             <div class="navbar" >
@@ -47,8 +53,8 @@ const Sidebar = (props) => {
             <div className='overlay-content'>
 
                 <div >
-                    <div className="sidebar-tabs">
-                        {/* <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
+                    {/* <div className="sidebar-tabs">
+                        <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
                             onClick={buttonSelect}>Route</p>
 
@@ -58,8 +64,8 @@ const Sidebar = (props) => {
 
                         <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
-                            onClick={buttonSelect}>Add a Vehicle</p> */}
-                    </div>
+                            onClick={buttonSelect}>Add a Vehicle</p>
+                    </div> */}
 
                     <div className={`${state.routing}`}>
                         <RoutingForm
@@ -95,9 +101,12 @@ const Sidebar = (props) => {
                                 Login or create an account to add information about your vehicle.
                             </NavLink>
                         </div>}
+
                             {/* vv Neccesary to render routing sidebar for directions vv -Jerry */}
                     {localStorage.token ? <div className={`${state.directions}`}> 
-                        <RoutingSidebar  
+                        <RoutingSidebar
+                            checkState={checkState}
+                            toggleSidebar={props.toggleSidebar}
                             textDirections={props.textDirections}
                             toggle={props.toggle}
                             walmartSelected={props.walmartSelected}
