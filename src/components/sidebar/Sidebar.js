@@ -48,7 +48,7 @@ const Sidebar = (props) => {
 
                 <div >
                     <div className="sidebar-tabs">
-                        {/* <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
+                        <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
                             onClick={buttonSelect}>Route</p>
 
@@ -58,7 +58,7 @@ const Sidebar = (props) => {
 
                         <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
-                            onClick={buttonSelect}>Add a Vehicle</p> */}
+                            onClick={buttonSelect}>Add a Vehicle</p>
                     </div>
 
                     <div className={`${state.routing}`}>
@@ -86,7 +86,7 @@ const Sidebar = (props) => {
                                 Login or create an account to add and view vehicle information.
                             </NavLink>
                         </div>}
-
+                      
                     {localStorage.token ? <div className={`${state.vehicleForm}`}>
                         <VehicleForm closeVehicleForm={closeVehicleForm} />
                     </div> :
