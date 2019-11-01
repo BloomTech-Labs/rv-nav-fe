@@ -1,5 +1,5 @@
 .overlay {
-    height: 75%;
+    height: 370px;
     width: 0;
     position: fixed;
     z-index: 1000;
@@ -387,10 +387,10 @@ a.rv-way-text {
         background: #2A2E43;
     }
 
-    .open{
+    /* .open{
         width: 100%;
         height: 48%;
-    }
+    } */
 
     #route-button{
         /* margin: auto;  */

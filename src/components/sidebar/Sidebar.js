@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import VehicleForm from '../vehicleForm/VehicleForm';
 import Vehicles from '../vehicleForm/Vehicles';
@@ -29,25 +29,8 @@ const Sidebar = (props) => {
             directions: "on", //<-- for routing side bar component -Jerry
             [event.target.id]: "on"
         })
-
-    }
-    
-    const checkState = () => { //Necessary to go back and forth from the Sidebar that renders directions to the routing form - Jerry
-        if(state.directions === "on"){
-            setState({...state, directions: 'off', routing: "on"})
-        }
-    }
-    const changeState = () => { 
-        if(state.vehicleForm === "on"){
-            let sidebar = document.getElementById('overlayNav')
-            sidebar.style.width = '375px'
-            sidebar.style.height = '813px'
-            document.getElementsByClassName('navbar')[0].style.display = 'none'
-            // document.getElementsByClassName('nav')[0].style.display = 'none'
-        }
     }
 
-    //console.log("sidebar props", props);
     return (
         <div id='overlayNav' className={`overlay ${props.sidebarOpen ? 'open' : 'close'}`}>
             {/* <div>
@@ -116,7 +99,8 @@ const Sidebar = (props) => {
                             {/* vv Neccesary to render routing sidebar for directions vv -Jerry */}
                     {localStorage.token ? <div className={`${state.directions}`}> 
                         <RoutingSidebar
-                            checkState={checkState}
+                            state={state}
+                            setState={setState}
                             toggleSidebar={props.toggleSidebar}
                             textDirections={props.textDirections}
                             toggle={props.toggle}
@@ -131,13 +115,13 @@ const Sidebar = (props) => {
                             end={props.end}
                         />
                     </div> : null}
-                        {changeState()}
+                        {/* {changeState()} */}
                 {/* </div> */}
             </div>
-            <div id='mainsidebar'>
-                {/* <button className = 'openbtn' onClick = {props.toggleSidebar}>Options</button> */}
-                {/* // button to bring out sidebar */}
-            </div>
+            {/* <div id='mainsidebar'>
+                <button className = 'openbtn' onClick = {props.toggleSidebar}>Options</button>
+                // button to bring out sidebar
+            </div> */}
         </div>
     )
 }
