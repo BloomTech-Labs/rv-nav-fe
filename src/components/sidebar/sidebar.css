@@ -72,28 +72,28 @@
 
 .sidebar-tab{
     color:  #00B2D9;
-    width:50px;
+    width:100px;
     background-color: #2A2E43;
     margin: 1px;
-    padding: 8px;
+    /* padding: 8px; */
     white-space: nowrap;
 }
 
-.sidebar-tabs{
+.sidebar-tabs{ /*<--- modified for demo purposes -Jerry*/
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     flex-direction: row;
     cursor: pointer;
-    margin: -30px 0 10px 0;
+    /* margin: -30px 0 10px 0; */
     flex-wrap: wrap;
 }
 
-.selected{
+.selected{ /*<--- modified for demo purposes -Jerry*/
     color: white;
-    background-color: #6C757D;
-    border-bottom: 3px solid #ffc107;
+    background-color: #2A2E43;
+    border-bottom: 3px solid #2584D0;
     margin: 1px;
-    padding: 8px 8px 5px 8px;
+    /* padding: 8px 8px 5px 8px; */
 }
 
 .off{
@@ -178,8 +178,8 @@
     padding: 5px;
 }
 
-.route-tab{
-    margin-left: 12px;
+.route-tab{ /*<-- modified for demo purposes -Jerry*/
+    /* margin-left: 12px; */
 }
 
 a.rv-way-text {
