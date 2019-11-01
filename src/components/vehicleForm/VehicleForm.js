@@ -251,15 +251,15 @@ class VehicleForm extends React.Component {
       <div className='WidgetWrapper'> 
         <div className='vehicle-form-wrap'>
         <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
-          <div className="nav">
-          {/* <SidebarMenu /> */}
+          {/* <div className="nav">
+          <SidebarMenu />
            <h2>RV WAY</h2>
-           {/* <img class="back-arrow"
+           <img class="back-arrow"
              src="/media/examples/grapefruit-slice-332-332.jpg"
             
              >
-          </img> */}
-          </div>
+          </img>
+          </div> */}
          
           <div className='FormContainer'>
           <div className="back">
