@@ -30,6 +30,48 @@ const Sidebar = (props) => {
             [event.target.id]: "on"
         })
     }
+    // const buttonSelectAddVehicle = (event) => {
+    //     console.log("event", event.target);
+    //     setState({
+    //         ...state,
+    //         vehicleForm: "on",
+    //         routing: "off",
+    //         vehicles: "off",
+    //         directions: "off", //<-- for routing side bar component -Jerry
+    //     })
+    // }
+
+    const dynamicSidebar = () => {
+
+        setState({
+            ...state,
+            vehicleForm: "on",
+            routing: "off",
+            vehicles: "off",
+            directions: "off", 
+        })
+        
+       
+        let sidebar = document.querySelector('#overlayNav.overlay.open')
+        sidebar.style.height = '620px'
+        sidebar.style.margin = '23px 25px 25px 20px'
+        sidebar.style.width = '375px'
+        // document.getElementsByClassName('navbar')[0].style.display = 'none'
+
+        let overlayContent = document.getElementsByClassName('overlay-content')[0]
+        overlayContent.style.margin = 0
+        overlayContent.style.height = '620px'
+
+        let on = document.getElementsByClassName('on')[0]
+        on.style.margin = 0
+        on.style.height = '620px'
+
+        let vehicleForm = document.getElementsByClassName('vehicle-form')[0]
+        vehicleForm.style.height = '620px'
+
+        let formContainer = document.getElementsByClassName('FormContainer')[0]
+        formContainer.style.height = '620px'
+    } 
 
     return (
         <div id='overlayNav' className={`overlay ${props.sidebarOpen ? 'open' : 'close'}`}>
@@ -40,7 +82,6 @@ const Sidebar = (props) => {
                 <a class="rv-way-text">RV WAY</a>
                 <a><i className="menu-icon"></i></a>
             </div>
-
 
             <div className='overlay-content'>
 
@@ -59,7 +100,7 @@ const Sidebar = (props) => {
 
                         <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
-                            onClick={buttonSelect}>Add a Vehicle</p>
+                            onClick={dynamicSidebar}>Add a Vehicle</p>
                     </div>
                     <div className={`${state.routing}`}>
                         <RoutingForm
@@ -88,7 +129,7 @@ const Sidebar = (props) => {
                         </div>}
                       
                     {localStorage.token ? <div className={`${state.vehicleForm}`}>
-                        <VehicleForm closeVehicleForm={closeVehicleForm} buttonSelect={buttonSelect} />
+                        <VehicleForm state={state} setState={setState} closeVehicleForm={closeVehicleForm} buttonSelect={buttonSelect} />
                     </div> :
                         <div className={`login-to-add ${state.vehicleForm}`}>
                             <NavLink to="/auth" style={{ marginRight: 10 }}>
