@@ -54,7 +54,7 @@ const Sidebar = (props) => {
                 <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i>
             </div> */}
             <div className="navbar" >
-                {/* <a class="rv-way-text">RV WAY</a> */}
+                <a class="rv-way-text">RV WAY</a>
                 <a><i className="menu-icon"></i></a>
             </div>
 
@@ -62,7 +62,7 @@ const Sidebar = (props) => {
             <div className='overlay-content'>
 
                 {/* <div> */}
-                    {/* <div className="sidebar-tabs">
+                    <div className="sidebar-tabs">
                         <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
                             onClick={buttonSelect}>Route</p>
@@ -77,7 +77,7 @@ const Sidebar = (props) => {
                         <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
                             onClick={buttonSelect}>Add a Vehicle</p>
-                    </div> */}
+                    </div>
                     <div className={`${state.routing}`}>
                         <RoutingForm
                             buttonSelect={buttonSelect}
