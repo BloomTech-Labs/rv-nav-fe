@@ -53,7 +53,7 @@ const Sidebar = (props) => {
                         <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicles"
                             onClick={buttonSelect}
-                            style={{marginRight: "20px"}}
+                            // style={{marginRight: "20px"}}
                             >Vehicles
                             </p>
 
