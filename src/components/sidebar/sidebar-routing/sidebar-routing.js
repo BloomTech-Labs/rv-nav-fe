@@ -11,7 +11,14 @@ const RoutingSidebar = (props) => {
             sidebar.style.margin = '0'
             sidebar.style.width = '375px'
             document.getElementsByClassName('navbar')[0].style.display = 'none'
-            document.getElementsByClassName('overlay-content')[0].style.margin = 0
+
+            let overlayContent = document.getElementsByClassName('overlay-content')[0]
+            overlayContent.style.margin = 0
+            overlayContent.style.height = '100%'
+
+            let on = document.getElementsByClassName('on')[0]
+            on.style.margin = 0
+            on.style.height = '100%'
         } else {
             let sidebar = document.querySelector('#overlayNav.overlay.open')
             sidebar.style.height = '370px'
@@ -57,8 +64,8 @@ const RoutingSidebar = (props) => {
                         {/* <div className='sidebarOptions'>
                             <p>This route avoids</p>
                         </div> */}
-                        <div className="directions">
                         <h3 id='directionsTitle'>Directions</h3>
+                        <div className="directions">
                             {props.textDirections.map((e, i) => {
                                 return (
                                     <p key={i} className="instruction">{e}</p>
