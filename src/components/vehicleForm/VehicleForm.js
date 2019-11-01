@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./VehicleForm.css"
 import RoutingForm from '../map/routingForm.js'
+// import SidebarMenu from '../sidebar/SidebarMenu.js'
 
 class VehicleForm extends React.Component {
   constructor(props) {
@@ -214,6 +215,19 @@ class VehicleForm extends React.Component {
     })
   }
 
+//   sidebarAnchor = () => {
+//     let sidebar = document.getElementById('overlayNav')
+//     sidebar.style.height = '100%'
+//     sidebar.style.margin = '0'
+//     sidebar.style.width = '23.4375rem'
+//     document.getElementsByClassName('navbar')[0].style.display = 'none'
+//     document.getElementsByClassName('overlay-Nav')[0].style.height = '650px'
+//     document.getElementsByClassName('vehicle-form')[0].style.height = '650px'
+
+//     // let navBar = document.getElementsByClassName('navbar')
+//     // navBar.style.display = 'none'
+// }
+
 
   //combines feet and inch units into feet only, to be sent to the backend
   combineDistanceUnits = (inchesIn, feetIn) => {
@@ -232,12 +246,13 @@ class VehicleForm extends React.Component {
     console.log('ROUTING', this.state.specifications.routing)
     console.log("form props", this.props)
     return(
-      <>
-      {this.state.specifications.routing === 'off' ? 
+      <div className='AddVehicleFormContainer'>
+      {this.state.specifications.routing === 'off' ?
       <div className='WidgetWrapper'> 
         <div className='vehicle-form-wrap'>
         <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
           <div className="nav">
+          {/* <SidebarMenu /> */}
            <h2>RV WAY</h2>
            {/* <img class="back-arrow"
              src="/media/examples/grapefruit-slice-332-332.jpg"
@@ -511,7 +526,7 @@ class VehicleForm extends React.Component {
       </div>
      : <RoutingForm />
               }
-      </>
+      </div>
     )
   
   }
