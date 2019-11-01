@@ -49,11 +49,10 @@ class MapPage extends Component {
         });
 
         var basemapToggle = new BasemapToggle({
-          view: view,  // The view that provides access to the map's "streets" basemap
+          view: view,  
           nextBasemap: "hybrid",
- // Allows for toggling to the "hybrid" basemap
-
         });
+
         view.ui.add(basemapToggle, {
           position: "bottom-right"
         });
@@ -354,7 +353,8 @@ class MapPage extends Component {
           "esri/Graphic",
           "esri/layers/GraphicsLayer",
           "esri/widgets/Track",
-        ]).then(([ArcGISMap, MapView, Graphic, GraphicsLayer, Track]) => {
+          "esri/widgets/BasemapToggle"
+        ]).then(([ArcGISMap, MapView, Graphic, GraphicsLayer, Track, BasemapToggle]) => {
 
           const map = new ArcGISMap({
             basemap: 'streets-navigation-vector'
@@ -368,6 +368,15 @@ class MapPage extends Component {
             map: map,
             center: this.state.Coordinates[0],
             zoom: 15
+          });
+
+          var basemapToggle = new BasemapToggle({
+            view: view,  
+            nextBasemap: "hybrid",
+          });
+          
+          view.ui.add(basemapToggle, {
+            position: "bottom-right"
           });
 
           let polyline = ({
@@ -395,7 +404,6 @@ class MapPage extends Component {
               width: 1
             }
           };
-
 
           let endMarkerSymbol = {
             type: "simple-marker",
