@@ -89,9 +89,8 @@
 }
 
 .selected{
-    color: white;
-    background-color: #6C757D;
-    border-bottom: 3px solid #ffc107;
+    color: rgba(53, 195, 226, 0.95);
+    background-color: #2A2E43;
     margin: 1px;
     padding: 8px 8px 5px 8px;
 }
