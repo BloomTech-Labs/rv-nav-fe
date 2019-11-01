@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; 
 import './sidebar-routing.scss'
 import RoutingForm from '../../map/routingForm'
+import SidebarMenu from '../SidebarMenu.js'
 
 const RoutingSidebar = (props) => {
 
@@ -16,6 +17,8 @@ const RoutingSidebar = (props) => {
         sidebar.style.height = '100%'
         sidebar.style.margin = '0'
         sidebar.style.width = '23.4375rem'
+        document.getElementsByClassName('navbar')[0].style.display = 'none'
+        document.getElementsByClassName('overlay-content')[0].style.margin = 0
 
         // let navBar = document.getElementsByClassName('navbar')
         // navBar.style.display = 'none'
@@ -26,11 +29,12 @@ const RoutingSidebar = (props) => {
             {props.loading !== 'routing successful' ? <p className="route-loading">{props.loading}</p> :
                 state.routingForm === 'off' ? 
                 <div className='sidebarWithArrow'>
-                        {/* <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i> */}
+                        {/* <i className="fas fa-arrow-cSircle-left" onClick={props.toggleSidebar}></i> */}
                     <div className='sidebarContainer'>
-                        <div className='sidebarHeader'>
+                        {/* <div className='sidebarHeader'>
                             <h2>RV WAY</h2>
-                        </div>
+                        </div> */}
+                        <SidebarMenu />
                         <div className='directionsContainer'>
                             <div className='backbuttonContainer'>
                                 <h6 
@@ -54,9 +58,9 @@ const RoutingSidebar = (props) => {
                             </div> */}
                             <div className="directions">
                             <h3 id='directionsTitle'>Directions</h3>
-                                {props.textDirections.map(e => {
+                                {props.textDirections.map((e, i) => {
                                     return (
-                                        <p className="instruction">{e}</p>
+                                        <p key={i} className="instruction">{e}</p>
                                         )
                                     })}
                                 {sidebarAnchor()}

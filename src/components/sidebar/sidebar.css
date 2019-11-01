@@ -13,22 +13,25 @@
     margin-top: 23px;
 }
 
+/* .AddVehicleFormContainer{
+    height: 813px;
+} */
+
 .navbar {
     background-color: white;
     background-image: url(../../assets/img/blue-menu.svg);
     background-repeat: no-repeat;
     background-position: right;
     background-origin: content-box;
-    height: 18.7%;
+    height: 70px;
     color: rgba(53, 195, 226, 0.95);
     font-weight: bold;
 }
 
 .open{
-    width: 340px;
-    height: 40%;
+    width: 375px;
+    height: 370px;
     overflow: hidden;
-    width: 300px;
 }
 
 .overlay-content {
@@ -213,8 +216,8 @@ a.rv-way-text {
     visibility: hidden;
 }
 .dropdown {
-    width: 360px;
-    margin-left: 400px;
+    width: 375px;
+    /* margin-left: 400px; */
 }
 
 .btn-success {
@@ -260,6 +263,11 @@ a.rv-way-text {
 .btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle {
     color: rgba(53, 195, 226, 0.95);
     background-color: #2A2E43;
+    border-color: #2A2E43;
+}
+
+.btn-success:hover{
+    border-color: #2A2E43;
 }
 
 .btn-success:not(:disabled):not(.disabled).active:focus, .btn-success:not(:disabled):not(.disabled):active:focus, .show>.btn-success.dropdown-toggle:focus {
@@ -274,6 +282,10 @@ a.rv-way-text {
     background: #2A2E43;
     border-radius: 0px;
     width: 100%;
+}
+
+.dropdownmenu:hover{
+    background: rgb(57, 62, 90);
 }
 
 .dropdown-menu {
@@ -309,7 +321,7 @@ a.rv-way-text {
 }
 
 .dropdownitem1:hover {
-    background: #2A2E43;
+    background: rgb(57, 62, 90);
     color: white;
     text-decoration: none;
 }

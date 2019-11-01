@@ -37,6 +37,15 @@ const Sidebar = (props) => {
             setState({...state, directions: 'off', routing: "on"})
         }
     }
+    const changeState = () => { 
+        if(state.vehicleForm === "on"){
+            let sidebar = document.getElementById('overlayNav')
+            sidebar.style.width = '375px'
+            sidebar.style.height = '813px'
+            document.getElementsByClassName('navbar')[0].style.display = 'none'
+            // document.getElementsByClassName('nav')[0].style.display = 'none'
+        }
+    }
 
     //console.log("sidebar props", props);
     return (
@@ -44,29 +53,31 @@ const Sidebar = (props) => {
             {/* <div>
                 <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i>
             </div> */}
-            <div class="navbar" >
+            <div className="navbar" >
                 {/* <a class="rv-way-text">RV WAY</a> */}
-                <a><i class="menu-icon"></i></a>
+                <a><i className="menu-icon"></i></a>
             </div>
 
 
             <div className='overlay-content'>
 
                 <div >
-                    {/* <div className="sidebar-tabs">
+                    <div className="sidebar-tabs">
                         <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
                             onClick={buttonSelect}>Route</p>
 
                         <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicles"
-                            onClick={buttonSelect}>Vehicles</p>
+                            onClick={buttonSelect}
+                            style={{marginRight: "20px"}}
+                            >Vehicles
+                            </p>
 
                         <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
                             onClick={buttonSelect}>Add a Vehicle</p>
-                    </div> */}
-
+                    </div>
                     <div className={`${state.routing}`}>
                         <RoutingForm
                             buttonSelect={buttonSelect}
@@ -120,7 +131,7 @@ const Sidebar = (props) => {
                             end={props.end}
                         />
                     </div> : null}
-
+                        {changeState()}
                 </div>
             </div>
             <div id='mainsidebar'>

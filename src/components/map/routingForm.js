@@ -31,16 +31,16 @@ const RoutingForm = (props) => {
         <p>You are routing with</p>
         <span>{`${name}`}</span>
         </div> */}
-        <div class="selected-vehicle">
-          <i class="selected-vehicle-truck-icon"></i>
-          <p class="selected-vehicle-text">Class B</p>
-          <i class="selected-vehicle-pencil-icon"></i>
+        <div className="selected-vehicle">
+          <i className="selected-vehicle-truck-icon"></i>
+          <p className="selected-vehicle-text">Class B</p>
+          <i className="selected-vehicle-pencil-icon"></i>
         </div>
-        <div class="dropdown-menu-class">
-          <span class="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
-          <select class="selected-vehicle-dropdown-menu">
-            <option class="selected-vehicle-dropdown-option"></option>
-            <option >+ Select Vehicle</option>
+        <div className="dropdown-menu-class">
+          <span className="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
+          <select className="selected-vehicle-dropdown-menu">
+            <option className="selected-vehicle-dropdown-option"></option>
+            <option style={{color: "#00B2D9"}}>+ Add a vehicle...</option>
           </select>
         </div>
         <form className="route-form" onSubmit={(event) => {
@@ -48,8 +48,8 @@ const RoutingForm = (props) => {
           props.onChangeHandler()
         }}>
 
-          <div class="start-input-div">
-            <span class="choose-a-starting-point">Choose a starting point...</span>
+          <div className="start-input-div">
+            <span className="choose-a-starting-point">Choose a starting point...</span>
             <input
               // autoFocus={true}
               className="route-input"
@@ -63,8 +63,8 @@ const RoutingForm = (props) => {
             />
             {/* <input class="form-control" id="email" name="email" type="text" /> */}
           </div>
-          <div class="end-input-div">
-            <span class="where-are-you-going">Where are you going?</span>
+          <div className="end-input-div">
+            <span className="where-are-you-going">Where are you going?</span>
             <input
               className="route-input"
               id="end" required
