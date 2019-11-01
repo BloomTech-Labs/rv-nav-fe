@@ -16,12 +16,17 @@ const RoutingSidebar = (props) => {
         let sidebar = document.getElementById('overlayNav')
         sidebar.style.height = '100%'
         sidebar.style.margin = '0'
-        sidebar.style.width = '23.4375rem'
+        sidebar.style.width = '375px'
         document.getElementsByClassName('navbar')[0].style.display = 'none'
         document.getElementsByClassName('overlay-content')[0].style.margin = 0
-
-        // let navBar = document.getElementsByClassName('navbar')
-        // navBar.style.display = 'none'
+    }
+    const revertChanges = () => {
+        let sidebar = document.getElementById('overlayNav')
+        sidebar.style.height = '370px !important'
+        sidebar.style.margin = '25px'
+        sidebar.style.width = '375px'
+        document.getElementsByClassName('navbar')[0].style.display = 'block'
+        document.getElementsByClassName('overlay-content')[0].style.marginTop = '25px'
     }
 
     return (
@@ -68,7 +73,7 @@ const RoutingSidebar = (props) => {
                             <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
                         </div>
                     </div>
-                : <RoutingForm />
+                : state.routingForm = 'on'
             }
         </>
     )
