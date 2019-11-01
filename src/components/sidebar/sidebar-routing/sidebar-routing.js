@@ -28,14 +28,12 @@ const RoutingSidebar = (props) => {
         <>
             {props.loading !== 'routing successful' ? <p className="route-loading">{props.loading}</p> :
                 state.routingForm === 'off' ? 
-                <div className='sidebarWithArrow'>
-                        {/* <i className="fas fa-arrow-cSircle-left" onClick={props.toggleSidebar}></i> */}
                     <div className='sidebarContainer'>
                         {/* <div className='sidebarHeader'>
                             <h2>RV WAY</h2>
                         </div> */}
                         <SidebarMenu />
-                        <div className='directionsContainer'>
+                        {/* <div className='directionsContainer'> */}
                             <div className='backbuttonContainer'>
                                 <h6 
                                 className='routingBackButton'
@@ -65,12 +63,11 @@ const RoutingSidebar = (props) => {
                                     })}
                                 {sidebarAnchor()}
                             </div>
-                        </div>
-                        {/* <div className='sidebarFooterContainer'> */}
-                            <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
                         {/* </div> */}
+                        <div className='sidebarFooterContainer'>
+                            <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
+                        </div>
                     </div>
-                </div>
                 : <RoutingForm />
             }
         </>
