@@ -215,20 +215,6 @@ class VehicleForm extends React.Component {
     })
   }
 
-//   sidebarAnchor = () => {
-//     let sidebar = document.getElementById('overlayNav')
-//     sidebar.style.height = '100%'
-//     sidebar.style.margin = '0'
-//     sidebar.style.width = '23.4375rem'
-//     document.getElementsByClassName('navbar')[0].style.display = 'none'
-//     document.getElementsByClassName('overlay-Nav')[0].style.height = '650px'
-//     document.getElementsByClassName('vehicle-form')[0].style.height = '650px'
-
-//     // let navBar = document.getElementsByClassName('navbar')
-//     // navBar.style.display = 'none'
-// }
-
-
   //combines feet and inch units into feet only, to be sent to the backend
   combineDistanceUnits = (inchesIn, feetIn) => {
     let inches = inchesIn;
@@ -242,12 +228,28 @@ class VehicleForm extends React.Component {
     return inchesCombined;
   }
 
+  revertChanges = () => {
+    this.props.setState({
+        ...this.props.state,
+        vehicleForm: "off",
+        routing: "on",
+        vehicles: "off",
+        directions: "off", 
+    })
+
+    let sidebar = document.querySelector('#overlayNav.overlay.open')
+        sidebar.style.height = '370px'
+        sidebar.style.margin = '23px 25px 25px 20px'
+        sidebar.style.width = '375px'
+        document.getElementsByClassName('navbar')[0].style.display = 'block'
+        document.getElementsByClassName('overlay-content')[0].style.marginTop = '25px'
+}
+
   render(){
-    console.log('ROUTING', this.state.specifications.routing)
-    console.log("form props", this.props)
+    console.log('ROUTING', this.state)
+    console.log("form props", this.props.state)
     return(
       <div className='AddVehicleFormContainer'>
-      {this.state.specifications.routing === 'off' ?
       <div className='WidgetWrapper'> 
         <div className='vehicle-form-wrap'>
         <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
@@ -265,7 +267,7 @@ class VehicleForm extends React.Component {
           <div className="back">
           <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
-                            onClick={this.props.buttonSelect}>Back</p>
+                            onClick={this.revertChanges}>Back</p>
 
                 </div>
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
@@ -444,7 +446,7 @@ class VehicleForm extends React.Component {
                   onChange={this.handleChange}
                 >
               </input> */}
-            {/* </div> */} */}
+            {/* </div> */}
            { /*<div className="vehicle-spec">
             <div className="form-section row2-block2">
             <h5>Weight</h5>
@@ -524,8 +526,7 @@ class VehicleForm extends React.Component {
           </div>
         </div>
       </div>
-     : <RoutingForm />
-              }
+      {/* {this.sidebarAnchor()} */}
       </div>
     )
   
