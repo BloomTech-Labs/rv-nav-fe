@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import SplitButton from 'react-bootstrap/SplitButton'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import './sidebar.css';
+import './sidebarMenu.css';
 import {ReactComponent as HamMenu} from '../../assets/img/blue-menu.svg'
 import {ReactComponent as OutIcon} from '../../assets/img/log-out.svg'
 

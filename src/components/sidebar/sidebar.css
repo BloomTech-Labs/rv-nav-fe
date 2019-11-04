@@ -178,9 +178,7 @@
     padding: 5px;
 }
 
-.route-tab{ /*<-- modified for demo purposes -Jerry*/
-    /* margin-left: 12px; */
-}
+
 
 a.rv-way-text {
     color: rgba(53, 195, 226, 0.95);
@@ -214,116 +212,6 @@ a.rv-way-text {
 
 .selected-vehicle {
     visibility: hidden;
-}
-.dropdown {
-    width: 375px;
-    /* margin-left: 400px; */
-}
-
-.btn-success {
-    color: #fff;
-    background-color: white;
-    border-color: white;
-}
-
-.hamcolor {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 25px;
-    padding-right: 25px;
-    background: white;
-    border-radius: 0px;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 53px;
-    color: rgba(53, 195, 226, 0.95);
-}
-
-.hamcolor:hover {
-    background: #2A2E43;
-    color: rgba(53, 195, 226, 0.95);
-}
-
-.hamend {
-    color: rgba(53, 195, 226, 0.95);
-}
-
-.hammenu {
-    margin-top: 5px;
-}
-
-.dropdown-toggle-split::after, .dropright .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after {
-    margin-left: 0;
-    display: none;
-}
-
-.btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle {
-    color: rgba(53, 195, 226, 0.95);
-    background-color: #2A2E43;
-    border-color: #2A2E43;
-}
-
-.btn-success:hover{
-    border-color: #2A2E43;
-}
-
-.btn-success:not(:disabled):not(.disabled).active:focus, .btn-success:not(:disabled):not(.disabled):active:focus, .show>.btn-success.dropdown-toggle:focus {
-    box-shadow: none;
-}
-
-.btn-success.focus, .btn-success:focus {
-    box-shadow: none;
-}
-
-.dropdownmenu {
-    background: #2A2E43;
-    border-radius: 0px;
-    width: 100%;
-}
-
-.dropdownmenu:hover{
-    background: rgb(57, 62, 90);
-}
-
-.dropdown-menu {
-    margin: 0px;
-    border-top: 1px solid rgba(237, 238, 241, 0.2);
-}
-
-.dropdownitem {
-    color: white;
-}
-
-.dropdownitem:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.dropdownitem:hover {
-    background: #2A2E43;
-    color: white;
-}
-
-.dropdownitem1 {
-    color: white;
-}
-
-.logoutclass {
-    margin-left: 25px;
-    margin-top: 3px;
-}
-
-.navlinkclass {
-    display: flex;
-}
-
-.dropdownitem1:hover {
-    background: rgb(57, 62, 90);
-    color: white;
-    text-decoration: none;
 }
 
 
