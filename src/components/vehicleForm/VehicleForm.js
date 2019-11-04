@@ -1,67 +1,31 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from "react-redux";
-import { addVehicle, updateVehicle } from "../../store/actions";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import "./VehicleForm.css"
-import RoutingForm from '../map/routingForm.js'
-// import SidebarMenu from '../sidebar/SidebarMenu.js'
+import "./VehicleForm.css";
 
-class AddVehicleForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+class VehicleForm extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
       //these specifications are in their own object so that specifications can be sent direvtly to the BE
       //this is the object that will be sent to the BE
       specifications: {
-        name: '',
-      // height: 0, // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
-       heightFeet: '', // value that stores the user entry of height in feet
-       heightInches: '', // value that stores the user entry of height in inches
-     //  width: 0, // these 3 width values follow the same structure as height
-       widthFeet: '',
-       widthInches: '',
-    //   length: 0, // these 3 length values follow the same structure as height
-       lengthFeet: '', 
-       lengthInches: '',
-       weight: '',  //this will be sent in pounds? check BE docs
-       axel_count: '', //integer, unit implied
-       class_name: '', //controlled input of one letter
-       //created_at: '', //check BE for format, generate date with js
-       dual_tires: false, //Bool, checkbox
-       trailer: false,  //Bool, checkbox
-       routing: "off"
+          name: '',
+          heightFeet: '', // value that stores the user entry of height in feet
+          heightInches: '', // value that stores the user entry of height in inches
+          widthFeet: '',
+          widthInches: '',
+          lengthFeet: '',
+          lengthInches: '',
+          weight: '', //this will be sent in pounds? check BE docs
+          axel_count: '', //integer, unit implied
+          class_name: '', //controlled input of one letter
+          dual_tires: false, //Bool, checkbox
+          trailer: false, //Bool, checkbox
+          routing: "off"
+        }
       }
     }
-  }
-  
-  componentDidMount(){
-    //checks if we are coming from the vehicles tab and therefore if we are editing
-    if(this.props.editing){
-      //assigns prefill values of previous entry for the form if we are editing
-      this.setState({
-        specifications: {
-          name: this.props.currentVehicle.name,
-          heightFeet: Math.floor(this.props.currentVehicle.height),
-          heightInches: Math.round((this.props.currentVehicle.height % 1) * 12),
-          widthFeet: Math.floor(this.props.currentVehicle.width),
-          widthInches: Math.round((this.props.currentVehicle.width % 1) * 12),
-          lengthFeet: Math.floor(this.props.currentVehicle.length),
-          lengthInches: Math.round((this.props.currentVehicle.length % 1) * 12),
-          weight: this.props.currentVehicle.weight,
-          vehicle_class: this.props.currentVehicle.vehicle_class,
-          axel_count: this.props.currentVehicle.axel_count,         
-          dual_tires: this.props.currentVehicle.dual_tires,
-          routing:'off'          
-        } 
-       
-      })
-    }
-  }
-
-  //handles input of numbers and converts into the right data type of int
-  handleChange = (event) => {
+//handles input of numbers and converts into the right data type of int
+handleChange = (event) => {
     this.setState({
         specifications: {
           ...this.state.specifications,
@@ -215,6 +179,20 @@ class AddVehicleForm extends React.Component {
     })
   }
 
+//   sidebarAnchor = () => {
+//     let sidebar = document.getElementById('overlayNav')
+//     sidebar.style.height = '100%'
+//     sidebar.style.margin = '0'
+//     sidebar.style.width = '23.4375rem'
+//     document.getElementsByClassName('navbar')[0].style.display = 'none'
+//     document.getElementsByClassName('overlay-Nav')[0].style.height = '650px'
+//     document.getElementsByClassName('vehicle-form')[0].style.height = '650px'
+
+//     // let navBar = document.getElementsByClassName('navbar')
+//     // navBar.style.display = 'none'
+// }
+
+
   //combines feet and inch units into feet only, to be sent to the backend
   combineDistanceUnits = (inchesIn, feetIn) => {
     let inches = inchesIn;
@@ -228,250 +206,183 @@ class AddVehicleForm extends React.Component {
     return inchesCombined;
   }
 
-  revertChanges = () => { //<---- sends the user back to the initial form and dynamically set's sidebar dimensions -Jerry
-    this.props.setState({
-        ...this.props.state,
-        vehicleForm: "off",
-        routing: "on",
-        vehicles: "off",
-        directions: "off", 
-    })
+    render(){
+        console.log('ROUTING', this.state.specifications.routing)
+        console.log("form props", this.props)
+        return(
+            <div className = "vehicleForm-container">
+                 <div className="back 1">
+                        
+                        <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
+                                   id="routing"
+                                   onClick={this.props.buttonSelect}>Back
+                        </p>
+                        <p className="back-label">| Add Vehicle</p>
+           
 
-    let sidebar = document.querySelector('#overlayNav.overlay.open')
-        sidebar.style.height = '370px'
-        sidebar.style.margin = '23px 25px 25px 20px'
-        sidebar.style.width = '375px'
-        document.getElementsByClassName('navbar')[0].style.display = 'block'
-        document.getElementsByClassName('overlay-content')[0].style.marginTop = '25px'
-}
+                  </div> 
 
-  render(){
-    console.log('ROUTING', this.state)
-    console.log("form props", this.props.state)
-    return(
-      <div className='AddVehicleFormContainer'>
-      <div className='WidgetWrapper'> 
-        <div className='vehicle-form-wrap'>
-        <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
-          {/* <div className="nav">
-          <SidebarMenu />
-           <h2>RV WAY</h2>
-           <img class="back-arrow"
-            src="/media/examples/grapefruit-slice-332-332.jpg"
-          >
-          </img>
-          </div> */}
-         
-          <div className='FormContainer'>
-          <div className="back">
-          <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
-                            id="routing"
-                            onClick={this.revertChanges}>Back</p>
+                 <p id='vehicleAddTitle'>Add a Vehicle</p>
+                 <p className="name-label">Name (required)</p>
+                     
+                     <input className = "vehicleName"
+                         type="string"
+                         required
+                         name='name'
+                         placeholder="The Mystery Machine"
+                         value={this.state.specifications.name}
+                         onChange={this.handleText}
+                      >
+        
+                     </input> 
 
-                </div>
-            <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
-            <h4 className="vehicle-spec">Name (required)</h4>
-            <input className = "vehicleName"
-              type= "text"
-              name ="vehicleName"
-              placeholder="The Mystery Machine"
-              >
 
-              </input>
-            <div className='measurements'>
-              <div        
-                type="string"
-                required
-                name='name'
-                placeholder="The Mystery Machine"
-                value={this.state.specifications.name}
-                onChange={this.handleText}
-              >
+                 <div className = "row1">
+                 
+                 <p className="vehicle-spec-label">Height</p>
+                 <p className="vehicle-spec-label width-label">Width</p> 
+                 </div>
+               <div className="row2">  
+                <div className = "row2-block1">
+                 <div className="measurements">
+                    <div className="measurements-input">
+                     <p className="box1">Feet</p>
+                       <input        
+                       type="number"
+                       min="0"
+                       max="100"
+                       name='heightFeet'
+                       placeholder="0"
+                       value={this.state.specifications.heightFeet}
+                       onChange={this.handleChange}
+                        >
+                    </input>
+                    </div>
+                 </div>
+                 <div className='plus'>+</div>
+                 <div className="measurements">
+                 <div className="measurements-input">
+                    <p className="box2">Inches</p>
+                       <input       
+                       type="number"
+                       min="0"
+                       max="100"
+                       name='heightInches'
+                       placeholder="0"
+                       value={this.state.specifications.heightInches}
+                       onChange={this.handleChange}
+                        >
+                    </input>
+                   </div>
+                    </div>
+                 </div>
+                    
+                    
+
+                 <div className = "row2-block2"> 
+                 
+                 <div className="measurements">
+                 <div className="measurements-input"> 
+                    <p className="box3">Feet</p>
+                       <input        
+                       type="number"
+                       min="0"
+                       max="100"
+                       name='widthFeet'
+                       placeholder="0"
+                       value={this.state.specifications.widthFeet}
+                       onChange={this.handleChange}
+                        >
+                    </input>
+                 </div>
+                 </div>
+                 <div className='plus'>+</div>
+                 <div className="measurements">
+                 <div className="measurements-input">
+                    <p className="box4">Inches</p>
+                       <input       
+                       type="number"
+                       min="0"
+                       max="100"
+                       name='widthInches'
+                       placeholder="0"
+                       value={this.state.specifications.widthInches}
+                       onChange={this.handleChange}
+                        >
+                    </input>
+                   </div>
+                  </div>
+                </div> 
+               </div>
+            
+               <div className = "row3">
+                 
+                 <p className="vehicle-spec-label">Length</p>
+                 <p className="vehicle-spec-label weight-label">Weight</p> 
+                 </div>
+               <div className= "row4">
+               <div className = "row4-block1">
+               <div className="measurements">
+                 <div className="measurements-input">
+                     <p className="box5">Feet</p>
+                       <input        
+                       type="number"
+                       min="0"
+                       max="100"
+                       name='lengthFeet'
+                       placeholder="0"
+                       value={this.state.specifications.lengthFeet}
+                       onChange={this.handleChange}
+                        >
+                    </input>
+                    </div>
+                 </div>
+                 <div className='plus'>+</div>
+                 <div className="measurements">
+                 <div className="measurements-input">
+                    <p className="box6">Inches</p>
+                       <input       
+                       type="number"
+                       min="0"
+                       max="100"
+                       name='lengthInches'
+                       placeholder="0"
+                       value={this.state.specifications.lengthInches}
+                       onChange={this.handleChange}
+                        >
+                      </input>
+                     </div>
+                    </div>
+                    <div className = "row4-block2">
+                    <div className="measurements">
+                 <div className="measurements-input">
+                     <p className="box7">Pounds</p>
+                       <input  className= "pounds"      
+                       type="number"
+                       min="0"
+                       max="100"
+                       name='pounds'
+                       placeholder="0"
+                       value={this.state.specifications.pounds}
+                       onChange={this.handleChange}
+                        >
+                    </input>
+                    </div>
+                    </div>
+                 </div>
               </div>
-          </div>
-          <div className='measurementsParent'>
-            <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Height</h4>
-              <div className="form-section">  
-                <div className='measurements'>
-                  <p>Feet</p>
-                  <input        
-                    type="number"
-                    min="0"
-                    max="100"
-                    name='heightFeet'
-                    placeholder="0"
-                    value={this.state.specifications.heightFeet}
-                    onChange={this.handleChange}
-                  >
-                  </input>
-                </div>
-                <p className="plus">+</p>
-                <div className="measurements">
-                  <p>Inches</p>
-                  <input        
-                    type="number"
-                    min="0"
-                    max="11"
-                    name='heightInches'
-                    placeholder="0"
-                    // this.state.specifications.heighInches === 0 ? undefined :
-                    value={ this.state.specifications.heightInches}
-                    onChange={this.handleChange}
-                  >
-                </input>
-                </div>
               </div>
-            </div>
-            <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Width</h4>
-              <div className="form-section">
-                <div className="measurements">
-                  <p>Feet</p>
-                  <input        
-                    type="number"
-                    min="0"
-                    max="100"
-                    name='widthFeet'
-                    placeholder="0"
-                    value={this.state.specifications.widthFeet}
-                    onChange={this.handleChange}
-                  >
-                  </input>
-                </div>
-              <p className="plus">+</p>
-              <div className="measurements">
-              <p>Inches</p>
-                <input        
-                  type="number"
-                  min="0"
-                  max="11"
-                  name='widthInches'
-                  placeholder="0"
-                  value={this.state.specifications.widthInches}
-                  onChange={this.handleChange}
-                >
-              </input>
+
+              <div className="row6">
+
+                 <p className="vehicle-spec-label">Axle Count</p>
+                 <p className="vehicle-spec-label">Class</p> 
               </div>
-              </div>
-            </div>
-          </div>
-          <div className='measurementsParent'>
-            <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Length</h4>
-              <div className="form-section">  
-                <div className='measurements'>
-                  <p>Feet</p>
-                  <input        
-                    type="number"
-                    min="0"
-                    max="100"
-                    name='heightFeet'
-                    placeholder="0"
-                    value={this.state.specifications.heightFeet}
-                    onChange={this.handleChange}
-                  >
-                  </input>
-                </div>
-                <p className="plus">+</p>
-                <div className="measurements">
-                  <p>Inches</p>
-                  <input        
-                    type="number"
-                    min="0"
-                    max="11"
-                    name='heightInches'
-                    placeholder="0"
-                    // this.state.specifications.heighInches === 0 ? undefined :
-                    value={ this.state.specifications.heightInches}
-                    onChange={this.handleChange}
-                  >
-                </input>
-                </div>
-              </div>
-            </div>
-            <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Weight</h4>
-              <div className="form-section">
-                <div className="measurements">
-                  <p>Pounds</p>
-                  <input        
-                    type="number"
-                    min="0"
-                    max="100"
-                    name='weightPounds'
-                    placeholder="0"
-                    value={this.state.specifications.widthFeet}
-                    onChange={this.handleChange}
-                  >
-                  </input>
-                </div>
-              
-          
-              </div>
-            </div>
-          </div>
-          {/* <div className='measurementsParent'>
-            <div className='inputsFieldsContainer'>
-            <h4 className="vehicle-spec">Length</h4>
-            <div className="form-section">
-              <div className='measurements'>
-                {/* <div> */}
-                  {/* <p>Feet</p>
-                  <input        
-                    type="number"
-                    min="0"
-                    max="100"
-                    name='lengthFeet'
-                    placeholder="0"
-                    value={this.state.specifications.lengthFeet}
-                    onChange={this.handleChange}
-                  >
-                  </input> */}
-                {/* </div> */}
-              {/* </div>
-             </div>
-            </div>
-            <p className="plus">+</p>
-            <div className="row2-block1-box2">
-              <p>Inches</p>
-                <input        
-                  type="number"
-                  min="0"
-                  max="11"
-                  name='lengthInches'
-                  placeholder="0"
-                  value={this.state.specifications.lengthInches}
-                  onChange={this.handleChange}
-                >
-              </input> */}
-            {/* </div> */}
-           { /*<div className="vehicle-spec">
-            <div className="form-section row2-block2">
-            <h5>Weight</h5>
-            <div className='measurements poundsInput' >
-             
-                <p>Pounds</p>
-                <input        
-                  type="number"
-                  min="0"
-                  max="99000"
-                  name='weight'
-                  placeholder="0"
-                  value={this.state.specifications.weight}
-                  onChange={this.handleChange}
-                >
-                </input>
-              </div> 
-            </div> END OF form-section row2-block2
-            </div> */}
-            {/* </div> */}
-            <div className = "row3 vehicle-spec">
-          
-            <div className="form-section">
-            <div className='measurements'>
-              <div>
-                <h5>Axel Count</h5>
+                  <div className="row7">
+                  <div className = "row7-block1">
+               <div className="measurements">
+                 <div className="measurements-input">
+                
                 <input        
                   type="number"
                   min="0"
@@ -482,36 +393,43 @@ class AddVehicleForm extends React.Component {
                   onChange={this.handleChange}
                 >
                 </input>
-              </div>
-            </div>
-            </div>  {/* End of Axel Count Div */}
-            <div className="vehicle-class">
-              <p className="vehicle-spec">Class</p>
+                  </div>
+               </div>
+               </div>
+               <div className = "row7-block2">
+               <div className="vehicle-class">
+           
               <div className="class-radios">
-                <Form.Check name="class"inline label="A" type="radio" id={`inline-text-1`} 
-                value="A"
+                <input className="v-class" type="radio" id={`inline-text-1`} 
+                value= "A"
                 checked={this.state.specifications.class_name === "A"} onChange={this.handleRadio}
                 />
-                <Form.Check name="class" inline label="B" type="radio" id={`inline-text-2`} 
-                value="B"
+                <p className="radio-label">A</p>
+                <input className="v-class"  type="radio" id={`inline-text-2`} 
+                value= "B"
                 checked={this.state.specifications.class_name === "B"} onChange={this.handleRadio}
                 />
-                <Form.Check name="class" inline label="C" type="radio" id={`inline-text-2`} 
-                value="C"
+                <p className="radio-label">B</p>
+                <input className="v-class"  type="radio" id={`inline-text-2`} 
+                value= "C"
                 checked={this.state.specifications.class_name === "C"} onChange={this.handleRadio}
                 />
-                {/* <Form.Check name="class" inline label="Trailer" type="radio" 
-                      value="Trailer"
-                      checked={this.state.specifications.class_name === "Trailer"}
-                      onChange={this.handleRadio}
-                id={`inline-text-2`} /> */}
+                <p className="radio-label">C</p>
+              
               </div>
             </div>
           </div> {/* End of Vehicle Class Div */}
-         
-
-          <p className="vehicle-spec">Tires</p>
-          <Form.Check 
+          <div>
+          </div>
+           </div>    
+          <div className="row8">
+          
+           <p className="vehicle-spec-label">Tires</p>
+          
+                   
+      <div className="measurements">
+      <div className="dual-wheel">
+          <input className="tires-box"
           name="dual_tires" 
           type="checkbox"
           checked={this.state.specifications.dual_tires}
@@ -519,22 +437,29 @@ class AddVehicleForm extends React.Component {
           label="I have a dual wheel vehicle" 
           id={`inline-text-2`} 
           />
-
-          <Button type="submit" variant="warning" onClick={this.vehicleSubmit}>Add Vehicle</Button>
-          </div>
+          <p className="tires">I have a dual wheel vehicle</p>
           </div>
         </div>
-      </div>
-      {/* {this.sidebarAnchor()} */}
-      </div>
-    )
-  
-  }
+     </div>
+          <button className='addVehicle' type="submit" variant="warning" onClick={this.vehicleSubmit}>Add Vehicle</button>
+ </div>
 
-}
 
-const mapStateToProps = state => ({})
 
-export default withRouter(connect(
-  mapStateToProps, { addVehicle, updateVehicle }
-)(AddVehicleForm))
+          
+          
+            
+           )
+        
+        }
+
+    }
+ 
+ 
+ const mapStateToProps = state => ({})
+        
+    export default (
+      mapStateToProps, 
+       (VehicleForm)
+        )
+       
