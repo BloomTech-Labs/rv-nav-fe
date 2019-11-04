@@ -8,7 +8,7 @@ import "./VehicleForm.css"
 import RoutingForm from '../map/routingForm.js'
 // import SidebarMenu from '../sidebar/SidebarMenu.js'
 
-class VehicleForm extends React.Component {
+class AddVehicleForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -537,4 +537,4 @@ const mapStateToProps = state => ({})
 
 export default withRouter(connect(
   mapStateToProps, { addVehicle, updateVehicle }
-)(VehicleForm))
+)(AddVehicleForm))
