@@ -5,6 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { connect } from "react-redux";
 import "../sidebar/sidebar.css"
+import RoutingDropdown from './RoutingDropdown'
 
 const RoutingForm = (props) => {
   //changes "you are routing with" message at the top of the routing form
@@ -36,8 +37,9 @@ const RoutingForm = (props) => {
           <p className="selected-vehicle-text">Class B</p>
           <i className="selected-vehicle-pencil-icon"></i>
         </div>
+        <RoutingDropdown />
         {/* <div className="dropdown-menu-class">
-          <span className="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
+          <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
           <select className="selected-vehicle-dropdown-menu">
             <option className="selected-vehicle-dropdown-option"></option>
             <option style={{color: "#00B2D9"}}>+ Add a vehicle...</option>
