@@ -228,7 +228,7 @@ class VehicleForm extends React.Component {
     return inchesCombined;
   }
 
-  revertChanges = () => {
+  revertChanges = () => { //<---- sends the user back to the initial form and dynamically set's sidebar dimensions -Jerry
     this.props.setState({
         ...this.props.state,
         vehicleForm: "off",
@@ -257,9 +257,8 @@ class VehicleForm extends React.Component {
           <SidebarMenu />
            <h2>RV WAY</h2>
            <img class="back-arrow"
-             src="/media/examples/grapefruit-slice-332-332.jpg"
-            
-             >
+            src="/media/examples/grapefruit-slice-332-332.jpg"
+          >
           </img>
           </div> */}
          
