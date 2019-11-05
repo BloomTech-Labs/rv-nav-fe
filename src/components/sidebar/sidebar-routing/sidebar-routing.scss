@@ -1,126 +1,154 @@
-.sidebarContainer{
+.containerWithArrow{
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     height: 100%;
-            
-    .directions{
-        overflow-x: hidden;
-        overflow-y: scroll;
+    width: 400px;
+
+    .arrowContainer{
+        margin-top: 67px;
+        background-image: url('./icons/hide-sidebar.svg');
+        background: no-repeat;
+
+        svg{
+            box-shadow: 0px 1px 3px gray;
+        }
     }
-    
-    .backbuttonContainer{
+       
+    .sidebarContainer{
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        border-bottom: 2px solid gray;
-    }
+        flex-direction: column;
+        height: 100%;
+        background-color: #2A2E43;
+        
+        .directions{
+            padding-left: 30px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        
+        .backbuttonContainer{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            border-bottom: 2px solid gray;
 
-    .startEndContainer{
-        padding: 20px;
-
-        p{
+        }
+        
+        .startEndContainer{
+            padding-left: 30px;
+            padding-top: 20px;
+            
+            p{
+                margin: 0;
+            }
+            
+            .startAndEnd{
+                color: darkgray;
+                margin-top: 10px;
+            }
+        }
+        
+        // .sidebarOptions{ //<------------class for future options in sidebar
+            //     background-color: white;
+            //     height: 10.25rem;
+            //     p{
+            //         color: black;
+            //         text-align: left;
+            //         padding: 15px;
+            //     }
+            // }
+    
+        .routingBackButton{
+            padding: 14.5px 30px;
             margin: 0;
         }
-
-        .startAndEnd{
-            color: darkgray;
-            margin-top: 10px;
-        }
-    }
-    
-    // .sidebarOptions{ //<------------class for future options in sidebar
-    //     background-color: white;
-    //     height: 10.25rem;
-    //     p{
-    //         color: black;
-    //         text-align: left;
-    //         padding: 15px;
-    //     }
-    // }
-
-    .routingBackButton{
-        padding: 12px 30px;
-        margin: 0;
-    }
-
-    .instruction{
-        color: white;
-        font-size: 12px;
-        border-bottom: 1px solid gray;
-        padding: 10px 20px 10px 30px;
-        width: 90%;
-        text-align: left;
-    }
-
-    .sidebarFooterContainer{
-
-        #sidebarFooter{
-            font-family: Arial, Helvetica, sans-serif;
-            padding: 10px 20px;
+        
+        .instruction{
+            color: white;
+            font-size: 12px;
+            border-bottom: 1px solid gray;
+            padding: 10px 20px 10px 30px;
+            width: 90%;
             text-align: left;
-            font-size: 8px;
-            font-weight: 0;
-            color: darkgray;
         }
-    }
 
-    #directionsTitle{
-        font-size: 18px;
-        color: white;
-        width: 100%;
-        margin: 0;
-        text-align: left;
-        padding: 20px 0 5px 20px;
-    }
+        .dropdown {
+            width: 375px;
+            /* margin-left: 400px; */
+        }
 
-    #startPointContainer{
-        text-align: left;
-        font-size: 12px;
-        padding-left: 30px;
-    }
-
-    #destinationPointContainer{
-        text-align: left;
-        font-size: 12px;
-        padding-left: 30px;
-    }
-
-    #estimatedTime{
-        background-color: #2A2E43;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: left;
-        margin: 0;
+        .sidebarFooterContainer{
+            
+            #sidebarFooter{
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px 20px;
+                padding-left: 30px;
+                text-align: left;
+                font-size: 8px;
+                font-weight: 0;
+                color: darkgray;
+            }
+        }
+        
+        #directionsTitle{
+            font-size: 18px;
+            color: white;
+            width: 100%;
+            margin: 0;
+            text-align: left;
+            padding: 20px 0 5px 20px;
+            padding-left: 30px;
+        }
+        
+        #startPointContainer{
+            text-align: left;
+            font-size: 12px;
+            padding-left: 30px;
+        }
+        
+        #destinationPointContainer{
+            text-align: left;
+            font-size: 12px;
+            padding-left: 30px;
+        }
+        
+        #estimatedTime{
+            background-color: #2A2E43;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+        }
     }
 }
 
 .directions::-webkit-scrollbar{
     display: none;
 }
-    
+
 
 // #overlayNav{
-//     // height:100%;
-//     border: 5px solid red
-// }
+//         height:100%;
+//         // border: 5px solid red
+//     }
 
 // .overlay-content{
 //     height:100%;
-//     border: 5px solid red
+//     // border: 5px solid red
 // }
 // .on{
 //     height:100%;
-//     border: 5px solid red
+//     // border: 5px solid red
 // }
 // .sidebarContainer{
-//     // height:100%;
-//     border: 5px solid red
+//     height:100%;
+//     // border: 5px solid red
 // }
 
 // .overlay open{
-//     // height:100%;
-//     border: 5px solid red
+//     height:100%;
+//     // border: 5px solid red
 
 // }
 

@@ -1,6 +1,8 @@
 import React from 'react'; 
 import './sidebar-routing.scss'
 import SidebarMenu from '../SidebarMenu.js'
+import {ReactComponent as ToggleShowArrow} from './icons/show-sidebar.svg'
+import {ReactComponent as ToggleHideArrow} from './icons/hide-sidebar.svg'
 
 const RoutingSidebar = (props) => {
 
@@ -9,7 +11,9 @@ const RoutingSidebar = (props) => {
             let sidebar = document.querySelector('#overlayNav.overlay.open')
             sidebar.style.height = '100%'
             sidebar.style.margin = '0'
-            sidebar.style.width = '375px'
+            sidebar.style.width = '420px'
+            sidebar.style.background = 'transparent'
+            
             document.getElementsByClassName('navbar')[0].style.display = 'none'
 
             let overlayContent = document.getElementsByClassName('overlay-content')[0]
@@ -40,8 +44,14 @@ const RoutingSidebar = (props) => {
     }
 
     return (
-        <>
+        <div className='containerWithArrow'>
             {props.loading !== 'routing successful' ? <p className="route-loading">{props.loading}</p> :
+            <>
+            <div className='arrowContainer'>
+                {/* <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i> */}
+                {/* <ToggleShowArrow /> */}
+                <ToggleHideArrow />
+            </div>
                 <div className='sidebarContainer'>
                     <SidebarMenu />
                         <div className='backbuttonContainer'>
@@ -77,8 +87,9 @@ const RoutingSidebar = (props) => {
                         <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
                     </div>
                 </div>
+                </>
             }
-        </>
+        </div>
     )
 };
 

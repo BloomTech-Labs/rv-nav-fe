@@ -53,6 +53,7 @@ class Vehicles extends React.Component {
 
   render() {
     console.log("getVEHICLE", this.props.vehicles)
+    console.log('INITIAL STATE', this.props.selected_id)
     return(
       <div >
       {this.props.vehicles.vehicles && this.props.vehicles.vehicles.map( (e, i) => {
