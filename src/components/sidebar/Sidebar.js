@@ -5,6 +5,7 @@ import Vehicles from '../vehicleForm/Vehicles';
 import RoutingForm from '../map/routingForm';
 import './sidebar.css';
 import RoutingSidebar from './sidebar-routing/sidebar-routing';
+import SidebarMenu from './SidebarMenu';
 
 const Sidebar = (props) => {
     const [state, setState] = useState({
@@ -56,7 +57,7 @@ const Sidebar = (props) => {
         sidebar.style.height = '620px'
         sidebar.style.margin = '23px 25px 25px 20px'
         sidebar.style.width = '375px'
-        // document.getElementsByClassName('navbar')[0].style.display = 'none'
+        document.getElementsByClassName('navbar')[0].style.display = 'none'
 
         let overlayContent = document.getElementsByClassName('overlay-content')[0]
         overlayContent.style.margin = 0
@@ -78,7 +79,9 @@ const Sidebar = (props) => {
             {/* <div>
                 <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i>
             </div> */}
-            <div className="navbar" >
+
+            {/* <SidebarMenu /> */}
+            <div className="navbar" > --Matt T commented out to replace with SidebarMenu component
                 <a class="rv-way-text">RV WAY</a>
                 <a><i className="menu-icon"></i></a>
             </div>
