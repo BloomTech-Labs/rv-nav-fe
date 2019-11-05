@@ -1,11 +1,13 @@
 .selected-vehicle {
+    margin-top: 40px;
     visibility: hidden;
 }
 
 .route-input, .selected-vehicle-dropdown-menu{
     /* margin-bottom: 22px; */
+    /* margin-top:25px; */
     border-radius: 4px;
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
     width: 100%;
     font-family: Helvetica;
     padding-left: 30px;
@@ -17,18 +19,24 @@
     background-position: center left, center right;
     content: '';
     background-position-x: 5px, 275px;
+    height:45px;
+    
 }
 
 .dropdown-menu-class {
     margin-top: -45px;
     margin-left: 18px;
-    margin-right: 18px;
+    /* margin-right: 18px; */
     text-align: left;
+    
 }
 
 .what-vehcile-are-you-routing-with,
 .where-are-you-going,
 .choose-a-starting-point {
+    display:flex;
+    /* flex-direction:column; */
+    align-items: left;
     font-family: Helvetica;
     color: #F8F9FA;
     margin-bottom: 2px;
@@ -40,11 +48,15 @@
     /* margin: 35px 5px 5px 5px; */
     font-family: Helvetica;
     margin-left: 18px;
-    margin-right: 18px;
+    /* margin-right: 18px; */
 }
 
 .start-input-div {
+    display:flex;
+    flex-direction:column;
+    align-items:left;
     margin-top: 16px;
+    
 }
 
 #start {
@@ -78,4 +90,9 @@
     border-radius: 3px;
     /* We need to make it display when we need it -Noor */
     visibility: hidden;
+}
+
+.routingFormDropdownInput{
+    height:375px;
+    margin-top: 25px;
 }

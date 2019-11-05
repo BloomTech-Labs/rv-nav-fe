@@ -6,6 +6,7 @@ import RoutingForm from '../map/routingForm';
 import './sidebar.css';
 import RoutingSidebar from './sidebar-routing/sidebar-routing';
 import SidebarMenu from './SidebarMenu';
+import MapHeader from "../header/MapHeader.js"
 
 const Sidebar = (props) => {
     const [state, setState] = useState({
@@ -79,13 +80,14 @@ const Sidebar = (props) => {
             {/* <div>
                 <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i>
             </div> */}
-
-            {/* <SidebarMenu /> */}
-            <div className="navbar" > --Matt T commented out to replace with SidebarMenu component
-                <a class="rv-way-text">RV WAY</a>
+           <>
+             <SidebarMenu /> 
+             </>
+            {/* <div className="navbar" >  --Matt T commented out to replace with SidebarMenu component */}
+                {/* <a class="rv-way-text">RV WAY</a>
                 <a><i className="menu-icon"></i></a>
             </div>
-
+               
             <div className='overlay-content'>
 
                 {/* <div> */}
@@ -105,6 +107,7 @@ const Sidebar = (props) => {
                             id="vehicleForm"
                             onClick={dynamicSidebar}>Add a Vehicle</p>
                     </div> */}
+                    
                     <div className={`${state.routing}`}>
                         <RoutingForm
                             buttonSelect={buttonSelect}
@@ -162,11 +165,11 @@ const Sidebar = (props) => {
                         {/* {changeState()} */}
                 {/* </div> */}
             </div>
-            {/* <div id='mainsidebar'>
+            /* <div id='mainsidebar'>
                 <button className = 'openbtn' onClick = {props.toggleSidebar}>Options</button>
                 // button to bring out sidebar
-            </div> */}
-        </div>
+            </div> */
+        // </div>
     )
 }
 
