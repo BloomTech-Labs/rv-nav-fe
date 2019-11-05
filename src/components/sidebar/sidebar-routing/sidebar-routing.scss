@@ -1,20 +1,42 @@
+//<----------------- BEGINNING OF KEYFRAMES FOR ANIMATION
+@keyframes slideRight {
+    from {right: 375px}
+    to {right: 0px}
+}
+
+@keyframes slideLeft {
+    from {right: 0px}
+    to {right: 375px}
+}
+//<----------------- END OF KEYFRAMES FOR ANIMATION
+
 .containerWithArrow{
     display: flex;
     flex-direction: row-reverse;
     height: 100%;
     width: 400px;
+    position: relative;
 
+    
+    
+    
     .arrowContainer{
+        position: relative;
+        // animation: slideLeft 1s;  
         margin-top: 67px;
         background-image: url('./icons/hide-sidebar.svg');
         background: no-repeat;
-
+        
+        
         svg{
             box-shadow: 0px 1px 3px gray;
         }
     }
-       
+    
     .sidebarContainer{
+        // position: relative;
+        // right: 0px;
+        // animation: slideRight 1s;    
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -48,15 +70,17 @@
             }
         }
         
-        // .sidebarOptions{ //<------------class for future options in sidebar
-            //     background-color: white;
-            //     height: 10.25rem;
-            //     p{
-            //         color: black;
-            //         text-align: left;
-            //         padding: 15px;
-            //     }
-            // }
+        .sidebarOptions{ //<------------class for future options in sidebar
+                margin: 20px 0px;
+                background-color: white;
+                height: 164px;
+                p{
+                    color: black;
+                    text-align: left;
+                    padding: 15px;
+                    font-size: 12px;
+                }
+            }
     
         .routingBackButton{
             padding: 14.5px 30px;
@@ -96,7 +120,7 @@
             width: 100%;
             margin: 0;
             text-align: left;
-            padding: 20px 0 5px 20px;
+            // padding: 20px 0 5px 20px;
             padding-left: 30px;
         }
         
@@ -129,11 +153,12 @@
 
 
 // #overlayNav{
-//         height:100%;
-//         // border: 5px solid red
-//     }
+//     height:100%;
+//     // border: 5px solid red
+// }
 
 // .overlay-content{
+//     animation: slide 1s;
 //     height:100%;
 //     // border: 5px solid red
 // }
