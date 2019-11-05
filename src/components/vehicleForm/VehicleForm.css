@@ -1,212 +1,345 @@
-.WidgetWrapper{
-  width: 100%;
-  padding-top: 20px;
-}
-
-.FormContainer{
-  padding: 10px 20px;
+.vehicleForm-container{
+  height: 1100px;
+  width: 375px;
+  /* margin:25px; */
   background-color: #2A2E43;
-}
-
-.measurementsParent{
-  display: flex;
-  flex-direction: row;
-}
-
-.inputsFieldsContainer{
-  width: 150px;
-  margin: 0;
-  padding: 0;
-}
-
-.form-group{
-  display: flex;
-  flex-direction: row;
-  margin-right: 16px;
-}
-.form-section{
-  width: 140px;
-  display: flex;
-  flex-direction: row;
-  margin: 0px;
-}
-.thirdRow{
-  display:flex;
-  flex-direction: row;
-  margin: 5px;
-  padding:5px;
-}
-.vehicle-spec{
-
-  /* H4 Mobile / Helvetica Regular 18 */
-
+  }
+  
+  .back{
+  height: 50px;
   font-family: Helvetica;
-  font-size: 18px;
-  line-height: 21px;
-  /* identical to box height */
-
-  display: flex;
-  flex-direction: row;
-
-  /* White text */
-
-  color: rgba(237, 238, 241, 0.95);
-
-
-}
-.plus{
-  display: flex;
-  flex-direction: column;
-  width:10px;
-  margin-top: 27px;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding: 1px;
-  font-size: 1.3rem;
-}
-.radio-label{
-  margin-right: 60px;
-  padding-bottom: 22px;
-}
-.class-radios{
- 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 10px;
-  padding-top:20px;
-}
-.vehicle-form{
-  /* margin-top: -10px;
-  color: white;
-  width: 100%;
-  background-color: #0f0f0f; */
-  /* Rectangle 30 */
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-/* Grayscale 100% */
-background: #F8F9FA;
-}
-
-.nav{}
-
-
-h2{
-  width: 340.88px;
-  height: 70px;
-  left: 0px;
-  top: 0px;
-  background-color: #F8F9FA;
-  padding: 5%;
-  font-family: Helvetica;
-  font-size: 36px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 18px;
   display: flex;
   align-items: center;
   color: #00B2D9;
-  font-weight: bold;
-  margin: 0 5px;
-}
-
-h6{
+  background-color:#F8F9FA ;
+  border-bottom: 1px solid rgba(248, 249, 250, 0.75);
+  
+  }
+  
+  .backButton{
+   margin-left:20px;
+   font-family: Heebo;
+  /* font-style: normal;
+  font-weight: 500; */
+  font-size: 18px;
+  line-height: 23px;
+  /* identical to box height */
+  
+  display: flex;
+  align-items: center;
+  
+  /* Primary 100% */
+  
   color: #00B2D9;
-  font-weight: bold;
-  text-align: left;
-}
-
-#vehicleAddTitle{
+  }
+  
+  .back-label{
+  color:rgba(42, 46, 67, 0.8);
+  font-size:14px;
+  margin-top:0 16px;
+  }
+  
+  #vehicleAddTitle{
+  
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  
+  /* White text */
+  
+  color: rgba(237, 238, 241, 0.95);
+  margin-left:20px;
+  }
+  .name-label{
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  color: rgba(237, 238, 241, 0.95);
+  margin-left:20px;
+  }
+  
+  .vehicleName{
+  width:335px;
+  height:40px;
+  background: #F8F9FA;
+  border: 1px solid rgba(42, 46, 67, 0.3);
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-bottom:10px;
+  }
+  
+  .vehicle-spec-label{
+  width:150px;
+  height:35px;
+  margin: 5px 0 0 13px;
+  
+  justify-content: left;
+  align-items: flex-end;
   font-family: Helvetica;
   font-size: 18px;
   line-height: 21px;
-  /* identical to box height */
   display: flex;
-  align-items: center;
-  /* White text */
-  color: rgba(237, 238, 241, 0.95);
-  padding:5px 0;
-}
-
-.measurements{
+  flex-direction: row;
+  color: rgba(237, 238, 241, 0.95); 
+  }
+  
+  .row1{
+  height:30px;
   display:flex;
-  flex-direction:column;
-}
-
-p.vehicle-spec{
-  width:120px;
-  height: 10px;
-}
-h4.vehicle-spec{
- 
-  margin:5px 0px;
- 
-}
-
-.tires{
-  width:210px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-  padding-bottom: 5px;
-}
-.vehicleName{
-  width: 260px;
-
-  padding:0px;
-  margin:0px;
-}
-
-.row2{
+  flex-direction:row;
+  margin:0 10px;
+  }
+  .width-label{
+      margin:5px 0 0 29px;;
+  }
+  
+  .weight-label{
+      margin:5px 0 0 29px;;
+  }
+  
+  .row2{
+  height:100px;
+  display:flex;
+  justify-content: space-around;
+  margin:0 10px;
+      
+  }
+  .row2-block1{
+  width:150px; 
+  margin:0 15px;   
+  display:flex;
+  flex-direction: row;
+  
+  
+  }
+  
+  .row2-block2{
+  width:160px; 
+  margin:0 15px; 
+  display:flex;
+  flex-direction: row;
+  /* align-content: space-around; */
+  
+  }
+  
+  .measurements{
+  
+  width:60px;
   display: flex;
   flex-direction: row;
   
-}
-.row2-block1{
-  display:flex;
-  flex-direction: column;
+  }
   
-}
-
-.row2-block2{
-  display:flex;
-  flex-direction: column;
+  .measurements-input{
+  height:65px;
+  width:65px;
+  border: 1px solid rgba(42, 46, 67, 0.3);
+  box-sizing: border-box;
+  border-radius: 3px;
   
-}
-
-.row3{
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-
-.poundsInput{
-  width: 47.95px;
-}
-
-.backButton{
-  background-color: #2A2E43;
-}
-p{
+  }
+  
+  .plus{
+  width:20px;
+  color: rgba(255, 255, 255, 0.95);
+  margin:5px 10px;
+  padding-top: 29px;
+  font-size:25px;
+  }
+  p{
+  margin-left:7px;
   margin-bottom:3px;
-}
-
-.form-check-label{
-  padding:5px;
-}
-
-.form-check-input{
-  margin-top: .6rem;
-}
-
-.btn{
-  width:255px;
-  background-color: #00B2D9;
-}
-.btn:hover{
-background-color: #00B2D9;
-}
-
-
-
+  display: flex;
+  justify-content: left;
+  color: rgba(237, 238, 241, 0.95)
+  }
+  
+  .row3{
+  display:flex;
+  flex-direction:row;
+  margin:0 10px;
+      
+  }
+  .row4{
+  display:flex;
+  height:100px;
+  display:flex;
+  margin:0 5px;
+  }
+  
+  .row4-block1{
+  width:150px; 
+  margin: 0 10px;  
+  margin-right:5px; 
+  display:flex;
+  flex-direction: row;
+  
+  }
+  .row4-block2{
+  width:160px; 
+  margin:0 5px 0 16px; 
+  display:flex;
+  flex-direction: row;
+  
+  }
+  
+  .row6{
+  display:flex;
+  flex-direction:row-reverse;
+  margin-right:10px; 
+  padding-right:20px;
+  }
+  
+  .row6-block1{
+  width:160px; 
+  margin: 5px 0 16px; 
+  display:flex;
+  flex-direction: row;  
+  }
+  
+  .row6-block2{
+  width:160px; 
+  margin:0 5px 0 16px; 
+  display:flex;
+  flex-direction: row;  
+  }
+  
+  .row7{
+      width:300px;
+      height:75px;
+      display:flex;
+      flex-direction:row-reverse;
+      align-items: left;
+      margin:0 0 0 10px;
+  }
+  
+  .row7-block1{
+  width:185px; 
+  margin: 5px 0 16px; 
+  display:flex;
+  flex-direction: row;  
+  }
+  
+  .row7-block2{
+  width:175px; 
+  margin-right:5px; 
+  display:flex;
+  flex-direction: row;  
+  }
+  
+  input{
+  width:43px;
+  height:45px;
+  background: #F8F9FA;
+  
+  border: 1px solid rgba(42, 46, 67, 0.3);
+  box-sizing: border-box;
+  border-radius: 3px;
+  }
+  
+  .pounds{
+  width:150px;
+  height:45px;
+  margin-left:14px;
+  }
+  p.box7{
+      
+  }
+  
+  /* .class-radio{
+  width:150px;
+  height:35px;
+  margin: 5px;
+  
+  justify-content: left;
+  align-items: flex-end;
+  font-family: Helvetica;
+  font-size: 10px;
+  line-height: 21px;
+  display: flex;
+  flex-direction: row;    
+  
+  } */
+  
+  .class-radios{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-end;
+  /* margin-right: 30px; */
+  width:180px;
+  margin-left:5px;
+  margin: 7px 10px 0 13px;
+  
+  }
+  
+  #input.v-class{
+  width:25px;
+  border:1px solid  rgba(237, 238, 241, 0.95); 
+  background:purple;
+  }
+  
+  /* .vehicle-class{
+      margin-right:20px;
+      justify-content:space-between ;
+  } */
+  p.radio-label{
+      margin:15px 15px 15px 10px;
+      
+  }
+  
+  .row8{
+      display:flex;
+      flex-direction:column;
+      align-items: left;
+      margin:0px 10px 20px 10px; 
+  }
+  
+  .dual-wheel{
+      display:flex;
+      flex-direction:row;
+  }
+  
+  .tires{
+      width:250px;
+  }
+  .tires-box{
+      width: 18px;
+      height: 18px;
+      margin-left:13px;
+      border:1px solid whitesmoke;
+     
+  }
+  p.tires{
+      margin:0 0 0 5px;
+  }
+  
+  button{
+      width:335px;
+      height:45px;
+      color:whitesmoke;
+      background-color:#2A2E43;
+      box-sizing: border-box;
+      border-radius: 3px;
+  
+  }
+  
+  button:hover{
+      background-color: #00B2D9;
+      color:black;
+  }
+  
+  .v-class{
+      background:purple;
+  }

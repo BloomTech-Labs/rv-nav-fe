@@ -67,11 +67,11 @@ const Sidebar = (props) => {
         on.style.margin = 0
         on.style.height = '620px'
 
-        let vehicleForm = document.getElementsByClassName('vehicle-form')[0]
+        let vehicleForm = document.getElementsByClassName('vehicleForm-container')[0]
         vehicleForm.style.height = '620px'
 
-        let formContainer = document.getElementsByClassName('FormContainer')[0]
-        formContainer.style.height = '620px'
+        // let formContainer = document.getElementsByClassName('FormContainer')[0]
+        // formContainer.style.height = '620px'
     } 
 
     return (
