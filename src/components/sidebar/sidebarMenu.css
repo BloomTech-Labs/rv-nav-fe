@@ -99,8 +99,13 @@
     margin-top: 3px;
 }
 
+.sidebar-menu-item {
+    display: flex;
+}
+
 .navlinkclass {
     display: flex;
+    flex-direction: column;
 }
 
 .dropdownitem1:hover {

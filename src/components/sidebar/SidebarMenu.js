@@ -6,6 +6,7 @@ import SplitButton from 'react-bootstrap/SplitButton'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './sidebarMenu.css';
 import {ReactComponent as HamMenu} from '../../assets/img/blue-menu.svg'
+import {ReactComponent as SaveIcon} from '../../assets/img/car.svg'
 import {ReactComponent as OutIcon} from '../../assets/img/log-out.svg'
 
 const SidebarMenu = () => {
@@ -25,10 +26,16 @@ const SidebarMenu = () => {
                 <Dropdown.Item className='dropdownitem1' href="#/action-3">My vehicles</Dropdown.Item>
                 <Dropdown.Item className='dropdownitem1' href="#/action-4">Saved Routes</Dropdown.Item>
                 <Dropdown.Item className='dropdownitem1' href="#/action-5">Settings</Dropdown.Item> */}
-                <NavLink className='dropdownitem1' to="/">
+                <NavLink to="/">
                     <div className='navlinkclass'>
-                        <OutIcon className='logoutclass' />
-                        <Dropdown.Item className='dropdownitem1' href="#/action-1">Logout</Dropdown.Item>
+                        <div className='sidebar-menu-item'>
+                            <SaveIcon className='logoutclass' />
+                            <Dropdown.Item className='dropdownitem1' href="#/action-1">My Vehicles</Dropdown.Item>
+                        </div>
+                        <div className='sidebar-menu-item'>
+                            <OutIcon className='logoutclass' />
+                            <Dropdown.Item className='dropdownitem1' href="#/action-2">Logout</Dropdown.Item>
+                        </div>
                     </div>
                 </NavLink>
             </Dropdown.Menu>
