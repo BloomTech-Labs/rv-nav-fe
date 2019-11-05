@@ -59,16 +59,17 @@
     height: 120px;
 }
 
-/* .fa-arrow-circle-left{
+.fa-arrow-circle-left{
     margin: 8px 0 8px 85%;
     background: #2A2E43;
     color: white;
     font-size: 2.1rem;
-} */
+}
 
 .fa-arrow-circle-left:hover{
     cursor:pointer;
 }
+
 
 .sidebar-tab{
     color:  #00B2D9;
@@ -96,6 +97,7 @@
     /* padding: 8px 8px 5px 8px; */
 }
 
+
 .off{
     display: none;
 }
@@ -104,95 +106,90 @@
     display: block;
 }
 
-.route-form {
-    /* padding: 6px; */
-    /* margin: 35px 5px 5px 5px; */
+/* !/ All the commented code below has been moved to routingForm.css */
+
+/* .route-form {
+    padding: 6px;
+    margin: 35px 5px 5px 5px;
     font-family: Helvetica;
     margin-left: 18px;
     margin-right: 18px;
-}
+} */
 
-.dropdown-menu-class {
+/* .dropdown-menu-class {
     margin-top: -45px;
     margin-left: 18px;
     margin-right: 18px;
     text-align: left;
-}
+} */
 
-.route-input, .selected-vehicle-dropdown-menu{
-    /* margin-bottom: 22px; */
+/* .route-input, .selected-vehicle-dropdown-menu{
+     margin-bottom: 22px; 
     border-radius: 4px;
     padding: 10px;
     width: 100%;
     font-family: Helvetica;
     padding-left: 30px;
-}
+} */
 
-.selected-vehicle-dropdown-menu {
+/* .selected-vehicle-dropdown-menu {
     background-image: url(../../assets/img/gray-car.svg), url(../../assets/img/gray-down.svg);
     background-repeat: no-repeat, no-repeat;
     background-position: center left, center right;
     content: '';
     background-position-x: 5px, 275px;
-}
+} */
 
-#start {
+/* #start {
     background-image: url(../../assets/img/gray-location.svg);
     background-repeat:no-repeat;
     background-position: center left;
     background-position-x: 5px;
     height: 40px;
     margin-bottom: 18px;
-}
+} */
 
-#end {
+/* #end {
     background-image: url(../../assets/img/gray-search.svg);
     background-repeat:no-repeat;
     background-position: center left;
     background-position-x: 5px;
     height: 40px;
-}
-.start-input-div {
-    margin-top: 16px;
-}
+} */
 
-#route-button{
-    /* width: 120px;
+/* .start-input-div {
+    margin-top: 16px;
+} */
+
+/* #route-button{
+    width: 120px;
     margin-left: 180px;
-    border-radius: 4px; */
+    border-radius: 4px;
     position: absolute;
-    /* left: 0%;
+    left: 0%;
     right: 0%;
     top: 0%;
-    bottom: 0%; */
-    /* Primary 100% */
+    bottom: 0%;
     background: #00B2D9;
     border-radius: 3px;
 
-    /* We need to make it display when we need it -Noor */
+    We need to make it display when we need it -Noor
     visibility: hidden;
-}
+} */
 
 .login-to-add{
     margin-top: 60px;
     padding: 5px;
 }
 
-
-
-a.rv-way-text {
-    color: rgba(53, 195, 226, 0.95);
-}
-
-.what-vehcile-are-you-routing-with,
+/* .what-vehcile-are-you-routing-with,
 .where-are-you-going,
 .choose-a-starting-point {
     font-family: Helvetica;
     color: #F8F9FA;
     margin-bottom: 2px;
     font-size: 13px;
-}
-
+} */
 
 a.rv-way-text {
     color: rgba(53, 195, 226, 0.95);
@@ -210,9 +207,9 @@ a.rv-way-text {
     /* Primary 100% */
 }
 
-.selected-vehicle {
+/* .selected-vehicle {
     visibility: hidden;
-}
+} */
 
 
 @media (max-width: 375px){
@@ -275,36 +272,37 @@ a.rv-way-text {
         background: #2A2E43;
     }
 
-    /* .open{
+    .open{
         width: 100%;
         height: 48%;
-    } */
+    }
 
-    #route-button{
-        /* margin: auto;  */
-    /* margin: auto; */
+    /* #route-button{
+        margin: auto; 
+    margin: auto;
         color: white;
         width: 94%;
         height: 45px;
         margin: 10px 0px;
         font-size: 20px;
         font-family: Helvetica;
-     }
+     } */
 
      .btn-warning {
         border-color: rgba(53, 195, 226, 0.95);
      }
 
-     .selected-vehicle {
+     /* .selected-vehicle {
         border-bottom: 1px solid #fff;
-     }
-     
+     } */
+
+    /*      
      .selected-vehicle-text {
         margin-top: 30px;
         display: flex;
         margin-left: 20px;
         margin-bottom: 10px;
-     }
+     } */
      .overlay-content {
         margin-top: 83px;
     }

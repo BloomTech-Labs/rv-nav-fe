@@ -10,11 +10,13 @@
   flex-direction: column;
 }
 
+/* //TODO Need to remove this since it's not been used anywhere - Noor */
 /* .MarketingFormContainer{
                               //<-----------Classes added to replace bootstrap form management on the marketing website login/register inputs
 }
 
-.MarketingPageInputs{
+/* //TODO Need to remove this since it's not been used anywhere - Noor */
+/*.MarketingPageInputs{
 
 } */
 
@@ -46,22 +48,28 @@
 .top-buttons p {
   width: 50%;
 }
-label {
+
+/* //! commented out by Noor : "Moved to login.css and register.css"  */
+/* label {
   color: white;
   align-self: flex-start;
   margin-left: 0;
-}
+} */
 
-form {
-  /* Modified the sidebar props here -Noor */
-  /* background-color: rgb(15, 15, 15, 0.6); */
+/* //! commented out by Noor : "Moved to login.css and register.css"  */
+/* form {
+  Modified the sidebar props here -Noor
+  background-color: rgb(15, 15, 15, 0.6);
   text-align: left;
-  /* padding: 16px; */
+  padding: 16px;
   border-top: 0;
-}
-input {
+} */
+
+/* //! commented out by Noor : "Moved to login.css and register.css"  */
+/* input {
   margin-bottom: 7px;
-}
+} */
+
 form button {
   margin-left: 50%;
   width: 50%;
@@ -85,15 +93,16 @@ form button {
   background-color: rgb(15, 15, 15, 0.6);
   padding: 20px 0;
 }
-
-.error {
+/* //! commented out by Noor : "Moved to login.css and register.css" */
+/* .error {
   font-size: 0.8rem;
   color: rgb(255, 159, 159);
-}
+} */
 
-.info {
+/* //! commented out by Noor : "Moved to login.css and register.css" */
+/* .info {
   color: #ffc107;
-}
+} */
 
 @media (max-width: 600px) {
 
@@ -124,9 +133,4 @@ form button {
   .top-buttons p {
     width: 100%;
   }
-}
-.auth-loading{
-  font-size: 4rem;
-  margin: 40px;
-  color: white;
 }
