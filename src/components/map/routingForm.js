@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { connect } from "react-redux";
 // import "../sidebar/sidebar.css" //! commented this out by Noor "Moved the styling to routingForm.css"
 import "./routingForm.css"
+import RoutingDropdown from './RoutingDropdown'
 
 const RoutingForm = (props) => {
   //changes "you are routing with" message at the top of the routing form
@@ -37,13 +38,15 @@ const RoutingForm = (props) => {
           <p class="selected-vehicle-text">Class B</p>
           <i class="selected-vehicle-pencil-icon"></i>
         </div>
-        <div class="dropdown-menu-class">
+        <RoutingDropdown />
+        {/* This is replaced by the RoutingDropdown.js component -- matt */}
+        {/* <div class="dropdown-menu-class">
           <span class="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
           <select class="selected-vehicle-dropdown-menu">
             <option class="selected-vehicle-dropdown-option"></option>
             <option >+ Select Vehicle</option>
           </select>
-        </div>
+        </div> */}
         <form className="route-form" onSubmit={(event) => {
           event.preventDefault()
           props.onChangeHandler()
