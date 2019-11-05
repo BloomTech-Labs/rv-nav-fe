@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register, login, clearError } from "../../../store/actions";
 import { withRouter } from "react-router-dom";
-import "../Auth.css";
+// import "../Auth.css"; //! commented out by Noor : "Moved to login.css and register.css"
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "./Register.css"
 
 /* eslint-disable no-useless-escape */
 const validEmailRegex = RegExp(
@@ -123,7 +124,7 @@ class RegisterForm extends Component {
         }
       })
       .catch(err => {
-        setTimeout(function() {
+        setTimeout(function () {
           return this.props.clearError();
         }, 3000);
       });
@@ -135,92 +136,104 @@ class RegisterForm extends Component {
     return (
       <div>
         {this.state.loading === true ? (
-          <p className="auth-loading">Loading...</p>
+          <p className="register-auth-loading">Loading...</p>
         ) : (
-          <Form>
-            <div className='MarketingFormContainer'>
-              <Form.Label>Username*</Form.Label>
-              <input
-                className='MarketingPageInputs'
-                name="username"
-                placeholder="Username"
-                type="string"
-                value={this.state.credentials.username}
-                onChange={this.handleChange}
-                noValidate
-              ></input>
-              {errors.username.length > 0 && (
-                <p className="error">{errors.username}</p>
-              )}
-              {this.props.error === "Username already taken" ? (
-                <p className="error">Username already taken</p>
-              ) : null}
-
-              <Form.Label>First Name (Optional)</Form.Label>
-              <input
-                className='MarketingPageInputs'
-                name="first_name"
-                placeholder="First name"
-                type="string"
-                value={this.state.credentials.first_name}
-                onChange={this.handleChange}
-              ></input>
-
-              <Form.Label>Last Name (Optional)</Form.Label>
-              <input
-                className='MarketingPageInputs'
-                name="last_name"
-                placeholder="Last name"
-                type="string"
-                value={this.state.credentials.last_name}
-                onChange={this.handleChange}
-              ></input>
-
-              <Form.Label>Email*</Form.Label>
-              <input
-                className='MarketingPageInputs'
-                name="email"
-                placeholder="Email"
-                type="email"
-                value={this.state.credentials.email}
-                onChange={this.handleChange}
-                noValidate
-              ></input>
-              {errors.email.length > 0 && (
-                <p className="error">{errors.email}</p>
-              )}
-              {this.props.error === "Email already taken" && (
-                <p className="error">Email already taken</p>
-              )}
-
-              <Form.Label>Password*</Form.Label>
-              <input
-                className='MarketingPageInputs'
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={this.state.credentials.password}
-                onChange={this.handleChange}
-                noValidate
-              ></input>
-              {errors.password.length > 0 && (
-                <p className="error">{errors.password}</p>
-              )}
-
-              <div className="info">
-                <small>* Required</small>
-              </div>
-
-              <Button
-                variant="warning"
-                onClick={this.registerSubmit}
-                type="submit"
+            <form class="register-main-form">
+              <div
+              //TODO Need to remove this since it's not been used anywhere - Noor
+              // className='MarketingFormContainer'
               >
-                Submit
+                <label class="register-main-form-label">Username*</label>
+                <input
+                  //TODO Need to remove this since it's not been used anywhere - Noor
+                  // className='MarketingPageInputs'
+                  class="register-main-form-input"
+                  name="username"
+                  placeholder="Username"
+                  type="string"
+                  value={this.state.credentials.username}
+                  onChange={this.handleChange}
+                  noValidate
+                ></input>
+                {errors.username.length > 0 && (
+                  <p className="register-main-form-error">{errors.username}</p>
+                )}
+                {this.props.error === "Username already taken" ? (
+                  <p className="register-main-form-error">Username already taken</p>
+                ) : null}
+
+                <label class="register-main-form-label">First Name (Optional)</label>
+                <input
+                  //TODO Need to remove this since it's not been used anywhere - Noor
+                  // className='MarketingPageInputs'
+                  class="register-main-form-input"
+                  name="first_name"
+                  placeholder="First name"
+                  type="string"
+                  value={this.state.credentials.first_name}
+                  onChange={this.handleChange}
+                ></input>
+
+                <label class="register-main-form-label">Last Name (Optional)</label>
+                <input
+                  //TODO Need to remove this since it's not been used anywhere - Noor
+                  // className='MarketingPageInputs'
+                  class="register-main-form-input"
+                  name="last_name"
+                  placeholder="Last name"
+                  type="string"
+                  value={this.state.credentials.last_name}
+                  onChange={this.handleChange}
+                ></input>
+
+                <label class="register-main-form-label">Email*</label>
+                <input
+                  // className='MarketingPageInputs'
+                  class="register-main-form-input"
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  value={this.state.credentials.email}
+                  onChange={this.handleChange}
+                  noValidate
+                ></input>
+                {errors.email.length > 0 && (
+                  <p className="register-main-form-error">{errors.email}</p>
+                )}
+                {this.props.error === "Email already taken" && (
+                  <p className="register-main-form-error">Email already taken</p>
+                )}
+
+                <label class="register-main-form-label">Password*</label>
+                <input
+                  //TODO Need to remove this since it's not been used anywhere - Noor
+                  // className='MarketingPageInputs'
+                  class="register-main-form-input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={this.state.credentials.password}
+                  onChange={this.handleChange}
+                  noValidate
+                ></input>
+                {errors.password.length > 0 && (
+                  <p className="register-main-form-error">{errors.password}</p>
+                )}
+
+                <div className="register-required-label">
+                  <small>* Required</small>
+                </div>
+
+                <Button
+                  variant="warning"
+                  onClick={this.registerSubmit}
+                  type="submit"
+                >
+                  Submit
               </Button>
-            </div>
-          </Form>
-        )}
+              </div>
+            </form>
+          )}
       </div>
     );
   }

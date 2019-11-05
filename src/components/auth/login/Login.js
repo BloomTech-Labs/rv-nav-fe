@@ -3,9 +3,10 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../store/actions";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import "../Auth.css";
+//import Button from "react-bootstrap/Button"; //! commented out by Noor : "not used in the component"
+//import Form from "react-bootstrap/Form"; //! commented out by Noor : "not used in the component"
+//import "../Auth.css"; //! commented out by Noor : "not used in the component"
+import "./Login.css"
 
 class LoginForm extends React.Component {
   constructor() {
@@ -63,11 +64,11 @@ class LoginForm extends React.Component {
       event_category: "access",
       event_label: "login"
     });
-    this.setState({loading:true});
+    this.setState({ loading: true });
     return this.props
       .login(this.state.credentials)
       .then(res => {
-        this.setState({loading:false});
+        this.setState({ loading: false });
         this.setState({
           username: "",
           password: ""
@@ -88,7 +89,7 @@ class LoginForm extends React.Component {
         // }
       })
       .catch(err => {
-        this.setState({loading:false});
+        this.setState({ loading: false });
         console.log("login err", err);
       });
   };
@@ -97,48 +98,54 @@ class LoginForm extends React.Component {
     const { errors } = this.state.credentials;
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.password.length >= 8;
     return (
-       
+
       <div>
-  {this.state.loading === true ? <p className="auth-loading">Loading...</p> :
+        {this.state.loading === true ? <p className="login-auth-loading">Loading...</p> :
 
-        <Form onSubmit={this.loginSubmit}>
-          {this.props.error === "Invalid username or password" ? (
-            <p className="error">Invalid username or password</p>
-          ) : null}
-          <div className='MarketingFormContainer'>
-            <Form.Label>Username</Form.Label>
-            <input
-              type="string"
-              name="username"
-              placeholder="Username"
-              value={this.state.credentials.username}
-              onChange={this.handleChange}
-              required
-            ></input>
-            {errors.username.length > 0 && (
-              <p className="error">{errors.username}</p>
-            )}
+          <form class="login-main-form" onSubmit={this.loginSubmit}>
+            {this.props.error === "Invalid username or password" ? (
+              <p className="login-main-form-error">Invalid username or password</p>
+            ) : null}
+            <div>
+              <label class="login-main-form-label">Username</label>
+              <input
+                class="login-main-form-input"
+                type="string"
+                name="username"
+                placeholder="Username"
+                value={this.state.credentials.username}
+                onChange={this.handleChange}
+                required
+              ></input>
+              {errors.username.length > 0 && (
+                <p className="login-main-form-error">{errors.username}</p>
+              )}
 
-            <Form.Label>Password</Form.Label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.credentials.password}
-              onChange={this.handleChange}
-              required
-            ></input>
-            {errors.password.length > 0 && (
-              <p className="error">{errors.password}</p>
-            )}
+              <label class="login-main-form-label">Password</label>
+              <input
+                class="login-main-form-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={this.state.credentials.password}
+                onChange={this.handleChange}
+                required
+              ></input>
+              {errors.password.length > 0 && (
+                <p className="login-main-form-error">{errors.password}</p>
+              )}
 
-            <Button variant="warning" type="submit" >
-              Submit
-            </Button>
-          </div>
-        </Form>
+              <button
+                class="login-main-form-button"
+                variant="warning"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
 
-            }
+        }
       </div>
     );
   }
