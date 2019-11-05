@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
+// import Form from 'react-bootstrap/Form'; //! Commented out by Noor "Not used anywhere in the file"
+// import Accordion from 'react-bootstrap/Accordion'; //! Commented out by Noor "Not used anywhere in the file"
+// import Card from 'react-bootstrap/Card'; //! Commented out by Noor "Not used anywhere in the file"
 import { connect } from "react-redux";
-import "../sidebar/sidebar.css"
-import RoutingDropdown from './RoutingDropdown'
+// import "../sidebar/sidebar.css" //! commented this out by Noor "Moved the styling to routingForm.css"
+import "./routingForm.css"
 
 const RoutingForm = (props) => {
   //changes "you are routing with" message at the top of the routing form
@@ -32,26 +32,25 @@ const RoutingForm = (props) => {
         <p>You are routing with</p>
         <span>{`${name}`}</span>
         </div> */}
-        <div className="selected-vehicle">
-          <i className="selected-vehicle-truck-icon"></i>
-          <p className="selected-vehicle-text">Class B</p>
-          <i className="selected-vehicle-pencil-icon"></i>
+        <div class="selected-vehicle">
+          <i class="selected-vehicle-truck-icon"></i>
+          <p class="selected-vehicle-text">Class B</p>
+          <i class="selected-vehicle-pencil-icon"></i>
         </div>
-        <RoutingDropdown />
-        {/* <div className="dropdown-menu-class">
-          <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
-          <select className="selected-vehicle-dropdown-menu">
-            <option className="selected-vehicle-dropdown-option"></option>
-            <option style={{color: "#00B2D9"}}>+ Add a vehicle...</option>
+        <div class="dropdown-menu-class">
+          <span class="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
+          <select class="selected-vehicle-dropdown-menu">
+            <option class="selected-vehicle-dropdown-option"></option>
+            <option >+ Select Vehicle</option>
           </select>
-        </div> */}
+        </div>
         <form className="route-form" onSubmit={(event) => {
           event.preventDefault()
           props.onChangeHandler()
         }}>
 
-          <div className="start-input-div">
-            <span className="choose-a-starting-point">Choose a starting point...</span>
+          <div class="start-input-div">
+            <span class="choose-a-starting-point">Choose a starting point...</span>
             <input
               // autoFocus={true}
               className="route-input"
@@ -65,8 +64,8 @@ const RoutingForm = (props) => {
             />
             {/* <input class="form-control" id="email" name="email" type="text" /> */}
           </div>
-          <div className="end-input-div">
-            <span className="where-are-you-going">Where are you going?</span>
+          <div class="end-input-div">
+            <span class="where-are-you-going">Where are you going?</span>
             <input
               className="route-input"
               id="end" required

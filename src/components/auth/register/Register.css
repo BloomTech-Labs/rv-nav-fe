@@ -1,0 +1,31 @@
+.register-auth-loading {
+    font-size: 4rem;
+    margin: 40px;
+    color: #ffc107
+}
+
+.register-main-form {
+    background-color: rgb(15, 15, 15, 0.6);
+    text-align: left;
+    padding: 16px;
+    border-top: 0;
+}j
+
+.register-main-form-label {
+    color: white;
+    align-self: flex-start;
+    margin-left: 0; 
+}
+
+.register-main-form-input {
+    margin-bottom: 7px;   
+}
+
+.register-main-form-error {
+    font-size: 0.8rem;
+    color: rgb(255, 159, 159);
+}
+
+.register-required-label {
+    color: #ffc107;
+}

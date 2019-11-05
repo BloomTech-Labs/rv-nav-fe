@@ -1,0 +1,35 @@
+.login-auth-loading{
+    font-size: 4rem;
+    margin: 40px;
+    color: #ffc107
+}
+
+.login-main-form {
+    /* Modified the sidebar props here -Noor */
+    /* background-color: rgb(15, 15, 15, 0.6); */
+    text-align: left;
+    /* padding: 16px; */
+    border-top: 0;
+}
+
+.login-main-form-label {
+    color: white;
+    align-self: flex-start;
+    margin-left: 0;
+}
+
+.login-main-form-input {
+    margin-bottom: 7px;
+}
+
+.login-main-form-button {
+    margin-left: 50%;
+    width: 50%;
+    margin-bottom: -10px;
+    margin-top: 18px;
+}
+
+.login-main-form-error {
+    font-size: 0.8rem;
+    color: rgb(255, 159, 159);
+}
