@@ -1,0 +1,81 @@
+.selected-vehicle {
+    visibility: hidden;
+}
+
+.route-input, .selected-vehicle-dropdown-menu{
+    /* margin-bottom: 22px; */
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    font-family: Helvetica;
+    padding-left: 30px;
+}
+
+.selected-vehicle-dropdown-menu {
+    background-image: url(../../assets/img/gray-car.svg), url(../../assets/img/gray-down.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center left, center right;
+    content: '';
+    background-position-x: 5px, 275px;
+}
+
+.dropdown-menu-class {
+    margin-top: -45px;
+    margin-left: 18px;
+    margin-right: 18px;
+    text-align: left;
+}
+
+.what-vehcile-are-you-routing-with,
+.where-are-you-going,
+.choose-a-starting-point {
+    font-family: Helvetica;
+    color: #F8F9FA;
+    margin-bottom: 2px;
+    font-size: 13px;
+}
+
+.route-form {
+    /* padding: 6px; */
+    /* margin: 35px 5px 5px 5px; */
+    font-family: Helvetica;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+.start-input-div {
+    margin-top: 16px;
+}
+
+#start {
+    background-image: url(../../assets/img/gray-location.svg);
+    background-repeat:no-repeat;
+    background-position: center left;
+    background-position-x: 5px;
+    height: 40px;
+    margin-bottom: 18px;
+}
+
+#end {
+    background-image: url(../../assets/img/gray-search.svg);
+    background-repeat:no-repeat;
+    background-position: center left;
+    background-position-x: 5px;
+    height: 40px;
+}
+
+#route-button{
+    /* width: 120px;
+    margin-left: 180px;
+    border-radius: 4px; */
+    position: absolute;
+    /* left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%; */
+    /* Primary 100% */
+    background: #00B2D9;
+    border-radius: 3px;
+    /* We need to make it display when we need it -Noor */
+    visibility: hidden;
+}
