@@ -208,11 +208,17 @@ class VehicleForm extends React.Component {
       <div className='WidgetWrapper'> 
         <div className='vehicle-form-wrap'>
         <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
-          <h2>RV WAY</h2>
+          {/* <h2>RV WAY</h2> */}
           <div className='FormContainer'>
-            <h6>Back</h6>
+          <div className="back">
+                        <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
+                                   id="routing"
+                                   onClick={this.props.buttonSelect}>Back
+                        </p>
+                        <p className="back-label">| Add Vehicle</p>
+                  </div>
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
-            <h4 className="vehicle-spec">Name (required)</h4>
+            <p className="vehicle-spec">Name (required)</p>
             <div className='measurements'>
               <input        
                 type="string"
@@ -226,7 +232,7 @@ class VehicleForm extends React.Component {
           </div>
           <div className='measurementsParent'>
             <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Height</h4>
+              <p className="vehicle-spec">Height</p>
               <div className="form-section">  
                 <div className='measurements'>
                   <p>Feet</p>
@@ -259,7 +265,7 @@ class VehicleForm extends React.Component {
               </div>
             </div>
             <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Width</h4>
+              <p className="vehicle-spec">Width</p>
               <div className="form-section">
               <div className="measurements">
                 <p>Feet</p>
@@ -291,7 +297,8 @@ class VehicleForm extends React.Component {
               </div>
             </div>
           </div>
-            <h4 className="vehicle-spec">Length</h4>
+          <div className= "measurementsParent">
+            <p className="vehicle-spec">Length</p>
             <div className="form-section">
             <div className='measurements'>
               <div>
@@ -323,7 +330,7 @@ class VehicleForm extends React.Component {
             </input>
             </div>
             </div>
-            <h4 className="vehicle-spec">Weight</h4>
+            <p className="vehicle-spec">Weight</p>
             <div className="form-section">
             <div className='measurements'>
               <div>
@@ -341,7 +348,9 @@ class VehicleForm extends React.Component {
               </div>
             </div>
             </div>
-            <h4 className="vehicle-spec">Axel Count</h4>
+            </div>
+           <div className="tires-axels">
+            <p className="vehicle-spec">Axel Count</p>
             <div className="form-section">
             <div className='measurements'>
               <div>
@@ -379,8 +388,9 @@ class VehicleForm extends React.Component {
                 onChange={this.handleRadio}
           id={`inline-text-2`} /> */}
           </div>
-          <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a>
-
+          {/* deleted from UX Design - Stacy */}
+          {/* <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a> */}
+          </div>
           <p className="vehicle-spec">Tires</p>
           <Form.Check 
           name="dual_tires" 
