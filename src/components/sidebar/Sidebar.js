@@ -35,7 +35,7 @@ const Sidebar = (props) => {
     const selectVehicles = () => {
         // console.log("event", event.target);
         setState({
-            ...state,
+            ...state, 
             vehicleForm: "off",
             routing: "off",
             vehicles: "on",
@@ -44,7 +44,6 @@ const Sidebar = (props) => {
     }
 
     const dynamicSidebar = () => {
-
         setState({
             ...state,
             vehicleForm: "on",
@@ -90,22 +89,22 @@ const Sidebar = (props) => {
             <div className='overlay-content'>
 
                 {/* <div> */}
-                    {/* <div className="sidebar-tabs">
-                        <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
+                    <div className="sidebar-tabs">
+                        {/* <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
-                            onClick={buttonSelect}>Route</p>
+                            onClick={buttonSelect}>Route</p> */}
 
-                        <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
+                        {/* <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicles"
                             onClick={selectVehicles}
                             // style={{marginRight: "20px"}}
                             >Vehicles
-                            </p>
+                            </p> */}
 
-                        <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
+                        {/* <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
-                            onClick={dynamicSidebar}>Add a Vehicle</p>
-                    </div> */}
+                            onClick={dynamicSidebar}>Add a Vehicle</p> */}
+                    </div>
                     <div className={`${state.routing}`}>
                         <RoutingForm
                             state={state}

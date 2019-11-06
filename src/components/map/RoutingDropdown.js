@@ -6,6 +6,7 @@ import { selectVehicle } from "../../store/actions/selectVehicle.js";
 import "../map/routingForm.css"
 import VehicleForm from '../vehicleForm/VehicleForm.js'
 import './routingDropdown.scss'
+import { ReactComponent as GreyTruck } from '../../assets/img/gray-car.svg'
 
 const RoutingDropdown = (props) => {
 
@@ -29,37 +30,43 @@ const RoutingDropdown = (props) => {
     console.log('ROUTING DROPDOWN VEHICLE', props.selected_id)
     console.log('ROUTING DROPDOWN VEHICLE***', props)
     return (
-      <>
+      <div className='dropdownContainer'>
         {props.state.routing === 'on' ?
         <div className="dropdown-menu-class">
-          <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
           {/* <select className="selected-vehicle-dropdown-menu" onClick={addAVehicle}>
             <option className="selected-vehicle-dropdown-option"></option>
             <option style={{color: "#00B2D9"}} value='addVehicle'>+ Add a vehicle...</option>
             {props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <option className="selected-vehicle-dropdown-option" onClick={selected(rv.id)}>{rv.name}</option>)}
           </select> */}
+        <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
         <div className="dd-wrapper">
-        <div className="dd-header">
+          <div className="dd-header">
           <div className="dd-header-title"></div>
-        </div>
-        <ul className="dd-list">
-          <div className='addAVehicleTitle'>
-            <li className="dd-list-item" onClick={addAVehicle}>+ Add a Vehicle...</li>
-            <p onClick={dropdownToggle}>V</p>
           </div>
-          <div className='vehiclesList'>
-            {state.dropdown === true ? 
-            props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <li onClick={() => {selected(rv.id)}}>{rv.name}</li>)
-            : null
-          }
+          <ul className="dd-list">
+            <div className='addAVehicleTitle'>
+              {/* <GreyTruck /> */}
+              {/* <div className="dd-list-item" onClick={addAVehicle}></div> */}
+              <p onClick={dropdownToggle}>V</p>
+            </div>
+            <div className='vehiclesListContainer'>
+              {state.dropdown === true ? 
+              <div className='vehiclesList'>
+                <section>
+                <p onClick={addAVehicle}>Add a vehicle...</p>
+                </section>
+                {props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <li onClick={() => {selected(rv.id)}}>{rv.name}</li>)}
+              </div>
+                : null
+            }
+            </div>
+          </ul>
           </div>
-        </ul>
-        </div>
         </div>
         :
         <VehicleForm />
         }
-      </>
+      </div>
     )
 }
 

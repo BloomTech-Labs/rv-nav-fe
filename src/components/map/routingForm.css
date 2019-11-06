@@ -20,10 +20,11 @@
 }
 
 .dropdown-menu-class {
-    margin-top: -45px;
+    margin-top: 16px; /*<---- modified by Jerry to style initial form */
     margin-left: 18px;
     margin-right: 18px;
     text-align: left;
+    height: 64px;
 }
 
 .what-vehcile-are-you-routing-with,
@@ -33,6 +34,7 @@
     color: #F8F9FA;
     margin-bottom: 2px;
     font-size: 13px;
+    
 }
 
 .route-form {
@@ -45,6 +47,12 @@
 
 .start-input-div {
     margin-top: 16px;
+    text-align: left; /* Modified by Jerry to style initial form */
+    height: 64px;
+}
+.end-input-div {
+    margin-top: 16px;
+    text-align: left; /* Modified by Jerry to style initial form */
 }
 
 #start {

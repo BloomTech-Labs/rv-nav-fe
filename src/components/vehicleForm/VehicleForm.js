@@ -207,7 +207,7 @@ class VehicleForm extends React.Component {
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
             <h4 className="vehicle-spec">Name (required)</h4>
             <div className='measurements'>
-              <div        
+              <input        
                 type="string"
                 required
                 name='name'
@@ -215,7 +215,7 @@ class VehicleForm extends React.Component {
                 value={this.state.specifications.name}
                 onChange={this.handleText}
               >
-              </div>
+              </input>
           </div>
           <div className='measurementsParent'>
             <div className='inputsFieldsContainer'>

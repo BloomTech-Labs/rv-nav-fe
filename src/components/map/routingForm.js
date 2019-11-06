@@ -38,14 +38,14 @@ const RoutingForm = (props) => {
           <p class="selected-vehicle-text">Class B</p>
           <i class="selected-vehicle-pencil-icon"></i>
         </div> */}
-        <RoutingDropdown state={props.state} setState={props.setState}/>
         {/* <div class="dropdown-menu-class">
           <span class="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
           <select class="selected-vehicle-dropdown-menu">
             <option class="selected-vehicle-dropdown-option"></option>
             <option >+ Select Vehicle</option>
-          </select>
-        </div> */}
+            </select>
+          </div> */}
+        <RoutingDropdown state={props.state} setState={props.setState}/>
         <form className="route-form" onSubmit={(event) => {
           event.preventDefault()
           props.onChangeHandler()
