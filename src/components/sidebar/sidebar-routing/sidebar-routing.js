@@ -40,7 +40,7 @@ const RoutingSidebar = (props) => {
             sidebar.style.width = '420px'
             sidebar.style.background = 'transparent'
             
-            document.getElementsByClassName('navbar')[0].style.display = 'none'
+            document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'none'
 
             let overlayContent = document.getElementsByClassName('overlay-content')[0]
             overlayContent.style.margin = 0
