@@ -6,7 +6,6 @@ import { selectVehicle } from "../../store/actions/selectVehicle.js";
 import "../map/routingForm.css"
 import VehicleForm from '../vehicleForm/VehicleForm.js'
 import './routingDropdown.scss'
-import { ReactComponent as GreyTruck } from '../../assets/img/gray-car.svg'
 
 const RoutingDropdown = (props) => {
 
@@ -39,15 +38,13 @@ const RoutingDropdown = (props) => {
             {props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <option className="selected-vehicle-dropdown-option" onClick={selected(rv.id)}>{rv.name}</option>)}
           </select> */}
         <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
-        <div className="dd-wrapper">
+        <div className="dd-wrapper" onClick={dropdownToggle}>
           <div className="dd-header">
           <div className="dd-header-title"></div>
           </div>
           <ul className="dd-list">
             <div className='addAVehicleTitle'>
-              {/* <GreyTruck /> */}
-              {/* <div className="dd-list-item" onClick={addAVehicle}></div> */}
-              <p onClick={dropdownToggle}>V</p>
+              <div id='arrowDown'></div>
             </div>
             <div className='vehiclesListContainer'>
               {state.dropdown === true ? 

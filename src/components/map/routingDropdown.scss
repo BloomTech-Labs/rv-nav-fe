@@ -17,13 +17,13 @@
     color: rgb(147, 147, 147);
     padding: 10px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     background: white;
     width: 100%;
     background-image: url(../../assets/img/gray-car.svg);
     background-repeat:no-repeat;
     background-position: center left;
-    background-position-x: 5px;
+    background-position-x: 7px;
     height: 40px;
     // margin-bottom: 18px;
     border-radius: 4px;
@@ -31,9 +31,17 @@
     padding-left: 30px;
     // margin-top: 16px;
 
+    
     p{
         color: rgb(172, 172, 172);
     }
+}
+
+#arrowDown{
+    width: 100%;
+    background-image: url(../../assets/img/gray-down.svg);
+    background-repeat:no-repeat;
+    background-position: center right;
 }
 
 .vehiclesListContainer{
