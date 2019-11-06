@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import RoutingDropdown from '../map/RoutingDropdown.js'
 // import Form from 'react-bootstrap/Form'; //! Commented out by Noor "Not used anywhere in the file"
 // import Accordion from 'react-bootstrap/Accordion'; //! Commented out by Noor "Not used anywhere in the file"
 // import Card from 'react-bootstrap/Card'; //! Commented out by Noor "Not used anywhere in the file"
@@ -33,18 +34,19 @@ const RoutingForm = (props) => {
         <p>You are routing with</p>
         <span>{`${name}`}</span>
         </div> */}
-        <div class="selected-vehicle">
+        {/* <div class="selected-vehicle">
           <i class="selected-vehicle-truck-icon"></i>
           <p class="selected-vehicle-text">Class B</p>
           <i class="selected-vehicle-pencil-icon"></i>
-        </div>
-        <div class="dropdown-menu-class">
+        </div> */}
+        {/* <div class="dropdown-menu-class">
           <span class="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
           <select class="selected-vehicle-dropdown-menu">
             <option class="selected-vehicle-dropdown-option"></option>
             <option >+ Select Vehicle</option>
-          </select>
-        </div>
+            </select>
+          </div> */}
+        <RoutingDropdown state={props.state} setState={props.setState}/>
         <form className="route-form" onSubmit={(event) => {
           event.preventDefault()
           props.onChangeHandler()
