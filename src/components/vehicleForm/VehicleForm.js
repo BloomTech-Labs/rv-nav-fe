@@ -108,6 +108,13 @@ class VehicleForm extends React.Component {
   //occurs when the submit button is clicked
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = (event) => {
+
+    let overlayContent = document.getElementById('overlayNav')
+        overlayContent.style.margin = '25px'
+        overlayContent.style.height = '370px'
+
+    let on = document.getElementsByClassName('on')[0]
+      on.style.height = '300px'
     
     event.preventDefault();
     //Google analytics tracking
