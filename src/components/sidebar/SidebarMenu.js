@@ -15,7 +15,7 @@ const SidebarMenu = () => {
         <Dropdown as={ButtonGroup} className='dropdown'>
 
             <Dropdown.Toggle split variant="success" id="dropdown-split-basic" className="hamcolor">
-                <div className='hamend'>RV Way </div>
+                <div className='hamend'>RV WAY </div>
                 <HamMenu className='hammenu' />
             </Dropdown.Toggle>
 
