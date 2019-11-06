@@ -6,6 +6,7 @@ import RoutingForm from '../map/routingForm';
 import './sidebar.css';
 import RoutingSidebar from './sidebar-routing/sidebar-routing';
 import SidebarMenu from './SidebarMenu';
+import MapHeader from "../header/MapHeader.js"
 
 const Sidebar = (props) => {
     const [state, setState] = useState({
@@ -171,7 +172,7 @@ const Sidebar = (props) => {
             {/* <div id='mainsidebar'>
                 <button className = 'openbtn' onClick = {props.toggleSidebar}>Options</button>
                 // button to bring out sidebar
-            </div> */}
+            </div>  */}
         </div>
     )
 }

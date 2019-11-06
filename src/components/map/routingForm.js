@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 // import "../sidebar/sidebar.css" //! commented this out by Noor "Moved the styling to routingForm.css"
 import "./routingForm.css"
 
+
 const RoutingForm = (props) => {
   //changes "you are routing with" message at the top of the routing form
 
@@ -24,9 +25,9 @@ const RoutingForm = (props) => {
   console.log('props on RoutingForm', props)
 
   return (
-    <div>
-      <>
 
+      <div className="routingFormDropdownInput">
+    
         {/* Below code commented out because due to the re-design -Noor */}
 
         {/* <div className="routing-with">
@@ -114,8 +115,7 @@ const RoutingForm = (props) => {
           </Accordion>*/}
           <Button variant="warning" id="route-button" type="submit" onClick={props.buttonSelect}>Get Directions</Button>
         </form>
-      </>
-      {/* <p className="route-loading">{props.loading}</p>
+              {/* <p className="route-loading">{props.loading}</p>
       <div className="directions">
         <p>Directions</p>
         {props.textDirections.map(e => {
@@ -125,7 +125,8 @@ const RoutingForm = (props) => {
         })
         }
       </div> */}
-    </div>
+      </div>
+
   )
 }
 
