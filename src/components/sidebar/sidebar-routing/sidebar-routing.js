@@ -53,7 +53,7 @@ const RoutingSidebar = (props) => {
 //revert sidebar style changes back to the original
         } else {
             let sidebar = document.querySelector('#overlayNav.overlay.open')
-            sidebar.style.height = '370px'
+            sidebar.style.height = '400px'
             sidebar.style.margin = '25px'
             sidebar.style.width = '375px'
             sidebar.style.background = '#2A2E43'
@@ -61,7 +61,7 @@ const RoutingSidebar = (props) => {
             document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
 
             let overlayContent = document.getElementsByClassName('overlay-content')[0]
-            overlayContent.style.marginTop = '25px'
+            // overlayContent.style.marginTop = '25px'
             overlayContent.style.height = '370px'
             sidebar.style.background = '#2A2E43'
 

@@ -18,6 +18,9 @@
 }
 
 .register-main-form-input {
+    display:flex;
+    flex-direction: column;
+    width:100%;
     margin-bottom: 7px;   
 }
 
@@ -28,4 +31,10 @@
 
 .register-required-label {
     color: #ffc107;
+}
+
+.btn-warning{
+    width:50%;
+    justify-content: left;
+    margin-left: 25%;
 }

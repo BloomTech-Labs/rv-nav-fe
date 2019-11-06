@@ -8,6 +8,8 @@
     /* Modified the sidebar props here -Noor */
     /* background-color: rgb(15, 15, 15, 0.6); */
     text-align: left;
+    display:flex;
+    flex-direction: column;
     /* padding: 16px; */
     border-top: 0;
 }
@@ -19,11 +21,14 @@
 }
 
 .login-main-form-input {
+    display: flex;
+    flex-direction: column;
+    width:100%;
     margin-bottom: 7px;
 }
 
 .login-main-form-button {
-    margin-left: 50%;
+    margin-left: 25%;
     width: 50%;
     margin-bottom: -10px;
     margin-top: 18px;

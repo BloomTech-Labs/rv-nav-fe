@@ -103,6 +103,11 @@
     border-radius: 3px;
     /* We need to make it display when we need it -Noor */
     /* visibility: hidden; */
+    color: white;
+    width: 339px;
+    margin-left: 0px;
+    margin-top: 7px;
+    border: none;
 }
 
 .routingFormDropdownInput{
