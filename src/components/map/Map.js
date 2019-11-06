@@ -78,11 +78,11 @@ class MapPage extends Component {
           graphic: new Graphic({
             symbol: {
               type: "simple-marker",
-              size: "12px",
-              color: "green",
+              size: "32px",
+              color: "#008BB7",
               outline: {
-                color: "#efefef",
-                width: "1.5px"
+                color: "#F8F9FA",
+                width: "1px"
               }
             }
           }),
@@ -378,8 +378,9 @@ class MapPage extends Component {
           "esri/Graphic",
           "esri/layers/GraphicsLayer",
           "esri/widgets/Track",
-          "esri/widgets/BasemapToggle"
-        ]).then(([ArcGISMap, MapView, Graphic, GraphicsLayer, Track, BasemapToggle]) => {
+          "esri/widgets/BasemapToggle",
+          "esri/symbols/PictureMarkerSymbol"
+        ]).then(([ArcGISMap, MapView, Graphic, GraphicsLayer, Track, BasemapToggle, PictureMarkerSymbol]) => {
 
           const map = new ArcGISMap({
             basemap: 'streets-navigation-vector'
@@ -421,22 +422,18 @@ class MapPage extends Component {
             latitude: this.state.Coordinates[this.state.Coordinates.length - 1][1]
           };
 
-          let startMarkerSymbol = {
-            type: "simple-marker",
-            color: "green",
-            outline: {
-              color: [255, 255, 255], // white
-              width: 1
-            }
+          let endMarkerSymbol = {
+            type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+            url: "https://i.ibb.co/hcjQqBV/pin.png",
+            width: "32px",
+            height: "32px"
           };
 
-          let endMarkerSymbol = {
-            type: "simple-marker",
-            color: "dodgerblue",
-            outline: {
-              color: [255, 255, 255], // white
-              width: 1
-            }
+          let startMarkerSymbol = {
+            type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+            url: "https://i.ibb.co/wy2JX4N/location-map.png",
+            width: "32px",
+            height: "32px"
           };
 
           let sPointGraphic = new Graphic({
