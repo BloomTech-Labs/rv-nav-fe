@@ -46,7 +46,7 @@ const RoutingForm = (props) => {
             <option >+ Select Vehicle</option>
             </select>
           </div> */}
-        <RoutingDropdown state={props.state} setState={props.setState}/>
+        <RoutingDropdown dynamicSidebar={props.dynamicSidebar} state={props.state} setState={props.setState}/>
         <form className="route-form" onSubmit={(event) => {
           event.preventDefault()
           props.onChangeHandler()

@@ -41,13 +41,17 @@ const RoutingDropdown = (props) => {
           </div>
           <ul className="dd-list">
             <div className='addAVehicleTitle'>
+              {/* {props.vehicles.vehicles.forEach(vehicle => {
+                
+              })} */}
+              <p style={{color: 'black'}}></p>
               <div id='arrowDown'>{currRV}</div>
             </div>
             <div className='vehiclesListContainer'>
               {state.dropdown === true ? 
               <div className='vehiclesList'>
                 <section>
-                <p onClick={addAVehicle}>Add a vehicle...</p>
+                <p onClick={props.dynamicSidebar}>Add a vehicle...</p>
                 </section>
                 {/* That's right Jerry two functions are being called on the same on click!! How do you like me now!? */}
                 {props.vehicles.vehicles && props.vehicles.vehicles.map((rv, index) => <li key={index} onClick={() => {selected(rv.id); currentRV(rv.name)}}>{rv.name}</li>)}

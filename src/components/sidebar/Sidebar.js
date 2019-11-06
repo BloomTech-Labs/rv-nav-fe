@@ -58,18 +58,18 @@ const Sidebar = (props) => {
         sidebar.style.height = '620px'
         sidebar.style.margin = '23px 25px 25px 20px'
         sidebar.style.width = '375px'
-        document.getElementsByClassName('navbar')[0].style.display = 'none'
+        // document.getElementsByClassName('navbar')[0].style.display = 'none'
 
-        let overlayContent = document.getElementsByClassName('overlay-content')[0]
+        let overlayContent = document.getElementById('overlayNav')
         overlayContent.style.margin = 0
-        overlayContent.style.height = '620px'
+        overlayContent.style.height = '100%'
 
         let on = document.getElementsByClassName('on')[0]
         on.style.margin = 0
-        on.style.height = '620px'
+        on.style.height = '100%'
 
-        let vehicleForm = document.getElementsByClassName('vehicleForm-container')[0]
-        vehicleForm.style.height = '620px'
+        // let vehicleForm = document.getElementsByClassName('vehicleForm-container')[0]
+        // vehicleForm.style.height = '620px'
 
         // let formContainer = document.getElementsByClassName('FormContainer')[0]
         // formContainer.style.height = '620px'
@@ -108,6 +108,7 @@ const Sidebar = (props) => {
                     </div>
                     <div className={`${state.routing}`}>
                         <RoutingForm
+                            dynamicSidebar={dynamicSidebar}
                             state={state}
                             setState={setState}
                             buttonSelect={buttonSelect}
