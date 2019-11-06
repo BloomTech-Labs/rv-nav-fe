@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { getVehicles, deleteVehicles } from "../../store/actions";
 import { selectVehicle } from "../../store/actions/selectVehicle.js";
-import "../map/routingForm.css"
 import VehicleForm from '../vehicleForm/VehicleForm.js'
+import "../map/routingForm.css"
 import './routingDropdown.scss'
 
 const RoutingDropdown = (props) => {
@@ -13,26 +12,28 @@ const RoutingDropdown = (props) => {
     dropdown: false,
   })
 
+  const [currRV, setCurrRV] = useState('')
+
     const selected = (id) => {
         props.selectVehicle(id)
+    }
+
+    const currentRV = (id) => {
+      setCurrRV(id)
+    }
+
+    const addAVehicle = () => {
+      props.setState({...props.state, vehicleForm: 'on', routing: 'off'})
     }
 
     const dropdownToggle = () => {
       setState({...state, dropdown: !state.dropdown})
     }
 
-    console.log('props.vehicles.vehicles from RoutingDropdown', props.vehicles.vehicles)
-    console.log('ROUTING DROPDOWN VEHICLE', props.selected_id)
-    console.log('ROUTING DROPDOWN VEHICLE***', props)
     return (
       <div className='dropdownContainer'>
         {props.state.routing === 'on' ?
         <div className="dropdown-menu-class">
-          {/* <select className="selected-vehicle-dropdown-menu" onClick={addAVehicle}>
-            <option className="selected-vehicle-dropdown-option"></option>
-            <option style={{color: "#00B2D9"}} value='addVehicle'>+ Add a vehicle...</option>
-            {props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <option className="selected-vehicle-dropdown-option" onClick={selected(rv.id)}>{rv.name}</option>)}
-          </select> */}
         <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
         <div className="dd-wrapper" onClick={dropdownToggle}>
           <div className="dd-header">
@@ -44,7 +45,7 @@ const RoutingDropdown = (props) => {
                 
               })} */}
               <p style={{color: 'black'}}></p>
-              <div id='arrowDown'></div>
+              <div id='arrowDown'>{currRV}</div>
             </div>
             <div className='vehiclesListContainer'>
               {state.dropdown === true ? 
@@ -52,7 +53,8 @@ const RoutingDropdown = (props) => {
                 <section>
                 <p onClick={props.dynamicSidebar}>Add a vehicle...</p>
                 </section>
-                {props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <li onClick={() => {selected(rv.id)}}>{rv.name}</li>)}
+                {/* That's right Jerry two functions are being called on the same on click!! How do you like me now!? */}
+                {props.vehicles.vehicles && props.vehicles.vehicles.map((rv, index) => <li key={index} onClick={() => {selected(rv.id); currentRV(rv.name)}}>{rv.name}</li>)}
               </div>
                 : null
             }
