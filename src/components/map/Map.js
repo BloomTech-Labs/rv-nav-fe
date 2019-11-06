@@ -35,10 +35,11 @@ class MapPage extends Component {
     loadModules([
       'esri/Map',
       'esri/views/MapView',
-      'esri/widgets/Track',
-      "esri/widgets/BasemapToggle"
+      "esri/widgets/BasemapToggle",
+      "esri/widgets/Track",
+      "esri/Graphic",
     ], { css: true })
-      .then(([ArcGISMap, MapView, Track, BasemapToggle]) => {
+      .then(([ArcGISMap, MapView, BasemapToggle, Track, Graphic]) => {
         const map = new ArcGISMap({
           basemap: 'streets-navigation-vector'
         });
@@ -46,6 +47,8 @@ class MapPage extends Component {
         const view = new MapView({
           container: this.mapRef.current,
           map: map,
+          center: [-95.7129, 37.0902], // longitude, latitude 37.0902° N, 95.7129° W
+          zoom: 4
         });
 
         var basemapToggle = new BasemapToggle({
@@ -57,16 +60,38 @@ class MapPage extends Component {
           position: "bottom-right"
         });
 
+        
+
+        // var locate = new Locate({
+        //   view: view,
+        //   useHeadingEnabled: false,
+        //   goToOverride: function(view, options) {
+        //     options.target.scale = 1500;  // Override the default map scale
+        //     return view.goTo(options.target);
+        //   }
+        // });
+  
+        // view.ui.add(locate, "bottom-right");
+
         var track = new Track({
-          view: view
+          view: view,
+          graphic: new Graphic({
+            symbol: {
+              type: "simple-marker",
+              size: "12px",
+              color: "green",
+              outline: {
+                color: "#efefef",
+                width: "1.5px"
+              }
+            }
+          }),
+          useHeadingEnabled: false  // Don't change orientation of the map
         });
+  
         view.ui.add(track, "bottom-right");
+
         view.ui.move("zoom", "bottom-right");
-
-        view.when(function () {
-          track.start();
-        })
-
 
       });
     this.props.getVehicles()
