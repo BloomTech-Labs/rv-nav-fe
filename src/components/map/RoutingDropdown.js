@@ -41,11 +41,7 @@ const RoutingDropdown = (props) => {
           </div>
           <ul className="dd-list">
             <div className='addAVehicleTitle'>
-              {/* {props.vehicles.vehicles.forEach(vehicle => {
-                
-              })} */}
-              <p style={{color: 'black'}}></p>
-              <div id='arrowDown'>{currRV}</div>
+              <div id='arrowDown' style={{color: 'black', marginLeft: '10px'}}>{currRV}</div>
             </div>
             <div className='vehiclesListContainer'>
               {state.dropdown === true ? 

@@ -93,7 +93,7 @@
     /* width: 120px;
     margin-left: 180px;
     border-radius: 4px; */
-    position: absolute;
+    /* position: absolute; */
     /* left: 0%;
     right: 0%;
     top: 0%;
@@ -102,7 +102,7 @@
     background: #00B2D9;
     border-radius: 3px;
     /* We need to make it display when we need it -Noor */
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .routingFormDropdownInput{

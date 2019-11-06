@@ -1,8 +1,9 @@
 import React, { useState } from 'react'; 
-import './sidebar-routing.scss'
 import SidebarMenu from '../SidebarMenu.js'
 import {ReactComponent as ToggleShowArrow} from './icons/show-sidebar.svg'
 import {ReactComponent as ToggleHideArrow} from './icons/hide-sidebar.svg'
+
+import './sidebar-routing.scss'
 
 const RoutingSidebar = (props) => {
 
@@ -56,8 +57,18 @@ const RoutingSidebar = (props) => {
             sidebar.style.margin = '25px'
             sidebar.style.width = '375px'
             sidebar.style.background = '#2A2E43'
-            document.getElementsByClassName('navbar')[0].style.display = 'block'
-            document.getElementsByClassName('overlay-content')[0].style.marginTop = '25px'
+
+            document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
+
+            let overlayContent = document.getElementsByClassName('overlay-content')[0]
+            overlayContent.style.marginTop = '25px'
+            overlayContent.style.height = '370px'
+            sidebar.style.background = '#2A2E43'
+
+            let on = document.getElementsByClassName('on')[0]
+            on.style.height = '370px'
+            sidebar.style.background = '#2A2E43'
+
         }
     }
 //toggles state back to render the initial sidebar form
@@ -71,9 +82,10 @@ const RoutingSidebar = (props) => {
         })
     }
 
+
     return (
         <div className='containerWithArrow'>
-            {props.loading !== 'routing successful' ? <p className="route-loading">{props.loading}</p> :
+            {props.loading !== 'Routing successful' ? <p className="route-loading">{props.loading}</p> :
                 <>
                     {/* {state.sidebar === true ? */}
                         <div className='arrowContainer' onClick={toggleSidebar}>
@@ -98,9 +110,9 @@ const RoutingSidebar = (props) => {
                                         <p>{props.end}</p>
                                     </div>
                                 </div>
-                                <div className='sidebarOptions'>
+                                {/* <div className='sidebarOptions'>
                                     <p>THIS ROUTE AVOIDS</p>
-                                </div>
+                                </div> */}
                                 <h3 id='directionsTitle'>Directions</h3>
                                 <div className="directions">
                                     {props.textDirections.map((e, i) => {

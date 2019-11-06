@@ -31,6 +31,15 @@ const Sidebar = (props) => {
             directions: "on", //<-- for routing side bar component -Jerry
             [event.target.id]: "on"
         })
+
+            let sidebar = document.querySelector('#overlayNav.overlay.open')
+                sidebar.style.height = '330px'
+                sidebar.style.margin = '23px 25px 25px 20px'
+                sidebar.style.width = '375px'
+    
+                document.getElementsByClassName('dropdown')[0].style.display = 'block'
+
+           
     }
 
     const selectVehicles = () => {

@@ -229,7 +229,7 @@ class VehicleForm extends React.Component {
               <h4 className="vehicle-spec">Height</h4>
               <div className="form-section">  
                 <div className='measurements'>
-                  <p>Feet</p>
+                  <p className='measurementsInput'>Feet</p>
                   <input        
                     type="number"
                     min="0"
@@ -243,7 +243,7 @@ class VehicleForm extends React.Component {
                 </div>
                 <p className="plus">+</p>
                 <div className="measurements">
-                  <p>Inches</p>
+                  <p className='measurementsInput'>Inches</p>
                   <input        
                     type="number"
                     min="0"
@@ -262,7 +262,7 @@ class VehicleForm extends React.Component {
               <h4 className="vehicle-spec">Width</h4>
               <div className="form-section">
               <div className="measurements">
-                <p>Feet</p>
+                <p className='measurementsInput'>Feet</p>
                 <input        
                   type="number"
                   min="0"
@@ -276,7 +276,7 @@ class VehicleForm extends React.Component {
               </div>
               <p className="plus">+</p>
               <div className="measurements">
-              <p>Inches</p>
+              <p className='measurementsInput'>Inches</p>
                 <input        
                   type="number"
                   min="0"
@@ -295,7 +295,7 @@ class VehicleForm extends React.Component {
             <div className="form-section">
             <div className='measurements'>
               <div>
-                <p>Feet</p>
+                <p className='measurementsInput'>Feet</p>
                 <input        
                   type="number"
                   min="0"
@@ -310,7 +310,7 @@ class VehicleForm extends React.Component {
             </div>
             <p className="plus">+</p>
             <div>
-            <p>Inches</p>
+            <p className='measurementsInput'>Inches</p>
               <input        
                 type="number"
                 min="0"
@@ -327,7 +327,7 @@ class VehicleForm extends React.Component {
             <div className="form-section">
             <div className='measurements'>
               <div>
-                <p>Pounds</p>
+                <p className='measurementsInput'>Pounds</p>
                 <input        
                   type="number"
                   min="0"
@@ -345,7 +345,7 @@ class VehicleForm extends React.Component {
             <div className="form-section">
             <div className='measurements'>
               <div>
-                <p>Axels</p>
+                <p className='measurementsInput'>Axels</p>
                 <input        
                   type="number"
                   min="0"
