@@ -106,7 +106,6 @@
 
 .navlinkclass {
     display: flex;
-    flex-direction: column;
 }
 
 .dropdownitem1:hover {

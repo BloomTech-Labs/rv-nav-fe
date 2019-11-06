@@ -7,7 +7,6 @@ import RoutingDropdown from '../map/RoutingDropdown.js'
 import { connect } from "react-redux";
 // import "../sidebar/sidebar.css" //! commented this out by Noor "Moved the styling to routingForm.css"
 import "./routingForm.css"
-import RoutingDropdown from './RoutingDropdown'
 
 
 const RoutingForm = (props) => {
