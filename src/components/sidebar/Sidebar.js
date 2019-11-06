@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
-import VehicleForm from '../vehicleForm/VehicleForm.js';
+import VehicleForm from '../vehicleForm/VehicleForm';
 import Vehicles from '../vehicleForm/Vehicles';
 import RoutingForm from '../map/routingForm';
 import './sidebar.css';
@@ -18,7 +18,7 @@ const Sidebar = (props) => {
     // console.log('props on Sidebar', props)
 
    
-    // const closeVehicleForm = () => setState({ ...state, vehicleForm: "off", routing: "on" })
+    const closeVehicleForm = () => setState({ ...state, vehicleForm: "off", vehicles: "on" })
 
     //selects the tab when it is clicked on, deselects all others
     const buttonSelect = (event) => {
@@ -32,19 +32,19 @@ const Sidebar = (props) => {
             [event.target.id]: "on"
         })
     }
-
-    const selectVehicles = () => {
-        // console.log("event", event.target);
-        setState({
-            ...state, 
-            vehicleForm: "off",
-            routing: "off",
-            vehicles: "on",
-            directions: "off", //<-- for routing side bar component -Jerry
-        })
-    }
+    // const buttonSelectAddVehicle = (event) => {
+    //     console.log("event", event.target);
+    //     setState({
+    //         ...state,
+    //         vehicleForm: "on",
+    //         routing: "off",
+    //         vehicles: "off",
+    //         directions: "off", //<-- for routing side bar component -Jerry
+    //     })
+    // }
 
     const dynamicSidebar = () => {
+
         setState({
             ...state,
             vehicleForm: "on",
@@ -58,18 +58,18 @@ const Sidebar = (props) => {
         sidebar.style.height = '620px'
         sidebar.style.margin = '23px 25px 25px 20px'
         sidebar.style.width = '375px'
-        document.getElementsByClassName('navbar')[0].style.display = 'none'
+        // document.getElementsByClassName('navbar')[0].style.display = 'none' - Stacy debugging
 
-        let overlayContent = document.getElementsByClassName('overlay-content')[0]
+        let overlayContent = document.getElementById('overlayNav')
         overlayContent.style.margin = 0
-        overlayContent.style.height = '620px'
+        overlayContent.style.height = '100%'
 
         let on = document.getElementsByClassName('on')[0]
         on.style.margin = 0
-        on.style.height = '620px'
+        on.style.height = '100%'
 
-        let vehicleForm = document.getElementsByClassName('vehicleForm-container')[0]
-        vehicleForm.style.height = '620px'
+        // let vehicleForm = document.getElementsByClassName('vehicleForm-container')[0]
+        // vehicleForm.style.height = '900px'
 
         // let formContainer = document.getElementsByClassName('FormContainer')[0]
         // formContainer.style.height = '620px'
@@ -80,36 +80,36 @@ const Sidebar = (props) => {
             {/* <div>
                 <i className="fas fa-arrow-circle-left" onClick={props.toggleSidebar}></i>
             </div> */}
-
-            <SidebarMenu />
-            {/* <div className="navbar" > //--Matt T commented out to replace with SidebarMenu component
-                <a class="rv-way-text">RV WAY</a>
+           <>
+             <SidebarMenu /> 
+             </>
+            {/* <div className="navbar" >  --Matt T commented out to replace with SidebarMenu component */}
+                {/* <a class="rv-way-text">RV WAY</a>
                 <a><i className="menu-icon"></i></a>
-            </div> */}
-
+            </div>
+               
             <div className='overlay-content'>
 
                 {/* <div> */}
-                    <div className="sidebar-tabs">
-                        {/* <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
+                   <div className="sidebar-tabs">
+                        <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
-                            onClick={buttonSelect}>Route</p> */}
+                            onClick={buttonSelect}>Route</p>
 
-                        {/* <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
+                        <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicles"
-                            onClick={selectVehicles}
+                            onClick={buttonSelect}
                             // style={{marginRight: "20px"}}
                             >Vehicles
-                            </p> */}
+                            </p>
 
-                        {/* <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
+                        <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
-                            onClick={dynamicSidebar}>Add a Vehicle</p> */}
-                    </div>
+                            onClick={dynamicSidebar}>Add a Vehicle</p>
+                    </div> 
+                    
                     <div className={`${state.routing}`}>
                         <RoutingForm
-                            state={state}
-                            setState={setState}
                             buttonSelect={buttonSelect}
                             textDirections={props.textDirections}
                             toggle={props.toggle}
@@ -122,6 +122,8 @@ const Sidebar = (props) => {
                             routeChangeHandler={props.routeChangeHandler}
                             start={props.start}
                             end={props.end}
+                            state={state}
+                            setState={setState}
                         />
                     </div>
 
@@ -135,11 +137,7 @@ const Sidebar = (props) => {
                         </div>}
                       
                     {localStorage.token ? <div className={`${state.vehicleForm}`}>
-                        <VehicleForm 
-                        state={state} 
-                        setState={setState} 
-                        // closeVehicleForm={closeVehicleForm} 
-                        buttonSelect={buttonSelect} />
+                        <VehicleForm state={state} setState={setState} closeVehicleForm={closeVehicleForm} buttonSelect={buttonSelect} />
                     </div> :
                         <div className={`login-to-add ${state.vehicleForm}`}>
                             <NavLink to="/auth" style={{ marginRight: 10 }}>
@@ -169,11 +167,11 @@ const Sidebar = (props) => {
                         {/* {changeState()} */}
                 {/* </div> */}
             </div>
-            {/* <div id='mainsidebar'>
+            /* <div id='mainsidebar'>
                 <button className = 'openbtn' onClick = {props.toggleSidebar}>Options</button>
                 // button to bring out sidebar
-            </div>  */}
-        </div>
+            </div> */
+        // </div>
     )
 }
 
