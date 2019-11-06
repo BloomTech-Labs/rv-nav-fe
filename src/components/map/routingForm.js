@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import RoutingDropdown from '../map/RoutingDropdown.js'
 // import Form from 'react-bootstrap/Form'; //! Commented out by Noor "Not used anywhere in the file"
 // import Accordion from 'react-bootstrap/Accordion'; //! Commented out by Noor "Not used anywhere in the file"
 // import Card from 'react-bootstrap/Card'; //! Commented out by Noor "Not used anywhere in the file"
@@ -7,6 +8,7 @@ import { connect } from "react-redux";
 // import "../sidebar/sidebar.css" //! commented this out by Noor "Moved the styling to routingForm.css"
 import "./routingForm.css"
 import RoutingDropdown from './RoutingDropdown'
+
 
 const RoutingForm = (props) => {
   //changes "you are routing with" message at the top of the routing form
@@ -24,29 +26,28 @@ const RoutingForm = (props) => {
   console.log('props on RoutingForm', props)
 
   return (
-    <div>
-      <>
 
+      <div className="routingFormDropdownInput">
+    
         {/* Below code commented out because due to the re-design -Noor */}
 
         {/* <div className="routing-with">
         <p>You are routing with</p>
         <span>{`${name}`}</span>
         </div> */}
-        <div class="selected-vehicle">
+        {/* <div class="selected-vehicle">
           <i class="selected-vehicle-truck-icon"></i>
           <p class="selected-vehicle-text">Class B</p>
           <i class="selected-vehicle-pencil-icon"></i>
-        </div>
-        <RoutingDropdown />
-        {/* This is replaced by the RoutingDropdown.js component -- matt */}
+        </div> */}
         {/* <div class="dropdown-menu-class">
           <span class="what-vehcile-are-you-routing-with">What vehcile are you routing with?</span>
           <select class="selected-vehicle-dropdown-menu">
             <option class="selected-vehicle-dropdown-option"></option>
             <option >+ Select Vehicle</option>
-          </select>
-        </div> */}
+            </select>
+          </div> */}
+        <RoutingDropdown state={props.state} setState={props.setState}/>
         <form className="route-form" onSubmit={(event) => {
           event.preventDefault()
           props.onChangeHandler()
@@ -115,8 +116,7 @@ const RoutingForm = (props) => {
           </Accordion>*/}
           <Button variant="warning" id="route-button" type="submit" onClick={props.buttonSelect}>Get Directions</Button>
         </form>
-      </>
-      {/* <p className="route-loading">{props.loading}</p>
+              {/* <p className="route-loading">{props.loading}</p>
       <div className="directions">
         <p>Directions</p>
         {props.textDirections.map(e => {
@@ -126,7 +126,8 @@ const RoutingForm = (props) => {
         })
         }
       </div> */}
-    </div>
+      </div>
+
   )
 }
 

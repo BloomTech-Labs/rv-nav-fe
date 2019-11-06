@@ -1,14 +1,21 @@
 .selected-vehicle {
+    margin-top: 40px;
     visibility: hidden;
 }
 
+/* .dropdown dropdown btn-group{
+    width
+} */
+
 .route-input, .selected-vehicle-dropdown-menu{
     /* margin-bottom: 22px; */
+    /* margin-top:25px; */
     border-radius: 4px;
-    padding: 10px;
+    padding: 8px;
     width: 100%;
     font-family: Helvetica;
     padding-left: 30px;
+    /* margin-bottom: 18px; */
 }
 
 .selected-vehicle-dropdown-menu {
@@ -17,34 +24,50 @@
     background-position: center left, center right;
     content: '';
     background-position-x: 5px, 275px;
+    height:45px;
+    
 }
 
 .dropdown-menu-class {
-    margin-top: -45px;
-    margin-left: 18px;
-    margin-right: 18px;
+    margin-top: 16px; /*<---- modified by Jerry to style initial form */
+    /* margin-left: 18px; */
+    /* margin-right: 18px; */
     text-align: left;
+    height: 64px;
 }
 
 .what-vehcile-are-you-routing-with,
 .where-are-you-going,
 .choose-a-starting-point {
+    display:flex;
+    /* flex-direction:column; */
+    align-items: left;
     font-family: Helvetica;
     color: #F8F9FA;
     margin-bottom: 2px;
     font-size: 13px;
+    
 }
 
 .route-form {
     /* padding: 6px; */
     /* margin: 35px 5px 5px 5px; */
-    font-family: Helvetica;
-    margin-left: 18px;
-    margin-right: 18px;
+    /* font-family: Helvetica;
+    margin-left: 18px; */
+    /* margin-right: 18px; */
 }
 
 .start-input-div {
-    margin-top: 16px;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    margin: 16px 0;
+    text-align: left; /* Modified by Jerry to style initial form */
+    height: 64px;
+}
+.end-input-div {
+    margin: 16px 0;
+    text-align: left; /* Modified by Jerry to style initial form */
 }
 
 #start {
@@ -52,8 +75,9 @@
     background-repeat:no-repeat;
     background-position: center left;
     background-position-x: 5px;
-    height: 40px;
-    margin-bottom: 18px;
+    height: 45px;
+    width: 339px;
+    /* margin-bottom: 18px; */
 }
 
 #end {
@@ -61,7 +85,8 @@
     background-repeat:no-repeat;
     background-position: center left;
     background-position-x: 5px;
-    height: 40px;
+    height: 45px;
+    width: 339px;
 }
 
 #route-button{
@@ -78,4 +103,10 @@
     border-radius: 3px;
     /* We need to make it display when we need it -Noor */
     visibility: hidden;
+}
+
+.routingFormDropdownInput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

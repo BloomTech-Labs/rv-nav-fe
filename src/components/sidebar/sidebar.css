@@ -30,7 +30,7 @@
 
 .open{
     width: 375px;
-    height: 370px;
+    height: 330px; /* Modified by Jerry to style initial form */
     overflow: hidden;
 }
 
@@ -39,7 +39,7 @@
     top: 0%;
     width: 100%;
     text-align: center;
-    margin-top: 25px;
+    /* margin-top: 25px; */
     /* margin-top: 83px; */  /*  */
 }
 
@@ -103,7 +103,10 @@
 }
 
 .on{
-    display: block;
+    display: flex;
+    justify-content: center;
+    width: 375px;
+    height: 300px;
 }
 
 /* !/ All the commented code below has been moved to routingForm.css */
@@ -267,10 +270,10 @@ a.rv-way-text {
         /* Primary 100% */
     }
 
-    .route-form {
+    /* .route-form {
         margin: 10px 5px 5px 5px;
         background: #2A2E43;
-    }
+    } */
 
     .open{
         width: 100%;
