@@ -91,20 +91,20 @@ const Sidebar = (props) => {
 
                 {/* <div> */}
                     <div className="sidebar-tabs">
-                        {/* <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
+                         {/* <p className={` route-tab ${state.routing === `on` ? `selected` : `sidebar-tab`} `}
                             id="routing"
-                            onClick={buttonSelect}>Route</p> */}
+                            onClick={buttonSelect}>Route</p>  */}
 
-                        {/* <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
+                         {/* <p className={`${state.vehicles === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicles"
                             onClick={selectVehicles}
                             // style={{marginRight: "20px"}}
                             >Vehicles
-                            </p> */}
+                            </p>  */}
 
-                        {/* <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
+                         {/* <p className={`${state.vehicleForm === `on` ? `selected` : `sidebar-tab`}   `}
                             id="vehicleForm"
-                            onClick={dynamicSidebar}>Add a Vehicle</p> */}
+                            onClick={dynamicSidebar}>Add a Vehicle</p>  */}
                     </div>
                     <div className={`${state.routing}`}>
                         <RoutingForm
