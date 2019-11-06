@@ -5,20 +5,24 @@ import { getVehicles, deleteVehicles } from "../../store/actions";
 import { selectVehicle } from "../../store/actions/selectVehicle.js";
 import "../map/routingForm.css"
 import VehicleForm from '../vehicleForm/VehicleForm.js'
-import './routingDropdown.css'
+import './routingDropdown.scss'
 
 const RoutingDropdown = (props) => {
+
+  const [state, setState] = useState({
+    dropdown: false,
+  })
 
     const selected = (id) => {
         props.selectVehicle(id)
     }
 
-    // const deselect = () => {
-    //     props.selectVehicle(null)
-    // }
-
     const addAVehicle = () => {
       props.setState({...props.state, vehicleForm: 'on', routing: 'off'})
+    }
+
+    const dropdownToggle = () => {
+      setState({...state, dropdown: !state.dropdown})
     }
 
     console.log('props.vehicles.vehicles from RoutingDropdown', props.vehicles.vehicles)
@@ -39,8 +43,16 @@ const RoutingDropdown = (props) => {
           <div className="dd-header-title"></div>
         </div>
         <ul className="dd-list">
-          <li className="dd-list-item" onClick={addAVehicle}>+ Add a Vehicle...</li>
-          {props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <li onClick={() => {selected(rv.id)}}>{rv.name}</li>)}
+          <div className='addAVehicleTitle'>
+            <li className="dd-list-item" onClick={addAVehicle}>+ Add a Vehicle...</li>
+            <p onClick={dropdownToggle}>V</p>
+          </div>
+          <div className='vehiclesList'>
+            {state.dropdown === true ? 
+            props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <li onClick={() => {selected(rv.id)}}>{rv.name}</li>)
+            : null
+          }
+          </div>
         </ul>
         </div>
         </div>

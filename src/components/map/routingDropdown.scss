@@ -1,0 +1,16 @@
+.dd-list{
+    color: white;
+    padding: 0;
+
+    li {
+        /* list-style-type: none; */
+    }
+}
+
+
+.addAVehicleTitle{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
