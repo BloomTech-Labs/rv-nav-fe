@@ -17,10 +17,6 @@ const RoutingDropdown = (props) => {
         props.selectVehicle(id)
     }
 
-    const addAVehicle = () => {
-      props.setState({...props.state, vehicleForm: 'on', routing: 'off'})
-    }
-
     const dropdownToggle = () => {
       setState({...state, dropdown: !state.dropdown})
     }
@@ -44,13 +40,17 @@ const RoutingDropdown = (props) => {
           </div>
           <ul className="dd-list">
             <div className='addAVehicleTitle'>
+              {/* {props.vehicles.vehicles.forEach(vehicle => {
+                
+              })} */}
+              <p style={{color: 'black'}}></p>
               <div id='arrowDown'></div>
             </div>
             <div className='vehiclesListContainer'>
               {state.dropdown === true ? 
               <div className='vehiclesList'>
                 <section>
-                <p onClick={addAVehicle}>Add a vehicle...</p>
+                <p onClick={props.dynamicSidebar}>Add a vehicle...</p>
                 </section>
                 {props.vehicles.vehicles && props.vehicles.vehicles.map(rv => <li onClick={() => {selected(rv.id)}}>{rv.name}</li>)}
               </div>
