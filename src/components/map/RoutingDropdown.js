@@ -49,6 +49,7 @@ const RoutingDropdown = (props) => {
                 <section>
                 <p onClick={addAVehicle}>Add a vehicle...</p>
                 </section>
+                {/* That's right Jerry two functions are being called on the same on click!! How do you like me now!? */}
                 {props.vehicles.vehicles && props.vehicles.vehicles.map((rv, index) => <li key={index} onClick={() => {selected(rv.id); currentRV(rv.name)}}>{rv.name}</li>)}
               </div>
                 : null
