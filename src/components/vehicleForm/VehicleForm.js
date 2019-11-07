@@ -208,25 +208,38 @@ class VehicleForm extends React.Component {
       <div className='WidgetWrapper'> 
         <div className='vehicle-form-wrap'>
         <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
-          <h2>RV WAY</h2>
+          {/* <h2>RV WAY</h2> */}
           <div className='FormContainer'>
-            <h6>Back</h6>
+          <div className="back">
+                        <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
+                                   id="routing"
+                                   onClick={this.props.buttonSelect}>Back
+                        </p>
+                        <p className="back-label">| Add Vehicle</p>
+                  </div>
+          <div className="form-wrapper">        
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
-            <h4 className="vehicle-spec">Name (required)</h4>
+            <p className="vehicle-spec">Name (required)</p>
             <div className='measurements'>
-              <input        
+              <input  className="start-input-div"      
                 type="string"
                 required
                 name='name'
                 placeholder="The Mystery Machine"
                 value={this.state.specifications.name}
                 onChange={this.handleText}
+                id="rv-name"
               >
               </input>
           </div>
-          <div className='measurementsParent'>
-            <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Height</h4>
+          
+           
+              <div className="vehicle-spec-label">
+              <p className="vehicle-spec">Height</p>
+              <p className="vehicle-spec">Width</p>
+              </div>
+              <div className='measurementsParent'>
+              <div className='inputsFieldsContainer'>
               <div className="form-section">  
                 <div className='measurements'>
                   <p>Feet</p>
@@ -238,6 +251,7 @@ class VehicleForm extends React.Component {
                     placeholder="0"
                     value={this.state.specifications.heightFeet}
                     onChange={this.handleChange}
+                    id="input-boxes"
                   >
                   </input>
                 </div>
@@ -253,13 +267,14 @@ class VehicleForm extends React.Component {
                     // this.state.specifications.heighInches === 0 ? undefined :
                     value={ this.state.specifications.heightInches}
                     onChange={this.handleChange}
+                    id="input-boxes"
                   >
                 </input>
                 </div>
               </div>
             </div>
             <div className='inputsFieldsContainer'>
-              <h4 className="vehicle-spec">Width</h4>
+             
               <div className="form-section">
               <div className="measurements">
                 <p>Feet</p>
@@ -271,6 +286,7 @@ class VehicleForm extends React.Component {
                   placeholder="0"
                   value={this.state.specifications.widthFeet}
                   onChange={this.handleChange}
+                  id="input-boxes"
                 >
               </input>
               </div>
@@ -285,67 +301,82 @@ class VehicleForm extends React.Component {
                   placeholder="0"
                   value={this.state.specifications.widthInches}
                   onChange={this.handleChange}
+                  id="input-boxes"
                 >
               </input>
               </div>
               </div>
             </div>
           </div>
-            <h4 className="vehicle-spec">Length</h4>
-            <div className="form-section">
-            <div className='measurements'>
-              <div>
-                <p>Feet</p>
-                <input        
+         
+          <div className="vehicle-spec-label">
+              <p className="vehicle-spec">Length</p>
+              <p className="vehicle-spec">Weight</p>
+              </div>
+              <div className='measurementsParent'>
+              <div className='inputsFieldsContainer'>
+              <div className="form-section">  
+                <div className='measurements'>
+                  <p>Feet</p>
+                  <input        
+                    type="number"
+                    min="0"
+                    max="100"
+                    name='heightFeet'
+                    placeholder="0"
+                    value={this.state.specifications.heightFeet}
+                    onChange={this.handleChange}
+                    id="input-boxes"
+                  >
+                  </input>
+                </div>
+                <p className="plus">+</p>
+                <div className="measurements">
+                  <p>Inches</p>
+                  <input        
+                    type="number"
+                    min="0"
+                    max="11"
+                    name='heightInches'
+                    placeholder="0"
+                    // this.state.specifications.heighInches === 0 ? undefined :
+                    value={ this.state.specifications.heightInches}
+                    onChange={this.handleChange}
+                    id="input-boxes"
+                  >
+                </input>
+                </div>
+              </div>
+            </div>
+            <div className='inputsFieldsContainer'>
+             
+              <div className="form-section">
+              <div className="measurements">
+                <p>Pounds</p>
+                <input
+                  id="pounds"        
                   type="number"
                   min="0"
                   max="100"
-                  name='lengthFeet'
+                  name='weightPounds'
                   placeholder="0"
-                  value={this.state.specifications.lengthFeet}
+                  value={this.state.specifications.widthFeet}
                   onChange={this.handleChange}
+                  
                 >
-                </input>
+              </input>
+              </div>
+             
+              
               </div>
             </div>
-            <p className="plus">+</p>
-            <div>
-            <p>Inches</p>
-              <input        
-                type="number"
-                min="0"
-                max="11"
-                name='lengthInches'
-                placeholder="0"
-                value={this.state.specifications.lengthInches}
-                onChange={this.handleChange}
-              >
-            </input>
-            </div>
-            </div>
-            <h4 className="vehicle-spec">Weight</h4>
-            <div className="form-section">
-            <div className='measurements'>
-              <div>
-                <p>Pounds</p>
-                <input        
-                  type="number"
-                  min="0"
-                  max="99000"
-                  name='weight'
-                  placeholder="0"
-                  value={this.state.specifications.weight}
-                  onChange={this.handleChange}
-                >
-                </input>
-              </div>
-            </div>
-            </div>
-            <h4 className="vehicle-spec">Axel Count</h4>
-            <div className="form-section">
-            <div className='measurements'>
-              <div>
-                <p>Axels</p>
+          </div>
+         
+           <div className="tires-axels">
+           
+            <div className='measurements axel'>
+            <p className="vehicle-spec">Axel Count</p>
+            <div className="form-section"> 
                 <input        
                   type="number"
                   min="0"
@@ -354,24 +385,49 @@ class VehicleForm extends React.Component {
                   placeholder="0"
                   value={this.state.specifications.axel_count}
                   onChange={this.handleChange}
+                  id="input-boxes"
                 >
                 </input>
-              </div>
+            
             </div>
             </div>
-            <p className="vehicle-spec">Class</p>
+            <div className="tires-check">
+             <div className="tires-check-p">
+            <p >Tires</p>
+           <div className="tires-check-p2">
+          <Form.Check 
+          name="dual_tires" 
+          type="checkbox"
+          checked={this.state.specifications.dual_tires}
+          onChange={this.handleCheck}
+          id={`inline-text-2`} 
+          />
+          <p>I have a dual wheel vehicle</p> 
+          </div>
+          </div>
+          </div>
+           </div>
+            <p className="vehicle-spec">RV TYPE</p>
           <div className="class-radios">
           <Form.Check name="class"inline label="A" type="radio" id={`inline-text-1`} 
-          value="A"
+          value="CLASS A"
           checked={this.state.specifications.class_name === "A"} onChange={this.handleRadio}
           />
           <Form.Check name="class" inline label="B" type="radio" id={`inline-text-2`} 
-          value="B"
+          value="CLASS B"
           checked={this.state.specifications.class_name === "B"} onChange={this.handleRadio}
           />
           <Form.Check name="class" inline label="C" type="radio" id={`inline-text-2`} 
-          value="C"
+          value="CLASS C"
           checked={this.state.specifications.class_name === "C"} onChange={this.handleRadio}
+          />
+           <Form.Check name="class" inline label="5TH WHEEL" type="radio" id={`inline-text-2`} 
+          value="5TH WHEEL"
+          checked={this.state.specifications.class_name === "5TH WHEEL"} onChange={this.handleRadio}
+          />
+           <Form.Check name="class" inline label="TAGALONG CAMPER" type="radio" id={`inline-text-2`} 
+          value="TAGALONG CAMPER"
+          checked={this.state.specifications.class_name === "TAGALONG CAMPER"} onChange={this.handleRadio}
           />
           {/* <Form.Check name="class" inline label="Trailer" type="radio" 
                 value="Trailer"
@@ -379,21 +435,15 @@ class VehicleForm extends React.Component {
                 onChange={this.handleRadio}
           id={`inline-text-2`} /> */}
           </div>
-          <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a>
-
-          <p className="vehicle-spec">Tires</p>
-          <Form.Check 
-          name="dual_tires" 
-          type="checkbox"
-          checked={this.state.specifications.dual_tires}
-          onChange={this.handleCheck}
-          label="I have a dual wheel vehicle" 
-          id={`inline-text-2`} 
-          />
+          {/* deleted from UX Design - Stacy */}
+          {/* <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a> */}
+         
+         
 
           <Button type="submit" variant="warning" onClick={this.vehicleSubmit}>Submit</Button>
           </div>
           </div>
+        </div>
         </div>
       </div>
     )
