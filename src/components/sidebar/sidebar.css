@@ -1,16 +1,16 @@
 .overlay {
-    height: 370px;
+    height: 100%;
     width: 0;
     position: fixed;
     z-index: 1000;
-    margin: 25px;
+    /* margin: 25px; */
     top: 0;
     left: 0;
     background: #2A2E43;
     overflow-x: hidden;
     transition: 0.5s;
-    margin-left: 20px;
-    margin-top: 23px;
+    /* margin-left: 20px; */
+    /* margin-top: 23px; */
 }
 
 /* .AddVehicleFormContainer{
@@ -30,7 +30,7 @@
 
 .open{
     width: 375px;
-    height: 400px; /* Modified by Jerry to style initial form */
+    height: 100%; /* Modified by Jerry to style initial form */
     overflow: hidden;
 }
 
@@ -107,7 +107,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 300px;
+    height: 100%;
     margin: 0;
 }
 
