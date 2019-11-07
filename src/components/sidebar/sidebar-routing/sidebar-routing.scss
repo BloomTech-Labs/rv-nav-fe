@@ -11,36 +11,41 @@
 //<----------------- END OF KEYFRAMES FOR ANIMATION
 
 .containerWithArrow{
+    width: 400px;
     display: flex;
     flex-direction: row-reverse;
     height: 100%;
-    width: 400px;
     position: relative;
+    right: 15px;
 
     
     
     
     .arrowContainer{
         position: relative;
-        // animation: slideLeft 1s;  
-        margin-top: 67px;
+        margin-top: 70px;
         background-image: url('./icons/hide-sidebar.svg');
         background: no-repeat;
         
         
         svg{
+            position: relative;
+            right: 10px;
             box-shadow: 0px 1px 3px gray;
+
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
     
-    .sidebarContainer{
-        // position: relative;
-        // right: 0px;
-        // animation: slideRight 1s;    
+    .sidebarContainer{  
         display: flex;
         flex-direction: column;
         height: 100%;
         background-color: #2A2E43;
+        position: relative;
+        right: 10px;
         
         .directions{
             padding-left: 30px;
@@ -54,14 +59,25 @@
             align-items: center;
             border-bottom: 2px solid gray;
 
+            
+            h6 {
+                color: #00B2D9;
+                font-weight: bold;
+                padding-right: 0;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
         }
         
         .startEndContainer{
-            padding-left: 30px;
-            padding-top: 20px;
+            padding: 20px 0 30px 30px;
             
             p{
                 margin: 0;
+                font-size: 13px;
             }
             
             .startAndEnd{
@@ -94,11 +110,7 @@
             padding: 10px 20px 10px 30px;
             width: 90%;
             text-align: left;
-        }
-
-        .dropdown {
-            width: 375px;
-            /* margin-left: 400px; */
+            margin: 0;
         }
 
         .sidebarFooterContainer{
@@ -115,13 +127,13 @@
         }
         
         #directionsTitle{
+            background: white;
             font-size: 18px;
-            color: white;
+            color: #2A2E43;
             width: 100%;
-            margin: 0;
+            // margin-top: 20px;
             text-align: left;
-            // padding: 20px 0 5px 20px;
-            padding-left: 30px;
+            padding: 10px 0px 10px 30px;
         }
         
         #startPointContainer{
@@ -150,6 +162,11 @@
 .directions::-webkit-scrollbar{
     display: none;
 }
+
+// .somethingUseful{
+//     position: absolute;
+//     right: 20px;
+// }
 
 
 // #overlayNav{

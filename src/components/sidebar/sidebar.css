@@ -17,16 +17,16 @@
     height: 813px;
 } */
 
-.navbar {
+/* .navbar {
     background-color: white;
-    background-image: url(../../assets/img/blue-menu.svg);
+    background-image: url(../../assets/img/hamburger.svg);
     background-repeat: no-repeat;
     background-position: right;
     background-origin: content-box;
     height: 70px;
     color: rgba(53, 195, 226, 0.95);
     font-weight: bold;
-}
+} */
 
 .open{
     width: 375px;
@@ -100,13 +100,15 @@
 
 .off{
     display: none;
+    width: 100%;
 }
 
 .on{
     display: flex;
     justify-content: center;
-    width: 375px;
+    width: 100%;
     height: 300px;
+    margin: 0;
 }
 
 /* !/ All the commented code below has been moved to routingForm.css */
@@ -221,15 +223,15 @@ a.rv-way-text {
         padding: 8px 3px;
     }
 
-    .navbar {
+    /* .navbar {
         position: absolute;
         width: 375px;
         height: 70px;
         left: 0px;
         top: 0px;
-        /* white background */
+        white background
         background: #F8F9FA;
-    }
+    } */
 
     .route-input {
         margin-bottom: 15px;
@@ -309,6 +311,15 @@ a.rv-way-text {
      .overlay-content {
         margin-top: 83px;
     }
+}
+
+/* #overlayNav{
+    margin: 0px;
+} */
+
+#dropdown-split-basic div{
+    position: relative;
+    left: 10px;
 }
 
 

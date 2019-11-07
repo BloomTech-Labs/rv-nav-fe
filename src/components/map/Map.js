@@ -132,7 +132,7 @@ class MapPage extends Component {
   //this function is triggered when the route button is clicked
   //calls the geocode() function for start and end, triggers a series of functions/api calls
   onChangeHandler = (e) => {
-    this.setState({ loading: "searching addresses" })
+    this.setState({ loading: "Searching addresses" })
     this.geocode(this.state.start, "startCoord");
   }
 
@@ -162,7 +162,7 @@ class MapPage extends Component {
                 this.geocode(this.state.end, "endCoord");
               }
               else if (coordinate === "endCoord") {
-                this.setState({ loading: "checking initial route" });
+                this.setState({ loading: "Checking initial route" });
                 this.routeBeforeBarriers();
               }
             }
@@ -172,7 +172,7 @@ class MapPage extends Component {
       })
       .catch(err => {
         console.log("gecode err", err)
-        this.setState({ loading: "problem geocoding, please try again" });
+        this.setState({ loading: "Problem geocoding, please try again" });
       })
 
   }
@@ -204,7 +204,7 @@ class MapPage extends Component {
           let increment = 500; //variable for breaking the route into chunks for the clearance api, call will be made every nth coordinate returned from ArcGIS
           let polyArrayLocal = []; //stores barriers beofre they are set to state
           let lastStartPoint = resLength - (resLength % increment); //the value of i when the loop is on it's last run (ex. i = 1000 for an array of length 1200 with increments of 500)
-          this.setState({ loading: "checking clearance" }) //changes loading message displayed below routing form
+          this.setState({ loading: "Checking clearance" }) //changes loading message displayed below routing form
           for (let i = 0; i < resLength; i = i + increment) {
 
             startCoordinate = { lat: res.data.routes.features[0].geometry.paths[0][i][1], lng: res.data.routes.features[0].geometry.paths[0][i][0] }
@@ -227,7 +227,7 @@ class MapPage extends Component {
       })
       .catch(err => {
         console.log("arc route err:", err);
-        this.setState({ loading: "problem with initial route, please try again" });
+        this.setState({ loading: "Problem with initial route, please try again" });
       })
 
   }
@@ -288,7 +288,7 @@ class MapPage extends Component {
         }
       })
       .catch(err => {
-        this.setState({ loading: "problem getting clearance info, please try again" })
+        this.setState({ loading: "Problem getting clearance info, please try again" })
         console.log("clearance error:", err);
       })
   }
@@ -298,7 +298,7 @@ class MapPage extends Component {
   //calls pointsOfInterest()
   initRoute = () => {
     this.setMapToState();
-    this.setState({ loading: "making final route" })
+    this.setState({ loading: "Making final route" })
 
     var formData = new FormData();
     formData.append('f', 'json');
@@ -469,11 +469,11 @@ class MapPage extends Component {
           view.ui.add(track, "bottom-right");
           view.ui.move("zoom", "bottom-right");
 
-          this.setState({ loading: "routing successful" })
+          this.setState({ loading: "Routing successful" })
         })
       })
       .catch(err => {
-        this.setState({ loading: "problem making final route, please try again" })
+        this.setState({ loading: "Problem making final route, please try again" })
         console.log("arc route err:", err);
       })
   }
@@ -540,6 +540,7 @@ class MapPage extends Component {
   }
 
   render() {
+    console.log('START & END POINT MAP', this.state)
     return (
       <div>
         <Sidebar
