@@ -425,7 +425,7 @@ class VehicleForm extends React.Component {
           value="5TH WHEEL"
           checked={this.state.specifications.class_name === "5TH WHEEL"} onChange={this.handleRadio}
           />
-           <Form.Check name="class" inline label="TAGALONG CAMPER" type="radio" id={`inline-text-2`} 
+           <Form.Check name="class" inline label="TAGALONG" type="radio" id={`inline-text-2`} 
           value="TAGALONG CAMPER"
           checked={this.state.specifications.class_name === "TAGALONG CAMPER"} onChange={this.handleRadio}
           />
