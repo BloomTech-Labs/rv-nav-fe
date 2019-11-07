@@ -55,9 +55,16 @@ const RoutingSidebar = (props) => {
             sidebar.style.width = '420px'
 //revert sidebar style changes back to the original
         } else {
+
+            let overlayOpen = document.querySelector('#overlayNav.overlay.open')
+            overlayOpen.style.height = '100%'
+            overlayOpen.style.margin = '0px'
+            overlayOpen.style.width = '375px'
+            overlayOpen.style.background = '#2A2E43'
+
             let sidebar = document.querySelector('#overlayNav')
-            sidebar.style.height = '400px'
-            sidebar.style.margin = '25px'
+            sidebar.style.height = '100%'
+            // sidebar.style.margin = '25px'
             sidebar.style.width = '375px'
             sidebar.style.background = '#2A2E43'
 
@@ -65,11 +72,11 @@ const RoutingSidebar = (props) => {
 
             let overlayContent = document.getElementsByClassName('overlay-content')[0]
             // overlayContent.style.marginTop = '25px'
-            overlayContent.style.height = '370px'
+            overlayContent.style.height = '100%'
             sidebar.style.background = '#2A2E43'
 
             let on = document.getElementsByClassName('on')[0]
-            on.style.height = '370px'
+            on.style.height = '100%'
             sidebar.style.background = '#2A2E43'
 
         }

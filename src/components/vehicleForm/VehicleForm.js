@@ -111,7 +111,7 @@ class VehicleForm extends React.Component {
 
     let overlayContent = document.getElementById('overlayNav')
         overlayContent.style.margin = '25px'
-        overlayContent.style.height = '370px'
+        overlayContent.style.height = '400px'
 
     let on = document.getElementsByClassName('on')[0]
       on.style.height = '300px'
@@ -213,7 +213,7 @@ class VehicleForm extends React.Component {
           <div className="back">
                         <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
                                    id="routing"
-                                   onClick={this.props.buttonSelect}>Back
+                                   onClick={this.props.selectVehicles}>Back
                         </p>
                         <p className="back-label">| Add Vehicle</p>
                   </div>
