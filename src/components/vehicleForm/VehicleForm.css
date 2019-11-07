@@ -1,144 +1,242 @@
+.form-wrapper{
+padding:10px;
+}
 .vehicle-tabs{
-    color: white;
-    background-color: #6C757D;
-    margin: 20px;
-    padding: 8px;
-    border-radius: 8px;
-    display: flex;
-    width: 90%;
-    height:100%;
-    flex-direction: column;
-  }
-  
-  .vehicle-tabs > div > form{
-    background-color: #0f0f0f;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  
-  .highlight{
-    border: 3px solid #ffc107;
-    position: relative;
-  }
-  .select-text{
-    color: #ffc107;
-  }
-  p{
-    color: white;
-  }
-  .select-btn{
-    width: 100px;
-    align-self: start;
-    padding: 0;
-    margin-bottom: 10px;
-    margin-left: 4px;
-    margin-top: 6px;
-  }
-  .vehicle-btn{
-    margin: 4px;
-    width:  100px;
-  }
-  .vehicle-txt{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .vehicle-name{
-    margin: 0 0 0 20px;
-    align-self: start;
-  }
-  .edit-delete{
-    display: flex;
+color: white;
+background-color: #6C757D;
+margin: 20px;
+padding: 8px;
+border-radius: 8px;
+display: flex;
+width: 90%;
+height:100%;
+flex-direction: column;
+}
+
+.vehicle-tabs > div > form{
+background-color: #0f0f0f;
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
+
+.highlight{
+border: 3px solid #ffc107;
+position: relative;
+}
+.select-text{
+color: #ffc107;
+}
+p{
+color: white;
+}
+.select-btn{
+width: 100px;
+align-self: start;
+padding: 0;
+margin-bottom: 10px;
+margin-left: 4px;
+margin-top: 6px;
+}
+.vehicle-btn{
+margin: 4px;
+width:  100px;
+}
+.vehicle-txt{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
+.vehicle-name{
+margin: 0 0 0 20px;
+align-self: start;
+}
+.edit-delete{
+display: flex;
+flex-direction: row;
+margin: 20px 0;
+}
+.vehicle-information{
+font-size: 1.2rem;
+align-self: start;
+margin-left: 4px;
+}
+
+.inputsFieldsContainer{
+    display:flex;
+    flex-direction:column;
+    width: 170px;
+}
+
+.form-section{
+    display:flex;
     flex-direction: row;
-    margin: 20px 0;
-  }
-  .vehicle-information{
-    font-size: 1.2rem;
-    align-self: start;
-    margin-left: 4px;
-  }
+}
+.vehicle-spec-label{
+display:flex;
+flex-direction:row;
 
-  .inputsFieldsContainer{
-      display:flex;
-      flex-direction:column;
-      width: 170px;
-  }
+color: rgba(237, 238, 241, 0.95);
+}
 
-  .form-section{
-      display:flex;
-      flex-direction: row;
-  }
-  p.vehicle-spec{
-      display:flex;
-      align-items:left;
+p.vehicle-spec{
+display:flex;
+width:150px;
+padding:0px;
+align-items:left;
+
+
+}
+
+.FormContainer{
+    width:376px;
+}
+.measurements{
+width:110px;
+}
+#input.measurements{
+height:55px;
+width:45px;
+}
+.measurementsParent{
+    display:flex;
+    flex-direction:row;
+    width:375px;
+    /* justify-content: center; */
+}
+
+.tires-axels{
+    display:flex;
+    flex-direction: row;
+}
+
+.tires-check{
+width:225px;
+display:flex;
+flex-direction:row;
+align-items:left;
+padding-top:30px;
+}
+
+.form-check{
+    display:flex;
+    width:10px;
+    /* padding:0px;*/
+    margin:0px;
+    justify-content: left; 
     color: rgba(237, 238, 241, 0.95);
-  }
+}
 
-  .FormContainer{
-      width:376px;
-  }
+.form-check-label{
+width:225px;
+font-family: Heebo;
+font-size: 16px;
+display: flex; 
+color: rgba(237, 238, 241, 0.95);
+}
 
-  .measurementsParent{
-      display:flex;
-      flex-direction:row;
-  }
-
-  .tires-axels{
-      display:flex;
-      flex-direction: row-reverse;
-  }
-
-  .form-check{
-      padding:0px;
-      margin:0px;
-      color: rgba(237, 238, 241, 0.95);
-  }
-
-  #vehicleAddTitle{
-    font-family: Heebo;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 26px;
-    display: flex;
-    align-items: center;
+.form-check.input{
+    margin-top:35px;
     
-    /* White text */
-    
-    color: rgba(237, 238, 241, 0.95);
-  }
+}
 
-  .back{
-      display:flex;
-      flex-direction:row;
-    background: #F8F9FA;
-  }
+#input-boxes{
+    height:45px;
+    width:55px;
+}
+#Form.Check{
+    width:15px;
 
-  .back-label{
-    font-family: Heebo;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 23px;
-    /* identical to box height */
-    
-    display: flex;
-    align-items: center;
-    padding-top:5px;
-    /* Grayscale 80% */
-    
-    color: rgba(42, 46, 67, 0.8);
-  }
+}
 
-  #routing{
-    background-color:rgba(237, 238, 241, 0.95)
-  }
+#vehicleAddTitle{
+font-family: Heebo;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 26px;
+display: flex;
+align-items: center;
 
-  .dropdown{
+/* White text */
+
+color: rgba(237, 238, 241, 0.95);
+}
+
+.back{
+    display:flex;
+    flex-direction:row;
+background: #F8F9FA;
+}
+
+.back-label{
+font-family: Heebo;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 23px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+padding-top:5px;
+/* Grayscale 80% */
+
+color: rgba(42, 46, 67, 0.8);
+}
+
+#routing{
+background-color:rgba(237, 238, 241, 0.95)
+}
+
+.dropdown{
+background-color: #2A2E43;
+}
+.dropdown:hover{
     background-color: #2A2E43;
-  }
-  .dropdown:hover{
-      background-color: #2A2E43;
-  }
+}
+
+#rv-name{
+    width: 319px;
+    height:45px;
+}
+
+.plus{
+    padding-top: 51px;
+}
+
+#pounds{
+    width:155px;
+    height:45px;
+}
+
+.tires-check-p{
+display:flex;
+flex-direction: column;
+justify-content: left;
+font-family: Heebo;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 23px;
+}
+
+.tires-check-p2{
+    display:flex;
+    flex-direction: row;
+}
+
+.class-radios{
+    display:flex;
+    /* flex-direction: row;
+    flex-wrap: wrap;
+    margin:10px; */
+}
+
+.form-checkinput{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:10px;
+}
