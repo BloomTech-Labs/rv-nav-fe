@@ -62,19 +62,22 @@
     box-shadow: none;
 }
 
-.dropdownmenu {
+/* .dropdownmenu {
+    right: 10px;
     background: #2A2E43;
     border-radius: 0px;
-    width: 100%;
-}
+    width: 96.5%;
+} */
+
 
 .dropdownmenu:hover{
     background: rgb(57, 62, 90);
 }
 
-.dropdown-menu {
-    margin: 0px;
-    border-top: 1px solid rgba(237, 238, 241, 0.2);
+.show .dropdown-menu{ /*fixed major bug on routing side bar -Jerry*/
+    transform: translate3d(0px, 70px, 0px) !important;
+    background: #2A2E43;
+    width: 375px;
 }
 
 .dropdownitem {

@@ -34,22 +34,29 @@ const RoutingSidebar = (props) => {
 
 //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => {
+
         if(props.state.directions === 'on'){
             let sidebar = document.querySelector('#overlayNav.overlay.open')
             sidebar.style.height = '100%'
-            sidebar.style.margin = '0'
+            sidebar.style.margin = '0px'
             sidebar.style.width = '420px'
             sidebar.style.background = 'transparent'
             
-            document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'none'
+            let dropdown = document.getElementsByClassName('dropdown dropdown btn-group')[0]
+            dropdown.style.display = 'none'
+
+            // let dropdownContent = document.getElementsByClassName('dropdownmenu dropdown-menu show')
+            // dropdownContent.style.position
+
 
             let overlayContent = document.getElementsByClassName('overlay-content')[0]
             overlayContent.style.margin = 0
             overlayContent.style.height = '100%'
 
             let on = document.getElementsByClassName('on')[0]
-            on.style.margin = 0
+            on.style.margin = '0px'
             on.style.height = '100%'
+            sidebar.style.width = '420px'
 //revert sidebar style changes back to the original
         } else {
             let sidebar = document.querySelector('#overlayNav.overlay.open')
@@ -82,14 +89,16 @@ const RoutingSidebar = (props) => {
         })
     }
 
-
     return (
         <div className='containerWithArrow'>
             {props.loading !== 'Routing successful' ? <p className="route-loading">{props.loading}</p> :
                 <>
                     {/* {state.sidebar === true ? */}
                         <div className='arrowContainer' onClick={toggleSidebar}>
-                            <ToggleHideArrow />
+                            {state.sidebar === true ?
+                                <ToggleHideArrow /> :
+                                <ToggleShowArrow />
+                            }
                         </div>
                         <div className='sidebarContainer'>
                             <SidebarMenu />
@@ -100,7 +109,7 @@ const RoutingSidebar = (props) => {
                                     >Back</h6>
                                 </div>
                                 <div className='startEndContainer'>
-                                    <h3 id='estimatedTime'>17 mins (4 miles)</h3>
+                                    {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
                                     <div id='startPointContainer'>
                                         <p className='startAndEnd'>STARTING POINT</p>
                                         <p>{props.start}</p>
