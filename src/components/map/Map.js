@@ -540,6 +540,7 @@ class MapPage extends Component {
   }
 
   render() {
+    console.log('START & END POINT MAP', this.state)
     return (
       <div>
         <Sidebar
