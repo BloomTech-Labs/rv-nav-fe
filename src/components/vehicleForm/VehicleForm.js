@@ -242,7 +242,7 @@ class VehicleForm extends React.Component {
               <div className='inputsFieldsContainer'>
               <div className="form-section">  
                 <div className='measurements'>
-                  <p>Feet</p>
+                  <p className='measurementsInput'>Feet</p>
                   <input        
                     type="number"
                     min="0"
@@ -257,7 +257,7 @@ class VehicleForm extends React.Component {
                 </div>
                 <p className="plus">+</p>
                 <div className="measurements">
-                  <p>Inches</p>
+                  <p className='measurementsInput'>Inches</p>
                   <input        
                     type="number"
                     min="0"
@@ -277,7 +277,7 @@ class VehicleForm extends React.Component {
              
               <div className="form-section">
               <div className="measurements">
-                <p>Feet</p>
+                <p className='measurementsInput'>Feet</p>
                 <input        
                   type="number"
                   min="0"
@@ -292,7 +292,7 @@ class VehicleForm extends React.Component {
               </div>
               <p className="plus">+</p>
               <div className="measurements">
-              <p>Inches</p>
+              <p className='measurementsInput'>Inches</p>
                 <input        
                   type="number"
                   min="0"

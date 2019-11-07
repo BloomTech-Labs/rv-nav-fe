@@ -15,6 +15,7 @@
     width: 100%;
     font-family: Helvetica;
     padding-left: 30px;
+    border: none;
     /* margin-bottom: 18px; */
 }
 
@@ -28,12 +29,15 @@
     
 }
 
+
 .dropdown-menu-class {
     margin-top: 16px; /*<---- modified by Jerry to style initial form */
     /* margin-left: 18px; */
     /* margin-right: 18px; */
     text-align: left;
     height: 64px;
+
+   
 }
 
 .what-vehcile-are-you-routing-with,
@@ -107,6 +111,7 @@
     width: 339px;
     margin-left: 0px;
     margin-top: 7px;
+    border: none;
 }
 
 .routingFormDropdownInput{
