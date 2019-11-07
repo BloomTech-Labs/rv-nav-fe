@@ -35,33 +35,33 @@ const Sidebar = (props) => {
                 
                 let sidebar = document.querySelector('#overlayNav.overlay.open')
                     sidebar.style.height = '400px'
-                    sidebar.style.margin = '23px 25px 25px 20px'
+                    sidebar.style.margin = '0'
                     sidebar.style.width = '375px'
         
-                    document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'none'
+                document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'none'
     
                 let overlayContent = document.getElementById('overlayNav')
                 overlayContent.style.height = '400px'
-                overlayContent.style.margin = '23px 25px 25px 20px'
+                overlayContent.style.margin = '0'
                 overlayContent.style.width = '375px'
-    
+                
                 let on = document.getElementsByClassName('on')[0]
-                on.style.margin = '23px 25px 25px 20px'
+                on.style.margin = '0'
                 on.style.height = '400px'
                 on.style.width = '375px'
-
+        
             } else {
 
                 let sidebar = document.querySelector('#overlayNav.overlay.open')
                     sidebar.style.height = '400px'
-                    sidebar.style.margin = '23px 25px 25px 20px'
+                    sidebar.style.margin = '0'
                     sidebar.style.width = '375px'
         
                 // document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
     
                 let overlayContent = document.getElementById('overlayNav')
                 overlayContent.style.height = '400px'
-                overlayContent.style.margin = '23px 25px 25px 20px'
+                // overlayContent.style.margin = '0'
                 overlayContent.style.width = '375px'
     
                 let on = document.getElementsByClassName('on')[0]
