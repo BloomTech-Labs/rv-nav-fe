@@ -124,7 +124,7 @@ padding-top:30px;
     width:10px;
     /* padding:0px;*/
     margin:0px;
-    justify-content: left; 
+    justify-content: space-around; 
     color: rgba(237, 238, 241, 0.95);
 }
 
@@ -137,8 +137,16 @@ color: rgba(237, 238, 241, 0.95);
 }
 
 .form-check.input{
-    margin-top:35px;
+    margin-top:5px;
     
+}
+
+.form-check-inline{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:30px;
+   
 }
 
 #input-boxes{
