@@ -45,10 +45,6 @@ const RoutingSidebar = (props) => {
             let dropdown = document.getElementsByClassName('dropdown dropdown btn-group')[0]
             dropdown.style.display = 'none'
 
-            // let dropdownContent = document.getElementsByClassName('dropdownmenu dropdown-menu show')
-            // dropdownContent.style.position
-
-
             let overlayContent = document.getElementsByClassName('overlay-content')[0]
             overlayContent.style.margin = 0
             overlayContent.style.height = '100%'
