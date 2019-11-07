@@ -12,7 +12,9 @@
 
 .hamcolor {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
     padding-left: 15px;
     padding-right: 25px;
     background: white;
@@ -32,7 +34,7 @@
 }
 
 .hamend {
-    color: rgba(53, 195, 226, 0.95);
+    color: #00B2D9;
 }
 
 .hammenu {
