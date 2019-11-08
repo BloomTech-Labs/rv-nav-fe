@@ -1,11 +1,11 @@
-  
-import React from 'react';
+  import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { addVehicle, updateVehicle } from "../../store/actions";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./VehicleForm.css"
+import { NavLink } from 'react-router-dom';
 
 class VehicleForm extends React.Component {
   constructor(props) {
@@ -109,19 +109,19 @@ class VehicleForm extends React.Component {
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = (event) => {
 
-    let overlayContent = document.getElementById('overlayNav')
-        overlayContent.style.margin = '25px'
-        overlayContent.style.height = '400px'
+    // let overlayContent = document.getElementById('overlayNav')
+    //     overlayContent.style.margin = '25px'
+    //     overlayContent.style.height = '400px'
 
-    let on = document.getElementsByClassName('on')[0]
-      on.style.height = '300px'
+    // let on = document.getElementsByClassName('on')[0]
+    //   on.style.height = '300px'
     
-    event.preventDefault();
-    //Google analytics tracking
-    window.gtag("event", "create vehicle", {
-      event_category: "submit",
-      event_label: "create vehicle"
-    });
+    // event.preventDefault();
+    // //Google analytics tracking
+    // window.gtag("event", "create vehicle", {
+    //   event_category: "submit",
+    //   event_label: "create vehicle"
+    // });
     
     let height = this.combineDistanceUnits(this.state.specifications.heightInches, this.state.specifications.heightFeet);
     let width = this.combineDistanceUnits(this.state.specifications.widthInches, this.state.specifications.widthFeet);
@@ -205,13 +205,18 @@ class VehicleForm extends React.Component {
     console.log("VEHICLE FORM PROPS", this.props)
     console.log("VEHICLE FORM STATE", this.props.state)
     return(
+      !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+        <NavLink to='/auth'>
+          <p>Sign in or create an account to be able to add a vehicle</p>
+        </NavLink>
+      :
       <div className='WidgetWrapper'> 
         <div className='vehicle-form-wrap'>
         <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
           {/* <h2>RV WAY</h2> */}
           <div className='FormContainer'>
           <div className="back">
-                        <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
+                        <p className='vehicleFormBackContainer'
                                    id="routing"
                                    onClick={this.props.selectVehicles}>Back
                         </p>
@@ -232,8 +237,6 @@ class VehicleForm extends React.Component {
               >
               </input>
           </div>
-          
-           
               <div className="vehicle-spec-label">
               <p className="vehicle-spec">Height</p>
               <p className="vehicle-spec">Width</p>
@@ -439,9 +442,6 @@ class VehicleForm extends React.Component {
           {/* </div> */}
           {/* deleted from UX Design - Stacy */}
           {/* <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a> */}
-         
-         
-
           <button className="btn-submit" type="submit"  onClick={this.vehicleSubmit}>Submit</button>
           </div>
           </div>

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import SidebarMenu from '../SidebarMenu.js'
 import {ReactComponent as ToggleShowArrow} from './icons/show-sidebar.svg'
 import {ReactComponent as ToggleHideArrow} from './icons/hide-sidebar.svg'
+import { NavLink } from 'react-router-dom';
 
+//SCSS Styles
 import './sidebar-routing.scss'
 
 const RoutingSidebar = (props) => {
@@ -35,51 +37,53 @@ const RoutingSidebar = (props) => {
 //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => {
 
-        if(props.state.directions === 'on'){
-            let sidebar = document.querySelector('#overlayNav.overlay.open')
-            sidebar.style.height = '100%'
-            sidebar.style.margin = '0px'
-            sidebar.style.width = '420px'
-            sidebar.style.background = 'transparent'
+        // document.getElementsByClassName('mainSidebarContainer')[0].style.visibility =
+
+//         if(props.state.directions === 'on'){
+//             let sidebar = document.querySelector('#overlayNav.overlay.open')
+//             sidebar.style.height = '100%'
+//             sidebar.style.margin = '0px'
+//             sidebar.style.width = '420px'
+//             sidebar.style.background = 'transparent'
             
-            let dropdown = document.getElementsByClassName('dropdown dropdown btn-group')[0]
-            dropdown.style.display = 'none'
+//             let dropdown = document.getElementsByClassName('dropdown dropdown btn-group')[0]
+//             dropdown.style.display = 'none'
 
-            let overlayContent = document.getElementsByClassName('overlay-content')[0]
-            overlayContent.style.margin = 0
-            overlayContent.style.height = '100%'
+//             let overlayContent = document.getElementsByClassName('overlay-content')[0]
+//             overlayContent.style.margin = 0
+//             overlayContent.style.height = '100%'
 
-            let on = document.getElementsByClassName('on')[0]
-            on.style.margin = '0px'
-            on.style.height = '100%'
-            sidebar.style.width = '420px'
-//revert sidebar style changes back to the original
-        } else {
+//             let on = document.getElementsByClassName('on')[0]
+//             on.style.margin = '0px'
+//             on.style.height = '100%'
+//             sidebar.style.width = '420px'
+// //revert sidebar style changes back to the original
+//         } else {
 
-            let overlayOpen = document.querySelector('#overlayNav.overlay.open')
-            overlayOpen.style.height = '100%'
-            overlayOpen.style.margin = '0px'
-            overlayOpen.style.width = '375px'
-            overlayOpen.style.background = '#2A2E43'
+//             let overlayOpen = document.querySelector('#overlayNav.overlay.open')
+//             overlayOpen.style.height = '100%'
+//             overlayOpen.style.margin = '0px'
+//             overlayOpen.style.width = '375px'
+//             overlayOpen.style.background = '#2A2E43'
 
-            let sidebar = document.querySelector('#overlayNav')
-            sidebar.style.height = '100%'
-            // sidebar.style.margin = '25px'
-            sidebar.style.width = '375px'
-            sidebar.style.background = '#2A2E43'
+//             let sidebar = document.querySelector('#overlayNav')
+//             sidebar.style.height = '100%'
+//             // sidebar.style.margin = '25px'
+//             sidebar.style.width = '375px'
+//             sidebar.style.background = '#2A2E43'
 
-            document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
+//             document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
 
-            let overlayContent = document.getElementsByClassName('overlay-content')[0]
-            // overlayContent.style.marginTop = '25px'
-            overlayContent.style.height = '100%'
-            sidebar.style.background = '#2A2E43'
+//             let overlayContent = document.getElementsByClassName('overlay-content')[0]
+//             // overlayContent.style.marginTop = '25px'
+//             overlayContent.style.height = '100%'
+//             sidebar.style.background = '#2A2E43'
 
-            let on = document.getElementsByClassName('on')[0]
-            on.style.height = '100%'
-            sidebar.style.background = '#2A2E43'
+//             let on = document.getElementsByClassName('on')[0]
+//             on.style.height = '100%'
+//             sidebar.style.background = '#2A2E43'
 
-        }
+//         }
     }
 //toggles state back to render the initial sidebar form
     const revertChanges = () => {
@@ -93,6 +97,11 @@ const RoutingSidebar = (props) => {
     }
 
     return (
+        !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+            <NavLink to='/auth'>
+            <p>Sign in or create an account to be able to create a route.</p>
+            </NavLink>
+        :
         <div className='containerWithArrow'>
             {props.loading !== 'Routing successful' ? <p className="route-loading">{props.loading}</p> :
                 
