@@ -454,8 +454,12 @@ class VehicleForm extends React.Component {
          
          
          
+      <div className="buttons">
+          <Button className="btn-submit button1" type="cancel"  onClick={this.props.buttonSelect}>Cancel</Button>
+          <Button className="btn-submit button2" type="submit"  onClick={this.vehicleSubmit}>Add</Button>
 
-          <Button className="btn-submit" type="submit"  onClick={this.vehicleSubmit}>Submit</Button>
+      </div>
+         
           </div>
           </div>
         </div>

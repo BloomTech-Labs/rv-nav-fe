@@ -279,18 +279,21 @@ font-size: 16px;
 }
 
 .btn-submit{
-    background: #00B2D9;
+width:150px;
+background: #00B2D9;
 border-radius: 3px;
 margin-top: 10px;
-width:40%;
-margin-left:75px;
+/* width:40%; */
+/* margin-left:75px; */
 }
 
 .btn-submit:hover{
-    background: #00B2D9;
-border-radius: 3px;
+ background: #00B2D9;
+border: 3px solid #00B2D9 ;
 
 }
+
+
 
 .class-radios{
     display:flex;
@@ -323,4 +326,11 @@ border-radius: 3px;
 
 #class{
     background: blueviolet;
+}
+
+.buttons{
+    width:375px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
