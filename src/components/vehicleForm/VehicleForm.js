@@ -213,7 +213,7 @@ class VehicleForm extends React.Component {
           <div className="back">
                         <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
                                    id="routing"
-                                   onClick={this.props.buttonSelect}>Back
+                                   onClick={this.props.selectVehicles}>Back
                         </p>
                         <p className="back-label">| Add Vehicle</p>
                   </div>
@@ -455,8 +455,8 @@ class VehicleForm extends React.Component {
          
          
       <div className="buttons">
-          <Button className="btn-submit button1" type="cancel"  onClick={this.props.buttonSelect}>Cancel</Button>
-          <Button className="btn-submit button2" type="submit"  onClick={this.vehicleSubmit}>Add</Button>
+          <button className="btn-submit button1"   onClick={this.props.selectVehicles}>Cancel</button>
+          <Button className="btn-submit " type="submit"  onClick={this.vehicleSubmit}>Add</Button>
 
       </div>
          
