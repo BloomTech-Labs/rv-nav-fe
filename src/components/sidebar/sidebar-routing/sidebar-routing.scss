@@ -1,22 +1,22 @@
 //<----------------- BEGINNING OF KEYFRAMES FOR ANIMATION
-@keyframes slideRight {
+@keyframes slideLeft {
     from {right: 375px}
-    to {right: 0px}
+    to {right: 745px}
 }
 
-@keyframes slideLeft {
-    from {right: 0px}
-    to {right: 375px}
+@keyframes slideRight {
+    from {right: 745px}
+    to {right: 370px}
 }
 //<----------------- END OF KEYFRAMES FOR ANIMATION
 
 .containerWithArrow{
-    width: 400px;
+    width: 375px;
     display: flex;
     flex-direction: row-reverse;
     height: 100%;
     position: relative;
-    right: 15px;
+    left: 38px;
 
     
     

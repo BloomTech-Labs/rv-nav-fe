@@ -17,17 +17,15 @@ const RoutingSidebar = (props) => {
         setState({...state, sidebar: !state.sidebar})
 
         if(state.sidebar == false){
-            let div = document.getElementsByClassName('containerWithArrow')[0]
-            div.style.position = 'relative';
+            let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.animation = 'slideRight .5s';
-            div.style.right = '0px';
+            div.style.right = '370px';
             
         } 
         else {
-            let div = document.getElementsByClassName('containerWithArrow')[0]
-            div.style.position = 'relative';
+            let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.animation = 'slideLeft .5s'
-            div.style.right = '375px';
+            div.style.right = '745px';
         }
         
     }
