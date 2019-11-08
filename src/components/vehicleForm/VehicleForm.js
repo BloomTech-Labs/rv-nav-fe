@@ -111,7 +111,7 @@ class VehicleForm extends React.Component {
 
     let overlayContent = document.getElementById('overlayNav')
         overlayContent.style.margin = '25px'
-        overlayContent.style.height = '400px'
+        overlayContent.style.height = '370px'
 
     let on = document.getElementsByClassName('on')[0]
       on.style.height = '300px'
@@ -213,7 +213,7 @@ class VehicleForm extends React.Component {
           <div className="back">
                         <p className={`backButton ${this.state.specifications.routing === `on` ? `selected` : `sidebar-tab`} `}
                                    id="routing"
-                                   onClick={this.props.selectVehicles}>Back
+                                   onClick={this.props.buttonSelect}>Back
                         </p>
                         <p className="back-label">| Add Vehicle</p>
                   </div>
@@ -371,7 +371,7 @@ class VehicleForm extends React.Component {
           </div>
          
           <div className='inputsFieldsContainer'>
-{/*              
+          <div className='measurementsParent'>
               <div className="form-section">
               <div className="measurements">
                 <p className='measurementsInput'>Axel Count</p>
@@ -387,11 +387,11 @@ class VehicleForm extends React.Component {
                 >
               </input>
               </div>
-               */}
+               
              
 
 
-            {/* <div className="tires-check">
+            <div className="tires-check">
              <div className="tires-check-p">
             <p >Tires</p>
            <div className="tires-check-p2">
@@ -402,47 +402,60 @@ class VehicleForm extends React.Component {
           onChange={this.handleCheck}
           id={`inline-text-2`} 
           />
-          <p>I have a dual wheel vehicle</p>  */}
-          {/* </div> */}
-          {/* </div>
+          <p>I have a dual wheel vehicle</p>  
+           </div> 
+         </div>
           </div>
-           </div> */}
-           {/* </div> */}
+
+           </div> 
+            </div> 
             </div>
-            {/* <p className="vehicle-spec">RV TYPE</p> */}
-          {/* <div className="class-radios">
-          <Form.Check name="class"inline label="A" type="radio" id={`inline-text-1`} 
-          value="CLASS A"
-          checked={this.state.specifications.class_name === "A"} onChange={this.handleRadio}
-          />
-          <Form.Check name="class" inline label="B" type="radio" id={`inline-text-2`} 
+             <p className="vehicle-spec">RV TYPE</p> 
+          <div className="class-radios">
+          <div className='row1'>
+            <div className="rv-radio">  
+          <Form.Check className="form-check"name="class"inline label="Class A" type="radio" id={`inline-text-2`} 
+              value="CLASS A"
+              checked={this.state.specifications.class_name === "A"} onChange={this.handleRadio}
+               />
+          </div>
+          <div className="rv-radio">
+          <Form.Check className="form-check" name="class" inline label="Class B" type="radio" id={`inline-text-2`} 
           value="CLASS B"
           checked={this.state.specifications.class_name === "B"} onChange={this.handleRadio}
           />
-          <Form.Check name="class" inline label="C" type="radio" id={`inline-text-2`} 
+          </div>
+           <div className="rv-radio">
+          <Form.Check className="form-check"name="class" inline label="Class C" type="radio" id={`inline-text-2`} 
           value="CLASS C"
           checked={this.state.specifications.class_name === "C"} onChange={this.handleRadio}
           />
-           <Form.Check name="class" inline label="5TH WHEEL" type="radio" id={`inline-text-2`} 
+          </div>
+          </div>
+          <div className='row2'>
+           <div className="rv-radio">
+           <Form.Check className="form-check" name="class" inline label="5TH Wheel" type="radio" id={`inline-text-2`} 
           value="5TH WHEEL"
           checked={this.state.specifications.class_name === "5TH WHEEL"} onChange={this.handleRadio}
           />
-           <Form.Check name="class" inline label="TAGALONG" type="radio" id={`inline-text-2`} 
+          </div>
+           <div className="rv-radio">
+           <Form.Check className="form-check" name="class" inline label="Tagalong" type="radio" id={`inline-text-2`} 
           value="TAGALONG CAMPER"
           checked={this.state.specifications.class_name === "TAGALONG CAMPER"} onChange={this.handleRadio}
-          /> */}
-          {/* <Form.Check name="class" inline label="Trailer" type="radio" 
-                value="Trailer"
-                checked={this.state.specifications.class_name === "Trailer"}
-                onChange={this.handleRadio}
-          id={`inline-text-2`} /> */}
-          {/* </div> */}
-          {/* deleted from UX Design - Stacy */}
-          {/* <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a> */}
+          /> 
+          </div>
+         
+          
+   
+         
+          </div>
+          </div> 
+         
          
          
 
-          <button className="btn-submit" type="submit"  onClick={this.vehicleSubmit}>Submit</button>
+          <Button className="btn-submit" type="submit"  onClick={this.vehicleSubmit}>Submit</Button>
           </div>
           </div>
         </div>
