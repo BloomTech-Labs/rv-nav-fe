@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import VehicleForm from '../../vehicleForm/VehicleForm.js';
 import Vehicles from '../../vehicleForm/Vehicles';
 import RoutingForm from '../../map/routingForm.js';
-import '../sidebar.css';
+// import '../sidebar.css';
 import RoutingSidebar from '../sidebar-routing/sidebar-routing';
 import SidebarMenu from '../SidebarMenu';
 
 //SCSS Styles
-// import './Sidebar-new.scss'
+import './Sidebar-new.scss'
 
 const Sidebar = (props) => {
     const [state, setState] = useState({

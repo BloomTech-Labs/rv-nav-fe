@@ -4,4 +4,19 @@
     z-index: 1000;
     background: #2A2E43;
     margin: 25px;
+
+    .off{
+        display: none;
+        width: 100%;
+    }
+}
+
+.login-to-add{
+    margin-top: 60px;
+    padding: 5px;
+}
+
+#dropdown-split-basic div{
+    position: relative;
+    left: 10px;
 }

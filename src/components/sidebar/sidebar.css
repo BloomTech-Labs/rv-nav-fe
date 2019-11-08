@@ -189,27 +189,32 @@
     font-size: 13px;
 } */
 
-a.rv-way-text {
+/* a.rv-way-text {
     color: rgba(53, 195, 226, 0.95);
     position: absolute;
     /* left: 6.67%; */
-    right: 60.53%;
+    /*right: 60.53%;
     top: 24.29%;
     bottom: 22.86%;
     /* H1 Mobile/ Helvetica Bold 32 */
-    font-family: Helvetica;
+    /*font-family: Helvetica;
     font-size: 29px;
     /* identical to box height */ 
-    display: flex;
+    /*display: flex;
     align-items: center;
     /* Primary 100% */
-}
+/* }  */
 
 /* .selected-vehicle {
     visibility: hidden;
 } */
 
+#dropdown-split-basic div{
+    position: relative;
+    left: 10px;
+}
 
+/*<vvvv DO NOT TOUCH! EVERYTHING BELOW HERE BELONGS TO A MEDIA QUERY FOR MOBILE PURPOSES vvv*/
 @media (max-width: 375px){
     
     .sidebar-tab{
@@ -305,11 +310,6 @@ a.rv-way-text {
      .overlay-content {
         margin-top: 83px;
     }
-}
-
-#dropdown-split-basic div{
-    position: relative;
-    left: 10px;
 }
 
 
