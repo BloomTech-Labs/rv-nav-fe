@@ -1,6 +1,9 @@
 .form-wrapper{
-/* padding:10px; */
+    width:100%;
+    margin:0;
+    padding:20px;
 }
+
 .vehicle-tabs{
 color: white;
 background-color: #6C757D;
@@ -64,30 +67,41 @@ margin-left: 4px;
 .inputsFieldsContainer{
     display:flex;
     flex-direction:column;
-    width: 170px;
+    width: 100%;
 }
 
 .form-section{
     display:flex;
-    flex-direction: row;
+    /* flex-direction: row; */
+    width:100%;
+    margin-bottom: 20px;
 }
 .vehicle-spec-label{
 display:flex;
-flex-direction:row;
-width:375px;
+flex-wrap: wrap;
+justify-content: space-between;
+/* width:100%; */
+color: rgba(237, 238, 241, 0.95);
+}
+.vehicle-spec-label2{
+display:flex;
+flex-wrap: wrap;
+justify-content: space-between;
+/* width:100%; */
 color: rgba(237, 238, 241, 0.95);
 }
 
 p.vehicle-spec{
 display:flex;
 width:150px;
-margin:0 10px;
+/* margin:0 10px; */
 align-items:left;
 font-weight: 500;
 font-size: 16px;
-
-
+margin: 0px;
+height: 26px;
 }
+
 
 p.measurements{
 font-weight: 500;
@@ -98,7 +112,10 @@ font-size: 16px;
     width:376px;
 }
 .measurements{
-width:95px;
+    /* width:100%;  */
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
 }
 
 .measurementsParent2{
@@ -114,16 +131,17 @@ width:45px;
 }
 .measurementsParent{
     display:flex;
-    flex-direction:row;
-    width:375px;
-    /* justify-content: center; */
+    flex-wrap: wrap;
+    /* width:100%; */
+    justify-content: flex-start;
 }
 
 p.measurementsInput{
     font-size: 16px;
     margin-bottom:5px;
-    margin-left:12px;
-    display:flex;
+    text-align: left;
+    /* margin-left:12px; */
+    /* display:flex; */
 }
 .tires-axels{
     display:flex;
@@ -131,35 +149,42 @@ p.measurementsInput{
 }
 
 .tires-check{
-width:200px;
+/* width:100%; */
 display:flex;
-flex-direction:column;
-justify-content:left;
-padding-top:30px;
-margin-right:30px;
+flex-wrap:wrap;
+font-size:16px;
+
+/* justify-content:left; */
+/* padding-top:30px;
+margin-right:30px; */
 }
 
-/* .form-check{
-    display:flex;
+.form-radio{
+    /* display:flex;
     flex-direction: column;
     width:10px;
     padding:0px;
     margin-right:30px;
     justify-content: space-around; 
-    color: rgba(237, 238, 241, 0.95);
-} */
+    color: white; */
+    /* width: 160px; */
+    color: white;
+    font-size: 16px;
+    /* margin: 20px 20px 0 0; */
+}
 
 .form-check-label{
-/* width:225px; */
+/* width:160px; */
 display: flex; 
 flex-direction: row;
 font-family: Heebo;
 font-size: 16px;
 color: rgba(237, 238, 241, 0.95);
+
 }
 
 .form-check.input{
-    /* margin-top:5px; */
+    /* margin:; */
     background: #DADADA;
     
 }
@@ -168,7 +193,7 @@ color: rgba(237, 238, 241, 0.95);
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin:30px;
+    /* margin:30px; */
    
 }
 
@@ -188,7 +213,7 @@ font-size: 18px;
 /* line-height: 26px; */
 display: flex;
 align-items: center;
-margin-left:10px;
+/* margin-left:10px; */
 /* White text */
 
 color: rgba(237, 238, 241, 0.95);
@@ -230,17 +255,17 @@ background-color: #2A2E43;
 #rv-name{
     width: 319px;
     height:45px;
-    margin:10px;
+    /* margin:10px; */
 }
 
 .plus{
     padding-top: 35px;
 }
 
-#input-boxes.pounds{
-    width:148px;
+#input-boxes-pounds{
+    width:120px;
     height:45px;
-    margin-left:10px;
+    /* margin-left:10px; */
 }
 
 #p.tires-check{
@@ -248,7 +273,8 @@ background-color: #2A2E43;
 }
 
 .tires-check-p{
-display:flex;
+/* display:flex; */
+/* width: 100%; */
 /* flex-direction: row; */
 /* justify-content: left; */
 font-family: Heebo;
@@ -260,54 +286,61 @@ font-size: 16px;
 }
 
 .tires-check-p2{
-    width:95px;
+    width:100%;
+   
     /* height:19px; */
-    display:flex;
-    flex-direction: row;
+    display:flex; 
+    flex-wrap:row; 
+    align-items: flex-end;
+
 }
 
 
 
-#input.form-check{
-    background: #DADADA;
-}
+
 
 .axels{
     width:55px;
     height:45px;
-    margin-right:15px;
+    margin-right:0px;
 }
 
-.btn-submit{
-width:150px;
+button.btn-submit{
+width: 152px;
+height: 45px;
+background: #2A2E43;
 background: #00B2D9;
 border-radius: 3px;
 margin-top: 10px;
+border: none;
 /* width:40%; */
 /* margin-left:75px; */
 }
 
 .btn-submit:hover{
  background: #00B2D9;
-border: 3px solid #00B2D9 ;
+border: 3px solid rgb(119, 157, 165) ;
 
 }
 
 
 
 .class-radios{
+    width:100%;
     display:flex;
-    flex-direction: column; 
+    flex-wrap: wrap; 
+    /* justify-content:center; */
    
   
 }
 
 .rv-radio{
+    width:33%;
+    height:20px;
     display:flex;
     flex-direction: row;
-    /* display:flex;
-    flex-direction: row; */
-    /* width:125px; */
+  
+  
 }
 
 .row1{
@@ -329,8 +362,71 @@ border: 3px solid #00B2D9 ;
 }
 
 .buttons{
-    width:375px;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    /* margin-top: 100px; */
+    padding: 50px 0px;
+}
+
+.tires-check-p{
+    width:70%;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-end;
+    margin-left:10px;
+}
+
+.tires-ptag{
+    width:100%;
+    margin:0;
+    text-align: left;
+    /* width:100%; */
+}
+
+.tag-radio{
+    display:flex;   
+    width:100%;
+    padding-right:5px;
+    font-size:16px;
+    color:white;
+    height: 60px;
+}
+
+.tag-radio-child{
+    /* width:100%; */
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+}
+
+.classAbc{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.FithWheelContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.rv-radio-tagalong{
+    width: 170px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#tagalongCamper{
+    /* width: 100%; */
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+#cancelButton{
+    background: transparent;
+    border: 1px solid #00B2D9;
+    color: #00B2D9;
 }
