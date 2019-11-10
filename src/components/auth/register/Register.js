@@ -66,8 +66,8 @@ class RegisterForm extends Component {
   registerSubmit = e => {
     e.preventDefault();
     //Google analytics tracking
-    const { password, confirmpassword } = this.state.credentials;
-    if (password !== confirmpassword) {
+    const { password, confirmPassword } = this.state.credentials;
+    if (password !== confirmPassword) {
       // document.querySelector('#confirm-password-error').innerHTML = 'Passwords Must match!';
       alert("** Passwords don't match **")
     } else {
