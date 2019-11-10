@@ -15,11 +15,11 @@
   display: flex;
   justify-content: space-around;
   margin-top: 2%;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 }
 
 .button-container button {
-  margin-right: 25px;
+  /* margin-right: 25px; */
   width: 10%;
 }
 
@@ -54,7 +54,7 @@ h1 {
   font-size: 1.6rem;
   color: white;
   background-color: rgb(15, 15, 15, 0.6);
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 0.5rem;
 }
 

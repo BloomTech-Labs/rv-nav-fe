@@ -31,55 +31,55 @@ const Sidebar = (props) => {
             directions: "on", //<-- for routing side bar component -Jerry
             [event.target.id]: "on"
         })
-            if(state.directions === 'on'){
+            // if(state.directions === 'on'){
                 
-                let sidebar = document.querySelector('#overlayNav.overlay.open')
-                    sidebar.style.height = '400px'
-                    sidebar.style.margin = '0'
-                    sidebar.style.width = '375px'
+            //     let sidebar = document.querySelector('#overlayNav.overlay.open')
+            //         sidebar.style.height = '100%'
+            //         sidebar.style.margin = '0'
+            //         sidebar.style.width = '375px'
         
-                document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'none'
+            //     document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'none'
     
-                let overlayContent = document.getElementById('overlayNav')
-                overlayContent.style.height = '400px'
-                overlayContent.style.margin = '0'
-                overlayContent.style.width = '375px'
+            //     let overlayContent = document.getElementById('overlayNav')
+            //     overlayContent.style.height = '100%'
+            //     overlayContent.style.margin = '0'
+            //     overlayContent.style.width = '375px'
                 
-                let on = document.getElementsByClassName('on')[0]
-                on.style.margin = '0'
-                on.style.height = '400px'
-                on.style.width = '375px'
+            //     let on = document.getElementsByClassName('on')[0]
+            //     on.style.margin = '0'
+            //     on.style.height = '100%'
+            //     on.style.width = '375px'
         
-            } else {
+            // } else {
 
-                let sidebar = document.querySelector('#overlayNav.overlay.open')
-                    sidebar.style.height = '400px'
-                    sidebar.style.margin = '0'
-                    sidebar.style.width = '375px'
+            //     let sidebar = document.querySelector('#overlayNav.overlay.open')
+            //         sidebar.style.height = '400px'
+            //         sidebar.style.margin = '0'
+            //         sidebar.style.width = '375px'
         
-                // document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
+            //     // document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
     
-                let overlayContent = document.getElementById('overlayNav')
-                overlayContent.style.height = '400px'
-                // overlayContent.style.margin = '0'
-                overlayContent.style.width = '375px'
+            //     let overlayContent = document.getElementById('overlayNav')
+            //     overlayContent.style.height = '400px'
+            //     // overlayContent.style.margin = '0'
+            //     overlayContent.style.width = '375px'
     
-                let on = document.getElementsByClassName('on')[0]
-                on.style.height = '400px'
-                on.style.width = '375px'
+            //     let on = document.getElementsByClassName('on')[0]
+            //     on.style.height = '400px'
+            //     on.style.width = '375px'
 
-            }
+            // }
 
            
     }
 
-    const selectVehicles = () => {
+    const selectVehicles = () => { //modified temporarly
         // console.log("event", event.target);
         setState({
             ...state, 
             vehicleForm: "off",
-            routing: "off",
-            vehicles: "on",
+            routing: "on",
+            vehicles: "off",
             directions: "off", //<-- for routing side bar component -Jerry
         })
     }
@@ -94,15 +94,20 @@ const Sidebar = (props) => {
         })
         
        
-        let sidebar = document.querySelector('#overlayNav.overlay.open')
-        sidebar.style.height = '620px'
-        sidebar.style.margin = '23px 25px 25px 20px'
+        let sidebar = document.getElementsByClassName('open')[0]
+        sidebar.style.height = '100%'
+        sidebar.style.margin = 0
         sidebar.style.width = '375px'
+
+        let overlay = document.getElementsByClassName('overlay')[0]
+        overlay.style.height = '100%'
+        overlay.style.margin = 0
+        overlay.style.width = '375px'
         // document.getElementsByClassName('navbar')[0].style.display = 'none'
 
-        let overlayContent = document.getElementById('overlayNav')
-        overlayContent.style.margin = 0
-        overlayContent.style.height = '100%'
+        let overlayNav = document.getElementById('overlayNav')
+        overlayNav.style.margin = 0
+        overlayNav.style.height = '100%'
 
         let on = document.getElementsByClassName('on')[0]
         on.style.margin = 0
@@ -177,6 +182,7 @@ const Sidebar = (props) => {
                       
                     {localStorage.token ? <div className={`${state.vehicleForm}`}>
                         <VehicleForm 
+                        selectVehicles={selectVehicles}
                         state={state} 
                         setState={setState} 
                         // closeVehicleForm={closeVehicleForm} 

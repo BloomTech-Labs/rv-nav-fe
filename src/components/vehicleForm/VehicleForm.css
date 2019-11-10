@@ -1,5 +1,5 @@
 .form-wrapper{
-padding:10px;
+/* padding:10px; */
 }
 .vehicle-tabs{
 color: white;
@@ -28,9 +28,7 @@ position: relative;
 .select-text{
 color: #ffc107;
 }
-p{
-color: white;
-}
+
 .select-btn{
 width: 100px;
 align-self: start;
@@ -76,28 +74,43 @@ margin-left: 4px;
 .vehicle-spec-label{
 display:flex;
 flex-direction:row;
-
+width:375px;
 color: rgba(237, 238, 241, 0.95);
 }
 
 p.vehicle-spec{
 display:flex;
 width:150px;
-padding:0px;
+margin:0 10px;
 align-items:left;
+font-weight: 500;
+font-size: 16px;
 
 
+}
+
+p.measurements{
+font-weight: 500;
+font-size: 16px;
 }
 
 .FormContainer{
     width:376px;
 }
 .measurements{
-width:110px;
+width:95px;
+}
+
+.measurementsParent2{
+   display:flex;
+   flex-direction: row;
+   height:90px;
+   align-items: space-between;
 }
 #input.measurements{
 height:55px;
 width:45px;
+
 }
 .measurementsParent{
     display:flex;
@@ -106,6 +119,12 @@ width:45px;
     /* justify-content: center; */
 }
 
+p.measurementsInput{
+    font-size: 16px;
+    margin-bottom:5px;
+    margin-left:12px;
+    display:flex;
+}
 .tires-axels{
     display:flex;
     flex-direction: row;
@@ -115,7 +134,7 @@ width:45px;
 width:225px;
 display:flex;
 flex-direction:row;
-align-items:left;
+/* align-items:left; */
 padding-top:30px;
 }
 
@@ -163,10 +182,10 @@ font-family: Heebo;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
-line-height: 26px;
+/* line-height: 26px; */
 display: flex;
 align-items: center;
-
+margin-left:10px;
 /* White text */
 
 color: rgba(237, 238, 241, 0.95);
@@ -208,26 +227,29 @@ background-color: #2A2E43;
 #rv-name{
     width: 319px;
     height:45px;
+    margin:10px;
 }
 
 .plus{
-    padding-top: 51px;
+    padding-top: 35px;
 }
 
-#pounds{
-    width:155px;
+#input-boxes.pounds{
+    width:148px;
     height:45px;
+    margin-left:10px;
 }
 
 .tires-check-p{
 display:flex;
-flex-direction: column;
-justify-content: left;
+flex-direction: row;
+/* justify-content: left; */
 font-family: Heebo;
 font-style: normal;
 font-weight: normal;
 font-size: 16px;
 line-height: 23px;
+margin-left:40px;
 }
 
 .tires-check-p2{
@@ -247,4 +269,24 @@ line-height: 23px;
     flex-direction: row;
     flex-wrap: wrap;
     margin:10px;
+}
+
+.axels{
+    width:55px;
+    height:45px;
+    /* margin-right:15px; */
+}
+
+.btn-submit{
+    background: #00B2D9;
+border-radius: 3px;
+margin-top: 10px;
+width:40%;
+margin-left:75px;
+}
+
+.btn-submit:hover{
+    background: #00B2D9;
+border-radius: 3px;
+
 }
