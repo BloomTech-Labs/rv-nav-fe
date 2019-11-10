@@ -20,17 +20,13 @@ class RegisterForm extends Component {
     this.state = {
       error: null,
       credentials: {
-        username: "",
         email: "",
-        first_name: "",
-        last_name: "",
         password: "",
+        confirmPassword: "",
         errors: {
-          username: "",
-          first_name: "",
-          last_name: "",
+          email: "",
           password: "",
-          email: ""
+          confirmPassword: ""
         }
       },
       loading: false
@@ -43,29 +39,21 @@ class RegisterForm extends Component {
     let errors = this.state.credentials.errors;
 
     switch (name) {
-      case "username":
-        errors.username =
-          value.length < 5 ? "Username must be at least 5 characters long" : "";
-        break;
 
       case "email":
         errors.email = validEmailRegex.test(value) ? "" : "Email is not valid";
-        break;
-
-      case "first_name":
-        errors.first_name =
-          value.length < 0 ? "First name must be 2 characters long" : "";
-        break;
-
-      case "last_name":
-        errors.last_name =
-          value.length < 0 ? "Last name must be 2 characters long" : "";
         break;
 
       case "password":
         errors.password =
           value.length < 8 ? "Password must be at least 8 characters long" : "";
         break;
+
+      // case "confirmPassword":
+      //   errors.confirmPassword =
+      //     this.state.confirmPassword !== this.state.password ? "Passwords must be the same" : "";
+      //   break;
+
       default:
         break;
     }
@@ -78,85 +66,97 @@ class RegisterForm extends Component {
   registerSubmit = e => {
     e.preventDefault();
     //Google analytics tracking
-    window.gtag("event", "register", {
-      event_category: "access",
-      event_label: "register"
-    });
-    if (validateForm(this.state.credentials.errors)) {
-      console.info("Valid Form");
+    const { password, confirmpassword } = this.state.credentials;
+    if (password !== confirmpassword) {
+      // document.querySelector('#confirm-password-error').innerHTML = 'Passwords Must match!';
+      alert("** Passwords don't match **")
     } else {
-      console.error("Invalid Form");
-    }
-    this.setState({ loading: true });
-    this.props
-      .register({
-        username: this.state.credentials.username,
-        password: this.state.credentials.password,
-        email: this.state.credentials.email,
-        first_name: this.state.credentials.first_name,
-        last_name: this.state.credentials.last_name
-      })
-      .then(res => {
-        if (res) {
-          this.props
-            .login({
-              username: this.state.credentials.username,
-              password: this.state.credentials.password
-            })
-            .then(res => {
-              if (res) {
-                this.setState({
-                  // credentials: {
-                  //   username: "",
-                  //   password: "",
-                  //   first_name: "",
-                  //   last_name: ""
-                  // },
-                  // loading: false
-                });
-                this.props.history.push("/map");
-              }
-            });
-        }
-      })
-      .catch(err => {
-        setTimeout(function () {
-          return this.props.clearError();
-        }, 3000);
+      window.gtag("event", "register", {
+        event_category: "access",
+        event_label: "register"
       });
+      if (validateForm(this.state.credentials.errors)) {
+        console.info("Valid Form");
+      } else {
+        console.error("Invalid Form");
+      }
+      this.setState({ loading: true });
+      this.props
+        .register({
+          username: this.state.credentials.username,
+          password: this.state.credentials.password,
+          email: this.state.credentials.email,
+          first_name: this.state.credentials.first_name,
+          last_name: this.state.credentials.last_name
+        })
+        .then(res => {
+          if (res) {
+            this.props
+              .login({
+                username: this.state.credentials.username,
+                password: this.state.credentials.password
+              })
+              .then(res => {
+                if (res) {
+                  this.setState({
+                    // credentials: {
+                    //   username: "",
+                    //   password: "",
+                    //   first_name: "",
+                    //   last_name: ""
+                    // },
+                    // loading: false
+                  });
+                  this.props.history.push("/map");
+                }
+              });
+          }
+        })
+        .catch(err => {
+          setTimeout(function () {
+            return this.props.clearError();
+          }, 3000);
+        });
+    }
   };
 
   unmaskPassword() {
     var passwordInput = document.querySelector('#password-input');
-    var passwordStatus = document.querySelector('#password-eye');
-    document.querySelector('#password-eye').style.background = "url('../../../assets/img/eye.svg')";
-
+    var passwordStatus = document.querySelector('.password-mask');
+    // if (document.querySelector('#password-eye')) {
+    passwordStatus.backgroundImage = 'none';
+    // }
     if (passwordStatus && passwordInput.type == 'password') {
       passwordInput.type = 'text';
-      passwordStatus.style.background = "url('../../../assets/img/eye-off.svg')";
-      // passwordStatus.style.backgroundColor = 'black';
-      // passwordStatus.style.color = 'red';
-
+      passwordStatus.classList.add('password-eye-off')
+      passwordStatus.classList.remove('password-eye')
     }
     else {
       passwordInput.type = 'password';
-      passwordStatus.style.backgroundImage = "url('../../../assets/img/eye-off.svg')";
-      passwordStatus.style.backgroundColor = 'black';
-      // passwordStatus.style.color = 'blue';
-
+      passwordStatus.classList.remove('password-eye-off')
+      passwordStatus.classList.add('password-eye')
     }
   }
 
-  // openNav = () => {
-  //   if (
-  //     document.querySelector("#password-eye")
-  //   ) {
-  //     document.querySelector('#password-eye').innerHTML = 'OKOKOK'
-  //     console.log('it happended')
-  //     document.querySelector("#password-eye").style.color = "red";
+  unmaskConfirmPassword() {
+    var passwordInput = document.querySelector('#confirm-password-input');
+    var passwordStatus = document.querySelector('.password-mask-confirm');
+    // if (document.querySelector('#password-eye')) {
+    passwordStatus.backgroundImage = 'none';
+    // }
+    if (passwordStatus && passwordInput.type == 'password') {
+      passwordInput.type = 'text';
+      passwordStatus.classList.add('password-eye-off')
+      passwordStatus.classList.remove('password-eye')
+    }
+    else {
+      passwordInput.type = 'password';
+      passwordStatus.classList.remove('password-eye-off')
+      passwordStatus.classList.add('password-eye')
+    }
+  }
 
-  //   }
-  // };
+
 
   render() {
     const { errors } = this.state.credentials;
@@ -197,6 +197,7 @@ class RegisterForm extends Component {
                   <p className="register-main-form-error">Email already taken</p>
                 )}
 
+                <a className="password-mask" onClick={this.unmaskPassword}>MASK</a>
                 <label className="register-main-form-label" id="password">Password</label>
                 <input
                   className="register-main-form-input"
@@ -207,25 +208,25 @@ class RegisterForm extends Component {
                   onChange={this.handleChange}
                   noValidate
                 ></input>
-                <a id="password-eye" onClick={this.unmaskPassword}>PPPPP</a>
                 {errors.password.length > 0 && (
                   <p className="register-main-form-error">{errors.password}</p>
                 )}
-
-                <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
-                <input
-                  className="register-main-form-input"
-                  id="confirm-password-input"
-                  type="password"
-                  name="confirmPassword"
-                  value={this.state.credentials.password}
-                  onChange={this.handleChange}
-                  noValidate
-                ></input>
-                {errors.password.length > 0 && (
-                  <p className="register-main-form-error">{errors.password}</p>
-                )}
-
+                <div>
+                  <a className="password-mask-confirm" onClick={this.unmaskConfirmPassword}>MASK</a>
+                  <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
+                  <input
+                    className="register-main-form-input"
+                    id="confirm-password-input"
+                    type="password"
+                    name="confirmPassword"
+                    value={this.state.credentials.confirmPassword}
+                    onChange={this.handleChange}
+                  // noValidate
+                  ></input>
+                  {errors.confirmPassword.length > 0 && (
+                    <p id="confirm-password-error" className="register-main-form-error">{errors.confirmPassword}</p>
+                  )}
+                </div>
                 <button
                   className="register-lets-go-button"
                   variant="warning"
