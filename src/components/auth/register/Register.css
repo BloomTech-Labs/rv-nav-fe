@@ -1,3 +1,22 @@
+
+.register-wrapper {
+    height: 100vh;
+    /* background: #E5ECEE; */
+    font-family: 'Heebo', sans-serif;
+    background-image: url(../../../assets/img/Sign-up-Background.svg);
+    /* background-attachment: fixed; */
+    background-repeat:no-repeat ;
+
+}
+
+#password-eye {
+    font-size: 10px;
+}
+
+.register-main {
+    display: flex;
+    justify-content: flex-end;
+}
 .register-auth-loading {
     font-size: 4rem;
     margin: 40px;
@@ -5,23 +24,136 @@
 }
 
 .register-main-form {
-    background-color: rgb(15, 15, 15, 0.6);
+    background-color: rgb(255, 255, 255);
     text-align: left;
     padding: 16px;
     border-top: 0;
-}j
+    width: 423px;
+    height: 700px;
+    margin-right: 206px;
+    margin-top: 161px;
+    /* text-align: center; */
+}
+
+.or {
+    text-align: center;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.register-header {
+    margin-left: 42px;
+    margin-right: 42px;
+}
+
+.register-welcome-home {
+    margin-top: 38px;
+    font-weight: 700;
+    font-family: 'Heebo', sans-serif;
+}
+
+.register-lets-get-you-settled {
+    margin-bottom: 22px;
+}
+
+.register-social-media {
+    color: black;
+    text-align: center;
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-top: 9px;
+}
+.register-sign-up-with-social-media {
+    font-size: 16px;
+}
+
+.register-input-and-button {
+    margin-left: 42px;
+    margin-right: 42px;
+}
+
+.register-social-media #google {
+    height: 40px;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-size: 12px;
+    background: #FFFFFF;
+    border: 1px solid #D1D3D6;
+    box-sizing: border-box;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    /* background-image:  */
+    background: url(../../../assets/img/google.svg),no-repeat, center;
+    background-position: center;
+}
+
+.register-social-media #facebook {
+    height: 40px;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    /* color: black; */
+    font-size: 12px;
+    /* background: #4267B2; */
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;    
+    box-sizing: border-box;
+    /* border-radius: 3px; */
+    border: 1px solid #D1D3D6;
+    border-left: 0;
+    background: url(../../../assets/img/facebook.svg), no-repeat, center;
+    background-position: center;
+}
 
 .register-main-form-label {
-    color: white;
+    color: black;
     align-self: flex-start;
-    margin-left: 0; 
+    margin-left: 0;
+    font-size: 14px;
+    margin-bottom: 1px;
 }
+
+ #password {
+    margin-top: 16px;
+}
+
+#confirm-password {
+    margin-top: 10px;
+}
+
+#password-eye {
+    width: 40px;
+    height: 40px;
+    /* background-image: url('../../../assets/img/eye.svg'); */
+    /* content: url('../../../assets/img/eye.svg'); */
+}
+/* #password-input {
+    background-image: url(../../../assets/img/eye.svg); 
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-x: 98%;
+}
+
+#confirm-password-input {
+    background-image: url(../../../assets/img/eye.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-x: 98%;
+} */
 
 .register-main-form-input {
     display:flex;
     flex-direction: column;
     width:100%;
-    margin-bottom: 7px;   
+    padding: 0 5px 0 5px;
+    /* margin-bottom: 7px; */
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: #FFFFFF;
+    border: 1px solid rgba(42, 46, 67, 0.5);
 }
 
 .register-main-form-error {
@@ -31,6 +163,40 @@
 
 .register-required-label {
     color: #ffc107;
+}
+
+.register-lets-go-button {
+    margin: 0;
+    width: 100%;
+    margin-top: 18px;
+    height: 45px;
+    font-weight: 700;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E4;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid rgba(42, 46, 67, 0.5);
+
+}
+
+.register-lets-go-button:hover {
+    color: #fff;
+    background-color: rgba(53, 195, 226, 0.95);
+    border: none;
+}
+
+.already-have-an-account {
+    margin-top: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16px;
+}
+
+.already-have-an-account #sign-in {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(53, 195, 226, 0.95);
+
 }
 
 .btn-warning{

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Login from "./login/Login";
 import Register from "./register/Register";
-import "./Auth.css";
+// import "./Auth.css";
 import { Link } from "react-router-dom";
 import icon from "../../assets/img/rvnav.png";
+import "./register/Register.css"
 
 export default class Auth extends Component {
   state = {
@@ -21,8 +22,11 @@ export default class Auth extends Component {
   render() {
     return (
       <>
+        <div className="register-wrapper">
+          <Register />
+        </div>
         {/* <Nav /> */}
-        <div className="auth-wrapper">
+        {/* <div className="auth-wrapper">
           <Link to="/" className="image-link">
             <img className="logo-image" src={icon} alt="logo" />
           </Link>
@@ -51,7 +55,7 @@ export default class Auth extends Component {
           >
             About the team
           </a>
-        </div>
+        </div> */}
       </>
     );
   }

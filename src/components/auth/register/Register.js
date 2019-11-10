@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { register, login, clearError } from "../../../store/actions";
 import { withRouter } from "react-router-dom";
-// import "../Auth.css"; //! commented out by Noor : "Moved to login.css and register.css"
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import "./Register.css"
 
 /* eslint-disable no-useless-escape */
@@ -130,68 +126,65 @@ class RegisterForm extends Component {
       });
   };
 
+  unmaskPassword() {
+    var passwordInput = document.querySelector('#password-input');
+    var passwordStatus = document.querySelector('#password-eye');
+    document.querySelector('#password-eye').style.background = "url('../../../assets/img/eye.svg')";
+
+    if (passwordStatus && passwordInput.type == 'password') {
+      passwordInput.type = 'text';
+      passwordStatus.style.background = "url('../../../assets/img/eye-off.svg')";
+      // passwordStatus.style.backgroundColor = 'black';
+      // passwordStatus.style.color = 'red';
+
+    }
+    else {
+      passwordInput.type = 'password';
+      passwordStatus.style.backgroundImage = "url('../../../assets/img/eye-off.svg')";
+      passwordStatus.style.backgroundColor = 'black';
+      // passwordStatus.style.color = 'blue';
+
+    }
+  }
+
+  // openNav = () => {
+  //   if (
+  //     document.querySelector("#password-eye")
+  //   ) {
+  //     document.querySelector('#password-eye').innerHTML = 'OKOKOK'
+  //     console.log('it happended')
+  //     document.querySelector("#password-eye").style.color = "red";
+
+  //   }
+  // };
+
   render() {
     const { errors } = this.state.credentials;
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.email.length > 2 && this.state.credentials.password.length >= 8;
     return (
-      <div>
+      <div className="register-main">
         {this.state.loading === true ? (
           <p className="register-auth-loading">Loading...</p>
         ) : (
-            <form class="register-main-form">
-              <div
-              //TODO Need to remove this since it's not been used anywhere - Noor
-              // className='MarketingFormContainer'
-              >
-                <label class="register-main-form-label">Username*</label>
+            <form className="register-main-form">
+              <div className="register-header">
+                <h2 className="register-welcome-home">Welcome Home!</h2>
+                <h4 className="register-lets-get-you-settled">Lets get you settled</h4>
+                <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
+              </div>
+              <div className="register-social-media">
+                <button id="google"></button>
+                <button id="facebook"></button>
+              </div>
+              <div className="or">
+                <span>or</span>
+              </div>
+              <div className="register-input-and-button">
+                <label className="register-main-form-label">Email</label>
                 <input
-                  //TODO Need to remove this since it's not been used anywhere - Noor
-                  // className='MarketingPageInputs'
-                  class="register-main-form-input"
-                  name="username"
-                  placeholder="Username"
-                  type="string"
-                  value={this.state.credentials.username}
-                  onChange={this.handleChange}
-                  noValidate
-                ></input>
-                {errors.username.length > 0 && (
-                  <p className="register-main-form-error">{errors.username}</p>
-                )}
-                {this.props.error === "Username already taken" ? (
-                  <p className="register-main-form-error">Username already taken</p>
-                ) : null}
-
-                <label class="register-main-form-label">First Name (Optional)</label>
-                <input
-                  //TODO Need to remove this since it's not been used anywhere - Noor
-                  // className='MarketingPageInputs'
-                  class="register-main-form-input"
-                  name="first_name"
-                  placeholder="First name"
-                  type="string"
-                  value={this.state.credentials.first_name}
-                  onChange={this.handleChange}
-                ></input>
-
-                <label class="register-main-form-label">Last Name (Optional)</label>
-                <input
-                  //TODO Need to remove this since it's not been used anywhere - Noor
-                  // className='MarketingPageInputs'
-                  class="register-main-form-input"
-                  name="last_name"
-                  placeholder="Last name"
-                  type="string"
-                  value={this.state.credentials.last_name}
-                  onChange={this.handleChange}
-                ></input>
-
-                <label class="register-main-form-label">Email*</label>
-                <input
-                  // className='MarketingPageInputs'
-                  class="register-main-form-input"
+                  className="register-main-form-input"
                   name="email"
-                  placeholder="Email"
+                  // placeholder="Email"
                   type="email"
                   value={this.state.credentials.email}
                   onChange={this.handleChange}
@@ -204,14 +197,27 @@ class RegisterForm extends Component {
                   <p className="register-main-form-error">Email already taken</p>
                 )}
 
-                <label class="register-main-form-label">Password*</label>
+                <label className="register-main-form-label" id="password">Password</label>
                 <input
-                  //TODO Need to remove this since it's not been used anywhere - Noor
-                  // className='MarketingPageInputs'
-                  class="register-main-form-input"
+                  className="register-main-form-input"
+                  id="password-input"
                   type="password"
                   name="password"
-                  placeholder="Password"
+                  value={this.state.credentials.password}
+                  onChange={this.handleChange}
+                  noValidate
+                ></input>
+                <a id="password-eye" onClick={this.unmaskPassword}>PPPPP</a>
+                {errors.password.length > 0 && (
+                  <p className="register-main-form-error">{errors.password}</p>
+                )}
+
+                <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
+                <input
+                  className="register-main-form-input"
+                  id="confirm-password-input"
+                  type="password"
+                  name="confirmPassword"
                   value={this.state.credentials.password}
                   onChange={this.handleChange}
                   noValidate
@@ -220,17 +226,17 @@ class RegisterForm extends Component {
                   <p className="register-main-form-error">{errors.password}</p>
                 )}
 
-                <div className="register-required-label">
-                  <small>* Required</small>
-                </div>
-
-                <Button
+                <button
+                  className="register-lets-go-button"
                   variant="warning"
                   onClick={this.registerSubmit}
                   type="submit"
                 >
-                  Submit
-              </Button>
+                  Let's Go
+                </button>
+                <div className="already-have-an-account">
+                  <span>Already have an account? <a id="sign-in">Sign In</a></span>
+                </div>
               </div>
             </form>
           )}
