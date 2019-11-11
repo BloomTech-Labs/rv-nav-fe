@@ -18,14 +18,14 @@ const RoutingSidebar = (props) => {
 
         if(state.sidebar == false){
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
-            div.style.animation = 'slideRight .5s';
-            div.style.right = '370px';
+            div.style.animation = 'slideLeft .5s';
+            div.style.left =  '0px';
             
         } 
         else {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
-            div.style.animation = 'slideLeft .5s'
-            div.style.right = '745px';
+            div.style.animation = 'slideRight .5s'
+            div.style.left = '-375px';
         }
         
     }
@@ -35,53 +35,11 @@ const RoutingSidebar = (props) => {
 //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => {
 
-        // document.getElementsByClassName('mainSidebarContainer')[0].style.visibility =
+        if(props.state.directions === 'on'){
 
-//         if(props.state.directions === 'on'){
-//             let sidebar = document.querySelector('#overlayNav.overlay.open')
-//             sidebar.style.height = '100%'
-//             sidebar.style.margin = '0px'
-//             sidebar.style.width = '420px'
-//             sidebar.style.background = 'transparent'
-            
-//             let dropdown = document.getElementsByClassName('dropdown dropdown btn-group')[0]
-//             dropdown.style.display = 'none'
-
-//             let overlayContent = document.getElementsByClassName('overlay-content')[0]
-//             overlayContent.style.margin = 0
-//             overlayContent.style.height = '100%'
-
-//             let on = document.getElementsByClassName('on')[0]
-//             on.style.margin = '0px'
-//             on.style.height = '100%'
-//             sidebar.style.width = '420px'
-// //revert sidebar style changes back to the original
-//         } else {
-
-//             let overlayOpen = document.querySelector('#overlayNav.overlay.open')
-//             overlayOpen.style.height = '100%'
-//             overlayOpen.style.margin = '0px'
-//             overlayOpen.style.width = '375px'
-//             overlayOpen.style.background = '#2A2E43'
-
-//             let sidebar = document.querySelector('#overlayNav')
-//             sidebar.style.height = '100%'
-//             // sidebar.style.margin = '25px'
-//             sidebar.style.width = '375px'
-//             sidebar.style.background = '#2A2E43'
-
-//             document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
-
-//             let overlayContent = document.getElementsByClassName('overlay-content')[0]
-//             // overlayContent.style.marginTop = '25px'
-//             overlayContent.style.height = '100%'
-//             sidebar.style.background = '#2A2E43'
-
-//             let on = document.getElementsByClassName('on')[0]
-//             on.style.height = '100%'
-//             sidebar.style.background = '#2A2E43'
-
-//         }
+            let div = document.getElementsByClassName('mainSidebarContainer')[0]
+            div.style.margin = '0px'       
+        } 
     }
 //toggles state back to render the initial sidebar form
     const revertChanges = () => {
@@ -92,6 +50,9 @@ const RoutingSidebar = (props) => {
             vehicles: "off",
             directions: "off", 
         })
+
+        let div = document.getElementsByClassName('mainSidebarContainer')[0]
+            div.style.margin = '25px'
     }
 
     return (

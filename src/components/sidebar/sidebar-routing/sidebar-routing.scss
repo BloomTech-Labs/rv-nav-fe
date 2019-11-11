@@ -1,12 +1,12 @@
 //<----------------- BEGINNING OF KEYFRAMES FOR ANIMATION
 @keyframes slideLeft {
-    from {right: 375px}
-    to {right: 745px}
+    from {left: -375px}
+    to {left: 0px}
 }
 
 @keyframes slideRight {
-    from {right: 745px}
-    to {right: 370px}
+    from {left: 0px}
+    to {left: -375px}
 }
 //<----------------- END OF KEYFRAMES FOR ANIMATION
 
