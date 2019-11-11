@@ -274,9 +274,9 @@ class VehicleForm extends React.Component {
                     type="number"
                     min="0"
                     max="100"
-                    name='heightFeet'
+                    name='widthFeet'
                     placeholder="0"
-                    value={this.state.specifications.heightFeet}
+                    value={this.state.specifications.widthFeet}
                     onChange={this.handleChange}
                     id="input-boxes"
                   />
@@ -288,9 +288,9 @@ class VehicleForm extends React.Component {
                     type="number"
                     min="0"
                     max="11"
-                    name='heightInches'
+                    name='widthInches'
                     placeholder="0"
-                    value={ this.state.specifications.heightInches}
+                    value={ this.state.specifications.widthInches}
                     onChange={this.handleChange}
                     id="input-boxes"
                   />
@@ -308,9 +308,9 @@ class VehicleForm extends React.Component {
                       type="number"
                       min="0"
                       max="100"
-                      name='heightFeet'
+                      name='lengthFeet'
                       placeholder="0"
-                      value={this.state.specifications.heightFeet}
+                      value={this.state.specifications.lengthFeet}
                       onChange={this.handleChange}
                       id="input-boxes"
                     />
@@ -322,9 +322,9 @@ class VehicleForm extends React.Component {
                       type="number"
                       min="0"
                       max="11"
-                      name='heightInches'
+                      name='lengthInches'
                       placeholder="0"
-                      value={ this.state.specifications.heightInches}
+                      value={ this.state.specifications.lengthInches}
                       onChange={this.handleChange}
                       id="input-boxes"
                     />
@@ -339,9 +339,9 @@ class VehicleForm extends React.Component {
                     type="number"
                     min="0"
                     max="100"
-                    name='heightFeet'
+                    name='weight'
                     placeholder="0"
-                    value={this.state.specifications.heightFeet}
+                    value={this.state.specifications.weight}
                     onChange={this.handleChange}
                     id="input-boxes-pounds"
                   />
