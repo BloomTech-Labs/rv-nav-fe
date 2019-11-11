@@ -37,17 +37,26 @@ const RoutingSidebar = (props) => {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '0px';
             div.style.height =  '100%';
-            div.style.bottom =  '70px';       
+            // div.style.bottom =  '70px';
         }
     }
 
-//toggles state back to render the initial sidebar form
+    //toggles state back to render the initial sidebar form
     const revertChanges = () => {
-
+        
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '25px';
             div.style.height =  '400px';
-            div.style.bottom =  '45px';
+            // div.style.bottom =  '260px';
+
+        // let loading = document.getElementsByClassName('route-loading')[0]
+        //     loading.style.marginTop = '25px';
+        //     loading.style.display = 'flex';
+        //     loading.style.alignItems = 'center';
+        //     loading.style.justifyContent = 'center';
+        //     loading.style.right = '38px';
+        //     loading.style.position = 'relative';
+        
 
         props.setState({
             ...props.state,
@@ -65,8 +74,8 @@ const RoutingSidebar = (props) => {
             </NavLink>
         :
         <div className='containerWithArrow'>
+            
             {props.loading !== 'Routing successful' ? <p className="route-loading">{props.loading}</p> :
-                
                 <>
                     <div className='arrowContainer' onClick={toggleSidebar}>
                         {state.sidebar === true ?
@@ -108,9 +117,9 @@ const RoutingSidebar = (props) => {
                             <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
                         </div>
                     </div>
+                    {sidebarAnchor()}
                 </>
             }
-            {sidebarAnchor()}
         </div>
     )
 };

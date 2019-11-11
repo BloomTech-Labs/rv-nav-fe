@@ -17,7 +17,7 @@ const Sidebar = (props) => {
         vehicles: "off",
         directions: "off" //<-- for routing side bar component -Jerry
     })
-    // console.log('props on Sidebar', props)
+    console.log('props on Sidebar', props)
 
     //selects the tab when it is clicked on, deselects all others
     const buttonSelect = (event) => {
@@ -30,46 +30,19 @@ const Sidebar = (props) => {
             directions: "on",
             [event.target.id]: "on"
         })
-            // if(state.directions === 'on'){
-                
-            //     let sidebar = document.querySelector('#overlayNav.overlay.open')
-            //         sidebar.style.height = '100%'
-            //         sidebar.style.margin = '0'
-            //         sidebar.style.width = '375px'
         
-            //     document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'none'
-    
-            //     let overlayContent = document.getElementById('overlayNav')
-            //     overlayContent.style.height = '100%'
-            //     overlayContent.style.margin = '0'
-            //     overlayContent.style.width = '375px'
-                
-            //     let on = document.getElementsByClassName('on')[0]
-            //     on.style.margin = '0'
-            //     on.style.height = '100%'
-            //     on.style.width = '375px'
-        
-            // } else {
+        let div = document.getElementsByClassName('mainSidebarContainer')[0]
+        div.style.height = '100%'
+        div.style.margin = '0px'
+        // div.style.bottom = '-70px'
+        // div.style.border = '5px solid red'
 
-            //     let sidebar = document.querySelector('#overlayNav.overlay.open')
-            //         sidebar.style.height = '400px'
-            //         sidebar.style.margin = '0'
-            //         sidebar.style.width = '375px'
-        
-            //     // document.getElementsByClassName('dropdown dropdown btn-group')[0].style.display = 'block'
-    
-            //     let overlayContent = document.getElementById('overlayNav')
-            //     overlayContent.style.height = '400px'
-            //     // overlayContent.style.margin = '0'
-            //     overlayContent.style.width = '375px'
-    
-            //     let on = document.getElementsByClassName('on')[0]
-            //     on.style.height = '400px'
-            //     on.style.width = '375px'
-
-            // }
-
-           
+        // if(state.directions === 'on'){
+        //     let a = document.getElementsByClassName('mainSidebarContainer')[0]
+        //     a.style.border = "5px solid red"
+        //     a.style.height = '120%'
+        //     a.style.top = '70px'
+        // } 
     }
 
     const selectVehicles = () => { //This have the user able to return from vehicle form to the initial form
