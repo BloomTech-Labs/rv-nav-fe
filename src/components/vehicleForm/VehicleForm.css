@@ -1,7 +1,9 @@
 .form-wrapper{
     width:100%;
-    margin:0;
+    margin-bottom: 100px;
     padding:20px;
+    /* overflow-y: scroll;
+    overflow-x: hidden; */
 }
 
 .vehicle-tabs{
@@ -253,13 +255,6 @@ color: rgba(42, 46, 67, 0.8);
 background-color:rgba(237, 238, 241, 0.95)
 }
 
-.dropdown{
-background-color: #2A2E43;
-}
-.dropdown:hover{
-    background-color: #2A2E43;
-}
-
 #rv-name{
     width: 319px;
     height:45px;
@@ -372,6 +367,7 @@ border: 3px solid rgb(119, 157, 165) ;
 }
 
 .buttons{
+    /* height: 100%; */
     width:100%;
     display:flex;
     justify-content: space-between;

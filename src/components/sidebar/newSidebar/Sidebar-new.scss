@@ -1,0 +1,23 @@
+.mainSidebarContainer {
+    height: 400px; //<-- changed from 400px
+    position: fixed;
+    z-index: 1000;
+    background: #2a2e43;
+    margin: 25px;
+    width: 375px;
+
+    .off{
+        display: none;
+        width: 100%;
+    }
+}
+
+.login-to-add{
+    margin-top: 60px;
+    padding: 5px;
+}
+
+#dropdown-split-basic div{
+    position: relative;
+    left: 10px;
+}
