@@ -1,5 +1,5 @@
 .dropdown {
-    width: 375px;
+    width: 100%;
     /* margin-left: 400px; */
 }
 
@@ -44,6 +44,11 @@
 .dropdown-toggle-split::after, .dropright .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after {
     margin-left: 0;
     display: none;
+}
+
+.btn-group-vertical > .btn, .btn-group > .btn{
+    background-color: white;
+    border: white;
 }
 
 .btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle {

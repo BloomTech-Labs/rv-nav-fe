@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import Sidebar from '../sidebar/Sidebar';
+// import Sidebar from '../sidebar/Sidebar';
 import axios from 'axios';
 import { getVehicles } from "../../store/actions";
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { loadModules } from 'esri-loader';
 import "./Map.css"
+
+//Testing new Sidebar -Jerry
+import Sidebar from '../sidebar/newSidebar/Sidebar-new';
+
 
 
 class MapPage extends Component {
