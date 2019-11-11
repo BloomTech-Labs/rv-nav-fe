@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Login from "./login/Login";
-import Register from "./register/Register";
+import Login from "./login/Login.js";
+import Register from "./register/Register.js";
+import MapHeader from "../header/MapHeader"
 // import "./Auth.css";
 import { Link } from "react-router-dom";
-import icon from "../../assets/img/rvnav.png";
-import "./register/Register.css"
-
+// import icon from "../../assets/img/rvnav.png";
+// import "./register/Register.css"
+// import "./login/Login.css"
 export default class Auth extends Component {
   state = {
     login: true
@@ -22,9 +23,14 @@ export default class Auth extends Component {
   render() {
     return (
       <>
-        <div className="register-wrapper">
-          <Register />
-        </div>
+        {/* <div className="login-wrapper"> */}
+        <MapHeader />
+        <Login />
+        {/* <Register /> */}
+        {/* </div> */}
+        {/* <div className="register-wrapper"> */}
+        {/* <Register /> */}
+        {/* </div> */}
         {/* <Nav /> */}
         {/* <div className="auth-wrapper">
           <Link to="/" className="image-link">
