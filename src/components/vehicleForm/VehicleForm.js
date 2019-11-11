@@ -210,18 +210,18 @@ class VehicleForm extends React.Component {
           <p>Sign in or create an account to be able to add a vehicle</p>
         </NavLink>
       :
-      <div className='WidgetWrapper'> 
-        <div className='vehicle-form-wrap'>
-        <div className="vehicle-form" onSubmit={this.vehicleSubmit}>
-          {/* <h2>RV WAY</h2> */}
-          <div className='FormContainer'>
+      // <div className='WidgetWrapper'> //This can safely be removed since they weren't being used -Jerry :)
+        // <div className='vehicle-form-wrap'> //This can safely be removed since they weren't being used -Jerry :)
+        // <div className="vehicle-form" onSubmit={this.vehicleSubmit}> //This can safely be removed since they weren't being used -Jerry :)
+        <>
           <div className="back">
-                        <p className='vehicleFormBackContainer'
-                                   id="routing"
-                                   onClick={this.props.selectVehicles}>Back
-                        </p>
-                        <p className="back-label">| Add Vehicle</p>
-                  </div>
+            <p 
+              className='vehicleFormBackContainer'
+              id="routing"
+              onClick={this.props.selectVehicles}>Back
+            </p>
+            <p className="back-label">| Add Vehicle</p>
+          </div>
           <div className="form-wrapper">        
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
             <p className="vehicle-spec">Name (required)</p>
@@ -236,27 +236,55 @@ class VehicleForm extends React.Component {
                 id="rv-name"
               >
               </input>
-          </div>
-              <div className="vehicle-spec-label">
-              <p className="vehicle-spec">Height</p>
-              <p className="vehicle-spec">Width</p>
+            </div>
+            <div className="vehicle-spec-label">
+              <div className ='dimensionsTitle'>
+                  <p className="vehicle-spec">Height</p>
+                  <div className='measurementsParent'>
+                  <div className='measurements'>
+                    <p className='measurementsInput'>Feet</p>
+                    <input        
+                      type="number"
+                      min="0"
+                      max="100"
+                      name='heightFeet'
+                      placeholder="0"
+                      value={this.state.specifications.heightFeet}
+                      onChange={this.handleChange}
+                      id="input-boxes"
+                    />
+                  </div>
+                  <p className="plus">+</p>
+                  <div className="measurements">
+                    <p className='measurementsInput'>Inches</p>
+                    <input        
+                      type="number"
+                      min="0"
+                      max="11"
+                      name='heightInches'
+                      placeholder="0"
+                      value={ this.state.specifications.heightInches}
+                      onChange={this.handleChange}
+                      id="input-boxes"
+                    />
+                  </div>
+                  </div>
               </div>
+              <div className ='dimensionsTitle'>
+                <p className="vehicle-spec">Width</p>
               <div className='measurementsParent'>
-              <div className='inputsFieldsContainer'>
-              <div className="form-section">  
                 <div className='measurements'>
                   <p className='measurementsInput'>Feet</p>
                   <input        
                     type="number"
                     min="0"
                     max="100"
-                    name='heightFeet'
+                    name='widthFeet'
                     placeholder="0"
-                    value={this.state.specifications.heightFeet}
+                    value={this.state.specifications.widthFeet}
                     onChange={this.handleChange}
                     id="input-boxes"
-                  >
-                  </input>
+                  />
                 </div>
                 <p className="plus">+</p>
                 <div className="measurements">
@@ -265,189 +293,178 @@ class VehicleForm extends React.Component {
                     type="number"
                     min="0"
                     max="11"
-                    name='heightInches'
+                    name='widthInches'
                     placeholder="0"
-                    // this.state.specifications.heighInches === 0 ? undefined :
-                    value={ this.state.specifications.heightInches}
+                    value={ this.state.specifications.widthInches}
                     onChange={this.handleChange}
                     id="input-boxes"
-                  >
-                </input>
+                  />
+                </div>
                 </div>
               </div>
             </div>
-            <div className='inputsFieldsContainer'>
-             
-              <div className="form-section">
-              <div className="measurements">
-                <p className='measurementsInput '>Feet</p>
-                <input        
-                  type="number"
-                  min="0"
-                  max="100"
-                  name='widthFeet'
-                  placeholder="0"
-                  value={this.state.specifications.widthFeet}
-                  onChange={this.handleChange}
-                  id="input-boxes"
-                >
-              </input>
+            <div className="vehicle-spec-label2">
+              <div className ='dimensionsTitle'>
+                <p className="vehicle-spec">Length</p>
+                <div className='measurementsParent'>
+                  <div className='measurements'>
+                    <p className='measurementsInput'>Feet</p>
+                    <input        
+                      type="number"
+                      min="0"
+                      max="100"
+                      name='lengthFeet'
+                      placeholder="0"
+                      value={this.state.specifications.lengthFeet}
+                      onChange={this.handleChange}
+                      id="input-boxes"
+                    />
+                  </div>
+                  <p className="plus">+</p>
+                  <div className="measurements">
+                    <p className='measurementsInput'>Inches</p>
+                    <input        
+                      type="number"
+                      min="0"
+                      max="11"
+                      name='lengthInches'
+                      placeholder="0"
+                      value={ this.state.specifications.lengthInches}
+                      onChange={this.handleChange}
+                      id="input-boxes"
+                    />
+                  </div>
+                </div>
               </div>
-              <p className="plus">+</p>
-              <div className="measurements">
-              <p className='measurementsInput'>Inches</p>
-                <input        
-                  type="number"
-                  min="0"
-                  max="11"
-                  name='widthInches'
-                  placeholder="0"
-                  value={this.state.specifications.widthInches}
-                  onChange={this.handleChange}
-                  id="input-boxes"
-                >
-              </input>
-              </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="vehicle-spec-label">
-              <p className="vehicle-spec">Length</p>
-              <p className="vehicle-spec">Weight</p>
-              </div>
-              <div className='measurementsParent'>
-              <div className='inputsFieldsContainer'>
-              <div className="form-section">  
+              <div className ='dimensionsTitle'>
+                <p className="vehicle-spec">Weight</p>
                 <div className='measurements'>
-                  <p className='measurementsInput'>Feet</p>
+                  <p className='measurementsInput'>Pounds</p>
                   <input        
                     type="number"
                     min="0"
                     max="100"
-                    name='lengthFeet'
+                    name='weight'
                     placeholder="0"
-                    value={this.state.specifications.lengthFeet}
+                    value={this.state.specifications.weight}
+                    onChange={this.handleChange}
+                    id="input-boxes-pounds"
+                  />
+                </div>
+              </div>
+            {/* <div className='inputsFieldsContainer'>
+              <div className="form-section">
+                <div className="measurements">
+                  <p className='measurementsInput'>Pounds</p>
+                  <input className="pounds"       
+                    type="number"
+                    min="0"
+                    max="100"
+                    name='weightPounds'
+                    placeholder="0"
+                    value={this.state.specifications.weightPounds}
                     onChange={this.handleChange}
                     id="input-boxes"
                   >
                   </input>
                 </div>
-                <p className="plus">+</p>
-                <div className="measurements">
-                  <p className='measurementsInput'>Inches</p>
-                  <input        
+              </div>
+            </div> */}
+            </div>
+        
+            <div className='inputsFieldsContainer'>
+            <div className='measurementsParent'>
+                <div className="form-section">
+                {/* <div className="tires-check"> */}
+                  <div className="measurements">
+                  <p className='measurementsInput'>Axel Count</p>
+                  <input className="axels"       
                     type="number"
                     min="0"
-                    max="11"
-                    name='lengthInches'
+                    max="100"
+                    name='axel_count'
                     placeholder="0"
-                    // this.state.specifications.heighInches === 0 ? undefined :
-                    value={ this.state.specifications.lengthInches}
+                    value={this.state.specifications.axel_count}
                     onChange={this.handleChange}
                     id="input-boxes"
                   >
-                </input>
+                  </input>
                 </div>
-              </div>
+                <div className="tires-check-p">
+                <div className="tires-p">
+                <p className='tires-ptag' >Tires</p>
+                </div>
+            
+            <div className="tires-check-p2">
+            <Form.Check 
+            name="dual_tires" 
+            type="checkbox"
+            checked={this.state.specifications.dual_tires}
+            onChange={this.handleCheck}
+            id={`inline-text-2`} 
+            />
+            <p className="tires-ptag">I have a dual wheel vehicle</p>  
+            </div> 
+            {/* </div> */}
             </div>
-            <div className='inputsFieldsContainer'>
-             
-              <div className="form-section">
-              <div className="measurements">
-                <p className='measurementsInput'>Pounds</p>
-                <input className="pounds"       
-                  type="number"
-                  min="0"
-                  max="100"
-                  name='weightPounds'
-                  placeholder="0"
-                  value={this.state.specifications.weightPounds}
-                  onChange={this.handleChange}
-                  id="input-boxes"
-                >
-              </input>
-              </div>
-              
-              </div>
-            </div>
-          </div>
-         
-          <div className='inputsFieldsContainer'>
-{/*              
-              <div className="form-section">
-              <div className="measurements">
-                <p className='measurementsInput'>Axel Count</p>
-                <input className="axels"       
-                  type="number"
-                  min="0"
-                  max="100"
-                  name='axel_count'
-                  placeholder="0"
-                  value={this.state.specifications.axel_count}
-                  onChange={this.handleChange}
-                  id="input-boxes"
-                >
-              </input>
-              </div>
-               */}
-             
 
-
-            {/* <div className="tires-check">
-             <div className="tires-check-p">
-            <p >Tires</p>
-           <div className="tires-check-p2">
-          <Form.Check 
-          name="dual_tires" 
-          type="checkbox"
-          checked={this.state.specifications.dual_tires}
-          onChange={this.handleCheck}
-          id={`inline-text-2`} 
-          />
-          <p>I have a dual wheel vehicle</p>  */}
-          {/* </div> */}
-          {/* </div>
-          </div>
-           </div> */}
-           {/* </div> */}
+            </div> 
+              </div> 
+              </div>
+              <p className="vehicle-spec">RV TYPE</p> 
+                <div className="class-radios">
+                  <div className='classAbc'>
+                      <div className="rv-radio">
+                      {/* <Form.Check className="form-check"name="class"inline label="Class A" type="radio" id={`inline-text-2`} 
+                          value="CLASS A"
+                          checked={this.state.specifications.class_name === "A"} onChange={this.handleRadio}
+                      />*/}
+                        <label className="form-radio"><input type='radio' />Class A</label>
+                      </div> 
+                      <div className="rv-radio">
+                      {/* <Form.Check className="form-check" name="class" inline label="Class B" type="radio" id={`inline-text-2`} 
+                      value="CLASS B"
+                      checked={this.state.specifications.class_name === "B"} onChange={this.handleRadio}
+                      /> */}
+                        <label className="form-radio"><input type='radio' />Class B</label>
+                      </div>
+                      <div className="rv-radio">
+                      {/* <Form.Check className="form-check"name="class" inline label="Class C" type="radio" id={`inline-text-2`} 
+                      value="CLASS C"
+                      checked={this.state.specifications.class_name === "C"} onChange={this.handleRadio}
+                      /> */}
+                      <label className="form-radio"><input type='radio' />Class C</label>
+                      </div>
+                  </div>
+                  <div className='FithWheelContainer'>
+                  <div className="rv-radio">
+                  {/* <div className="tag-radio-child"> */}
+                  {/* <Form.Check className="form-check" name="class" inline label="5TH Wheel" type="radio" id={`inline-text-2`} 
+                  value="5TH WHEEL"
+                  checked={this.state.specifications.class_name === "5TH WHEEL"} onChange={this.handleRadio}
+                  /> */}
+                    <label className="form-radio"><input type='radio' />5TH Wheel</label>
+                  </div>
+                  <div className="rv-radio-tagalong">
+                    {/* <Form.Check  name="class" inline label="Tagalong Camper" type="radio" id={`inline-text-2`} 
+                    value="TAGALONG CAMPER"
+                    checked={this.state.specifications.class_name === "TAGALONG CAMPER"} onChange={this.handleRadio}
+                    />  */}
+                    <input type='radio' />
+                    <p id='tagalongCamper'>Tagalong Camper</p>
+                  </div>
+                  <div className="buttons">
+                    <button className="btn-submit" id='cancelButton' onClick={this.props.selectVehicles}>Cancel</button>
+                    <button className="btn-submit"   onClick={this.vehicleSubmit}>Add</button>
+                    {/* <Button className="btn-submit " type="submit"  onClick={this.vehicleSubmit}>Add</Button> */}
+                  </div>
+                </div>
+              </div> 
             </div>
-            {/* <p className="vehicle-spec">RV TYPE</p> */}
-          {/* <div className="class-radios">
-          <Form.Check name="class"inline label="A" type="radio" id={`inline-text-1`} 
-          value="CLASS A"
-          checked={this.state.specifications.class_name === "A"} onChange={this.handleRadio}
-          />
-          <Form.Check name="class" inline label="B" type="radio" id={`inline-text-2`} 
-          value="CLASS B"
-          checked={this.state.specifications.class_name === "B"} onChange={this.handleRadio}
-          />
-          <Form.Check name="class" inline label="C" type="radio" id={`inline-text-2`} 
-          value="CLASS C"
-          checked={this.state.specifications.class_name === "C"} onChange={this.handleRadio}
-          />
-           <Form.Check name="class" inline label="5TH WHEEL" type="radio" id={`inline-text-2`} 
-          value="5TH WHEEL"
-          checked={this.state.specifications.class_name === "5TH WHEEL"} onChange={this.handleRadio}
-          />
-           <Form.Check name="class" inline label="TAGALONG" type="radio" id={`inline-text-2`} 
-          value="TAGALONG CAMPER"
-          checked={this.state.specifications.class_name === "TAGALONG CAMPER"} onChange={this.handleRadio}
-          /> */}
-          {/* <Form.Check name="class" inline label="Trailer" type="radio" 
-                value="Trailer"
-                checked={this.state.specifications.class_name === "Trailer"}
-                onChange={this.handleRadio}
-          id={`inline-text-2`} /> */}
-          {/* </div> */}
-          {/* deleted from UX Design - Stacy */}
-          {/* <a target="_blank" rel="noopener noreferrer" href="https://rvs.autotrader.com/articles/buying-a-recreational-vehicle-rv-classes-explained">What class of vehicle do I have?</a> */}
-          <button className="btn-submit" type="submit"  onClick={this.vehicleSubmit}>Submit</button>
-          </div>
-          </div>
-        </div>
-        </div>
-      </div>
+      </>
+          // </div>
+        // </div>
+      // </div>
     )
   }
 

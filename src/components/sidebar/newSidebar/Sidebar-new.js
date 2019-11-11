@@ -53,6 +53,10 @@ const Sidebar = (props) => {
             vehicles: "off",
             directions: "off", 
         })
+
+        let div = document.getElementsByClassName('mainSidebarContainer')[0]
+            div.style.margin = '25px';
+            div.style.height =  '400px';
     }
 
     const addAVehicleForm = () => { //This have the user able to go the form to add their vehicle
@@ -63,25 +67,13 @@ const Sidebar = (props) => {
             vehicles: "off",
             directions: "off", 
         })
-        
-       
-        // let sidebar = document.getElementsByClassName('open')[0]
-        // sidebar.style.height = '100%'
-        // sidebar.style.margin = 0
-        // sidebar.style.width = '375px'
 
-        // let overlay = document.getElementsByClassName('overlay')[0]
-        // overlay.style.height = '100%'
-        // overlay.style.margin = 0
-        // overlay.style.width = '375px'
-        
-        // let overlayNav = document.getElementById('overlayNav')
-        // overlayNav.style.margin = 0
-        // overlayNav.style.height = '100%'
+        let div = document.getElementsByClassName('mainSidebarContainer')[0]
+            div.style.margin = '0px';
+            div.style.height =  '100%';
+            // div.style.bottom =  '70px';
+    
 
-        // let on = document.getElementsByClassName('on')[0]
-        // on.style.margin = 0
-        // on.style.height = '100%'
     } 
 
     return (

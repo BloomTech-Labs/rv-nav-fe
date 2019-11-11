@@ -85,34 +85,34 @@ const RoutingSidebar = (props) => {
                     </div>
                     <div className='sidebarContainer'>
                         <SidebarMenu />
-                            <div className='backbuttonContainer'>
-                                <h6 
-                                className='routingBackButton'
-                                onClick={revertChanges}
-                                >Back</h6>
+                        <div className='backbuttonContainer'>
+                            <h6 
+                            className='routingBackButton'
+                            onClick={revertChanges}
+                            >Back</h6>
+                        </div>
+                        <div className='startEndContainer'>
+                            {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
+                            <div id='startPointContainer'>
+                                <p className='startAndEnd'>STARTING POINT</p>
+                                <p>{props.start}</p>
                             </div>
-                            <div className='startEndContainer'>
-                                {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
-                                <div id='startPointContainer'>
-                                    <p className='startAndEnd'>STARTING POINT</p>
-                                    <p>{props.start}</p>
-                                </div>
-                                <div id='destinationPointContainer'>
-                                    <p className='startAndEnd'>DESTINATION</p>
-                                    <p>{props.end}</p>
-                                </div>
+                            <div id='destinationPointContainer'>
+                                <p className='startAndEnd'>DESTINATION</p>
+                                <p>{props.end}</p>
                             </div>
-                            {/* <div className='sidebarOptions'>
-                                <p>THIS ROUTE AVOIDS</p>
-                            </div> */}
-                            <h3 id='directionsTitle'>Directions</h3>
-                            <div className="directions">
-                                {props.textDirections.map((e, i) => {
-                                    return (
-                                        <p key={i} className="instruction">{e}</p>
-                                        )
-                                    })}
-                            </div>
+                        </div>
+                        {/* <div className='sidebarOptions'>
+                            <p>THIS ROUTE AVOIDS</p>
+                        </div> */}
+                        <h3 id='directionsTitle'>Directions</h3>
+                        <div className="directions">
+                            {props.textDirections.map((e, i) => {
+                                return (
+                                    <p key={i} className="instruction">{e}</p>
+                                    )
+                                })}
+                        </div>
                         <div className='sidebarFooterContainer'>
                             <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
                         </div>
