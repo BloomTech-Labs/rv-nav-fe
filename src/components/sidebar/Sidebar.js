@@ -26,9 +26,9 @@ const Sidebar = (props) => {
         setState({
             ...state,
             vehicleForm: "off",
-            routing: "off",
+            routing: "on",
             vehicles: "off",
-            directions: "on", //<-- for routing side bar component -Jerry
+            directions: "off", //<-- for routing side bar component -Jerry
             [event.target.id]: "on"
         })
             // if(state.directions === 'on'){
