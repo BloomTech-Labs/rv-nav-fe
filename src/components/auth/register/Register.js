@@ -83,11 +83,8 @@ class RegisterForm extends Component {
       this.setState({ loading: true });
       this.props
         .register({
-          username: this.state.credentials.username,
           password: this.state.credentials.password,
-          email: this.state.credentials.email,
-          first_name: this.state.credentials.first_name,
-          last_name: this.state.credentials.last_name
+          email: this.state.credentials.email
         })
         .then(res => {
           if (res) {
@@ -126,7 +123,7 @@ class RegisterForm extends Component {
     // if (document.querySelector('#password-eye')) {
     passwordStatus.backgroundImage = 'none';
     // }
-    if (passwordStatus && passwordInput.type == 'password') {
+    if (passwordStatus && passwordInput.type === 'password') {
       passwordInput.type = 'text';
       passwordStatus.classList.add('password-eye-off')
       passwordStatus.classList.remove('password-eye')
@@ -144,7 +141,7 @@ class RegisterForm extends Component {
     // if (document.querySelector('#password-eye')) {
     passwordStatus.backgroundImage = 'none';
     // }
-    if (passwordStatus && passwordInput.type == 'password') {
+    if (passwordStatus && passwordInput.type === 'password') {
       passwordInput.type = 'text';
       passwordStatus.classList.add('password-eye-off')
       passwordStatus.classList.remove('password-eye')
@@ -162,85 +159,87 @@ class RegisterForm extends Component {
     const { errors } = this.state.credentials;
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.email.length > 2 && this.state.credentials.password.length >= 8;
     return (
-      <div className="register-main">
-        {this.state.loading === true ? (
-          <p className="register-auth-loading">Loading...</p>
-        ) : (
-            <form className="register-main-form">
-              <div className="register-header">
-                <h2 className="register-welcome-home">Welcome Home!</h2>
-                <h4 className="register-lets-get-you-settled">Lets get you settled</h4>
-                <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
-              </div>
-              <div className="register-social-media">
-                <button id="google"></button>
-                <button id="facebook"></button>
-              </div>
-              <div className="or">
-                <span>or</span>
-              </div>
-              <div className="register-input-and-button">
-                <label className="register-main-form-label">Email</label>
-                <input
-                  className="register-main-form-input"
-                  name="email"
-                  // placeholder="Email"
-                  type="email"
-                  value={this.state.credentials.email}
-                  onChange={this.handleChange}
-                  noValidate
-                ></input>
-                {errors.email.length > 0 && (
-                  <p className="register-main-form-error">{errors.email}</p>
-                )}
-                {this.props.error === "Email already taken" && (
-                  <p className="register-main-form-error">Email already taken</p>
-                )}
-
-                <a className="password-mask" onClick={this.unmaskPassword}>MASK</a>
-                <label className="register-main-form-label" id="password">Password</label>
-                <input
-                  className="register-main-form-input"
-                  id="password-input"
-                  type="password"
-                  name="password"
-                  value={this.state.credentials.password}
-                  onChange={this.handleChange}
-                  noValidate
-                ></input>
-                {errors.password.length > 0 && (
-                  <p className="register-main-form-error">{errors.password}</p>
-                )}
-                <div>
-                  <a className="password-mask-confirm" onClick={this.unmaskConfirmPassword}>MASK</a>
-                  <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
+      <div className="register-wrapper">
+        <div className="register-main">
+          {this.state.loading === true ? (
+            <p className="register-auth-loading">Loading...</p>
+          ) : (
+              <form className="register-main-form">
+                <div className="register-header">
+                  <h2 className="register-welcome-home">Welcome Home!</h2>
+                  <h4 className="register-lets-get-you-settled">Lets get you settled</h4>
+                  <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
+                </div>
+                <div className="register-social-media">
+                  <button id="google"></button>
+                  <button id="facebook"></button>
+                </div>
+                <div className="or">
+                  <span>or</span>
+                </div>
+                <div className="register-input-and-button">
+                  <label className="register-main-form-label">Email</label>
                   <input
                     className="register-main-form-input"
-                    id="confirm-password-input"
-                    type="password"
-                    name="confirmPassword"
-                    value={this.state.credentials.confirmPassword}
+                    name="email"
+                    // placeholder="Email"
+                    type="email"
+                    value={this.state.credentials.email}
                     onChange={this.handleChange}
-                  // noValidate
+                    noValidate
                   ></input>
-                  {errors.confirmPassword.length > 0 && (
-                    <p id="confirm-password-error" className="register-main-form-error">{errors.confirmPassword}</p>
+                  {errors.email.length > 0 && (
+                    <p className="register-main-form-error">{errors.email}</p>
                   )}
+                  {this.props.error === "Email already taken" && (
+                    <p className="register-main-form-error">Email already taken</p>
+                  )}
+
+                  <a className="password-mask" onClick={this.unmaskPassword}>MASK</a>
+                  <label className="register-main-form-label" id="password">Password</label>
+                  <input
+                    className="register-main-form-input"
+                    id="password-input"
+                    type="password"
+                    name="password"
+                    value={this.state.credentials.password}
+                    onChange={this.handleChange}
+                    noValidate
+                  ></input>
+                  {errors.password.length > 0 && (
+                    <p className="register-main-form-error">{errors.password}</p>
+                  )}
+                  <div>
+                    <a className="password-mask-confirm" onClick={this.unmaskConfirmPassword}>MASK</a>
+                    <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
+                    <input
+                      className="register-main-form-input"
+                      id="confirm-password-input"
+                      type="password"
+                      name="confirmPassword"
+                      value={this.state.credentials.confirmPassword}
+                      onChange={this.handleChange}
+                    // noValidate
+                    ></input>
+                    {errors.confirmPassword.length > 0 && (
+                      <p id="confirm-password-error" className="register-main-form-error">{errors.confirmPassword}</p>
+                    )}
+                  </div>
+                  <button
+                    className="register-lets-go-button"
+                    variant="warning"
+                    onClick={this.registerSubmit}
+                    type="submit"
+                  >
+                    Let's Go
+                  </button>
+                  <div className="already-have-an-account">
+                    <span>Already have an account? <a id="sign-in">Sign In</a></span>
+                  </div>
                 </div>
-                <button
-                  className="register-lets-go-button"
-                  variant="warning"
-                  onClick={this.registerSubmit}
-                  type="submit"
-                >
-                  Let's Go
-                </button>
-                <div className="already-have-an-account">
-                  <span>Already have an account? <a id="sign-in">Sign In</a></span>
-                </div>
-              </div>
-            </form>
-          )}
+              </form>
+            )}
+        </div>
       </div>
     );
   }

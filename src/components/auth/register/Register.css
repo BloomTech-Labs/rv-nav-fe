@@ -1,11 +1,12 @@
 
 .register-wrapper {
-    height: 100vh;
+    height: 92.3vh;
     /* background: #E5ECEE; */
     font-family: 'Heebo', sans-serif;
     background-image: url(../../../assets/img/Sign-up-Background.svg);
     /* background-attachment: fixed; */
     background-repeat:no-repeat ;
+    background-size: cover;
 
 }
 
@@ -117,6 +118,8 @@
 
  #password {
     margin-top: 16px;
+    margin-left: -30px;
+
 }
 
 #confirm-password {
@@ -126,9 +129,9 @@
 
 
 .password-mask {
-    position: fixed;
-    right: 270px;
-    bottom: 368px;
+    position: relative;
+    right: -274px;
+    bottom: -43px;
     background:transparent url("../../../assets/img/eye.svg") no-repeat 0 center;
     display: inline-block;
     text-indent: -1000em; 
@@ -194,6 +197,7 @@
     box-sizing: border-box;
     border-radius: 3px;
     border: 1px solid rgba(42, 46, 67, 0.5);
+    color: rgba(42, 46, 67, 0.6);
 
 }
 
@@ -213,6 +217,7 @@
 .already-have-an-account #sign-in {
     font-size: 16px;
     font-weight: 700;
+    text-decoration: none;
     color: rgba(53, 195, 226, 0.95);
 
 }
