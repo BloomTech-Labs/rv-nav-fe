@@ -5,7 +5,6 @@ import icon from "../../assets/img/rvnav.png";
 import "./LandingPage.css";
 import { connect } from "react-redux";
 import { logout } from "../../store/actions";
-import Middle from './LandingPageMid'
 
 class LandingPage extends Component {
   componentDidMount() {
@@ -35,7 +34,6 @@ class LandingPage extends Component {
         <a href = "/aboutus.html" className="about" target = "_blank" rel = "noopener noreferrer nofollow">
           About the team
         </a>
-        <Middle />
       </div>
     );
   }
