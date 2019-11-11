@@ -20,14 +20,12 @@ const RoutingSidebar = (props) => {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.animation = 'slideLeft .5s';
             div.style.left =  '0px';
-            
         } 
         else {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.animation = 'slideRight .5s'
             div.style.left = '-375px';
         }
-        
     }
 
     console.log('SIDEBAR STATE', state.sidebar)
@@ -36,13 +34,21 @@ const RoutingSidebar = (props) => {
     const sidebarAnchor = () => {
 
         if(props.state.directions === 'on'){
-
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
-            div.style.margin = '0px'       
-        } 
+            div.style.margin = '0px';
+            div.style.height =  '100%';
+            div.style.bottom =  '70px';       
+        }
     }
+
 //toggles state back to render the initial sidebar form
     const revertChanges = () => {
+
+        let div = document.getElementsByClassName('mainSidebarContainer')[0]
+            div.style.margin = '25px';
+            div.style.height =  '400px';
+            div.style.bottom =  '45px';
+
         props.setState({
             ...props.state,
             vehicleForm: "off",
@@ -50,9 +56,6 @@ const RoutingSidebar = (props) => {
             vehicles: "off",
             directions: "off", 
         })
-
-        let div = document.getElementsByClassName('mainSidebarContainer')[0]
-            div.style.margin = '25px'
     }
 
     return (
@@ -100,7 +103,6 @@ const RoutingSidebar = (props) => {
                                         <p key={i} className="instruction">{e}</p>
                                         )
                                     })}
-                                {sidebarAnchor()}
                             </div>
                         <div className='sidebarFooterContainer'>
                             <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
@@ -108,6 +110,7 @@ const RoutingSidebar = (props) => {
                     </div>
                 </>
             }
+            {sidebarAnchor()}
         </div>
     )
 };
