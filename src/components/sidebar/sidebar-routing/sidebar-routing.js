@@ -32,13 +32,9 @@ const RoutingSidebar = (props) => {
 
 //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => {
-
-        if(props.state.directions === 'on'){
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '0px';
-            div.style.height =  '100%';
-            // div.style.bottom =  '70px';
-        }
+            div.style.height =  '100%';  
     }
 
     //toggles state back to render the initial sidebar form

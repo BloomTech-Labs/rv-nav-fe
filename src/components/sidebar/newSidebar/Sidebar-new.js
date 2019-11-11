@@ -71,8 +71,9 @@ const Sidebar = (props) => {
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '0px';
             div.style.height =  '100%';
-            // div.style.bottom =  '70px';
-    
+            
+        let menu = document.querySelector('.btn-group-vertical > .btn, .btn-group > .btn')
+        menu.style.backgroundColor = '#2A2E43'
 
     } 
 
