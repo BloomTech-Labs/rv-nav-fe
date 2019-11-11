@@ -10,24 +10,18 @@ $gradient: linear-gradient(to top, rgba(196, 196, 196, 0), rgba(0, 178, 217, 0.0
 $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217, 0.09));
 
 //General styles
-body, p {
+.landing-page-container {
   font-family: "Heebo", sans-serif;
   font-size: 18px;
-  margin: 0;
-  padding: 0;
   color: $gray-90;
 }
 
-h1 {
+#rvway {
   color: $gray-80;
-  margin: 0;
-  padding: 0;
 }
 
-h2 {
+.middle-content-label {
   color: $gray-90;
-  margin: 0;
-  padding: 0;
   font-size: 1.75rem;
 }
 
@@ -47,7 +41,7 @@ h2 {
 
 .solid {
   color: $white-background;
-  background-color: accent;
+  background-color: $accent;
 }
 
 //hero section
@@ -56,11 +50,12 @@ h2 {
   
   #hero-back {
       position: relative;
+      width: 100vw;
+      height: auto;
+      max-width: 100%;
 
-      img {
-          width: 100%;
-          height: auto;
-          max-width: 100%;
+      .heroback-img {
+        width: 100%
       }
   }
 
@@ -132,21 +127,21 @@ h2 {
 }
 
 //main
-main {
+.lp-middle-content-wrapper {
   background: $gradient2;
 
-  section {
+  .lp-middle-content {
       display: flex;
       flex-direction: column;
       width: 60%;
       margin: 0 auto;
 
-      p {
+      .lp-middle-content-p {
           font-size: 1.2rem;
           color: $gray-80;
       }
       
-      img {
+      .lp-middle-content-img {
           width: 150px;
           margin-right: 2rem;
       }
@@ -171,7 +166,7 @@ main {
       }
 
       @media (max-width: 900px) {
-          section {
+          .lp-middle-content {
               width: 100%;
           }
           
@@ -188,13 +183,13 @@ main {
       text-align: center;
       padding: 5rem 0 8rem 0;
 
-      h1 {
+      .lp-cta-h1 {
           font-size: 3rem;
       }
 
       .image {
           padding-right: 2rem;
-          img {
+          .lp-bottom-map-img {
               width: 200px;
           }
       }
@@ -202,10 +197,10 @@ main {
       .letsgo {
           display: flex;
           justify-content: center;
-          img {
+          .lp-letsgo-img {
               width: 50px;
           }
-          a {
+          .lp-letsgo-link {
               font-size: 3rem;
               font-weight: 700;
               text-decoration: none;
