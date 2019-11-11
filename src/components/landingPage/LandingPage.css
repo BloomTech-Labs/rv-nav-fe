@@ -1,7 +1,7 @@
 .landing-page-wrapper {
   width: 100%;
-  min-height: 100vh;
-  background: #000 url("../../assets/img/rv-bg.jpg") no-repeat bottom right
+  height: 50%;
+  background: #000 url("../../assets/img/heroback.svg") no-repeat bottom right
     fixed;
   background-size: cover;
   display: flex;
