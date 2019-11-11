@@ -28,12 +28,14 @@ class LandingPage extends Component {
               <div id="login">
                   <Link to='auth'><button className="btn outline">Login</button></Link>
               </div>
-              <div class="uvp">
-                  <h1 id="rvway">RV WAY</h1>
-                  <p id="blurb">Home is all around you</p>
-                  <div id="signup">
-                      <a href="#"><button className="btn solid">Get Started</button></a>
-                  </div> 
+              <div className='lp-uvp-wrapper'>
+                <div class="uvp">
+                    <h1 id="rvway">RV WAY</h1>
+                    <p id="blurb">Home is all around you</p>
+                    <div id="signup">
+                        <div className='lp-signup-link'><button className="btn solid">Get Started</button></div>
+                    </div> 
+                </div>
               </div>
           </div> 
         </div>
@@ -80,13 +82,13 @@ class LandingPage extends Component {
               </div>
           </div>
       </div>
-      <div>
+      <div className='lp-footer'>
           <div className="copyright">
-              <p>© 2019 RV Way</p>
+              <p className='lp-footer-p'>© 2019 RV Way</p>
           </div>
           <div className="info">
-              <p>A Lambda School student project.</p>
-              <p>Want to learn more? <span className="bold">Meet our team</span></p>
+              <p className='lp-footer-p'>A Lambda School student project.</p>
+              <p className='lp-footer-p'>Want to learn more? <span className="bold">Meet our team</span></p>
           </div>   
       </div> 
     </div>
