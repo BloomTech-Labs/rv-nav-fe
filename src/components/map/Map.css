@@ -41,12 +41,12 @@
   justify-content: center;
   background: #2A2E43;
   font-size: 2rem;
-  height: 330px;
+  /* height: 100px; */
   width: 375px;
   color: white;
-  margin: 0;
-  position: relative;
-  right: 38px;
+  margin-top: 60px;
+  /* position: relative; */
+  /* right: 38px; */
 }
 
 .point-of-interest-options{

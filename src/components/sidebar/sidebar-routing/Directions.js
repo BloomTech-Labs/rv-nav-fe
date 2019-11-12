@@ -21,7 +21,7 @@ const Directions = (props) => {
 
     return (
         <>
-            {props.props.map((string, i) => {
+            {props.props.map((string, index) => {
             // return <p key={i} className="instruction">{string}</p>
 
             let newStr = string.split(' ')
@@ -31,7 +31,7 @@ const Directions = (props) => {
                     return (
                         <div className='instructionsContainer'>
                             <RightArrow className='rightArrowIcon'/>
-                            <p key={i} className="instruction">{string}</p>
+                            <p key={index} className="instruction">{string}</p>
                         </div>
                     )
                 }
@@ -39,7 +39,7 @@ const Directions = (props) => {
                     return (
                         <div className='instructionsContainer'>
                             <LeftArrow className='rightArrowIcon'/>
-                            <p key={i} className="instruction">{string}</p>
+                            <p key={index} className="instruction">{string}</p>
                         </div>
                     )
                 } 
@@ -47,7 +47,7 @@ const Directions = (props) => {
                     return (
                         <div className='instructionsContainer'>
                             <UpArrow className='rightArrowIcon'/>
-                            <p key={i} className="instruction">{string}</p>
+                            <p key={index} className="instruction">{string}</p>
                         </div>
                     )
                 } 
@@ -55,7 +55,7 @@ const Directions = (props) => {
                     return (
                         <div className='instructionsContainer'>
                             <StartingPoint className='rightArrowIcon'/>
-                            <p key={i} className="instruction">{string}</p>
+                            <p key={index} className="instruction">{string}</p>
                         </div>
                     )
                 }
@@ -63,7 +63,7 @@ const Directions = (props) => {
                     return (
                         <div className='instructionsContainer'>
                             <NorthEast className='rightArrowIcon'/>
-                            <p key={i} className="instruction">{string}</p>
+                            <p key={index} className="instruction">{string}</p>
                         </div>
                     )
                 }
@@ -71,7 +71,7 @@ const Directions = (props) => {
                     return (
                         <div className='instructionsContainer'>
                             <EndingPoint className='rightArrowIcon'/>
-                            <p key={i} className="instruction">{string}</p>
+                            <p key={index} className="instruction">{string}</p>
                         </div>
                     )
                 }

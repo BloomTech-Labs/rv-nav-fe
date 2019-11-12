@@ -187,6 +187,16 @@
         }
     }
 }
+
+.loadingStatus{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 25px;
+    // border: 1px solid red;
+}
 // hides scrolling bar
 // .directions::-webkit-scrollbar{ 
 //     display: none;

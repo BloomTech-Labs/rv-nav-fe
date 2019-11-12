@@ -3,6 +3,10 @@ import SidebarMenu from '../SidebarMenu.js'
 import {ReactComponent as ToggleShowArrow} from './icons/show-sidebar.svg'
 import {ReactComponent as ToggleHideArrow} from './icons/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
+
+//Brings React loaders styles
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 //SCSS Styles
 import './sidebar-routing.scss'
@@ -54,8 +58,6 @@ const RoutingSidebar = (props) => {
         })
     }
     
-    // console.log('SIDEBAR PICTURES', routingIcons)
-    
     return (
         !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
             <NavLink to='/auth'>
@@ -64,7 +66,17 @@ const RoutingSidebar = (props) => {
         :
         <div className='containerWithArrow'>
             
-            {props.loading !== 'Routing successful' ? <p className="route-loading">{props.loading}</p> :
+            {props.loading !== 'Routing successful' ?
+                <div className='loadingStatus'> 
+                    <p className="route-loading">{props.loading}</p>
+                    <Loader
+                        type="Rings"
+                        color="#00B2D9"
+                        height={100}
+                        width={100}
+                    /> 
+                </div>
+                :
                 <>
                     <div className='arrowContainer' onClick={toggleSidebar}>
                         {state.sidebar === true ?
