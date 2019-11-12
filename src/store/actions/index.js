@@ -17,24 +17,25 @@ export const LOGOUT = " LOGOUT";
 export const CLOSE_SIDE_BAR = "CLOSE_SIDE_BAR ";
 
 export function authError(error) {
- return { type: "AUTH_ERROR", payload: error };
+  return { type: "AUTH_ERROR", payload: error };
 }
 
 export function clearError() {
- return { type: CLEAR_ERROR };
+  return { type: CLEAR_ERROR };
 }
 
 export function closeSideBar() {
-  return { type: CLOSE_SIDE_BAR};
+  return { type: CLOSE_SIDE_BAR };
 }
 
 export const register = creds => {
-  
+
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
       .post(
         "https://labs-rv-life-staging-1.herokuapp.com/users/register",
+        // "http://localhost:5000/users/register",
         creds
       )
       .then(response => {
@@ -63,12 +64,16 @@ export const register = creds => {
         }
       });
   };
- };
- export const login = values => {
+};
+export const login = values => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .post("https://labs-rv-life-staging-1.herokuapp.com/users/login", values)
+      .post(
+        "https://labs-rv-life-staging-1.herokuapp.com/users/login",
+        // "http://localhost:5000/users/login",
+        values
+      )
       .then(res => {
         console.log(res); // data was created successfully and logs to console
         localStorage.setItem("token", res.data.token);
@@ -85,7 +90,7 @@ export const register = creds => {
         // dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
- };
+};
 
 export const logout = () => {
   //Google analytics tracking
@@ -93,7 +98,7 @@ export const logout = () => {
     event_category: "access",
     event_label: "logout"
   });
-  return {type: LOGOUT}
+  return { type: LOGOUT }
 }
 
 export const addVehicle = value => {
@@ -101,10 +106,10 @@ export const addVehicle = value => {
     dispatch({ type: LOADING });
     return axios
       .post('https://labs-rv-life-staging-1.herokuapp.com/vehicle', value,
-      {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'})
+        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
       .then(res => {
         console.log("add vehicle res", res); // data was created successfully and logs to console
-        
+
         dispatch({ type: ADD_VEHICLE, payload: res.data });
         return true;
       })
@@ -120,15 +125,15 @@ export const getVehicles = () => {
     dispatch({ type: LOADING });
     return axios
       .get('https://labs-rv-life-staging-1.herokuapp.com/vehicle',
-      {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'})
+        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
       .then(res => {
         console.log("get vehicle res", res); // data was created successfully and logs to console
-        
+
         dispatch({ type: GET_VEHICLE, payload: res.data });
         return true;
       })
       .catch(err => {
-        console.log("get vehicle err",err); // there was an error creating the data and logs to console
+        console.log("get vehicle err", err); // there was an error creating the data and logs to console
         dispatch({ type: ERROR_MESSAGE, errorMessage: 'request failed' });
       });
   };
@@ -144,10 +149,10 @@ export const updateVehicle = (value, id) => {
     dispatch({ type: LOADING });
     return axios
       .put(`https://labs-rv-life-staging-1.herokuapp.com/vehicle/${id}`, value,
-      {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'})
+        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
       .then(res => {
         console.log("update res", res); // data was created successfully and logs to console
-        
+
         // dispatch({ type: UPDATE_VEHICLE, payload: {value, id} });
         dispatch({ type: LOADING });
         return axios
@@ -181,10 +186,10 @@ export const deleteVehicles = (id) => {
     dispatch({ type: LOADING });
     return axios
       .delete(`https://labs-rv-life-staging-1.herokuapp.com/vehicle/${id}`,
-      {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'})
+        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
       .then(res => {
         console.log("de;lete res", res); // data was created successfully and logs to console
-        
+
         dispatch({ type: DELETE_VEHICLE, payload: id });
         return true;
       })
