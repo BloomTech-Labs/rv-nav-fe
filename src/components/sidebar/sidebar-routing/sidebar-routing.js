@@ -4,18 +4,9 @@ import {ReactComponent as ToggleShowArrow} from './icons/show-sidebar.svg'
 import {ReactComponent as ToggleHideArrow} from './icons/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
 
-
-//SVG IMAGES FOR ROUTING
-import { ReactComponent as DownArrow } from '../../../assets/img/lightIcons/arrow-downward (1).svg'
-import { ReactComponent as RightArrow } from '../../../assets/img/lightIcons/arrow-forward (1).svg'
-import { ReactComponent as LeftArrow } from '../../../assets/img/lightIcons/back (1).svg'
-import { ReactComponent as UpArrow } from '../../../assets/img/lightIcons/arrow-up.svg'
-import { ReactComponent as StartingPoint } from '../../../assets/img/lightIcons/location (1).svg'
-import { ReactComponent as EndingPoint } from '../../../assets/img/lightIcons/marker (1).svg'
-import { ReactComponent as NorthEast } from '../../../assets/img/lightIcons/diagonal-arrow-right-up (1).svg'
-
 //SCSS Styles
 import './sidebar-routing.scss'
+import Directions from './Directions.js';
 
 const RoutingSidebar = (props) => {
 
@@ -63,16 +54,7 @@ const RoutingSidebar = (props) => {
         })
     }
     
-    const routingIcons = [
-        DownArrow, 
-        RightArrow, 
-        LeftArrow, 
-        UpArrow, 
-        StartingPoint, 
-        EndingPoint,
-        NorthEast
-    ]
-    console.log('SIDEBAR PICTURES', routingIcons)
+    // console.log('SIDEBAR PICTURES', routingIcons)
     
     return (
         !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
@@ -114,62 +96,7 @@ const RoutingSidebar = (props) => {
                         </div> */}
                         <h3 id='directionsTitle'>Directions</h3>
                         <div className="directions">
-                            {props.textDirections.map((string, i) => {
-                                // return <p key={i} className="instruction">{string}</p>
-
-                                let newStr = string.split(' ')
-
-                                for(let i = 0; i < string.length; i++){
-                                    if(newStr[i] === 'right'){
-                                        return (
-                                            <div className='instructionsContainer'>
-                                                <RightArrow className='rightArrowIcon'/>
-                                                <p key={i} className="instruction">{string}</p>
-                                            </div>
-                                        )
-                                    }
-                                    if(newStr[i] === 'left' || newStr[i] === 'west'){
-                                        return (
-                                            <div className='instructionsContainer'>
-                                                <LeftArrow className='rightArrowIcon'/>
-                                                <p key={i} className="instruction">{string}</p>
-                                            </div>
-                                        )
-                                    } else if(newStr[i] === 'Keep right'){
-                                            return (
-                                                <div className='instructionsContainer'>
-                                                    <UpArrow className='rightArrowIcon'/>
-                                                    <p key={i} className="instruction">{string}</p>
-                                                </div>
-                                            )
-                                    }
-                                    if(newStr[i] === 'Start'){
-                                        return (
-                                            <div className='instructionsContainer'>
-                                                <StartingPoint className='rightArrowIcon'/>
-                                                <p key={i} className="instruction">{string}</p>
-                                            </div>
-                                        )
-                                    }
-                                    if(newStr[i] === 'NorthEast'){
-                                        return (
-                                            <div className='instructionsContainer'>
-                                                <NorthEast className='rightArrowIcon'/>
-                                                <p key={i} className="instruction">{string}</p>
-                                            </div>
-                                        )
-                                    }
-                                    if(newStr[i] === 'Finish'){
-                                        return (
-                                            <div className='instructionsContainer'>
-                                                <EndingPoint className='rightArrowIcon'/>
-                                                <p key={i} className="instruction">{string}</p>
-                                            </div>
-                                        )
-                                    }
-                                }
-                                
-                                })}
+                            <Directions props={props.textDirections}/>
                         </div>
                         <div className='sidebarFooterContainer'>
                             <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
