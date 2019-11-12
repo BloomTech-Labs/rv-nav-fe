@@ -473,7 +473,7 @@ class MapPage extends Component {
           view.ui.add(track, "bottom-right");
           view.ui.move("zoom", "bottom-right");
 
-          this.setState({ loading: "Routing sucessful" })
+          this.setState({ loading: "Routing Sucessful" })
         })
       })
       .catch(err => {
