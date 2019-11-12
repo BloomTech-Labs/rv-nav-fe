@@ -8,34 +8,19 @@ $white-background: #F8F9FA;
 $white-text:#EEEFF2;
 $gradient: linear-gradient(to top, rgba(196, 196, 196, 0), rgba(0, 178, 217, 0.09));
 $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217, 0.09));
-
 //General styles
-svg.landing-page-container {
+.landing-page-container {
   font-family: "Heebo", sans-serif;
   font-size: 18px;
   color: $gray-90;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
-
-rect{
-  border: 1px solid red;
-}
-
 #rvway {
   color: $gray-80;
 }
-
 .middle-content-label {
   color: $gray-90;
   font-size: 1.75rem;
 }
-
 //button styles
 .btn {
   font-size: 1.25rem;
@@ -44,31 +29,24 @@ rect{
   border: 1px solid;
   border-radius: 3px;
 }
-
 .outline {
   color: $primary-color;
   background-color: rgba(255, 255, 255, 0.1);
   margin-right: 25px;
 }
-
 .solid {
   color: $white-background;
   background-color: $accent;
 }
-
 //hero section
 .hero {
-  width: 100%;
   background: $gradient;
-
   
   #hero-back {
       position: relative;
       width: 100%;
       height: auto;
       max-width: 100%;
-
-<<<<<<< HEAD
       .heroback-img {
         width: 100%;
         height: 100%;
@@ -78,14 +56,7 @@ rect{
         -o-background-size: cover;
         background-size: cover;
       }
-=======
-      // .heroback-img {
-      //   width: 100%;
-        
-      // }
->>>>>>> 974d6c437b77594da6965bdbbcab169454410cb4
   }
-
   .hero-content {
       position: absolute;
       top: 0%;
@@ -97,8 +68,6 @@ rect{
           width: 100%;
           margin-top: 24px;
           justify-content: flex-end;
-
-
           .lp-signup-link {
               button {
                   
@@ -109,8 +78,6 @@ rect{
               background-color: $primary-color;
               }
           }
-
-
           // @media (max-width: 600px) {
           //   .lp-signup-link {
           //         button {
@@ -123,55 +90,41 @@ rect{
       .lp-uvp-wrapper {
         display: flex;
         justify-content: flex-start;
-
           .uvp {
             width: 100%;
             margin-top: 6rem;
             margin-right: 55%;
 
-            @media (max-width: 900px) {
-              .uvp { 
-                margin-top: 4rem;
+              #rvway {
+                  margin-right: 87px;
+                  font-size: 3.3rem;
+                  color: $gray-90;
+                  font-weight: bold;
               }
-            }
-
-            #rvway {
-                margin-right: 87px;
-                font-size: 3.3rem;
-                color: $gray-90;
-                font-weight: bold;
-            }
-
-            #blurb {
-                margin-top: -25px;
-                padding-left: 12px;
-                font-size: 1.75rem;
-                color: $gray-80;
-
-            }
-
-            #signup {
-            margin-top: 1rem;
-            padding-left: 15px;
-
-              .solid{
-                width: 290px;
+              #blurb {
+                  margin-top: -25px;
+                  padding-left: 12px;
+                  font-size: 1.75rem;
+                  color: $gray-80;
               }
-            }
+              #signup {
+              margin-top: 1rem;
+              padding-left: 15px;
+                .solid{
+                  width: 290px;
+                }
+              }
         }
+        
       }
-
-    
+      
   }
 }
-
 //main
 .lp-middle-content-wrapper {
   background: $gradient2;
   
-
   .lp-middle-content {
-<<<<<<< HEAD
       background: url(../../assets/img/Arrow.svg) no-repeat;
       background-position-y: 1rem;
       background-size: contain;
@@ -179,43 +132,21 @@ rect{
       -webkit-background-size: contain;
       -moz-background-size: contain;
       -o-background-size: contain;
-=======
-    width: 100%;
-    background: url(../../assets/img/Arrow.svg) no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
->>>>>>> 974d6c437b77594da6965bdbbcab169454410cb4
       display: flex;
       flex-direction: column;
+      width: 60%;
       margin: 0 auto;
-
       
       .lp-middle-content-img {
-<<<<<<< HEAD
           width: 180px;
           margin-right: 2rem;
-=======
-          width: 100%;
-          // margin-right: 2rem;
-          background-repeat: no-repeat; 
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: auto;
->>>>>>> 974d6c437b77594da6965bdbbcab169454410cb4
       }
-
       .text {
           margin: 0 auto;
-
           .middle-content-label {
             font-size: 2rem;
             margin-right: 24rem;
           }
-
           .lp-middle-content-p {
             font-size: 1rem;
             color: $gray-80;
@@ -223,25 +154,21 @@ rect{
             margin-right: 26rem;
         }
       }
-
       .left, .right {
           display: flex;
           flex-direction: row;
           align-items: center;
           margin-bottom: 10rem;
       }
-
       .left {
           width: 80%;
           margin-left: 6rem;
       }
-
       .right {
           margin-left: 15rem;
           display: flex;
           flex-direction: row-reverse;
           justify-content: flex-start;
-
           .text {
             margin: 0 auto;
             width: 7rem;
@@ -259,7 +186,6 @@ rect{
         }
           
       }
-
       @media (max-width: 900px) {
           .lp-middle-content {
               width: 100%;
@@ -270,25 +196,21 @@ rect{
           }
       }
   }
-
   .cta {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 5rem 0 8rem 0;
-
       .lp-cta-h1 {
           font-size: 3rem;
       }
-
       .image {
           padding-right: 2rem;
           .lp-bottom-map-img {
               width: 200px;
           }
       }
-
       .letsgo {
           display: flex;
           justify-content: center;
@@ -302,7 +224,6 @@ rect{
               color: $primary-color;
           }
       }
-
       @media (max-width: 600px) {
           .cta {
               flex-direction: column;
@@ -310,7 +231,6 @@ rect{
       }
   }
 }
-
 //footer 
 .lp-footer {
   background-color: $gray-100;
@@ -318,18 +238,15 @@ rect{
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem 2rem;
-
   .lp-footer-p {
       font-size: 1rem;
       font-weight: 300;
       color: $white-text;
   }
-
   .bold {
       font-weight: 500;
   }
 }
-
 /* old css, testing joanne's css */
 /* 
 .landing-page-wrapper {
@@ -344,7 +261,6 @@ rect{
   align-items: center;
   flex-direction: column;
 }
-
 .button-container {
   width: 100%;
   display: flex;
@@ -352,18 +268,15 @@ rect{
   margin-top: 2%;
   justify-content: flex-end;
 }
-
 .button-container button {
   margin-right: 25px;
   width: 10%;
 }
-
 .intro-logo {
   width: 30%;
   border-radius: 50%;
   margin-bottom: 10%;
 }
-
 h1 {
   color: #ffc107;
   font-weight: bold;
@@ -372,19 +285,16 @@ h1 {
   margin-bottom: 20px;
   white-space: nowrap;
 }
-
 .landing-page-wrapper button {
   margin-bottom: 20px;
   width: 200px;
 }
-
 .intro {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 35%;
 }
-
 .intro p {
   font-size: 1.6rem;
   color: white;
@@ -392,26 +302,26 @@ h1 {
   padding: 20px;
   border-radius: 0.5rem;
 }
-
 .about {
   color: white;
   font-size: 1.2rem;
 }
-
 @media (max-width: 1000px) {
-
   .button-container {
     width: 75%;
     margin: 5% auto;
     display: flex;
     flex-direction: column-reverse;
   }
-
   .button-container button {
     width: 100%;
   }
-
   .intro {
     width: 90%;
   }
 } */
+
+
+
+
+
