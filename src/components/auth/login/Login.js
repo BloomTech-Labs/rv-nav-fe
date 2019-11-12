@@ -14,8 +14,10 @@ import { login } from "../../../store/actions";
 //import "../Auth.css"; //! commented out by Noor : "not used in the component"
 import "./Login.css"
 
+firebaseApiKey = process.env.FIREBASE_APP_API_KEY
+
 const config = {
-  apiKey: "AIzaSyDQLv5I4OQ8i0TxIaHRTkH40UEG3xef7oc",
+  apiKey: firebaseApiKey,
   authDomain: "rv-way.firebaseapp.com"
 }
 
