@@ -34,6 +34,8 @@
 }
 
 .hamend {
+    font-size: 36px;
+    font-weight: bold;
     color: #00B2D9;
 }
 
@@ -47,6 +49,8 @@
 }
 
 .btn-group-vertical > .btn, .btn-group > .btn{
+    display: flex;
+    padding: 15px;
     background-color: white;
     border: white;
 }

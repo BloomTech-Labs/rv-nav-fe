@@ -1,4 +1,17 @@
+html body { 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#root{
+  width: inherit;
+}
+
 .App {
+  font-family: Heebo;
+  font-style: normal;
+  width: inherit;
   text-align: center;
 }
 
