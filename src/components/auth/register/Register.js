@@ -90,7 +90,7 @@ class RegisterForm extends Component {
           if (res) {
             this.props
               .login({
-                username: this.state.credentials.username,
+                email: this.state.credentials.email,
                 password: this.state.credentials.password
               })
               .then(res => {
@@ -134,6 +134,7 @@ class RegisterForm extends Component {
       passwordStatus.classList.add('password-eye')
     }
   }
+
 
   unmaskConfirmPassword() {
     var passwordInput = document.querySelector('#confirm-password-input');
@@ -232,7 +233,7 @@ class RegisterForm extends Component {
                     type="submit"
                   >
                     Let's Go
-                  </button>
+                    </button>
                   <div className="already-have-an-account">
                     <span>Already have an account? <a id="sign-in">Sign In</a></span>
                   </div>
