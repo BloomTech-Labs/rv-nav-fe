@@ -44,7 +44,7 @@ const RoutingDropdown = (props) => {
               {state.dropdown === true ? 
               <div className='vehiclesList'>
                 <section>
-                  <p onClick={props.dynamicSidebar}>Add a vehicle...</p>
+                  <p onClick={props.addAVehicleForm}>Add a vehicle...</p>
                 </section>
                 {/* That's right Jerry two functions are being called on the same on click!! How do you like me now!?  🤣🤣*/}
                 <div id='vehicleOptions'>
