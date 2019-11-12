@@ -1,5 +1,11 @@
 import React from "react";
 
+//Firebase
+// import firebase from "firebase";
+// import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import firebase from "firebase"
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../store/actions";
@@ -7,6 +13,13 @@ import { login } from "../../../store/actions";
 //import Form from "react-bootstrap/Form"; //! commented out by Noor : "not used in the component"
 //import "../Auth.css"; //! commented out by Noor : "not used in the component"
 import "./Login.css"
+
+const config = {
+  apiKey: "AIzaSyDQLv5I4OQ8i0TxIaHRTkH40UEG3xef7oc",
+  authDomain: "rv-way.firebaseapp.com"
+}
+
+firebase.initializeApp(config)
 
 class LoginForm extends React.Component {
   constructor() {
@@ -21,8 +34,30 @@ class LoginForm extends React.Component {
           password: ""
         }
       },
-      loading: false
-    };
+      loading: false,
+      isSignedIn: false
+    }
+
+  }
+
+  // Configure FirebaseUI.
+  uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    signInSuccessUrl: '/map',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    ]
+  };
+
+  componentDidMount() {
+    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+      (user) => this.setState({ isSignedIn: !!user })
+    );
+    // console.log('%cFirebase USER from did mount:) ->>', 'color: red; font-size: 16px;', firebase.auth())
   }
 
   handleChange = event => {
@@ -31,10 +66,10 @@ class LoginForm extends React.Component {
     let errors = this.state.credentials.errors;
 
     switch (name) {
-      case "username":
-        errors.username =
-          value.length < 5
-            ? "Username must be at least 5 characters long"
+      case "email":
+        errors.email =
+          value.length < 1
+            ? "Email cannot be empty"
             : "";
         break;
 
@@ -97,9 +132,8 @@ class LoginForm extends React.Component {
   unmaskPassword() {
     var passwordInput = document.querySelector('#password-input');
     var passwordStatus = document.querySelector('.password-mask');
-    // if (document.querySelector('#password-eye')) {
     passwordStatus.backgroundImage = 'none';
-    // }
+
     if (passwordStatus && passwordInput.type === 'password') {
       passwordInput.type = 'text';
       passwordStatus.classList.add('password-eye-off')
@@ -118,17 +152,27 @@ class LoginForm extends React.Component {
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.password.length >= 8;
     return (
       <div className="login-wrapper">
+        {/* <div> */}
+        {console.log('%cFirebase User:) ->>', 'color: red; font-size: 16px;', firebase.auth())}
+
+        {/* </div> */}
         <div className="login-main">
           {loading === true ? <p className="login-auth-loading">Let the adventure begin...</p> :
 
-            <form class="login-main-form" onSubmit={this.loginSubmit}>
+            <form className="login-main-form" onSubmit={this.loginSubmit}>
               <div className="login-header">
                 <h2 className="login-welcome-back">Welcome Back!</h2>
                 <h4 className="its-great-to-see-you-again">It's great to see you again</h4>
               </div>
               <div className="login-social-media">
-                <button id="google"></button>
-                <button id="facebook"></button>
+                {this.state.isSignedIn ?
+                  (
+                    <div>
+                      <h6>Welcome  {firebase.auth().currentUser.displayName}</h6>
+                      <button onClick={() => firebase.auth().signOut()}>Logout</button>
+                    </div>
+                  ) :
+                  (<StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />)}
               </div>
               <div className="or">
                 <span>or</span>
@@ -137,9 +181,9 @@ class LoginForm extends React.Component {
                 <p className="login-main-form-error">Invalid Email or Password</p>
               ) : null}
               <div className="login-input-and-button">
-                <label class="login-main-form-label">Email</label>
+                <label className="login-main-form-label">Email</label>
                 <input
-                  class="login-main-form-input"
+                  className="login-main-form-input"
                   type="string"
                   name="email"
                   // placeholder=""
@@ -151,9 +195,9 @@ class LoginForm extends React.Component {
                   <p className="login-main-form-error">{errors.email}</p>
                 )}
                 <a className="password-mask" onClick={this.unmaskPassword}>MASK</a>
-                <label class="login-main-form-label" id="password">Password</label>
+                <label className="login-main-form-label" id="password">Password</label>
                 <input
-                  class="login-main-form-input"
+                  className="login-main-form-input"
                   type="password"
                   id="password-input"
                   name="password"

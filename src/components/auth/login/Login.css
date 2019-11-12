@@ -13,46 +13,6 @@
     line-height: 53px;
 } 
 
-/*
-.login-main-form {
-    Modified the sidebar props here -Noor
-    background-color: rgb(15, 15, 15, 0.6);
-    text-align: left;
-    display:flex;
-    flex-direction: column;
-    padding: 16px;
-    border-top: 0;
-}
-
-.login-main-form-label {
-    color: white;
-    align-self: flex-start;
-    margin-left: -30px;
-
-}
-
-.login-main-form-input {
-    display: flex;
-    flex-direction: column;
-    width:100%;
-    margin-bottom: 7px;
-}
-
-.login-main-form-button {
-    margin-left: 25%;
-    width: 50%;
-    margin-bottom: -10px;
-    margin-top: 18px;
-}
-
-.login-main-form-error {
-    font-size: 0.8rem;
-    color: rgb(255, 159, 159);
-} */
-
-/* ==================== */
-
-
 .login-wrapper {
     height: 92.3vh;
     background: #E5ECEE;
@@ -62,6 +22,76 @@
     background-repeat:no-repeat ;
     background-size: cover;
 
+}
+
+.firebaseui-idp-list {
+    display: flex;
+}
+
+.firebaseui-card-content, .firebaseui-card-footer {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+
+.firebaseui-idp-google, 
+.mdl-button.firebaseui-idp-google {
+    padding: 0 5px 0px 20px;
+}
+
+.firebaseui-idp-facebook,  
+.mdl-button.firebaseui-idp-facebook {
+    padding: 0 5px 0px 10px;
+}
+
+.firebaseui-card-content, .firebaseui-card-footer {
+    padding: 0 0px;
+}
+
+.firebaseui-idp-button {
+    direction: ltr;
+    font-weight: 500;
+    height: auto;
+    line-height: normal;
+    max-width: 220px;
+    min-height: 40px;
+    padding: 8px 16px;
+    text-align: left;
+    width: 100%;
+}
+
+/* !/ FIREBASE STYLING */
+
+.firebaseui-list-item {
+    margin: 0;
+    width: 156px;
+}
+
+.firebaseui-idp-button .mdl-button .mdl-js-button .mdl-button--raised .firebaseui-idp-google .firebaseui-id-idp-button {
+    margin-left: 5px;
+    width: 152px;
+    padding: 0 0px 0px 10px;
+}
+
+.firebaseui-idp-text .firebaseui-idp-text-long {
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.firebaseui-list-item {
+    margin: 0;
+    width: 159px;
+}
+
+.firebaseui-idp-button .mdl-button .mdl-js-button .mdl-button--raised .firebaseui-idp-facebook .firebaseui-id-idp-button {
+    padding: 0 0px 0 5px;
+    width: 154px;
+}
+
+span.firebaseui-idp-text.firebaseui-idp-text-long {
+    font-size: 12px;
+    padding-left: 5px;
+    /* color: rgb(183, 30, 210); */
 }
 
 #password-eye {
@@ -180,7 +210,6 @@
     margin-top: 10px;
     margin-left: -30px;
 }
-
 
 .password-mask {
     position: relative;
