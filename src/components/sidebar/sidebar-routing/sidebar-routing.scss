@@ -52,7 +52,7 @@
         width: 375px;
         
         .directions{
-            padding-left: 30px;
+            // padding-left: 30px;
             overflow-x: hidden;
             overflow-y: scroll;
         }
@@ -106,16 +106,41 @@
             padding: 14.5px 30px;
             margin: 0;
         }
-        
-        .instruction{
-            color: white;
-            font-size: 12px;
+
+        .instructionsContainer{
+            display: flex;
+            align-items: center;
+            height: 40px;
+            width: 95%;
             border-bottom: 1px solid gray;
-            padding: 10px 20px 10px 30px;
-            width: 90%;
-            text-align: left;
-            margin: 0;
+   
+
+            .directionsIcons{
+                width: inherit;
+                height: inherit;
+
+                .rightArrowIcon{
+                    width: inherit;
+                    height: inherit;
+                }
+            }
+            
+            .instruction{
+                padding-left: 10px;
+                display: flex;
+                align-items: center;
+                color: white;
+                font-size: 12px;
+                // border-bottom: 1px solid gray;
+                // padding: 10px 20px 10px 30px;
+                // width: 90%;
+                text-align: left;
+                margin: 0;
+                width: 100%;
+                height: inherit;
+            }
         }
+        
 
         .sidebarFooterContainer{
             

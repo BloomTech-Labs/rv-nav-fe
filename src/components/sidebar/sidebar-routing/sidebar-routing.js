@@ -4,6 +4,15 @@ import {ReactComponent as ToggleShowArrow} from './icons/show-sidebar.svg'
 import {ReactComponent as ToggleHideArrow} from './icons/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
 
+
+//SVG IMAGES FOR ROUTING
+import { ReactComponent as DownArrow } from '../../../assets/img/lightIcons/arrow-downward (1).svg'
+import { ReactComponent as RightArrow } from '../../../assets/img/lightIcons/arrow-forward (1).svg'
+import { ReactComponent as LeftArrow } from '../../../assets/img/lightIcons/back (1).svg'
+import { ReactComponent as UpArrow } from '../../../assets/img/lightIcons/arrow-up.svg'
+import { ReactComponent as StartingPoint } from '../../../assets/img/lightIcons/location (1).svg'
+import { ReactComponent as EndingPoint } from '../../../assets/img/lightIcons/marker (1).svg'
+
 //SCSS Styles
 import './sidebar-routing.scss'
 
@@ -28,9 +37,9 @@ const RoutingSidebar = (props) => {
         }
     }
 
-    console.log('SIDEBAR STATE', state.sidebar)
-
-//function that dynamically changes the sidebar styles
+    console.log('SIDEBARROUTING STATE', props.textDirections)
+    
+    //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '0px';
@@ -41,19 +50,9 @@ const RoutingSidebar = (props) => {
     const revertChanges = () => {
         
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
-            div.style.margin = '25px';
-            div.style.height =  '400px';
-            // div.style.bottom =  '260px';
-
-        // let loading = document.getElementsByClassName('route-loading')[0]
-        //     loading.style.marginTop = '25px';
-        //     loading.style.display = 'flex';
-        //     loading.style.alignItems = 'center';
-        //     loading.style.justifyContent = 'center';
-        //     loading.style.right = '38px';
-        //     loading.style.position = 'relative';
+        div.style.margin = '25px';
+        div.style.height =  '400px';
         
-
         props.setState({
             ...props.state,
             vehicleForm: "off",
@@ -62,7 +61,17 @@ const RoutingSidebar = (props) => {
             directions: "off", 
         })
     }
-
+    
+    const routingIcons = [
+        DownArrow, 
+        RightArrow, 
+        LeftArrow, 
+        UpArrow, 
+        StartingPoint, 
+        EndingPoint
+    ]
+    console.log('SIDEBAR PICTURES', routingIcons)
+    
     return (
         !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
             <NavLink to='/auth'>
@@ -103,10 +112,23 @@ const RoutingSidebar = (props) => {
                         </div> */}
                         <h3 id='directionsTitle'>Directions</h3>
                         <div className="directions">
-                            {props.textDirections.map((e, i) => {
-                                return (
-                                    <p key={i} className="instruction">{e}</p>
-                                    )
+                            {props.textDirections.map((string, i) => {
+
+                                let newStr = string.split(' ')
+
+                                for(let i = 0; i < string.length; i++){
+                                  if(newStr[i] === 'right'){
+                                    return (
+                                        <div className='instructionsContainer'>
+                                            <div>
+                                            <RightArrow className='rightArrowIcon'/>
+                                            </div>
+                                            <p key={i} className="instruction">{string}</p>
+                                        </div>
+                                        )
+                                  } 
+                                }
+                                
                                 })}
                         </div>
                         <div className='sidebarFooterContainer'>
