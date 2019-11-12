@@ -12,6 +12,7 @@ import { ReactComponent as LeftArrow } from '../../../assets/img/lightIcons/back
 import { ReactComponent as UpArrow } from '../../../assets/img/lightIcons/arrow-up.svg'
 import { ReactComponent as StartingPoint } from '../../../assets/img/lightIcons/location (1).svg'
 import { ReactComponent as EndingPoint } from '../../../assets/img/lightIcons/marker (1).svg'
+import { ReactComponent as NorthEast } from '../../../assets/img/lightIcons/diagonal-arrow-right-up (1).svg'
 
 //SCSS Styles
 import './sidebar-routing.scss'
@@ -68,7 +69,8 @@ const RoutingSidebar = (props) => {
         LeftArrow, 
         UpArrow, 
         StartingPoint, 
-        EndingPoint
+        EndingPoint,
+        NorthEast
     ]
     console.log('SIDEBAR PICTURES', routingIcons)
     
@@ -113,20 +115,58 @@ const RoutingSidebar = (props) => {
                         <h3 id='directionsTitle'>Directions</h3>
                         <div className="directions">
                             {props.textDirections.map((string, i) => {
+                                // return <p key={i} className="instruction">{string}</p>
 
                                 let newStr = string.split(' ')
 
                                 for(let i = 0; i < string.length; i++){
-                                  if(newStr[i] === 'right'){
-                                    return (
-                                        <div className='instructionsContainer'>
-                                            <div>
-                                            <RightArrow className='rightArrowIcon'/>
+                                    if(newStr[i] === 'right'){
+                                        return (
+                                            <div className='instructionsContainer'>
+                                                <RightArrow className='rightArrowIcon'/>
+                                                <p key={i} className="instruction">{string}</p>
                                             </div>
-                                            <p key={i} className="instruction">{string}</p>
-                                        </div>
                                         )
-                                  } 
+                                    }
+                                    if(newStr[i] === 'left' || newStr[i] === 'west'){
+                                        return (
+                                            <div className='instructionsContainer'>
+                                                <LeftArrow className='rightArrowIcon'/>
+                                                <p key={i} className="instruction">{string}</p>
+                                            </div>
+                                        )
+                                    } else if(newStr[i] === 'Keep right'){
+                                            return (
+                                                <div className='instructionsContainer'>
+                                                    <UpArrow className='rightArrowIcon'/>
+                                                    <p key={i} className="instruction">{string}</p>
+                                                </div>
+                                            )
+                                    }
+                                    if(newStr[i] === 'Start'){
+                                        return (
+                                            <div className='instructionsContainer'>
+                                                <StartingPoint className='rightArrowIcon'/>
+                                                <p key={i} className="instruction">{string}</p>
+                                            </div>
+                                        )
+                                    }
+                                    if(newStr[i] === 'NorthEast'){
+                                        return (
+                                            <div className='instructionsContainer'>
+                                                <NorthEast className='rightArrowIcon'/>
+                                                <p key={i} className="instruction">{string}</p>
+                                            </div>
+                                        )
+                                    }
+                                    if(newStr[i] === 'Finish'){
+                                        return (
+                                            <div className='instructionsContainer'>
+                                                <EndingPoint className='rightArrowIcon'/>
+                                                <p key={i} className="instruction">{string}</p>
+                                            </div>
+                                        )
+                                    }
                                 }
                                 
                                 })}
