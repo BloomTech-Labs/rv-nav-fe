@@ -59,11 +59,11 @@ const RoutingSidebar = (props) => {
     }
     
     return (
-        !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
-            <NavLink to='/auth'>
-            <p>Sign in or create an account to be able to create a route.</p>
-            </NavLink>
-        :
+        // !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+        //     <NavLink to='/auth'>
+        //     <p>Sign in or create an account to be able to create a route.</p>
+        //     </NavLink>
+        // :
         <div className='containerWithArrow'>
             
             {props.loading !== 'Routing successful' ?
@@ -74,7 +74,7 @@ const RoutingSidebar = (props) => {
                         color="#00B2D9"
                         height={100}
                         width={100}
-                    /> 
+                    />
                 </div>
                 :
                 <>
