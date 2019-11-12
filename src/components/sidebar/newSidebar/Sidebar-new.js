@@ -34,15 +34,7 @@ const Sidebar = (props) => {
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.height = '100%'
         div.style.margin = '0px'
-        // div.style.bottom = '-70px'
-        // div.style.border = '5px solid red'
 
-        // if(state.directions === 'on'){
-        //     let a = document.getElementsByClassName('mainSidebarContainer')[0]
-        //     a.style.border = "5px solid red"
-        //     a.style.height = '120%'
-        //     a.style.top = '70px'
-        // } 
     }
 
     const selectVehicles = () => { //This have the user able to return from vehicle form to the initial form

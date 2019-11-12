@@ -3,9 +3,14 @@ import SidebarMenu from '../SidebarMenu.js'
 import {ReactComponent as ToggleShowArrow} from './icons/show-sidebar.svg'
 import {ReactComponent as ToggleHideArrow} from './icons/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
+
+//Brings React loaders styles
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 //SCSS Styles
 import './sidebar-routing.scss'
+import Directions from './Directions.js';
 
 const RoutingSidebar = (props) => {
 
@@ -28,9 +33,9 @@ const RoutingSidebar = (props) => {
         }
     }
 
-    console.log('SIDEBAR STATE', state.sidebar)
-
-//function that dynamically changes the sidebar styles
+    console.log('SIDEBARROUTING STATE', props.textDirections)
+    
+    //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '0px';
@@ -41,19 +46,9 @@ const RoutingSidebar = (props) => {
     const revertChanges = () => {
         
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
-            div.style.margin = '25px';
-            div.style.height =  '400px';
-            // div.style.bottom =  '260px';
-
-        // let loading = document.getElementsByClassName('route-loading')[0]
-        //     loading.style.marginTop = '25px';
-        //     loading.style.display = 'flex';
-        //     loading.style.alignItems = 'center';
-        //     loading.style.justifyContent = 'center';
-        //     loading.style.right = '38px';
-        //     loading.style.position = 'relative';
+        div.style.margin = '25px';
+        div.style.height =  '400px';
         
-
         props.setState({
             ...props.state,
             vehicleForm: "off",
@@ -62,16 +57,26 @@ const RoutingSidebar = (props) => {
             directions: "off", 
         })
     }
-
+    
     return (
-        !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
-            <NavLink to='/auth'>
-            <p>Sign in or create an account to be able to create a route.</p>
-            </NavLink>
-        :
+        // !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+        //     <NavLink to='/auth'>
+        //     <p>Sign in or create an account to be able to create a route.</p>
+        //     </NavLink>
+        // :
         <div className='containerWithArrow'>
             
-            {props.loading !== 'Routing successful' ? <p className="route-loading">{props.loading}</p> :
+            {props.loading !== 'Routing successful' ?
+                <div className='loadingStatus'> 
+                    <p className="route-loading">{props.loading}</p>
+                    <Loader
+                        type="Rings"
+                        color="#00B2D9"
+                        height={100}
+                        width={100}
+                    />
+                </div>
+                :
                 <>
                     <div className='arrowContainer' onClick={toggleSidebar}>
                         {state.sidebar === true ?
@@ -103,11 +108,7 @@ const RoutingSidebar = (props) => {
                         </div> */}
                         <h3 id='directionsTitle'>Directions</h3>
                         <div className="directions">
-                            {props.textDirections.map((e, i) => {
-                                return (
-                                    <p key={i} className="instruction">{e}</p>
-                                    )
-                                })}
+                            <Directions props={props.textDirections}/>
                         </div>
                         <div className='sidebarFooterContainer'>
                             <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
