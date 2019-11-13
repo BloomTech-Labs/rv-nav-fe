@@ -5,6 +5,10 @@ import { ReactComponent as ToggleHideArrow } from './icons/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
+//SVG IMAGES FOR ROUTING
+import { ReactComponent as StartingPoint } from '../../../assets/img/lightIcons/location (1).svg'
+import { ReactComponent as EndingPoint } from '../../../assets/img/lightIcons/marker (1).svg'
+
 //Brings React loaders styles
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -93,14 +97,20 @@ const RoutingSidebar = (props) => {
                             >Back</h6>
                         </div>
                         <div className='startEndContainer'>
-                            {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
-                            <div id='startPointContainer'>
-                                <p className='startAndEnd'>STARTING POINT</p>
-                                <p>{props.start}</p>
+                            <div className='startingPoint'>
+                                <StartingPoint />
+                                {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
+                                <div id='startPointContainer'>
+                                    <p className='startAndEnd'>STARTING POINT</p>
+                                    <p>{props.start}</p>
+                                </div>
                             </div>
-                            <div id='destinationPointContainer'>
-                                <p className='startAndEnd'>DESTINATION</p>
-                                <p>{props.end}</p>
+                            <div className='endingPoint'>
+                                <EndingPoint />
+                                <div id='destinationPointContainer'>
+                                    <p className='startAndEnd'>DESTINATION</p>
+                                    <p>{props.end}</p>
+                                </div>
                             </div>
                         </div>
                         {/* <div className='sidebarOptions'>
