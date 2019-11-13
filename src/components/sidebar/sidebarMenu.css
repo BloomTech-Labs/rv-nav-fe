@@ -36,14 +36,15 @@
 }
 
 .hamend {
+    font-family: Heebo;
     font-size: 36px;
     font-weight: bold;
     color: #00B2D9;
 }
 
-.hammenu {
+/* .hammenu {
     margin-top: 5px;
-}
+} */
 
 .dropdown-toggle-split::after, .dropright .dropdown-toggle-split::after, .dropup .dropdown-toggle-split::after {
     margin-left: 0;

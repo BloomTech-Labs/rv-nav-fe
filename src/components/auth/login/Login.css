@@ -67,6 +67,15 @@
     width: 156px;
 }
 
+.firebaseui-idp-google, .mdl-button.firebaseui-idp-google {
+    box-shadow: 0px 0px 0px;
+    border: 1px solid lightgrey;
+}
+.firebaseui-idp-google, .mdl-button.firebaseui-idp-facebook {
+    box-shadow: 0px 0px 0px;
+    border: 1px solid lightgrey;
+}
+
 .firebaseui-idp-button .mdl-button .mdl-js-button .mdl-button--raised .firebaseui-idp-google .firebaseui-id-idp-button {
     margin-left: 5px;
     width: 152px;
