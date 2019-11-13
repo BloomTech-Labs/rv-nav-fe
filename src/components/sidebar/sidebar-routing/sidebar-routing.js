@@ -8,6 +8,7 @@ import Loader from 'react-loader-spinner';
 //SVG IMAGES FOR ROUTING
 import { ReactComponent as StartingPoint } from '../../../assets/img/lightIcons/location (1).svg'
 import { ReactComponent as EndingPoint } from '../../../assets/img/lightIcons/marker (1).svg'
+import { ReactComponent as BackArrow } from '../../../assets/img/back.svg'
 
 //Brings React loaders styles
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -63,7 +64,8 @@ const RoutingSidebar = (props) => {
         })
     }
 
-    return (// !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+    return (
+        // !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
         //     <NavLink to='/auth'>
         //     <p>Sign in or create an account to be able to create a route.</p>
         //     </NavLink>
@@ -91,6 +93,7 @@ const RoutingSidebar = (props) => {
                     <div className='sidebarContainer'>
                         <SidebarMenu />
                         <div className='backbuttonContainer'>
+                            <BackArrow />
                             <h6
                                 className='routingBackButton'
                                 onClick={revertChanges}

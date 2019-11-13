@@ -13,19 +13,21 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
   font-family: "Heebo", sans-serif;
   font-size: 18px;
   color: $gray-90;
+  width: 100%
 }
 #rvway {
   color: $gray-80;
 }
 .middle-content-label {
   color: $gray-90;
-  font-size: 1.75rem;
+  font-size: 28px;
+  margin-right: 0px;
 }
 //button styles
 .btn {
-  font-size: 1.25rem;
+  font-size: 28px;
   font-weight: 500;
-  padding: .8rem 3.5rem;
+  padding: 12.8px 56px;
   border: 1px solid;
   border-radius: 3px;
 }
@@ -41,12 +43,14 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
 //hero section
 .hero {
   background: $gradient;
+  width: inherit;
   
   #hero-back {
+      // background: $gradient2;
       position: relative;
-      width: 100%;
-      height: auto;
-      max-width: 100%;
+      width: inherit;
+      height: 100%;
+      // max-width: 100%;
       .heroback-img {
         width: 100%;
         height: 100%;
@@ -71,128 +75,159 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
           .lp-signup-link {
               button {
                   
-                  margin-right: 5rem;
+                  margin-right: 80px;
               } 
               button:hover {
               color: $white-text;
               background-color: $primary-color;
               }
           }
-          // @media (max-width: 600px) {
-          //   .lp-signup-link {
-          //         button {
-          //             margin-right: 1rem;
-          //         } 
-          //     }
-          // }
+          @media (max-width: 600px) {
+            .lp-signup-link {
+                  button {
+                      margin-right: 16px;
+                  } 
+              }
+          }
       }
       
       .lp-uvp-wrapper {
         display: flex;
-        justify-content: flex-start;
-          .uvp {
-            width: 100%;
-            margin-top: 6rem;
-            margin-right: 55%;
+        justify-content: flex-end;
+        align-items: center;
 
-              #rvway {
-                  margin-right: 87px;
-                  font-size: 3.3rem;
-                  color: $gray-90;
-                  font-weight: bold;
-              }
-              #blurb {
-                  margin-top: -25px;
-                  padding-left: 12px;
-                  font-size: 1.75rem;
-                  color: $gray-80;
-              }
-              #signup {
-              margin-top: 1rem;
-              padding-left: 15px;
-                .solid{
-                  width: 290px;
-                }
-              }
+        .uvp {
+            width: 100%;
+            margin-top: 96px;
+            margin-right: 55%;
+            
+            @media (max-width: 900px) {
+              margin-top: 0px;
+            }
+
+        #rvway {
+            margin-right: 87px;
+            font-size: 52.8px;
+            color: $gray-90;
+            font-weight: bold;
         }
-        
+        #blurb {
+            margin-top: -25px;
+            padding-left: 12px;
+            font-size: 28px;
+            color: $gray-80;
+        }
+        #signup {
+        margin-top: 16px;
+        padding-left: 15px;
+          .solid{
+            width: 290px;
+          }
+        }
       }
+        
+    }
       
   }
 }
 //main
 .lp-middle-content-wrapper {
   background: $gradient2;
+  width: inherit;
   
   .lp-middle-content {
-      background: url(../../assets/img/Arrow.svg) no-repeat;
-      background-position-y: 1rem;
-      background-size: contain;
-      background-repeat: no-repeat; 
-      -webkit-background-size: contain;
-      -moz-background-size: contain;
-      -o-background-size: contain;
-      display: flex;
-      flex-direction: column;
-      width: 60%;
-      margin: 0 auto;
+      // background: url(../../assets/img/Arrow.svg) no-repeat;
+      // background-position-y: 1rem;
+      // background-size: contain;
+      // background-repeat: no-repeat; 
+      // -webkit-background-size: contain;
+      // -moz-background-size: contain;
+      // -o-background-size: contain;
+      // display: flex;
+      // flex-direction: column;
+      width: inherit;
+      // margin: 0 auto;
       
       .lp-middle-content-img {
           width: 180px;
-          margin-right: 2rem;
+          margin-right: 32px;
+          margin-bottom: 16px;
       }
       .text {
-          margin: 0 auto;
-          .middle-content-label {
-            font-size: 2rem;
-            margin-right: 24rem;
-          }
-          .lp-middle-content-p {
-            font-size: 1rem;
-            color: $gray-80;
-            width: 18.75rem;
-            margin-right: 26rem;
+        // margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        .middle-content-label {
+          font-size: 32px;
+
+        }
+      
+        .lp-middle-content-p {
+          font-size: 16px;
+          color: $gray-80;
+          width: 300px;
         }
       }
       .left, .right {
           display: flex;
           flex-direction: row;
           align-items: center;
-          margin-bottom: 10rem;
-      }
-      .left {
-          width: 80%;
-          margin-left: 6rem;
-      }
-      .right {
-          margin-left: 15rem;
-          display: flex;
-          flex-direction: row-reverse;
-          justify-content: flex-start;
-          .text {
-            margin: 0 auto;
-            width: 7rem;
-  
-            .middle-content-label {
-              font-size: 2rem;
-              margin-right: 24rem;
-            }
-  
-            .lp-middle-content-p {
-              font-size: 1rem;
-              color: $gray-80;
-              width: 18.75rem;
-          }
-        }
+          height: 200px;
+
           
       }
+      .left {
+        width: inherit;
+        padding-left: 160px;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+
+        @media (max-width: 900px) {
+          padding-left: 0px;
+        }
+      }
+
+      .right {
+        width: inherit;
+        padding-right: 160px;
+        margin: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+
+        @media (max-width: 900px) {
+          padding-right: 30px;
+          margin-left: 0;
+        }
+
+        .text {
+          display: flex;
+          justify-content: flex-end;
+          margin: 0;
+
+          .middle-content-label {
+            font-size: 32px;
+          }
+
+          .lp-middle-content-p {
+            font-size: 16px;
+            color: $gray-80;
+            // width: 100%;
+            margin: 0;
+        }
+      }
+        
+    }
       @media (max-width: 900px) {
           .lp-middle-content {
               width: 100%;
           }
           
           .right {
-              margin-left: 3rem;
+              margin-left: 48px;
           }
       }
   }
@@ -201,14 +236,14 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 5rem 0 8rem 0;
+      padding: 100px 50px;
       .lp-cta-h1 {
-          font-size: 3rem;
+          font-size: 48px;
       }
       .image {
-          padding-right: 2rem;
+          padding-right: 32px;
           .lp-bottom-map-img {
-              width: 200px;
+              width: 400px;
           }
       }
       .letsgo {
@@ -218,7 +253,7 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
               width: 50px;
           }
           .lp-letsgo-link {
-              font-size: 3rem;
+              font-size: 48px;
               font-weight: 700;
               text-decoration: none;
               color: $primary-color;
@@ -237,9 +272,9 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 20px 20px 0 20px;
   .lp-footer-p {
-      font-size: 1rem;
+      font-size: 16px;
       font-weight: 300;
       color: $white-text;
   }
