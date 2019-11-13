@@ -49,14 +49,6 @@
   /* right: 38px; */
 }
 
-.esri-ui-top-right{
-  border: 5px solid red;
-  position: absolute !important;
-  z-index: 2000 !important;
-  right: 30px !important;
-  overflow: visible !important;
-}
-
 .point-of-interest-options{
   display: flex;
   flex-direction: row;
