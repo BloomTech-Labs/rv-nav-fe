@@ -16,7 +16,7 @@ class VehicleForm extends React.Component {
       specifications: {
         name: '',
       // height: 0, // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
-       heightFeet: '12', // value that stores the user entry of height in feet
+       heightFeet: '', // value that stores the user entry of height in feet
        heightInches: '', // value that stores the user entry of height in inches
      //  width: 0, // these 3 width values follow the same structure as height
        widthFeet: '',
