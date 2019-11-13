@@ -39,7 +39,8 @@ const RoutingSidebar = (props) => {
     const sidebarAnchor = () => {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '0px';
-            div.style.height =  '100%';  
+            div.style.height =  '100%';
+            div.style.boxShadow = '-5px -5px 15px black'  
     }
 
     //toggles state back to render the initial sidebar form
@@ -47,7 +48,8 @@ const RoutingSidebar = (props) => {
         
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '25px';
-        div.style.height =  '400px';
+        div.style.height =  '410px';
+        div.style.boxShadow = 'none'
         
         props.setState({
             ...props.state,

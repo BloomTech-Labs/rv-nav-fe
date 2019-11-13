@@ -289,11 +289,13 @@ class MapPage extends Component {
               () => this.initRoute()
             );
           }
-        }
+        } 
+        console.log('LOW CLEARANCE',res)
       })
       .catch(err => {
         this.setState({ loading: "Problem getting clearance info, please try again" })
         console.log("clearance error:", err);
+       
       })
   }
 

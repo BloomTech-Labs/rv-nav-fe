@@ -21,6 +21,13 @@ svg.landing-page-container {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  // @media (max-width: 900px){
+
+  //   landing-page-container{
+  //     border: 3px solid red;
+  //   }
+  // }
 }
 
 rect{

@@ -94,6 +94,7 @@
                 margin: 20px 0px;
                 background-color: white;
                 height: 164px;
+                
                 p{
                     color: black;
                     text-align: left;
@@ -131,9 +132,6 @@
                 align-items: center;
                 color: white;
                 font-size: 12px;
-                // border-bottom: 1px solid gray;
-                // padding: 10px 20px 10px 30px;
-                // width: 90%;
                 text-align: left;
                 margin: 0;
                 width: 100%;
@@ -160,7 +158,6 @@
             font-size: 18px;
             color: #2A2E43;
             width: 100%;
-            // margin-top: 20px;
             text-align: left;
             padding: 10px 0px 10px 30px;
         }
@@ -168,13 +165,11 @@
         #startPointContainer{
             text-align: left;
             font-size: 12px;
-            // padding-left: 30px;
         }
         
         #destinationPointContainer{
             text-align: left;
             font-size: 12px;
-            // padding-left: 30px;
         }
         
         #estimatedTime{
@@ -191,11 +186,9 @@
 .loadingStatus{
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     position: relative;
     right: 25px;
-    // border: 1px solid red;
 }
 // hides scrolling bar
 // .directions::-webkit-scrollbar{ 

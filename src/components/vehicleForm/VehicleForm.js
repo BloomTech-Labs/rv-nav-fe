@@ -16,7 +16,7 @@ class VehicleForm extends React.Component {
       specifications: {
         name: '',
       // height: 0, // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
-       heightFeet: '', // value that stores the user entry of height in feet
+       heightFeet: '12', // value that stores the user entry of height in feet
        heightInches: '', // value that stores the user entry of height in inches
      //  width: 0, // these 3 width values follow the same structure as height
        widthFeet: '',
@@ -205,11 +205,11 @@ class VehicleForm extends React.Component {
     console.log("VEHICLE FORM PROPS", this.props)
     console.log("VEHICLE FORM STATE", this.props.state)
     return(
-      !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
-        <NavLink to='/auth'>
-          <p>Sign in or create an account to be able to add a vehicle</p>
-        </NavLink>
-      :
+      // !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+      //   <NavLink to='/auth'>
+      //     <p>Sign in or create an account to be able to add a vehicle</p>
+      //   </NavLink>
+      // :
       // <div className='WidgetWrapper'> //This can safely be removed since they weren't being used -Jerry :)
         // <div className='vehicle-form-wrap'> //This can safely be removed since they weren't being used -Jerry :)
         // <div className="vehicle-form" onSubmit={this.vehicleSubmit}> //This can safely be removed since they weren't being used -Jerry :)
