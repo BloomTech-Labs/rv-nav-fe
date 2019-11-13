@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Login from "./login/Login.js";
 import Register from "./register/Register.js";
-import MapHeader from "../header/MapHeader"
+
 // import "./Auth.css";
 import { Link } from "react-router-dom";
 // import icon from "../../assets/img/rvnav.png";
