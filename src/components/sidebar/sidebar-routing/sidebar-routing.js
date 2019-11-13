@@ -3,10 +3,14 @@ import SidebarMenu from '../SidebarMenu.js'
 import { ReactComponent as ToggleShowArrow } from './icons/show-sidebar.svg'
 import { ReactComponent as ToggleHideArrow } from './icons/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
-import firebase from 'firebase'
+import Loader from 'react-loader-spinner';
+
+//Brings React loaders styles
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 //SCSS Styles
 import './sidebar-routing.scss'
+import Directions from './Directions.js';
 
 const RoutingSidebar = (props) => {
 
@@ -29,7 +33,7 @@ const RoutingSidebar = (props) => {
         }
     }
 
-    console.log('SIDEBAR STATE', state.sidebar)
+    console.log('SIDEBARROUTING STATE', props.textDirections)
 
     //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => {
@@ -44,16 +48,6 @@ const RoutingSidebar = (props) => {
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '25px';
         div.style.height = '400px';
-        // div.style.bottom =  '260px';
-
-        // let loading = document.getElementsByClassName('route-loading')[0]
-        //     loading.style.marginTop = '25px';
-        //     loading.style.display = 'flex';
-        //     loading.style.alignItems = 'center';
-        //     loading.style.justifyContent = 'center';
-        //     loading.style.right = '38px';
-        //     loading.style.position = 'relative';
-
 
         props.setState({
             ...props.state,
@@ -64,62 +58,65 @@ const RoutingSidebar = (props) => {
         })
     }
 
-    return (
-        console.log('c%EMAIL FROM FIREBASE', 'font-size: 16px ; color: green;', firebase.auth().currentUser.email)
-            (!localStorage.getItem('token') || !firebase.auth().currentUser.email) ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
-            <NavLink to='/login'>
-                <p>Sign in or create an account to be able to create a route.</p>
-            </NavLink>
-            :
+    return (// !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+        //     <NavLink to='/auth'>
+        //     <p>Sign in or create an account to be able to create a route.</p>
+        //     </NavLink>
+        // :
+        <div className='containerWithArrow'>
 
-            <div className='containerWithArrow'>
-
-                {props.loading !== 'Routing successful' ? <p className="route-loading">{props.loading}</p> :
-                    <>
-                        <div className='arrowContainer' onClick={toggleSidebar}>
-                            {state.sidebar === true ?
-                                <ToggleHideArrow /> :
-                                <ToggleShowArrow />
-                            }
+            {props.loading !== 'Routing successful' ?
+                <div className='loadingStatus'>
+                    <p className="route-loading">{props.loading}</p>
+                    <Loader
+                        type="Rings"
+                        color="#00B2D9"
+                        height={100}
+                        width={100}
+                    />
+                </div>
+                :
+                <>
+                    <div className='arrowContainer' onClick={toggleSidebar}>
+                        {state.sidebar === true ?
+                            <ToggleHideArrow /> :
+                            <ToggleShowArrow />
+                        }
+                    </div>
+                    <div className='sidebarContainer'>
+                        <SidebarMenu />
+                        <div className='backbuttonContainer'>
+                            <h6
+                                className='routingBackButton'
+                                onClick={revertChanges}
+                            >Back</h6>
                         </div>
-                        <div className='sidebarContainer'>
-                            <SidebarMenu />
-                            <div className='backbuttonContainer'>
-                                <h6
-                                    className='routingBackButton'
-                                    onClick={revertChanges}
-                                >Back</h6>
+                        <div className='startEndContainer'>
+                            {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
+                            <div id='startPointContainer'>
+                                <p className='startAndEnd'>STARTING POINT</p>
+                                <p>{props.start}</p>
                             </div>
-                            <div className='startEndContainer'>
-                                {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
-                                <div id='startPointContainer'>
-                                    <p className='startAndEnd'>STARTING POINT</p>
-                                    <p>{props.start}</p>
-                                </div>
-                                <div id='destinationPointContainer'>
-                                    <p className='startAndEnd'>DESTINATION</p>
-                                    <p>{props.end}</p>
-                                </div>
-                            </div>
-                            {/* <div className='sidebarOptions'>
-                            <p>THIS ROUTE AVOIDS</p>
-                        </div> */}
-                            <h3 id='directionsTitle'>Directions</h3>
-                            <div className="directions">
-                                {props.textDirections.map((e, i) => {
-                                    return (
-                                        <p key={i} className="instruction">{e}</p>
-                                    )
-                                })}
-                            </div>
-                            <div className='sidebarFooterContainer'>
-                                <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
+                            <div id='destinationPointContainer'>
+                                <p className='startAndEnd'>DESTINATION</p>
+                                <p>{props.end}</p>
                             </div>
                         </div>
-                        {sidebarAnchor()}
-                    </>
-                }
-            </div>
+                        {/* <div className='sidebarOptions'>
+                        <p>THIS ROUTE AVOIDS</p>
+                    </div> */}
+                        <h3 id='directionsTitle'>Directions</h3>
+                        <div className="directions">
+                            <Directions props={props.textDirections} />
+                        </div>
+                        <div className='sidebarFooterContainer'>
+                            <p id='sidebarFooter'>These directions are for planning purposes only. You may find that construction projects, traffic, weather, or other events may cause conditions to differ from the map results, and you should plan your route accordingly. You must obey all signs or notices regarding your route.</p>
+                        </div>
+                    </div>
+                    {sidebarAnchor()}
+                </>
+            }
+        </div>
     )
 };
 
