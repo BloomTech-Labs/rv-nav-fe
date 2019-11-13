@@ -13,12 +13,9 @@ import { ReactComponent as Map } from '../../assets/img/Map.svg';
 import { ReactComponent as Navigation2 } from '../../assets/img/navigation2.svg';
 
 class LandingPage extends Component {
-<<<<<<< HEAD
-=======
     // componentDidMount() {
     //     this.props.logout(); //destroys user creds when this page is loaded, this is where the logout button links to
     // }
->>>>>>> 65822fecc6e341867e6c029a7c11ce10d36d3a5b
 
     render() {
         return (
@@ -36,7 +33,7 @@ class LandingPage extends Component {
                                 <h1 id="rvway">RV WAY</h1>
                                 <p id="blurb">Home is all around you</p>
                                 <div id="signup">
-                                    <div className='lp-signup-link'><button className="btn solid">Get Started</button></div>
+                                    <div className='lp-signup-link'><Link to='/register'><button className="btn solid">Get Started</button></Link></div>
                                 </div>
                             </div>
                         </div>

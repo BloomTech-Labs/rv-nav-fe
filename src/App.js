@@ -14,9 +14,9 @@ const App = () => {
     <div className="App">
       <Route path="/" exact component={LandingPage} />
       {/* <Route path="/auth" component={Auth} /> */}
+      <Route path="/map" component={Map} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/map" component={Map} />
     </div>
   );
 };
