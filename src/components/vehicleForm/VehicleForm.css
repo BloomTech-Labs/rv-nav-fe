@@ -73,6 +73,10 @@ margin-left: 4px;
     border-radius: 3px;
 } */
 
+#routing{
+    color:#00B2D9
+}
+
 .form-section{
     display:flex;
     /* flex-direction: row; */
