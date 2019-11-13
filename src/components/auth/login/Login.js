@@ -155,7 +155,8 @@ class LoginForm extends React.Component {
     return (
       <div className="login-wrapper">
         {/* <div> */}
-        {console.log('%cFirebase User:) ->>', 'color: red; font-size: 16px;', firebase.auth())}
+        {/*  Never console log the Auth(), everything about the App is there. -Noor */}
+        {/* {console.log('%cFirebase User:) ->>', 'color: red; font-size: 16px;', firebase.auth())} */}
         <MapHeader />
         {/* </div> */}
         <div className="login-main">

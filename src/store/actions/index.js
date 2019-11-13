@@ -76,7 +76,7 @@ export const login = values => {
         values
       )
       .then(res => {
-        console.log(res); // data was created successfully and logs to console
+        // console.log(res, '####### FROM LOGIN #######'); // data was created successfully and logs to console
         localStorage.setItem("token", res.data.token);
         dispatch({ type: LOGIN, payload: res.data });
         return true;
@@ -87,7 +87,7 @@ export const login = values => {
           setTimeout(() => {
             dispatch({ type: CLEAR_ERROR });
           }, 5000);
-          console.log(err)
+          // console.log(err, '####### FROM LOGIN 22 #######')
         }
         // dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
