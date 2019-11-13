@@ -14,7 +14,7 @@
 } 
 
 .login-wrapper {
-    height: 92.3vh;
+    height: 100vh;
     background: #E5ECEE;
     font-family: 'Heebo', sans-serif;
     background-image: url(../../../assets/img/Sign-in-Background.svg);
@@ -245,10 +245,12 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     border: 1px solid rgba(42, 46, 67, 0.5);
 }
 
-.login-main-form-error {
+p.login-main-form-error {
     /* margin: 0; */
     font-size: 0.8rem;
     color: rgb(233, 90, 90);
+    margin-bottom: 0px;
+    margin-top: 2px;
 }
 
 .login-required-label {
