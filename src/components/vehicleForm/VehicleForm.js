@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import "./VehicleForm.css"
 import { NavLink } from 'react-router-dom';
 import firebase from "firebase";
+import { ReactComponent as Back } from '../../assets/img/back.svg';
 
 class VehicleForm extends React.Component {
   constructor(props) {
@@ -222,6 +223,7 @@ class VehicleForm extends React.Component {
         // <div className="vehicle-form" onSubmit={this.vehicleSubmit}> //This can safely be removed since they weren't being used -Jerry :)
         <>
           <div className="back">
+          <Back className='backArrow' />
             <p
               className='vehicleFormBackContainer'
               id="routing"
