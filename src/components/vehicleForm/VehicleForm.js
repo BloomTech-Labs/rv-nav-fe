@@ -211,7 +211,7 @@ class VehicleForm extends React.Component {
     console.log("VEHICLE FORM PROPS", this.props)
     console.log("VEHICLE FORM STATE", this.props.state)
     return (
-      !localStorage.token && !this.state.isSignedIn ?   //Added checks for Firebase user.
+      !localStorage.token /*&& !this.state.isSignedIn*/ ?   //Added checks for Firebase user.
         //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
         <NavLink to='/login'>
           <p>Sign in or create an account to be able to add a vehicle</p>

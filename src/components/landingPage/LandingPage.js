@@ -13,9 +13,9 @@ import { ReactComponent as Map } from '../../assets/img/Map.svg';
 import { ReactComponent as Navigation2 } from '../../assets/img/navigation2.svg';
 
 class LandingPage extends Component {
-    componentDidMount() {
-        this.props.logout(); //destroys user creds when this page is loaded, this is where the logout button links to
-    }
+    // componentDidMount() {
+    //     this.props.logout(); //destroys user creds when this page is loaded, this is where the logout button links to
+    // }
 
     render() {
         return (
