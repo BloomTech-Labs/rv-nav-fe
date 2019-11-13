@@ -9,6 +9,9 @@ import { NavLink } from 'react-router-dom';
 import firebase from "firebase";
 import { ReactComponent as Back } from '../../assets/img/back.svg';
 
+import { ReactComponent as BackArrow } from '../../assets/img/back.svg'
+import { ReactComponent as PlusSign } from '../../assets/img/lightIcons/plus (1).svg'
+
 class VehicleForm extends React.Component {
   constructor(props) {
     super(props)
@@ -116,12 +119,21 @@ class VehicleForm extends React.Component {
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = (event) => {
 
-    // let overlayContent = document.getElementById('overlayNav')
-    //     overlayContent.style.margin = '25px'
-    //     overlayContent.style.height = '400px'
+    let div = document.getElementsByClassName('mainSidebarContainer')[0]
+        div.style.margin = '25px';
+        div.style.height =  '410px';
+   
+        
+        this.props.setState({
+            ...this.props.state,
+            vehicleForm: "off",
+            routing: "on",
+            vehicles: "off",
+            directions: "off",
+        })
 
-    // let on = document.getElementsByClassName('on')[0]
-    //   on.style.height = '300px'
+    let menu = document.querySelector('.btn-group-vertical > .btn, .btn-group > .btn')
+    menu.style.backgroundColor = 'white'
 
     // event.preventDefault();
     // //Google analytics tracking
@@ -223,17 +235,17 @@ class VehicleForm extends React.Component {
         // <div className="vehicle-form" onSubmit={this.vehicleSubmit}> //This can safely be removed since they weren't being used -Jerry :)
         <>
           <div className="back">
-          <Back className='backArrow' />
+            <BackArrow />
             <p
               className='vehicleFormBackContainer'
               id="routing"
               onClick={this.props.selectVehicles}>Back
             </p>
-            <p className="back-label">| Add Vehicle</p>
+            <p className="back-label">Add Vehicle</p>
           </div>
           <div className="form-wrapper">
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
-            <p className="vehicle-spec">Name (required)</p>
+            <p className="vehicle-spec">Name <p className='required'>(required)</p></p>
             <div className='measurements'>
               <input className="start-input-div"
                 type="string"
@@ -251,7 +263,7 @@ class VehicleForm extends React.Component {
                 <p className="vehicle-spec">Height</p>
                 <div className='measurementsParent'>
                   <div className='measurements'>
-                    <p className='measurementsInput'>Feet</p>
+                    <p className='measurementsInput'>FEET</p>
                     <input
                       type="number"
                       min="0"
@@ -263,9 +275,11 @@ class VehicleForm extends React.Component {
                       id="input-boxes"
                     />
                   </div>
-                  <p className="plus">+</p>
+                  <div className="plus">
+                    <PlusSign />
+                  </div>
                   <div className="measurements">
-                    <p className='measurementsInput'>Inches</p>
+                    <p className='measurementsInput'>INCHES</p>
                     <input
                       type="number"
                       min="0"
@@ -283,7 +297,7 @@ class VehicleForm extends React.Component {
                 <p className="vehicle-spec">Width</p>
                 <div className='measurementsParent'>
                   <div className='measurements'>
-                    <p className='measurementsInput'>Feet</p>
+                    <p className='measurementsInput'>FEET</p>
                     <input
                       type="number"
                       min="0"
@@ -295,9 +309,11 @@ class VehicleForm extends React.Component {
                       id="input-boxes"
                     />
                   </div>
-                  <p className="plus">+</p>
+                  <div className="plus">
+                    <PlusSign />
+                  </div>
                   <div className="measurements">
-                    <p className='measurementsInput'>Inches</p>
+                    <p className='measurementsInput'>INCHES</p>
                     <input
                       type="number"
                       min="0"
@@ -317,7 +333,7 @@ class VehicleForm extends React.Component {
                 <p className="vehicle-spec">Length</p>
                 <div className='measurementsParent'>
                   <div className='measurements'>
-                    <p className='measurementsInput'>Feet</p>
+                    <p className='measurementsInput'>FEET</p>
                     <input
                       type="number"
                       min="0"
@@ -329,9 +345,11 @@ class VehicleForm extends React.Component {
                       id="input-boxes"
                     />
                   </div>
-                  <p className="plus">+</p>
+                  <div className="plus">
+                    <PlusSign />
+                  </div>
                   <div className="measurements">
-                    <p className='measurementsInput'>Inches</p>
+                    <p className='measurementsInput'>INCHES</p>
                     <input
                       type="number"
                       min="0"
@@ -348,7 +366,7 @@ class VehicleForm extends React.Component {
               <div className='dimensionsTitle'>
                 <p className="vehicle-spec">Weight</p>
                 <div className='measurements'>
-                  <p className='measurementsInput'>Pounds</p>
+                  <p className='measurementsInput'>POUNDS</p>
                   <input
                     type="number"
                     min="0"
@@ -386,7 +404,7 @@ class VehicleForm extends React.Component {
                 <div className="form-section">
                   {/* <div className="tires-check"> */}
                   <div className="measurements">
-                    <p className='measurementsInput'>Axel Count</p>
+                    <p className='measurementsInput'>AXEL COUNT</p>
                     <input className="axels"
                       type="number"
                       min="0"
