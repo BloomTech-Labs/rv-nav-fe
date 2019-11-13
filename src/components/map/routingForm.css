@@ -16,6 +16,7 @@
     font-family: Helvetica;
     padding-left: 30px;
     border: none;
+    height: 45px;
     /* margin-bottom: 18px; */
 }
 
@@ -57,6 +58,7 @@
     /* font-family: Helvetica;
     margin-left: 18px; */
     /* margin-right: 18px; */
+    margin-top: 14px;
 }
 
 .start-input-div {
@@ -107,13 +109,17 @@
     /* visibility: hidden; */
     color: white;
     width: 339px;
-    margin-left: 0px;
-    margin-top: 7px;
     border: none;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .routingFormDropdownInput{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 330px;
 }

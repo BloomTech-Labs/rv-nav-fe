@@ -5,6 +5,11 @@ import { ReactComponent as ToggleHideArrow } from './icons/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
+//SVG IMAGES FOR ROUTING
+import { ReactComponent as StartingPoint } from '../../../assets/img/lightIcons/location (1).svg'
+import { ReactComponent as EndingPoint } from '../../../assets/img/lightIcons/marker (1).svg'
+import { ReactComponent as BackArrow } from '../../../assets/img/back.svg'
+
 //Brings React loaders styles
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -47,8 +52,9 @@ const RoutingSidebar = (props) => {
 
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '25px';
-        div.style.height = '400px';
-
+        div.style.height =  '410px';
+   
+        
         props.setState({
             ...props.state,
             vehicleForm: "off",
@@ -58,7 +64,8 @@ const RoutingSidebar = (props) => {
         })
     }
 
-    return (// !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+    return (
+        // !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
         //     <NavLink to='/auth'>
         //     <p>Sign in or create an account to be able to create a route.</p>
         //     </NavLink>
@@ -86,20 +93,27 @@ const RoutingSidebar = (props) => {
                     <div className='sidebarContainer'>
                         <SidebarMenu />
                         <div className='backbuttonContainer'>
+                            <BackArrow />
                             <h6
                                 className='routingBackButton'
                                 onClick={revertChanges}
                             >Back</h6>
                         </div>
                         <div className='startEndContainer'>
-                            {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
-                            <div id='startPointContainer'>
-                                <p className='startAndEnd'>STARTING POINT</p>
-                                <p>{props.start}</p>
+                            <div className='startingPoint'>
+                                <StartingPoint />
+                                {/* <h3 id='estimatedTime'>17 mins (4 miles)</h3> */}
+                                <div id='startPointContainer'>
+                                    <p className='startAndEnd'>STARTING POINT</p>
+                                    <p>{props.start}</p>
+                                </div>
                             </div>
-                            <div id='destinationPointContainer'>
-                                <p className='startAndEnd'>DESTINATION</p>
-                                <p>{props.end}</p>
+                            <div className='endingPoint'>
+                                <EndingPoint />
+                                <div id='destinationPointContainer'>
+                                    <p className='startAndEnd'>DESTINATION</p>
+                                    <p>{props.end}</p>
+                                </div>
                             </div>
                         </div>
                         {/* <div className='sidebarOptions'>

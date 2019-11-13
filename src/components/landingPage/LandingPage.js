@@ -13,6 +13,12 @@ import { ReactComponent as Map } from '../../assets/img/Map.svg';
 import { ReactComponent as Navigation2 } from '../../assets/img/navigation2.svg';
 
 class LandingPage extends Component {
+<<<<<<< HEAD
+=======
+    // componentDidMount() {
+    //     this.props.logout(); //destroys user creds when this page is loaded, this is where the logout button links to
+    // }
+>>>>>>> 65822fecc6e341867e6c029a7c11ce10d36d3a5b
 
     render() {
         return (
