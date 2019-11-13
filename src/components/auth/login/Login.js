@@ -13,10 +13,12 @@ import { login } from "../../../store/actions";
 //import Form from "react-bootstrap/Form"; //! commented out by Noor : "not used in the component"
 //import "../Auth.css"; //! commented out by Noor : "not used in the component"
 import "./Login.css"
+import MapHeader from "../../header/MapHeader"
+
 
 const config = {
-  apiKey: "AIzaSyDQLv5I4OQ8i0TxIaHRTkH40UEG3xef7oc",
-  authDomain: "rv-way.firebaseapp.com"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN
 }
 
 firebase.initializeApp(config)
@@ -153,8 +155,9 @@ class LoginForm extends React.Component {
     return (
       <div className="login-wrapper">
         {/* <div> */}
-        {console.log('%cFirebase User:) ->>', 'color: red; font-size: 16px;', firebase.auth())}
-
+        {/*  Never console log the Auth(), everything about the App is there. -Noor */}
+        {/* {console.log('%cFirebase User:) ->>', 'color: red; font-size: 16px;', firebase.auth())} */}
+        <MapHeader />
         {/* </div> */}
         <div className="login-main">
           {loading === true ? <p className="login-auth-loading">Let the adventure begin...</p> :
@@ -162,14 +165,18 @@ class LoginForm extends React.Component {
             <form className="login-main-form" onSubmit={this.loginSubmit}>
               <div className="login-header">
                 <h2 className="login-welcome-back">Welcome Back!</h2>
-                <h4 className="its-great-to-see-you-again">It's great to see you again</h4>
+                <h4 className="its-great-to-see-you-again">It's great to see you again.</h4>
               </div>
               <div className="login-social-media">
                 {this.state.isSignedIn ?
                   (
                     <div>
-                      <h6>Welcome  {firebase.auth().currentUser.displayName}</h6>
-                      <button onClick={() => firebase.auth().signOut()}>Logout</button>
+                      {this.state.isSignedIn ? (
+                        <>
+                          <h6>Welcome  {firebase.auth().currentUser.displayName}</h6>
+                          <button onClick={() => firebase.auth().signOut()}>Logout</button>
+                        </>
+                      ) : localStorage.getItem('firebaseui::rememberedAccounts') ? localStorage.removeItem('firebaseui::rememberedAccounts') : null}
                     </div>
                   ) :
                   (<StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />)}
@@ -214,7 +221,7 @@ class LoginForm extends React.Component {
                   Let's Go
                 </button>
                 <div className="need-account">
-                  <span>Already have an account? <a id="sign-up" href="/Register">Sign Up</a></span>
+                  <span>Already have an account? <a id="sign-up" href="/register">Sign Up</a></span>
                 </div>
               </div>
             </form>

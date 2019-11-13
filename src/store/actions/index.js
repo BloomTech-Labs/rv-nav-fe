@@ -1,4 +1,5 @@
 import axios from 'axios';
+import firebase from 'firebase';
 
 export const LOADING = 'LOADING';
 export const ERROR_MESSAGE = 'ERROR_MESSAGE';
@@ -13,7 +14,7 @@ export const INVALID_CREDENTIALS = "INVALID_CREDENTIALS";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 export const DUPLICATE_USER = "DUPLICATE_USER";
 export const DUPLICATE_EMAIL = "DUPLICATE_EMAIL";
-export const LOGOUT = " LOGOUT";
+export const LOGOUT = "LOGOUT";
 export const CLOSE_SIDE_BAR = "CLOSE_SIDE_BAR ";
 
 export function authError(error) {
@@ -75,7 +76,7 @@ export const login = values => {
         values
       )
       .then(res => {
-        console.log(res); // data was created successfully and logs to console
+        // console.log(res, '####### FROM LOGIN #######'); // data was created successfully and logs to console
         localStorage.setItem("token", res.data.token);
         dispatch({ type: LOGIN, payload: res.data });
         return true;
@@ -86,6 +87,7 @@ export const login = values => {
           setTimeout(() => {
             dispatch({ type: CLEAR_ERROR });
           }, 5000);
+          // console.log(err, '####### FROM LOGIN 22 #######')
         }
         // dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
@@ -98,6 +100,16 @@ export const logout = () => {
     event_category: "access",
     event_label: "logout"
   });
+
+  const token = localStorage.getItem('token')
+
+  if (token) {
+    localStorage.removeItem(token)
+    // console.log('%cLogged out from Database User', 'font-size: 16px; color: green;')
+  } else if (firebase.auth().currentUser !== null) {
+    firebase.auth().signOut()
+    // console.log('%cLogged out from Firebase User', 'font-size: 16px; color: green;')
+  }
   return { type: LOGOUT }
 }
 

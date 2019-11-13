@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { register, login, clearError } from "../../../store/actions";
 import { withRouter } from "react-router-dom";
 import "./Register.css"
+import firebase from 'firebase';
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 /* eslint-disable no-useless-escape */
 const validEmailRegex = RegExp(
@@ -29,9 +31,22 @@ class RegisterForm extends Component {
           confirmPassword: ""
         }
       },
-      loading: false
+      loading: false,
+      isSignedIn: false
     };
   }
+
+  uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    signInSuccessUrl: '/map',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    ]
+  };
 
   handleChange = event => {
     event.preventDefault();
@@ -117,6 +132,12 @@ class RegisterForm extends Component {
     }
   };
 
+  componentDidMount() {
+    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+      (user) => this.setState({ isSignedIn: !!user })
+    );
+  }
+
   unmaskPassword() {
     var passwordInput = document.querySelector('#password-input');
     var passwordStatus = document.querySelector('.password-mask');
@@ -172,8 +193,20 @@ class RegisterForm extends Component {
                   <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
                 </div>
                 <div className="register-social-media">
-                  <button id="google"></button>
-                  <button id="facebook"></button>
+                  {/* <button id="google"></button>
+                  <button id="facebook"></button> */}
+                  {this.state.isSignedIn ?
+                    (
+                      <div>
+                        {this.state.isSignedIn ? (
+                          <>
+                            <h6>Welcome  {firebase.auth().currentUser.displayName}</h6>
+                            <button onClick={() => firebase.auth().signOut()}>Logout</button>
+                          </>
+                        ) : localStorage.getItem('firebaseui::rememberedAccounts') ? localStorage.removeItem('firebaseui::rememberedAccounts') : null}
+                      </div>
+                    ) :
+                    (<StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />)}
                 </div>
                 <div className="or">
                   <span>or</span>
@@ -235,7 +268,7 @@ class RegisterForm extends Component {
                     Let's Go
                     </button>
                   <div className="already-have-an-account">
-                    <span>Already have an account? <a id="sign-in">Sign In</a></span>
+                    <span>Already have an account? <a id="sign-in" href="/login">Sign In</a></span>
                   </div>
                 </div>
               </form>
