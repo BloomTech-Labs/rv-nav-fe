@@ -42,8 +42,9 @@ class MapPage extends Component {
       "esri/widgets/BasemapToggle",
       "esri/widgets/Track",
       "esri/Graphic",
+      "esri/widgets/Search"
     ], { css: true })
-      .then(([ArcGISMap, MapView, BasemapToggle, Track, Graphic]) => {
+      .then(([ArcGISMap, MapView, BasemapToggle, Track, Graphic, Search]) => {
         const map = new ArcGISMap({
           basemap: 'streets-navigation-vector'
         });
@@ -63,6 +64,16 @@ class MapPage extends Component {
         view.ui.add(basemapToggle, {
           position: "bottom-right"
         });
+
+        // var searchWidget = new Search({
+        //   view: view
+        // });
+        // // Adds the search widget below other elements in
+        // // the top left corner of the view
+        // view.ui.add(searchWidget, {
+        //   position: "top-right",
+        //   index: 2
+        // });
 
         
 
@@ -92,6 +103,8 @@ class MapPage extends Component {
           }),
           useHeadingEnabled: false  // Don't change orientation of the map
         });
+        console.log('TRACK WIDGET FROM MAP', track)
+        // console.log('TRACK WIDGET FROM MAP', track.view.center.y)
   
         view.ui.add(track, "bottom-right");
 
@@ -289,11 +302,13 @@ class MapPage extends Component {
               () => this.initRoute()
             );
           }
-        }
+        } 
+        console.log('LOW CLEARANCE',res)
       })
       .catch(err => {
         this.setState({ loading: "Problem getting clearance info, please try again" })
         console.log("clearance error:", err);
+       
       })
   }
 
