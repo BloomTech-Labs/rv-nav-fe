@@ -21,7 +21,7 @@ class VehicleForm extends React.Component {
       specifications: {
         name: '',
         // height: 0, // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
-        heightFeet: '', // value that stores the user entry of height in feet
+        heightFeet: NaN, // value that stores the user entry of height in feet
         heightInches: '', // value that stores the user entry of height in inches
         //  width: 0, // these 3 width values follow the same structure as height
         widthFeet: '',
@@ -222,7 +222,7 @@ class VehicleForm extends React.Component {
 
   render() {
     console.log("VEHICLE FORM PROPS", this.props)
-    console.log("VEHICLE FORM STATE", this.props.state)
+    console.log("STATE FROM VEHICLEFORM", this.state)
     return (
       !localStorage.token /*&& !this.state.isSignedIn*/ ?   //Added checks for Firebase user.
         //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
@@ -245,7 +245,7 @@ class VehicleForm extends React.Component {
           </div>
           <div className="form-wrapper">
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
-            <p className="vehicle-spec">Name <p className='required'>(required)</p></p>
+            <p className="vehicle-spec" required >Name <p className='required'>(required)</p></p>
             <div className='measurements'>
               <input className="start-input-div"
                 type="string"
@@ -272,7 +272,8 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.heightFeet}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
+                      required
                     />
                   </div>
                   <div className="plus">
@@ -288,7 +289,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.heightInches}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                 </div>
@@ -306,7 +307,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.widthFeet}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                   <div className="plus">
@@ -322,7 +323,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.widthInches}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                 </div>
@@ -342,7 +343,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.lengthFeet}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                   <div className="plus">
@@ -358,7 +359,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.lengthInches}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                 </div>
@@ -399,8 +400,8 @@ class VehicleForm extends React.Component {
             </div> */}
             </div>
 
-            <div className='inputsFieldsContainer'>
-              <div className='measurementsParent'>
+            {/* <div className='inputsFieldsContainer'>
+              <div className='measurementsParent'> */}
                 <div className="form-section">
                   {/* <div className="tires-check"> */}
                   <div className="measurements">
@@ -413,7 +414,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.axel_count}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     >
                     </input>
                   </div>
@@ -434,10 +435,9 @@ class VehicleForm extends React.Component {
                     </div>
                     {/* </div> */}
                   </div>
-
                 </div>
-              </div>
-            </div>
+              {/* </div>
+            </div> */}
             <p className="vehicle-spec">RV TYPE</p>
             <div className="class-radios">
               <div className='classAbc'>
@@ -482,8 +482,12 @@ class VehicleForm extends React.Component {
                   </div>
                   <div className="buttons">
                     <button className="btn-submit" id='cancelButton' onClick={this.props.selectVehicles}>Cancel</button>
-                    <button className="btn-submit"   onClick={this.vehicleSubmit}>Add</button>
-                    {/* <Button className="btn-submit " type="submit"  onClick={this.vehicleSubmit}>Add</Button> */}
+                    {isNaN(this.state.specifications.heightFeet) ?
+                      <button className="btn-submit" id='invalidAddButton'>Add</button>
+                      :
+                      <button className="btn-submit" id='validAddButton'  onClick={this.vehicleSubmit}>Add</button>
+                    }
+                  
                   </div>
                 </div>
               </div>

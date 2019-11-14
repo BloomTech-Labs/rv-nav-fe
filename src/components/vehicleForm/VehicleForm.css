@@ -79,9 +79,10 @@ margin-left: 4px;
 
 .form-section{
     display:flex;
+    align-items: center;
     /* flex-direction: row; */
     width:100%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .vehicle-spec-label{
 display:flex;
@@ -144,7 +145,7 @@ border: 1px solid rgba(42, 46, 67, 0.3);
     display:flex;
     flex-wrap: wrap;
     /* width:100%; */
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .dimensionsTitle{
@@ -222,7 +223,7 @@ color: rgba(237, 238, 241, 0.95);
 
 
 
-#input-boxes{
+.input-boxes{
     height:45px;
     width:55px;
     border-radius: 3px;
@@ -287,7 +288,7 @@ color: rgba(42, 46, 67, 0.8);
 }
 
 #rv-name{
-    width: 95.5%;
+    width: 100%;
     height:45px;
     margin:0px;
 }
@@ -304,7 +305,7 @@ color: rgba(42, 46, 67, 0.8);
 }
 
 #input-boxes-pounds{
-    width:90%;
+    width:100%;
     height:45px;
     border-radius: 3px;
     border: 1px solid rgba(42, 46, 67, 0.3);
@@ -473,4 +474,19 @@ border: 3px solid rgb(119, 157, 165) ;
     background: transparent;
     border: 1px solid #00B2D9;
     color: #00B2D9;
+}
+
+#validAddButton{
+    display: block;
+}
+
+#invalidAddButton{
+    background: none;
+    border: 1px solid#6C757D;
+    color: #6C757D;
+    opacity: .5;
+}
+
+#invalidAddButton:hover{
+    cursor: text;
 }

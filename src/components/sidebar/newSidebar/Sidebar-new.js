@@ -19,7 +19,7 @@ const Sidebar = (props) => {
     })
     console.log('props on Sidebar', props)
 
-
+    
     const buttonSelect = (event) => {
         console.log("event", event.target);
         setState({
@@ -75,60 +75,59 @@ const Sidebar = (props) => {
     return (
         <div className='mainSidebarContainer'>
             <SidebarMenu />
-            {state.routing === 'on' ?  //List of vehicles
-                <RoutingForm
-                    addAVehicleForm={addAVehicleForm}
-                    state={state}
-                    setState={setState}
-                    buttonSelect={buttonSelect}
-                    textDirections={props.textDirections}
-                    toggle={props.toggle}
-                    walmartSelected={props.walmartSelected}
-                    campsiteSelected={props.campsiteSelected}
-                    pointOfInterestDistance={props.pointOfInterestDistance}
-                    loading={props.loading}
-                    arcRoute={props.arcRoute}
-                    onChangeHandler={props.onChangeHandler}
-                    routeChangeHandler={props.routeChangeHandler}
-                    start={props.start}
-                    end={props.end}
-                />
-                : null
-            }
+                <div className={`${state.routing}`}>
+                    <RoutingForm
+                        addAVehicleForm={addAVehicleForm}
+                        state={state}
+                        setState={setState}
+                        buttonSelect={buttonSelect}
+                        textDirections={props.textDirections}
+                        toggle={props.toggle}
+                        walmartSelected={props.walmartSelected}
+                        campsiteSelected={props.campsiteSelected}
+                        pointOfInterestDistance={props.pointOfInterestDistance}
+                        loading={props.loading}
+                        arcRoute={props.arcRoute}
+                        onChangeHandler={props.onChangeHandler}
+                        routeChangeHandler={props.routeChangeHandler}
+                        start={props.start}
+                        end={props.end}
+                    />
+                </div>
 
-            {state.vehicles === 'on' ?  //List of vehicles
-                <Vehicles /> : null
-            }
+                {state.vehicles === 'on' ?  //List of vehicles
+                    <Vehicles /> : null
+                }
 
-            {state.vehicleForm === 'on' ?
-                <VehicleForm 
-                    selectVehicles={selectVehicles}
-                    state={state} 
-                    setState={setState} 
-                    buttonSelect={buttonSelect} 
-                />
-                : null
-            }
+                {state.vehicleForm === 'on' ?
+                    <VehicleForm 
+                        selectVehicles={selectVehicles}
+                        state={state} 
+                        setState={setState} 
+                        buttonSelect={buttonSelect} 
+                    />
+                    : null
+                }
 
             {/* vv Neccesary to render routing sidebar for directions vv -Jerry */}
             {state.directions === 'on' ?
-                <RoutingSidebar
-                    state={state}
-                    setState={setState}
-                    toggleSidebar={props.toggleSidebar}
-                    textDirections={props.textDirections}
-                    toggle={props.toggle}
-                    walmartSelected={props.walmartSelected}
-                    campsiteSelected={props.campsiteSelected}
-                    pointOfInterestDistance={props.pointOfInterestDistance}
-                    loading={props.loading}
-                    arcRoute={props.arcRoute}
-                    onChangeHandler={props.onChangeHandler}
-                    routeChangeHandler={props.routeChangeHandler}
-                    start={props.start}
-                    end={props.end}
-                />
-                : null
+                    <RoutingSidebar
+                        state={state}
+                        setState={setState}
+                        toggleSidebar={props.toggleSidebar}
+                        textDirections={props.textDirections}
+                        toggle={props.toggle}
+                        walmartSelected={props.walmartSelected}
+                        campsiteSelected={props.campsiteSelected}
+                        pointOfInterestDistance={props.pointOfInterestDistance}
+                        loading={props.loading}
+                        arcRoute={props.arcRoute}
+                        onChangeHandler={props.onChangeHandler}
+                        routeChangeHandler={props.routeChangeHandler}
+                        start={props.start}
+                        end={props.end}
+                    />
+                    : null
             }
         </div>
 
