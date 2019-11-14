@@ -136,11 +136,11 @@ class VehicleForm extends React.Component {
     menu.style.backgroundColor = 'white'
 
     // event.preventDefault();
-    // //Google analytics tracking
-    // window.gtag("event", "create vehicle", {
-    //   event_category: "submit",
-    //   event_label: "create vehicle"
-    // });
+    //Google analytics tracking
+    window.gtag("event", "create vehicle", {
+      event_category: "submit",
+      event_label: "create vehicle"
+    });
 
     let height = this.combineDistanceUnits(this.state.specifications.heightInches, this.state.specifications.heightFeet);
     let width = this.combineDistanceUnits(this.state.specifications.widthInches, this.state.specifications.widthFeet);
@@ -261,37 +261,40 @@ class VehicleForm extends React.Component {
             <div className="vehicle-spec-label">
               <div className='dimensionsTitle'>
                 <p className="vehicle-spec">Height</p>
-                <div className='measurementsParent'>
-                  <div className='measurements'>
-                    <p className='measurementsInput'>FEET</p>
-                    <input
-                      type="number"
-                      min="0"
-                      max="100"
-                      name='heightFeet'
-                      placeholder="0"
-                      value={this.state.specifications.heightFeet}
-                      onChange={this.handleChange}
-                      className="input-boxes"
-                      required
-                    />
-                  </div>
-                  <div className="plus">
-                    <PlusSign />
-                  </div>
-                  <div className="measurements">
-                    <p className='measurementsInput'>INCHES</p>
-                    <input
-                      type="number"
-                      min="0"
-                      max="11"
-                      name='heightInches'
-                      placeholder="0"
-                      value={this.state.specifications.heightInches}
-                      onChange={this.handleChange}
-                      className="input-boxes"
-                    />
-                  </div>
+                <div className='restrictionParent'>
+                  <div className='measurementsParent'>
+                    <div className='measurements'>
+                      <p className='measurementsInput'>FEET</p>
+                      <input
+                        type="number"
+                        min="0"
+                        max="100"
+                        name='heightFeet'
+                        placeholder="0"
+                        value={this.state.specifications.heightFeet}
+                        onChange={this.handleChange}
+                        className="input-boxes"
+                        required
+                        id='heightInput'
+                      />
+                    </div>
+                    <div className="plus">
+                      <PlusSign />
+                    </div>
+                    <div className="measurements">
+                      <p className='measurementsInput'>INCHES</p>
+                      <input
+                        type="number"
+                        min="0"
+                        max="11"
+                        name='heightInches'
+                        placeholder="0"
+                        value={this.state.specifications.heightInches}
+                        onChange={this.handleChange}
+                        className="input-boxes"
+                      />
+                    </div>
+                    </div>
                 </div>
               </div>
               <div className='dimensionsTitle'>
@@ -329,6 +332,8 @@ class VehicleForm extends React.Component {
                 </div>
               </div>
             </div>
+            {isNaN(this.state.specifications.heightFeet) ?
+              <p id='requiredField'>*Height is required</p>: null}
             <div className="vehicle-spec-label2">
               <div className='dimensionsTitle'>
                 <p className="vehicle-spec">Length</p>
@@ -483,7 +488,7 @@ class VehicleForm extends React.Component {
                   <div className="buttons">
                     <button className="btn-submit" id='cancelButton' onClick={this.props.selectVehicles}>Cancel</button>
                     {isNaN(this.state.specifications.heightFeet) ?
-                      <button className="btn-submit" id='invalidAddButton'>Add</button>
+                      <button className="btn-submit" id='invalidAddButton' onClick={this.requiredField}>Add</button>
                       :
                       <button className="btn-submit" id='validAddButton'  onClick={this.vehicleSubmit}>Add</button>
                     }
