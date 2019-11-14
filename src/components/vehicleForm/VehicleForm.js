@@ -451,21 +451,21 @@ class VehicleForm extends React.Component {
                           value="CLASS A"
                           checked={this.state.specifications.class_name === "A"} onChange={this.handleRadio}
                       />*/}
-                        <label className="form-radio"><input type='radio' value="ClassA"/>Class A</label>
+                        <label className="form-radio"><input type='radio' value="ClassA" checked={this.state.specifications.class_name === "ClassA"} onChange={this.handleRadio}/>Class A</label>
                       </div> 
                       <div className="rv-radio">
                       {/* <Form.Check className="form-check" name="class" inline label="Class B" type="radio" id={`inline-text-2`} 
                       value="CLASS B"
                       checked={this.state.specifications.class_name === "B"} onChange={this.handleRadio}
                       /> */}
-                        <label className="form-radio"><input type='radio' value="ClassB"/>Class B</label>
+                        <label className="form-radio"><input type='radio' value="ClassB" checked={this.state.specifications.class_name === "ClassB"} onChange={this.handleRadio}/>Class B</label>
                       </div>
                       <div className="rv-radio">
                       {/* <Form.Check className="form-check"name="class" inline label="Class C" type="radio" id={`inline-text-2`} 
                       value="CLASS C"
                       checked={this.state.specifications.class_name === "C"} onChange={this.handleRadio}
                       /> */}
-                      <label className="form-radio"><input type='radio' value="ClassC"/>Class C</label>
+                      <label className="form-radio"><input type='radio' value="ClassC" checked={this.state.specifications.class_name === "ClassC"} onChange={this.handleRadio}/>Class C</label>
                       </div>
                   </div>
                   <div className='FithWheelContainer'>
@@ -475,14 +475,14 @@ class VehicleForm extends React.Component {
                   value="5TH WHEEL"
                   checked={this.state.specifications.class_name === "5TH WHEEL"} onChange={this.handleRadio}
                   /> */}
-                    <label className="form-radio"><input type='radio' value="5thWheel"/>5TH Wheel</label>
+                    <label className="form-radio"><input type='radio' value="5thWheel" checked={this.state.specifications.class_name === "5thWheel"} onChange={this.handleRadio}/>5TH Wheel</label>
                   </div>
                   <div className="rv-radio-tagalong">
                     {/* <Form.Check  name="class" inline label="Tagalong Camper" type="radio" id={`inline-text-2`} 
                     value="TAGALONG CAMPER"
                     checked={this.state.specifications.class_name === "TAGALONG CAMPER"} onChange={this.handleRadio}
                     />  */}
-                    <input type='radio' value="tagalong"/>
+                    <input type='radio' value="tagalong"checked={this.state.specifications.class_name === "tagalong"} onChange={this.handleRadio}/>
                     <p id='tagalongCamper'>Tagalong Camper</p>
                   </div>
                   <div className="buttons">
