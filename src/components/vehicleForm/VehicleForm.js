@@ -121,7 +121,7 @@ class VehicleForm extends React.Component {
 
     let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '25px';
-        div.style.height =  '410px';
+        div.style.height =  '335px';
    
         
         this.props.setState({
@@ -332,7 +332,7 @@ class VehicleForm extends React.Component {
                 </div>
               </div>
             </div>
-            {isNaN(this.state.specifications.heightFeet) ?
+            {isNaN(this.state.specifications.heightFeet) || this.state.specifications.heightFeet === 0 ?
               <p id='requiredField'>*Height is required</p>: null}
             <div className="vehicle-spec-label2">
               <div className='dimensionsTitle'>
@@ -369,7 +369,7 @@ class VehicleForm extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className='dimensionsTitle'>
+              <div className='dimensionsTitle' id='poundsContainer'>
                 <p className="vehicle-spec">Weight</p>
                 <div className='measurements'>
                   <p className='measurementsInput'>POUNDS</p>
@@ -487,7 +487,7 @@ class VehicleForm extends React.Component {
                   </div>
                   <div className="buttons">
                     <button className="btn-submit" id='cancelButton' onClick={this.props.selectVehicles}>Cancel</button>
-                    {isNaN(this.state.specifications.heightFeet) ?
+                    {isNaN(this.state.specifications.heightFeet) || this.state.specifications.heightFeet === 0 ?
                       <button className="btn-submit" id='invalidAddButton' onClick={this.requiredField}>Add</button>
                       :
                       <button className="btn-submit" id='validAddButton'  onClick={this.vehicleSubmit}>Add</button>
