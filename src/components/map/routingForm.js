@@ -60,7 +60,7 @@ const RoutingForm = (props) => {
               id="start"
               required
               type="text"
-              placeholder=""
+              placeholder="Chicago, IL"
               name="start"
               value={props.start}
               onChange={props.routeChangeHandler}
@@ -73,7 +73,7 @@ const RoutingForm = (props) => {
               className="route-input"
               id="end" required
               type="text"
-              placeholder=""
+              placeholder="42 Walaby Way, Sydney"
               name="end"
               value={props.end}
               onChange={props.routeChangeHandler}

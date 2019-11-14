@@ -20,6 +20,10 @@
     /* margin-bottom: 18px; */
 }
 
+.route-input::placeholder{
+    color:lightgrey;
+}
+
 .selected-vehicle-dropdown-menu {
     background-image: url(../../assets/img/gray-car.svg), url(../../assets/img/gray-down.svg);
     background-repeat: no-repeat, no-repeat;
