@@ -52,7 +52,7 @@ const RoutingSidebar = (props) => {
 
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '25px';
-        div.style.height =  '410px';
+        div.style.height =  '335px';
    
         
         props.setState({
