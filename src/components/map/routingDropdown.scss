@@ -83,7 +83,8 @@
         section{
             background-image: url('../../assets/img/blue-plus.svg');
             background-repeat:no-repeat;
-
+            box-shadow: 0px 1px 1px rgb(231, 231, 231);
+            // padding-bottom: ;
             &:hover{
                 cursor: pointer;
             }
@@ -94,6 +95,7 @@
         color: #34BBDA;
         margin-left: 30px;
         font-weight: bold;
+        padding-bottom: 5px;
     }
 
 }
