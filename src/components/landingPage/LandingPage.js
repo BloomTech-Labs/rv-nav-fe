@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import icon from "../../assets/img/rvnav.png";
 import "./LandingPage.scss";
 import { connect } from "react-redux";
 import { logout } from "../../store/actions";
@@ -105,21 +103,3 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps, { logout }
 )(LandingPage)
-
-//Old stuff testing joanne's stuff out
-  // <div className="landing-page-wrapper">
-  //   <div className="button-container">
-  //     {/* <Link to="/map" >
-  //       <Button variant="light">Use as guest</Button>
-  //     </Link> */}
-  //     <Link to="/auth">
-  //       <Button variant="warning">Login / Register</Button>
-  //     </Link>
-  //   </div>
-  //   <div className="intro">
-  //     <img className="intro-logo" src={icon} alt="logo" />
-  //   </div>
-  //   <a href = "/aboutus.html" className="about" target = "_blank" rel = "noopener noreferrer nofollow">
-  //     About the team
-  //   </a>
-  // </div>

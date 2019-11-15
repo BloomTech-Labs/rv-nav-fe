@@ -42,7 +42,7 @@ class MapPage extends Component {
       "esri/widgets/BasemapToggle",
       "esri/widgets/Track",
       "esri/Graphic",
-      "esri/widgets/Search"
+      "esri/widgets/Search",
     ], { css: true })
       .then(([ArcGISMap, MapView, BasemapToggle, Track, Graphic, Search]) => {
         const map = new ArcGISMap({
