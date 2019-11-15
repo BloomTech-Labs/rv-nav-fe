@@ -94,10 +94,24 @@ describe('Routing Menu Testing', () => {
 })
 
 describe('Add Vehicle Page Testing', () => {
+    context('resolution setting', () => {
+        beforeEach( () => {
+            cy.viewport(1280, 720)
+        })
+    })
+    
     it('tests Add Vehicle link', () => {
         cy.get('#arrowDown').click()
         cy.contains('Add a vehicle...').click()
-        cy.contains('Name (required)').should('be.visible')
+        cy.get('.hammenu').click()
+        cy.contains('Logout').click()
+        cy.get('input[name="email"]').type('mt@mt.com')
+        cy.get('input[name="password"]').type('password')
+        cy.get('.login-lets-go-button').click()
+        cy.get('#arrowDown').click()
+        cy.contains('Add a vehicle...').click()
+        cy.get('input[name="name"]').should('be.visible')
+
     })
 
     it('tests Add Veh cancel button', () => {

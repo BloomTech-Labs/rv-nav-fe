@@ -21,7 +21,7 @@ class VehicleForm extends React.Component {
       specifications: {
         name: '',
         // height: 0, // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
-        heightFeet: '', // value that stores the user entry of height in feet
+        heightFeet: NaN, // value that stores the user entry of height in feet
         heightInches: '', // value that stores the user entry of height in inches
         //  width: 0, // these 3 width values follow the same structure as height
         widthFeet: '',
@@ -121,7 +121,7 @@ class VehicleForm extends React.Component {
 
     let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '25px';
-        div.style.height =  '410px';
+        div.style.height =  '335px';
    
         
         this.props.setState({
@@ -136,11 +136,11 @@ class VehicleForm extends React.Component {
     menu.style.backgroundColor = 'white'
 
     // event.preventDefault();
-    // //Google analytics tracking
-    // window.gtag("event", "create vehicle", {
-    //   event_category: "submit",
-    //   event_label: "create vehicle"
-    // });
+    //Google analytics tracking
+    window.gtag("event", "create vehicle", {
+      event_category: "submit",
+      event_label: "create vehicle"
+    });
 
     let height = this.combineDistanceUnits(this.state.specifications.heightInches, this.state.specifications.heightFeet);
     let width = this.combineDistanceUnits(this.state.specifications.widthInches, this.state.specifications.widthFeet);
@@ -222,7 +222,7 @@ class VehicleForm extends React.Component {
 
   render() {
     console.log("VEHICLE FORM PROPS", this.props)
-    console.log("VEHICLE FORM STATE", this.props.state)
+    console.log("STATE FROM VEHICLEFORM", this.state)
     return (
       !localStorage.token /*&& !this.state.isSignedIn*/ ?   //Added checks for Firebase user.
         //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
@@ -245,7 +245,7 @@ class VehicleForm extends React.Component {
           </div>
           <div className="form-wrapper">
             <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
-            <p className="vehicle-spec">Name <p className='required'>(required)</p></p>
+            <p className="vehicle-spec" required >Name <p className='required'>(required)</p></p>
             <div className='measurements'>
               <input className="start-input-div"
                 type="string"
@@ -261,36 +261,40 @@ class VehicleForm extends React.Component {
             <div className="vehicle-spec-label">
               <div className='dimensionsTitle'>
                 <p className="vehicle-spec">Height</p>
-                <div className='measurementsParent'>
-                  <div className='measurements'>
-                    <p className='measurementsInput'>FEET</p>
-                    <input
-                      type="number"
-                      min="0"
-                      max="100"
-                      name='heightFeet'
-                      placeholder="0"
-                      value={this.state.specifications.heightFeet}
-                      onChange={this.handleChange}
-                      id="input-boxes"
-                    />
-                  </div>
-                  <div className="plus">
-                    <PlusSign />
-                  </div>
-                  <div className="measurements">
-                    <p className='measurementsInput'>INCHES</p>
-                    <input
-                      type="number"
-                      min="0"
-                      max="11"
-                      name='heightInches'
-                      placeholder="0"
-                      value={this.state.specifications.heightInches}
-                      onChange={this.handleChange}
-                      id="input-boxes"
-                    />
-                  </div>
+                <div className='restrictionParent'>
+                  <div className='measurementsParent'>
+                    <div className='measurements'>
+                      <p className='measurementsInput'>FEET</p>
+                      <input
+                        type="number"
+                        min="0"
+                        max="100"
+                        name='heightFeet'
+                        placeholder="0"
+                        value={this.state.specifications.heightFeet}
+                        onChange={this.handleChange}
+                        className="input-boxes"
+                        required
+                        id='heightInput'
+                      />
+                    </div>
+                    <div className="plus">
+                      <PlusSign />
+                    </div>
+                    <div className="measurements">
+                      <p className='measurementsInput'>INCHES</p>
+                      <input
+                        type="number"
+                        min="0"
+                        max="11"
+                        name='heightInches'
+                        placeholder="0"
+                        value={this.state.specifications.heightInches}
+                        onChange={this.handleChange}
+                        className="input-boxes"
+                      />
+                    </div>
+                    </div>
                 </div>
               </div>
               <div className='dimensionsTitle'>
@@ -306,7 +310,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.widthFeet}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                   <div className="plus">
@@ -322,12 +326,14 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.widthInches}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                 </div>
               </div>
             </div>
+            {isNaN(this.state.specifications.heightFeet) || this.state.specifications.heightFeet === 0 ?
+              <p id='requiredField'>*Height is required</p>: null}
             <div className="vehicle-spec-label2">
               <div className='dimensionsTitle'>
                 <p className="vehicle-spec">Length</p>
@@ -342,7 +348,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.lengthFeet}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                   <div className="plus">
@@ -358,12 +364,12 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.lengthInches}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     />
                   </div>
                 </div>
               </div>
-              <div className='dimensionsTitle'>
+              <div className='dimensionsTitle' id='poundsContainer'>
                 <p className="vehicle-spec">Weight</p>
                 <div className='measurements'>
                   <p className='measurementsInput'>POUNDS</p>
@@ -399,8 +405,8 @@ class VehicleForm extends React.Component {
             </div> */}
             </div>
 
-            <div className='inputsFieldsContainer'>
-              <div className='measurementsParent'>
+            {/* <div className='inputsFieldsContainer'>
+              <div className='measurementsParent'> */}
                 <div className="form-section">
                   {/* <div className="tires-check"> */}
                   <div className="measurements">
@@ -413,7 +419,7 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.axel_count}
                       onChange={this.handleChange}
-                      id="input-boxes"
+                      className="input-boxes"
                     >
                     </input>
                   </div>
@@ -434,10 +440,9 @@ class VehicleForm extends React.Component {
                     </div>
                     {/* </div> */}
                   </div>
-
                 </div>
-              </div>
-            </div>
+              {/* </div>
+            </div> */}
             <p className="vehicle-spec">RV TYPE</p>
             <div className="class-radios">
               <div className='classAbc'>
@@ -482,8 +487,12 @@ class VehicleForm extends React.Component {
                   </div>
                   <div className="buttons">
                     <button className="btn-submit" id='cancelButton' onClick={this.props.selectVehicles}>Cancel</button>
-                    <button className="btn-submit"   onClick={this.vehicleSubmit}>Add</button>
-                    {/* <Button className="btn-submit " type="submit"  onClick={this.vehicleSubmit}>Add</Button> */}
+                    {isNaN(this.state.specifications.heightFeet) || this.state.specifications.heightFeet === 0 ?
+                      <button className="btn-submit" id='invalidAddButton' onClick={this.requiredField}>Add</button>
+                      :
+                      <button className="btn-submit" id='validAddButton'  onClick={this.vehicleSubmit}>Add</button>
+                    }
+                  
                   </div>
                 </div>
               </div>
