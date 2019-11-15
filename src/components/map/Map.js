@@ -286,6 +286,9 @@ class MapPage extends Component {
 
     axios.post("https://dr7ajalnlvq7c.cloudfront.net/fetch_low_clearance", bridgePost)
       .then(res => {
+        // res.data.map(e => { //<--- To check low bridge heights across route
+        //   console.log('LOW CLEARANCE MAP', e.height)
+        // })
         if (res) {
 
           for (let j = 0; j < res.data.length; j++) {
