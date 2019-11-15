@@ -74,10 +74,10 @@ class LandingPage extends Component {
                             <Map className='lp-bottom-map-img' />
                         </div>
                         <div className="text">
-                            <h1 className='lp-cta-h1'>Adventure awaits.</h1>
+                            <h1 className='lp-cta-h1'>Adventure awaits!</h1>
                             <div className="letsgo">
                                 <Navigation2 className='lp-letsgo-img' />
-                                <div className='lp-letsgo-link'>Let's Go!</div>
+                                <div className='lp-letsgo-link'><Link to='/register'>Let's Go!</Link></div>
                             </div>
                         </div>
                     </div>
