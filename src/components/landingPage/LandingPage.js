@@ -23,6 +23,7 @@ class LandingPage extends Component {
                         <Heroback className='heroback-img' />
                     </div>
                     <div className="hero-content">
+                    <div className='mobileBackground'></div>
                         <div id="login">
                             <Link to='/login'><button className="btn outline">Login</button></Link>
                         </div>
@@ -39,7 +40,7 @@ class LandingPage extends Component {
                 </div>
                 <div className='lp-middle-content-wrapper'>
                     <div className='lp-middle-content'>
-                        <div className="left">
+                        <div className="top">
                             <div className="image">
                                 <MapLocation className='lp-middle-content-img' />
                             </div>
