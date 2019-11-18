@@ -39,7 +39,7 @@ class LandingPage extends Component {
                 </div>
                 <div className='lp-middle-content-wrapper'>
                     <div className='lp-middle-content'>
-                        <div className="left">
+                        <div className="top">
                             <div className="image">
                                 <MapLocation className='lp-middle-content-img' />
                             </div>
