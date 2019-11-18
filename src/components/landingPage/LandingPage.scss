@@ -17,6 +17,12 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
 }
 #rvway {
   color: $gray-80;
+
+  @media (max-width: 400px) {
+    padding: 0px;
+    margin: 0px !important;
+    font-size: 36px !important;
+  }
 }
 .middle-content-label {
   color: $gray-90;
@@ -30,15 +36,37 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
   padding: 12.8px 56px;
   border: 1px solid;
   border-radius: 3px;
+
+  @media (max-width: 400px) {
+    width: 60px;
+    height: 20px;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+  }
 }
 .outline {
   color: $primary-color;
   background-color: rgba(255, 255, 255, 0.1);
   margin-right: 25px;
+
+  @media (max-width: 400px) {
+    width: 60px;
+    height: 20px;
+    font-size: 12px;
+  }
 }
 .solid {
   color: $white-background;
   background-color: $accent;
+
+  @media (max-width: 400px) {
+    width: 164px !important;
+    height: 30px;
+    padding: 0px;
+    margin: 0;
+  }
 }
 //hero section
 .hero {
@@ -71,6 +99,12 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
       top: 0%;
       width: 100%;
       height: 400px;
+
+      @media (max-width: 400px) {
+        // height: 362px;
+        padding: 0px;
+        margin: 0;
+      }
     
       #login {
           display: flex;
@@ -111,6 +145,14 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
               margin-top: 0px;
             }
 
+            @media (max-width: 400px) {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 0px;
+              margin: 0;
+            }
+
         #rvway {
             margin-right: 87px;
             font-size: 52.8px;
@@ -122,6 +164,12 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
             padding-left: 12px;
             font-size: 28px;
             color: $gray-80;
+
+            @media (max-width: 400px) {
+              padding: 0px;
+              margin: 0;
+              font-size: 16px;
+            }
         }
         #signup {
         margin-top: 16px;
@@ -141,6 +189,7 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
   background: $gradient2;
   width: inherit;
   
+  
   .lp-middle-content {
       // background: url(../../assets/img/Arrow.svg) no-repeat;
       // background-position-y: 1rem;
@@ -158,6 +207,12 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
           width: 180px;
           margin-right: 32px;
           margin-bottom: 16px;
+
+          @media (max-width: 400px) {
+            width: 79px;
+            margin: 0;
+            padding: 0;
+          }
       }
       .text {
         // margin: 0 auto;
@@ -168,12 +223,27 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
         .middle-content-label {
           font-size: 32px;
 
+          @media (max-width: 400px) {
+            
+            font-size: 18px;
+            font-weight: 500;
+            padding: 0px;
+            margin: 0;
+          }
+
         }
       
         .lp-middle-content-p {
           font-size: 16px;
           color: $gray-80;
           width: 300px;
+
+          @media (max-width: 400px) {
+            font-size: 12px;
+            padding: 0px;
+            margin: 0;
+            width: 211px;
+          }
         }
       }
       .left, .right {
@@ -181,9 +251,8 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
           flex-direction: row;
           align-items: center;
           height: 200px;
-
-          
       }
+      
       .left {
         width: inherit;
         padding-left: 160px;
@@ -193,6 +262,11 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
 
         @media (max-width: 900px) {
           padding-left: 0px;
+        }
+
+        @media (max-width: 400px) {
+          padding: 0px;
+          margin: 0px;
         }
       }
 
@@ -209,6 +283,11 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
           margin-left: 0;
         }
 
+        @media (max-width: 400px) {
+          padding: 0px;
+          margin: 0px;
+        }
+
         .text {
           display: flex;
           justify-content: flex-end;
@@ -216,6 +295,12 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
 
           .middle-content-label {
             font-size: 32px;
+
+            @media (max-width: 400px) {
+              font-size: 18px;
+              padding: 0px;
+              margin: 0;
+            }
           }
 
           .lp-middle-content-p {
@@ -223,6 +308,12 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
             color: $gray-80;
             // width: 100%;
             margin: 0;
+
+            @media (max-width: 400px) {
+              font-size: 12px;
+              padding: 0px;
+              margin: 0;
+            }
         }
       }
         
@@ -230,10 +321,6 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
       @media (max-width: 900px) {
           .lp-middle-content {
               width: 100%;
-          }
-          
-          .right {
-              margin-left: 48px;
           }
       }
   }
@@ -245,11 +332,30 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
       padding: 100px 50px;
       .lp-cta-h1 {
           font-size: 48px;
+
+          @media (max-width: 400px) {
+            font-size: 22px;
+            padding: 0px;
+            margin: 0;
+          }
       }
       .image {
           padding-right: 32px;
+
+          @media (max-width: 400px) {
+            width: 200px;
+            margin: 0;
+            padding: 0;
+          }
+
           .lp-bottom-map-img {
               width: 400px;
+
+              @media (max-width: 400px) {
+                width: 113px;
+                margin: 0;
+                padding: 0;
+              }
           }
       }
       .letsgo {
@@ -263,6 +369,12 @@ $gradient2: linear-gradient(to bottom, rgba(196, 196, 196, 0), rgba(0, 178, 217,
               font-weight: 700;
               text-decoration: none;
               color: $primary-color;
+
+              @media (max-width: 400px) {
+                font-size: 18px;
+                padding: 0px;
+                margin: 0;
+              }
           }
       }
       @media (max-width: 600px) {
