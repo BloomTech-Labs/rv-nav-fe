@@ -37,9 +37,11 @@ const RoutingDropdown = (props) => {
         <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
         <div className="dd-wrapper" onClick={dropdownToggle}>
           <ul className="dd-list">
-            <div className='addAVehicleTitle'>
-              <div id='arrowDown' style={{color: 'black', marginLeft: '10px'}}>{currRV}</div>
+            <div className='addAVehicleTitle'>{currRV}
+            <div id='arrowDown' >
             </div>
+               </div>
+            
             <div className='vehiclesListContainer'>
               {state.dropdown === true ? 
               <div className='vehiclesList'>
