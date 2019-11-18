@@ -60,7 +60,7 @@ const RoutingForm = (props) => {
               id="start"
               required
               type="text"
-              placeholder=""
+              placeholder="Chicago, IL"
               name="start"
               value={props.start}
               onChange={props.routeChangeHandler}
@@ -73,7 +73,7 @@ const RoutingForm = (props) => {
               className="route-input"
               id="end" required
               type="text"
-              placeholder=""
+              placeholder="42 Walaby Way, Sydney"
               name="end"
               value={props.end}
               onChange={props.routeChangeHandler}
@@ -113,10 +113,11 @@ const RoutingForm = (props) => {
               </div>
             </Accordion.Collapse>
           </Accordion>*/}
-          {props.end === '' ?
-            <Button variant="warning" id="route-button" type="submit">Get Directions</Button>
-            :
-            <Button variant="warning" id="route-button" type="submit" onClick={props.buttonSelect}>Get Directions</Button>
+          {props.end !== '' && props.start !== '' ? 
+            <div className='routingFormButton'>
+              <Button variant="warning" id="route-button" type="submit" onClick={props.buttonSelect}>Get Directions</Button>
+            </div>
+            : null
           } 
         </form>
               {/* <p className="route-loading">{props.loading}</p>

@@ -221,7 +221,7 @@ class LoginForm extends React.Component {
                   Let's Go
                 </button>
                 <div className="need-account">
-                  <span>Already have an account? <a id="sign-up" href="/register">Sign Up</a></span>
+                  <span>Need to create an account? <a id="sign-up" href="/register">Sign Up</a></span>
                 </div>
               </div>
             </form>
