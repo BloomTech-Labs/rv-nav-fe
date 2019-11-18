@@ -1,7 +1,7 @@
 .form-wrapper{
     width:100%;
     margin-bottom: 100px;
-    padding:20px;
+    padding:25px;
     /* overflow-y: scroll;
     overflow-x: hidden; */
 }
@@ -87,7 +87,7 @@ margin-left: 4px;
 display:flex;
 flex-wrap: wrap;
 justify-content: space-between;
-/* width:100%; */
+width:100%;
 color: rgba(237, 238, 241, 0.95);
 }
 .vehicle-spec-label2{
@@ -102,11 +102,12 @@ p.vehicle-spec{
 display:flex;
 width:150px;
 /* margin:0 10px; */
-align-items:left;
-font-weight: 500;
+align-items:center;
+/* font-weight: 500; */
 font-size: 16px;
 margin: 0px;
 height: 26px;
+
 }
 
 
@@ -123,6 +124,7 @@ font-size: 16px;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
+    margin-bottom: 30px;
 }
 
 .measurementsParent2{
@@ -145,13 +147,22 @@ border: 1px solid rgba(42, 46, 67, 0.3);
     justify-content: flex-start;
 }
 
+.dimensionsTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
 p.measurementsInput{
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 1;
+    font-style: normal;
     margin-bottom:5px;
     text-align: left;
     /* margin-left:12px; */
     /* display:flex; */
     border-radius: 3px;
+    color: rgba(237, 238, 241, 0.8);
 }
 .tires-axels{
     display:flex;
@@ -227,7 +238,7 @@ font-size: 18px;
 /* line-height: 26px; */
 display: flex;
 align-items: center;
-/* margin-left:10px; */
+margin-bottom:20px;
 /* White text */
 
 color: rgba(237, 238, 241, 0.95);
@@ -236,7 +247,21 @@ color: rgba(237, 238, 241, 0.95);
 .back{
     display:flex;
     flex-direction:row;
-background: #F8F9FA;
+    background: #F8F9FA;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.vehicleFormBackContainer{
+    margin: 0;
+    color: #00B2D9;
+    border: 2px solid rgba(42, 46, 67, 0.5);
+    margin-right: 10px;
+    padding-right:10px;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
 }
 
 .back-label{
@@ -245,32 +270,45 @@ font-style: normal;
 font-weight: 500;
 font-size: 16px;
 line-height: 23px;
+margin: 0;
 /* identical to box height */
-
+/* margin-top: 12px; */
 display: flex;
+flex-direction:row;
 align-items: center;
-padding-top:5px;
+/* padding-top:5px; */
 /* Grayscale 80% */
 
 color: rgba(42, 46, 67, 0.8);
 }
 
 #routing{
-background-color:rgba(237, 238, 241, 0.95)
+/* background-color:rgba(237, 238, 241, 0.95) */
+}
+
+#routing:hover{
+    cursor: pointer;
 }
 
 #rv-name{
-    width: 319px;
+    width: 95.5%;
     height:45px;
-    /* margin:10px; */
+    margin:0px;
 }
 
 .plus{
-    padding-top: 35px;
+    padding-top: 40px;
+}
+
+.required{
+    font-size: 12px;
+    margin: 0 0 0 5px;
+    
+
 }
 
 #input-boxes-pounds{
-    width:120px;
+    width:90%;
     height:45px;
     border-radius: 3px;
     border: 1px solid rgba(42, 46, 67, 0.3);
@@ -317,7 +355,7 @@ font-size: 16px;
 button.btn-submit{
 width: 152px;
 height: 45px;
-background: #2A2E43;
+/* background: #2A2E43; */
 background: #00B2D9;
 border-radius: 3px;
 margin-top: 10px;
@@ -326,11 +364,11 @@ border: none;
 /* margin-left:75px; */
 }
 
-.btn-submit:hover{
+/* .btn-submit:hover{
  background: #00B2D9;
 border: 3px solid rgb(119, 157, 165) ;
 
-}
+} */
 
 
 

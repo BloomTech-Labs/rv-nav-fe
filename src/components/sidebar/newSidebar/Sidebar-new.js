@@ -19,7 +19,7 @@ const Sidebar = (props) => {
     })
     console.log('props on Sidebar', props)
 
-    //selects the tab when it is clicked on, deselects all others
+    
     const buttonSelect = (event) => {
         console.log("event", event.target);
         setState({
