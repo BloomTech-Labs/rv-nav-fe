@@ -23,7 +23,6 @@ class LandingPage extends Component {
                         <Heroback className='heroback-img' />
                     </div>
                     <div className="hero-content">
-                    <div className='mobileBackground'></div>
                         <div id="login">
                             <Link to='/login'><button className="btn outline">Login</button></Link>
                         </div>
