@@ -11,7 +11,8 @@
 
 @media (max-width: 415px) {
     .register-wrapper{
-        vertical-align: middle;
+        background-image: url(../../../assets/img/Sign-up-Background.svg);
+        background-position: -120px;
     }
 }
 
@@ -166,6 +167,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 }
 
 .register-social-media {
+    /* width: 100%; */
     color: black;
     text-align: center;
     margin-left: 42px;

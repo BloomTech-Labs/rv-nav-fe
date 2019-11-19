@@ -19,11 +19,11 @@ import Directions from './Directions.js';
 
 const RoutingSidebar = (props) => {
 
-    const [state, setState] = useState({
+    const [state, setState] = useState({ // state to toggles sidebar in and out
         sidebar: true
     })
 
-    const toggleSidebar = () => {
+    const toggleSidebar = () => { //functions that implements animation for sidebar toggle
         setState({ ...state, sidebar: !state.sidebar })
 
         if (state.sidebar == false) {
@@ -41,34 +41,15 @@ const RoutingSidebar = (props) => {
     console.log('SIDEBARROUTING STATE', props.textDirections)
 
     //function that dynamically changes the sidebar styles
-    const sidebarAnchor = () => {
+    const sidebarAnchor = () => { //anchors sidebar to the left and expands height once loaded
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '0px';
         div.style.height = '100%';
     }
 
     //toggles state back to render the initial sidebar form
-    const revertChanges = () => {
+    const revertChanges = () => { //changes state to go back to the initial form and changes styles of the sidebar dynamically
 
-        let div = document.getElementsByClassName('mainSidebarContainer')[0]
-        let menu = document.getElementById('dropdown-split-basic')
-        let mq = window.matchMedia( "(max-width: 415px)" );
-
-        if(mq.matches){
-            div.style.background = '#2A2E43'
-            menu.style.background = 'white'
-            div.style.margin = '0px';
-            div.style.height =  '400px';
-
-        } else {
-            div.style.background = '#2A2E43'
-            menu.style.background = 'white'
-            div.style.margin = '25px';
-            div.style.height =  '400px';
-            // div.style.background = 'transparent'
-        }
-   
-        
         props.setState({
             ...props.state,
             vehicleForm: "off",
@@ -76,16 +57,28 @@ const RoutingSidebar = (props) => {
             vehicles: "off",
             directions: "off",
         })
+
+        let div = document.getElementsByClassName('mainSidebarContainer')[0]
+        let mq = window.matchMedia( "(max-width: 415px)" );
+        let menu = document.getElementsByClassName('dropdown')[0]
+
+        if(mq.matches){
+            div.style.background = '#2A2E43'
+            menu.style.background = 'white'
+            div.style.margin = '0px';
+            div.style.height =  '400px';
+            menu.style.width = '100%';
+        }
     }
 
-    let mobileView = () => {
+    let mobileView = () => { //function that checks if the width of the users screen matches with media query, if it does, changes styles of sidebar.
         let mq = window.matchMedia( "(max-width: 415px)" );
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
+        let menu = document.getElementsByClassName('dropdown')[0]
 
         if(mq.matches){
             div.style.background = 'transparent'
-        } else {
-            div.style.background = '#2A2E43'
+            menu.style.width = '377px'
         }
     }
 
@@ -107,10 +100,9 @@ const RoutingSidebar = (props) => {
                         width={100}
                     />
                     </p>
-                </div>
+                </div> 
                 :
                 <>
-
                     {mobileView()}
                     <div className='arrowContainer' onClick={toggleSidebar}>
                         {state.sidebar === true ?
@@ -119,7 +111,7 @@ const RoutingSidebar = (props) => {
                         }
                     </div>
                     <div className='sidebarContainer'>
-                        <SidebarMenu />
+                        {/* <SidebarMenu /> */}
                         <div className='backbuttonContainer'>
                             <BackArrow />
                             <h6

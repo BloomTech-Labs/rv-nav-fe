@@ -42,16 +42,19 @@
     
     p{
         color: rgb(172, 172, 172);
+        height: 100%;
+        width: 100%;
+        margin-left: 10px;
     }
 }
 
 #arrowDown{
-    width:25px;
-    margin-left:280px;
-    border-left: 1px solid black;
+    width: 100%;
+    // margin-left:280px;
+    // border-left: 1px solid black;
     background-image: url(../../assets/img/gray-down.svg);
     background-repeat:no-repeat;
-    background-position: center left;
+    background-position: center right;
 
 }
 

@@ -37,7 +37,8 @@ const RoutingDropdown = (props) => {
         <span className="what-vehcile-are-you-routing-with">What vehicle are you routing with?</span>
         <div className="dd-wrapper" onClick={dropdownToggle}>
           <ul className="dd-list">
-            <div className='addAVehicleTitle'>{currRV}
+            <div className='addAVehicleTitle'>
+              <p className='selectedVehicle'>{currRV}</p>
             <div id='arrowDown' >
             </div>
                </div>
