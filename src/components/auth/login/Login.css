@@ -28,10 +28,27 @@
     display: flex;
 }
 
+@media (max-width: 415px) {
+    .firebaseui-idp-list{
+        width: 100%;
+        margin: 0 !important;
+    }
+}
+
 .firebaseui-card-content, .firebaseui-card-footer {
     display: flex;
     justify-content: center;
-    padding: 0px;
+}
+
+@media (max-width: 415px) {
+    .firebaseui-card-content{
+        margin: 0;
+        padding: 0 !important;
+    }
+}
+
+form {
+    width: 100%;
 }
 
 .firebaseui-idp-google, 
@@ -48,10 +65,11 @@
     padding: 0 0px;
 }
 
+
 .firebaseui-idp-button {
     direction: ltr;
     font-weight: 500;
-    height: auto;
+    /* height: auto; */
     line-height: normal;
     max-width: 220px;
     min-height: 40px;
@@ -67,9 +85,21 @@
     width: 156px;
 }
 
+@media (max-width: 415px) {
+    .firebaseui-list-item{
+        width: 185px !important;
+    }
+}
+
 .firebaseui-idp-google, .mdl-button.firebaseui-idp-google {
     box-shadow: 0px 0px 0px;
     border: 1px solid lightgrey;
+}
+
+@media (max-width: 415px) {
+    .firebaseui-idp-google, .mdl-button.firebaseui-idp-google{
+        height: 41px;
+    }
 }
 .firebaseui-idp-google, .mdl-button.firebaseui-idp-facebook {
     box-shadow: 0px 0px 0px;
@@ -111,6 +141,13 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     display: flex;
     justify-content: flex-end;
 }
+
+@media (max-width: 415px) {
+    .login-main{
+        /* height: 70%; */
+    }
+}
+
 .login-auth-loading {
     font-size: 4rem;
     margin: 40px;
@@ -129,15 +166,35 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     /* text-align: center; */
 }
 
+@media (max-width: 415px) {
+    .login-main-form{
+        margin: 0;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.4);
+        height: 490px;
+    }
+}
+
 .or {
     text-align: center;
-    margin-top:10px;
-    margin-bottom: 10px;
+    margin: 0 !important;
+}
+
+@media (max-width: 415px) {
+    .or {
+        margin: 0 !important;
+    }
 }
 
 .login-header {
     margin-left: 42px;
     margin-right: 42px;
+}
+
+@media (max-width: 415px) {
+    .login-header{
+        margin-left: 20px;
+    }
 }
 
 .login-welcome-back {
@@ -150,12 +207,27 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     margin-bottom: 22px;
 }
 
+@media (max-width: 415px) {
+    .its-great-to-see-you-again{
+        font-size: 22px;
+    }
+}
+
 .login-social-media {
     color: black;
     text-align: center;
     margin-left: 42px;
     margin-right: 42px;
     margin-top: 9px;
+}
+
+@media (max-width: 415px) {
+    .login-social-media{
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
 }
 .login-sign-up-with-social-media {
     font-size: 16px;
@@ -164,6 +236,13 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .login-input-and-button {
     margin-left: 42px;
     margin-right: 42px;
+}
+
+@media (max-width: 415px) {
+    .login-input-and-button{
+        margin: 0 20px;
+        padding: 0;
+    }
 }
 
 .login-social-media #google {
@@ -294,6 +373,12 @@ p.login-main-form-error {
     font-size: 16px;
 }
 
+@media (max-width: 415px) {
+    .need-account {
+        text-align: center;
+    }
+}
+
 .need-account #sign-up {
     font-size: 16px;
     font-weight: 700;
@@ -307,3 +392,5 @@ p.login-main-form-error {
     justify-content: left;
     margin-left: 25%;   
 }
+
+

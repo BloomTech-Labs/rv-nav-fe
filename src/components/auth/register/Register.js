@@ -5,6 +5,26 @@ import { withRouter } from "react-router-dom";
 import "./Register.css"
 import firebase from 'firebase';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import styled from 'styled-components';
+
+
+const Header = styled.div`
+  height: 80px;
+  width: auto
+  background: #2A2E43;
+`
+const Text = styled.span`
+  position: absolute;
+  left: 0.74%;
+  // right: 90.31%;
+  top: 1.25%;
+  bottom: 12.5%;
+  color: rgba(53, 195, 226, 0.95);
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Heebo;
+  height: 60px;
+`
 
 /* eslint-disable no-useless-escape */
 const validEmailRegex = RegExp(
@@ -182,6 +202,9 @@ class RegisterForm extends Component {
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.email.length > 2 && this.state.credentials.password.length >= 8;
     return (
       <div className="register-wrapper">
+        <Header className="rv-way-header">
+          <Text className="rv-way-header-text">RV WAY</Text>
+        </Header>
         <div className="register-main">
           {this.state.loading === true ? (
             <p className="register-auth-loading">Loading...</p>

@@ -73,10 +73,23 @@
     padding-left: 18px;
     
 }
+
+@media (max-width: 415px) {
+    .start-input-div{
+        padding-left: 35px;
+    } 
+}
+
 .end-input-div {
     padding-left: 18px;
     margin: 16px 0;
     text-align: left; /* Modified by Jerry to style initial form */
+}
+
+@media (max-width: 415px) {
+    .end-input-div{
+        padding-left: 35px;
+    } 
 }
 
 #start {

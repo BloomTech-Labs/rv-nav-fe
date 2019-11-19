@@ -9,6 +9,13 @@
     .off{
         display: none;
         width: 100%;
+        border: 20px solid red;
+    }
+
+    @media (max-width: 415px) {
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
 }
 
