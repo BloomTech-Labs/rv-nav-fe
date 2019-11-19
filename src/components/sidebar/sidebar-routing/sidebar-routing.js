@@ -51,8 +51,22 @@ const RoutingSidebar = (props) => {
     const revertChanges = () => {
 
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
-        div.style.margin = '25px';
-        div.style.height =  '335px';
+        let menu = document.getElementById('dropdown-split-basic')
+        let mq = window.matchMedia( "(max-width: 415px)" );
+
+        if(mq.matches){
+            div.style.background = '#2A2E43'
+            menu.style.background = 'white'
+            div.style.margin = '0px';
+            div.style.height =  '400px';
+
+        } else {
+            div.style.background = '#2A2E43'
+            menu.style.background = 'white'
+            div.style.margin = '25px';
+            div.style.height =  '400px';
+            // div.style.background = 'transparent'
+        }
    
         
         props.setState({
@@ -64,26 +78,40 @@ const RoutingSidebar = (props) => {
         })
     }
 
-    return (
-        // !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
-        //     <NavLink to='/auth'>
-        //     <p>Sign in or create an account to be able to create a route.</p>
-        //     </NavLink>
-        // :
-        <div className='containerWithArrow'>
+    let mobileView = () => {
+        let mq = window.matchMedia( "(max-width: 415px)" );
+        let div = document.getElementsByClassName('mainSidebarContainer')[0]
 
+        if(mq.matches){
+            div.style.background = 'transparent'
+        } else {
+            div.style.background = '#2A2E43'
+        }
+    }
+
+
+    return (
+        !localStorage.token ? //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
+            <NavLink to='/auth'>
+            <p>Sign in or create an account to be able to create a route.</p>
+            </NavLink>
+        :
+        <div className='containerWithArrow'>
             {props.loading !== 'Routing successful' ?
                 <div className='loadingStatus'>
-                    <p className="route-loading">{props.loading}</p>
+                    <p className="route-loading">{props.loading}
                     <Loader
                         type="Rings"
                         color="#00B2D9"
                         height={100}
                         width={100}
                     />
+                    </p>
                 </div>
                 :
                 <>
+
+                    {mobileView()}
                     <div className='arrowContainer' onClick={toggleSidebar}>
                         {state.sidebar === true ?
                             <ToggleHideArrow /> :

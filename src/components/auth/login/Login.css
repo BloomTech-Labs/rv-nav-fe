@@ -144,7 +144,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 @media (max-width: 415px) {
     .login-main{
-        /* height: inherit; */
+        /* height: 70%; */
     }
 }
 
@@ -171,7 +171,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
         margin: 0;
         padding: 0;
         background: rgba(255, 255, 255, 0.4);
-        /* height: inherit; */
+        height: 490px;
     }
 }
 

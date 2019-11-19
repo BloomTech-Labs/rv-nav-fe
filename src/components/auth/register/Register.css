@@ -7,12 +7,23 @@
     /* background-attachment: fixed; */
     background-repeat:no-repeat ;
     background-size: cover;
-
 }
 
+@media (max-width: 415px) {
+    .register-wrapper{
+        vertical-align: middle;
+    }
+}
 
 .firebaseui-idp-list {
     display: flex;
+}
+
+@media (max-width: 415px) {
+    .firebaseui-idp-list{
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .firebaseui-card-content, .firebaseui-card-footer {
@@ -48,7 +59,6 @@
 }
 
 /* !/ FIREBASE STYLING */
-
 .firebaseui-list-item {
     margin: 0;
     width: 156px;
@@ -90,6 +100,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     justify-content: flex-end;
     /* height: 100%; */
 }
+
 .register-auth-loading {
     font-size: 4rem;
     margin: 40px;
@@ -114,6 +125,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
         margin: 0;
         padding: 0;
         background: rgba(255, 255, 255, 0.5);
+        height: 100%;
     }
 }
 
@@ -134,6 +146,12 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .register-header {
     margin-left: 42px;
     margin-right: 42px;
+}
+
+@media (max-width: 415px) {
+    .register-header {
+        margin: 20px;
+    }
 }
 
 .register-welcome-home {
@@ -157,7 +175,9 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 @media (max-width: 415px) {
     .register-social-media {
+        display: flex;
         height: 60px;
+        margin: 20px;
     }
 }
 .register-sign-up-with-social-media {
@@ -171,8 +191,8 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 @media (max-width: 415px) {
     .register-input-and-button {
-        width: 93%;
-        margin: 0 20px;
+        /* width: 90%; */
+        margin: 20px;
         padding: 0px;
     }
 }
@@ -247,7 +267,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 @media (max-width: 415px) {
     .password-mask {
-        right: -350px;
+        right: -340px;
         bottom: -43px;
     }
 }
@@ -267,7 +287,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 @media (max-width: 415px) {
     .password-mask-confirm {
-        right: -350px;
+        right: -340px;
         bottom: -43px;
     }
 }

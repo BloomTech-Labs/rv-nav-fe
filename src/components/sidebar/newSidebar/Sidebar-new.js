@@ -30,11 +30,16 @@ const Sidebar = (props) => {
             directions: "on",
             [event.target.id]: "on"
         })
-        
-        let div = document.getElementsByClassName('mainSidebarContainer')[0]
-        div.style.height = '100%'
-        div.style.margin = '0px'
 
+        var mq = window.matchMedia( "(max-width: 415px)" );
+
+        if(mq.matches){
+            let div = document.getElementsByClassName('mainSidebarContainer')[0]
+            div.style.height = '100%'
+            div.style.margin = '0px'
+            div.style.width = '100%'
+        }
+        
     }
 
     const selectVehicles = () => { //This have the user able to return from vehicle form to the initial form
@@ -46,12 +51,26 @@ const Sidebar = (props) => {
             directions: "off", 
         })
 
-        let div = document.getElementsByClassName('mainSidebarContainer')[0]
+        var mq = window.matchMedia( "(max-width: 415px)" );
+
+        if(!mq.matches){
+            let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '25px';
             div.style.height =  '335px';
 
-        let menu = document.querySelector('.btn-group-vertical > .btn, .btn-group > .btn')
-        menu.style.backgroundColor = 'white'
+            let menu = document.querySelector('.btn-group-vertical > .btn, .btn-group > .btn')
+            menu.style.backgroundColor = 'white'
+
+        } else {
+
+            let div = document.getElementsByClassName('mainSidebarContainer')[0]
+            div.style.margin = '0px';
+            div.style.height =  '335px';
+
+            let menu = document.querySelector('.btn-group-vertical > .btn, .btn-group > .btn')
+            menu.style.backgroundColor = 'white'
+        }
+        
     }
 
     const addAVehicleForm = () => { //This have the user able to go the form to add their vehicle
