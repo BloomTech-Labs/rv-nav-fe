@@ -24,6 +24,13 @@
 
 }
 
+@media (max-width: 415px) {
+    .login-wrapper{
+        background-image: url(../../../assets/img/Sign-in-Background.svg);
+        background-position: -120px;
+    }
+}
+
 .firebaseui-idp-list {
     display: flex;
 }
@@ -142,12 +149,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     justify-content: flex-end;
 }
 
-@media (max-width: 415px) {
-    .login-main{
-        /* height: 70%; */
-    }
-}
-
 .login-auth-loading {
     font-size: 4rem;
     margin: 40px;
@@ -214,9 +215,10 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 }
 
 .login-social-media {
+    width: 100%;
     color: black;
     text-align: center;
-    margin-left: 42px;
+    /* margin-left: 42px; */
     margin-right: 42px;
     margin-top: 9px;
 }
