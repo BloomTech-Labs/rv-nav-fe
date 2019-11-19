@@ -68,6 +68,12 @@ const RoutingSidebar = (props) => {
             div.style.margin = '0px';
             div.style.height =  '400px';
             menu.style.width = '100%';
+        } else {
+            div.style.background = '#2A2E43'
+            menu.style.background = 'white'
+            div.style.margin = '25px';
+            div.style.height =  '400px';
+            menu.style.width = '100%';
         }
     }
 

@@ -241,10 +241,10 @@ class VehicleForm extends React.Component {
               id="routing"
               onClick={this.props.selectVehicles}>Back
             </p>
-            <p className="back-label">Add Vehicle</p>
+            <p className="back-label">Add a vehicle</p>
           </div>
           <div className="form-wrapper">
-            <h3 id='vehicleAddTitle'>Add a Vehicle</h3>
+            <h3 id='vehicleAddTitle'>Add a new vehicle</h3>
             <p className="vehicle-spec" required >Name <p className='required'>(required)</p></p>
             <div className='measurements'>
               <input className="start-input-div"
@@ -485,18 +485,19 @@ class VehicleForm extends React.Component {
                     <input type='radio' value="tagalong"checked={this.state.specifications.class_name === "tagalong"} onChange={this.handleRadio}/>
                     <p id='tagalongCamper'>Tagalong Camper</p>
                   </div>
+                </div>
                   <div className="buttons">
                     <button className="btn-submit" id='cancelButton' onClick={this.props.selectVehicles}>Cancel</button>
-                    {isNaN(this.state.specifications.heightFeet) || this.state.specifications.heightFeet === 0 ?
+                    {this.state.specifications.name === '' ?
                       <button className="btn-submit" id='invalidAddButton' onClick={this.requiredField}>Add</button>
                       :
-                      <button className="btn-submit" id='validAddButton'  onClick={this.vehicleSubmit}>Add</button>
+                      isNaN(this.state.specifications.heightFeet) || this.state.specifications.heightFeet === 0 ?
+                        <button className="btn-submit" id='invalidAddButton' onClick={this.requiredField}>Add</button>
+                        :
+                        <button className="btn-submit" id='validAddButton'  onClick={this.vehicleSubmit}>Add</button>
                     }
-                  
                   </div>
-                </div>
               </div>
-            {/* </div> */}
           </div>
         </>
       // </div>

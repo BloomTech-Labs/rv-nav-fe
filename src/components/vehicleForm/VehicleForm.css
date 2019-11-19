@@ -1,9 +1,13 @@
 .form-wrapper{
     width:100%;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
     padding:25px;
-    /* overflow-y: scroll;
-    overflow-x: hidden; */
+    height: 100%;
+}
+
+.form-wrapper-scrolling{
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .vehicle-tabs{
@@ -90,7 +94,7 @@ flex-wrap: wrap;
 justify-content: space-between;
 width:105%;
 color: rgba(237, 238, 241, 0.95);
-height: 110px;
+height: 6.875rem;
 }
 
 .vehicle-spec-label2{
@@ -109,7 +113,7 @@ align-items:center;
 /* font-weight: 500; */
 font-size: 16px;
 margin: 10px 0 0 0;
-height: 26px;
+height: 1.625rem;
 
 }
 
@@ -133,11 +137,11 @@ font-size: 16px;
 .measurementsParent2{
    display:flex;
    flex-direction: row;
-   height:90px;
+   height:5.625rem;
    align-items: space-between;
 }
 #input.measurements{
-height:55px;
+height:3.4375rem;
 width:45px;
 border-radius: 3px;
 border: 1px solid rgba(42, 46, 67, 0.3);
@@ -148,14 +152,14 @@ border: 1px solid rgba(42, 46, 67, 0.3);
     flex-wrap: wrap;
     /* width:100%; */
     /* justify-content: space-between; */
-    height: 70px;
+    height: 4.375rem;
 }
 
 .dimensionsTitle{
     display: flex;
     flex-direction: column;
     align-items: space-between;
-    height: 120px;
+    height: 7.5rem;
     /* width: 140px; */
 }
 
@@ -229,7 +233,7 @@ color: rgba(237, 238, 241, 0.95);
 
 
 .input-boxes{
-    height:45px;
+    height:2.8125rem;
     width:55px;
     border-radius: 3px;
     border: 1px solid rgba(42, 46, 67, 0.3);
@@ -271,7 +275,7 @@ color: rgba(237, 238, 241, 0.95);
 }
 
 #requiredField{
-    height: 20px;
+    height: 1.25rem;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -304,7 +308,7 @@ color: rgba(42, 46, 67, 0.8);
 
 #rv-name{
     width: 100%;
-    height:45px;
+    height:2.8125rem;
     margin:0px;
 }
 
@@ -321,7 +325,7 @@ color: rgba(42, 46, 67, 0.8);
 
 #input-boxes-pounds{
     width:100%;
-    height:45px;
+    height:2.8125rem;
     border-radius: 3px;
     border: 1px solid rgba(42, 46, 67, 0.3);
     /* margin-left:10px; */
@@ -360,13 +364,13 @@ font-size: 16px;
 
 .axels{
     width:55px;
-    height:45px;
+    height:2.8125rem;
     margin-right:0px;
 }
 
 button.btn-submit{
 width: 152px;
-height: 45px;
+height: 2.8125rem;
 /* background: #2A2E43; */
 background: #00B2D9;
 border-radius: 3px;
@@ -395,7 +399,7 @@ border: 3px solid rgb(119, 157, 165) ;
 
 .rv-radio{
     width:33%;
-    height:20px;
+    height:1.25rem;
     display:flex;
     flex-direction: row;
   
@@ -421,7 +425,7 @@ border: 3px solid rgb(119, 157, 165) ;
 }
 
 .buttons{
-    /* height: 100%; */
+    height: 100%;
     width:100%;
     display:flex;
     justify-content: space-between;
@@ -450,7 +454,7 @@ border: 3px solid rgb(119, 157, 165) ;
     padding-right:5px;
     font-size:16px;
     color:white;
-    height: 60px;
+    height: 3.75rem;
 }
 
 .tag-radio-child{
