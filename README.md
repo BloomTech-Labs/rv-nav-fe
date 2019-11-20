@@ -46,11 +46,11 @@ You can find the deployed project at https://www.rvnav.com/ .
 
 ## Project Overview
 
-[Trello Board](https://trello.com/b/uPEi1KSU/labs-15-rv-life)
+[Trello Board](https://trello.com/b/ZNvvjtyN/labs17-rv-road-life)
 
 [Product Canvas](https://www.notion.so/RV-Road-Life-e8e617ec8a144c19b9fd635b330b7f49)
 
-[UX Design files](https://www.figma.com/file/KGiH4omkur2KgDrckWclF9/%F0%9F%9A%8D-RV-Life?node-id=0%3A1)
+[UX Design files](https://www.figma.com/file/Y5d4B47bXEcBgP9mtgq6gx/Labs17_RV-Road-Life%2C-Harper-%26-Joanne?node-id=325%3A176)
 
 Traveling safely for RVers is difficult. RV Life will get you to where you need to go safely and with no hassle.
 
@@ -88,8 +88,6 @@ Using several available data sources integrated into a map thats designed for RV
 ## Arcgis Api
 
 Used to plot polyline routing, includes avoidance points.
-
-## Google Maps Api
 
 Used for the Map rendered to the screen, as well as the users Geolocation.
 
@@ -161,4 +159,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](https://github.com/labs15-rv-life/backend/blob/master/README.md) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/rv-nav-be/blob/master/README.md) for details on the backend of our project.
