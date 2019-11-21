@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-// import Sidebar from '../sidebar/Sidebar';
 import axios from 'axios';
 import { getVehicles } from "../../store/actions";
 import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { loadModules } from 'esri-loader';
+
+//CSS STYLES
 import "./Map.css"
 
 //Testing new Sidebar -Jerry
@@ -64,29 +65,6 @@ class MapPage extends Component {
         view.ui.add(basemapToggle, {
           position: "bottom-right"
         });
-
-        // var searchWidget = new Search({
-        //   view: view
-        // });
-        // // Adds the search widget below other elements in
-        // // the top left corner of the view
-        // view.ui.add(searchWidget, {
-        //   position: "top-right",
-        //   index: 2
-        // });
-
-        
-
-        // var locate = new Locate({
-        //   view: view,
-        //   useHeadingEnabled: false,
-        //   goToOverride: function(view, options) {
-        //     options.target.scale = 1500;  // Override the default map scale
-        //     return view.goTo(options.target);
-        //   }
-        // });
-  
-        // view.ui.add(locate, "bottom-right");
 
         var track = new Track({
           view: view,
@@ -392,7 +370,7 @@ class MapPage extends Component {
         //   }
         // }
 
-        this.pointsOfInterest();
+        // this.pointsOfInterest();
 
         loadModules([
           'esri/Map',
@@ -500,17 +478,18 @@ class MapPage extends Component {
       })
   }
 
-  ///******we should probably comment this out if we are not going to use points of interest */
+  //*vv DO NOT DELETE, COMMENTED OUT FOR FUTURE ITERATIONS TO WORK ON vv* 
+
   //checks if any points of interest have been checked off
   //if yes, calls pointOfInterest() and passes in the relevant information
-  pointsOfInterest = () => {
-    if (this.state.walmartSelected === true) {
-      this.pointOfInterestAPI("walmart", "lightblue");
-    }
-    if (this.state.campsiteSelected === true) {
-      this.pointOfInterestAPI("campsite", "tan");
-    }
-  }
+  // pointsOfInterest = () => {
+  //   if (this.state.walmartSelected === true) {
+  //     this.pointOfInterestAPI("walmart", "lightblue");
+  //   }
+  //   if (this.state.campsiteSelected === true) {
+  //     this.pointOfInterestAPI("campsite", "tan");
+  //   }
+  // }
 
   //makes a call to the point of interest api
   pointOfInterestAPI = (type, color) => {

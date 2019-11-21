@@ -1,20 +1,13 @@
 import React from "react";
-
-//Firebase
-// import firebase from "firebase";
-// import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
-
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../store/actions";
-//import Button from "react-bootstrap/Button"; //! commented out by Noor : "not used in the component"
-//import Form from "react-bootstrap/Form"; //! commented out by Noor : "not used in the component"
-//import "../Auth.css"; //! commented out by Noor : "not used in the component"
-import "./Login.css"
 import MapHeader from "../../header/MapHeader"
 
+//CSS STYLES
+import "./Login.css"
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -113,17 +106,6 @@ class LoginForm extends React.Component {
         if (res) {
           this.props.history.push("/map");
         }
-        // if (this.state.username.value == '') {
-        //   window.alert('Please enter your username');
-        //   this.state.username.focus();
-        //   return false;
-        // }
-
-        // if (this.state.password.value == '') {
-        //   window.alert('Please enter a valid password');
-        //   this.state.password.focus();
-        //   return false;
-        // }
       })
       .catch(err => {
         this.setState({ loading: false });
@@ -154,14 +136,9 @@ class LoginForm extends React.Component {
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.password.length >= 8;
     return (
       <div className="login-wrapper">
-        {/* <div> */}
-        {/*  Never console log the Auth(), everything about the App is there. -Noor */}
-        {/* {console.log('%cFirebase User:) ->>', 'color: red; font-size: 16px;', firebase.auth())} */}
         <MapHeader />
-        {/* </div> */}
         <div className="login-main">
           {loading === true ? <p className="login-auth-loading">Let the adventure begin...</p> :
-
             <form className="login-main-form" onSubmit={this.loginSubmit}>
               <div className="login-header">
                 <h2 className="login-welcome-back">Welcome Back!</h2>
@@ -201,7 +178,7 @@ class LoginForm extends React.Component {
                 {errors.email.length > 0 && (
                   <p className="login-main-form-error">{errors.email}</p>
                 )}
-                <a className="password-mask" onClick={this.unmaskPassword}>MASK</a>
+                <span className="password-mask" onClick={this.unmaskPassword}>MASK</span>
                 <label className="login-main-form-label" id="password">Password</label>
                 <input
                   className="login-main-form-input"

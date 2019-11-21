@@ -3,13 +3,7 @@
     visibility: hidden;
 }
 
-/* .dropdown dropdown btn-group{
-    width
-} */
-
 .route-input, .selected-vehicle-dropdown-menu{
-    /* margin-bottom: 22px; */
-    /* margin-top:25px; */
     border-radius: 4px;
     padding: 8px;
     width: 100%;
@@ -17,7 +11,6 @@
     padding-left: 30px;
     border: none;
     height: 45px;
-    /* margin-bottom: 18px; */
 }
 
 .route-input::placeholder{
@@ -39,8 +32,6 @@
 
 .dropdown-menu-class {
     margin-top: 16px; /*<---- modified by Jerry to style initial form */
-    /* margin-left: 18px; */
-    /* margin-right: 18px; */
     text-align: left;
     height: 64px;
 }
@@ -49,13 +40,11 @@
 .where-are-you-going,
 .choose-a-starting-point {
     display:flex;
-    /* flex-direction:column; */
     align-items: left;
     font-family: Helvetica;
     color: #F8F9FA;
     margin-bottom: 2px;
     font-size: 13px;
-    
 }
 
 .route-form {
@@ -71,7 +60,6 @@
     text-align: left; /* Modified by Jerry to style initial form */
     height: 64px;
     padding-left: 18px;
-    
 }
 
 @media (max-width: 415px) {
@@ -99,7 +87,6 @@
     background-position-x: 5px;
     height: 45px;
     width: 339px;
-    /* margin-bottom: 18px; */
 }
 
 #end {
@@ -112,19 +99,8 @@
 }
 
 #route-button{
-    /* width: 120px;
-    margin-left: 180px;
-    border-radius: 4px; */
-    /* position: absolute; */
-    /* left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%; */
-    /* Primary 100% */
     background: #00B2D9;
     border-radius: 3px;
-    /* We need to make it display when we need it -Noor */
-    /* visibility: hidden; */
     color: white;
     width: 339px;
     border: none;

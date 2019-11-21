@@ -84,11 +84,6 @@ class RegisterForm extends Component {
           value.length < 8 ? "Password must be at least 8 characters long" : "";
         break;
 
-      // case "confirmPassword":
-      //   errors.confirmPassword =
-      //     this.state.confirmPassword !== this.state.password ? "Passwords must be the same" : "";
-      //   break;
-
       default:
         break;
     }
@@ -131,13 +126,7 @@ class RegisterForm extends Component {
               .then(res => {
                 if (res) {
                   this.setState({
-                    // credentials: {
-                    //   username: "",
-                    //   password: "",
-                    //   first_name: "",
-                    //   last_name: ""
-                    // },
-                    // loading: false
+
                   });
                   this.props.history.push("/map");
                 }
@@ -216,8 +205,6 @@ class RegisterForm extends Component {
                   <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
                 </div>
                 <div className="register-social-media">
-                  {/* <button id="google"></button>
-                  <button id="facebook"></button> */}
                   {this.state.isSignedIn ?
                     (
                       <div>
@@ -239,7 +226,7 @@ class RegisterForm extends Component {
                   <input
                     className="register-main-form-input"
                     name="email"
-                    // placeholder="Email"
+                    // placeholder="Enter email"
                     type="email"
                     value={this.state.credentials.email}
                     onChange={this.handleChange}
@@ -252,7 +239,7 @@ class RegisterForm extends Component {
                     <p className="register-main-form-error">Email already taken</p>
                   )}
 
-                  <a className="password-mask" onClick={this.unmaskPassword}>MASK</a>
+                  <span className="password-mask" onClick={this.unmaskPassword}>MASK</span>
                   <label className="register-main-form-label" id="password">Password</label>
                   <input
                     className="register-main-form-input"
@@ -267,7 +254,7 @@ class RegisterForm extends Component {
                     <p className="register-main-form-error">{errors.password}</p>
                   )}
                   <div>
-                    <a className="password-mask-confirm" onClick={this.unmaskConfirmPassword}>MASK</a>
+                    <span className="password-mask-confirm" onClick={this.unmaskConfirmPassword}>MASK</span>
                     <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
                     <input
                       className="register-main-form-input"

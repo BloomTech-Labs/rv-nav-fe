@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
 import VehicleForm from '../../vehicleForm/VehicleForm.js';
 import Vehicles from '../../vehicleForm/Vehicles';
 import RoutingForm from '../../map/routingForm.js';
-// import '../sidebar.css';
 import RoutingSidebar from '../sidebar-routing/sidebar-routing';
 import SidebarMenu from '../SidebarMenu';
 
@@ -20,7 +18,7 @@ const Sidebar = (props) => {
     console.log('props on Sidebar', props)
 
     
-    const buttonSelect = (event) => {
+    const buttonSelect = (event) => { //gives the ability to the user to go to the directions sidebar 
         console.log("event", event.target);
         setState({
             ...state,
@@ -33,7 +31,7 @@ const Sidebar = (props) => {
 
         var mq = window.matchMedia( "(max-width: 415px)" );
 
-        if(mq.matches){
+        if(mq.matches){ //checks if user's screen matches size, if it does it runs the if statement
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.height = '100%'
             div.style.margin = '0px'
@@ -53,7 +51,7 @@ const Sidebar = (props) => {
 
         var mq = window.matchMedia( "(max-width: 415px)" );
 
-        if(!mq.matches){
+        if(!mq.matches){ //checks if user's screen matches size, if it does it runs the if statement
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.margin = '25px';
             div.style.height =  '335px';
@@ -88,7 +86,6 @@ const Sidebar = (props) => {
         
         let menu = document.querySelector('.btn-group-vertical > .btn, .btn-group > .btn')
         menu.style.backgroundColor = '#2A2E43'
-
     } 
 
     return (
@@ -119,7 +116,7 @@ const Sidebar = (props) => {
                 }
 
                 {state.vehicleForm === 'on' ?
-                    <VehicleForm 
+                    <VehicleForm //Form to add a vehicle
                         selectVehicles={selectVehicles}
                         state={state} 
                         setState={setState} 
@@ -130,23 +127,23 @@ const Sidebar = (props) => {
 
             {/* vv Neccesary to render routing sidebar for directions vv -Jerry */}
             {state.directions === 'on' ?
-                    <RoutingSidebar
-                        state={state}
-                        setState={setState}
-                        toggleSidebar={props.toggleSidebar}
-                        textDirections={props.textDirections}
-                        toggle={props.toggle}
-                        walmartSelected={props.walmartSelected}
-                        campsiteSelected={props.campsiteSelected}
-                        pointOfInterestDistance={props.pointOfInterestDistance}
-                        loading={props.loading}
-                        arcRoute={props.arcRoute}
-                        onChangeHandler={props.onChangeHandler}
-                        routeChangeHandler={props.routeChangeHandler}
-                        start={props.start}
-                        end={props.end}
-                    />
-                    : null
+                <RoutingSidebar //Sidebar that render's routing information
+                    state={state}
+                    setState={setState}
+                    toggleSidebar={props.toggleSidebar}
+                    textDirections={props.textDirections}
+                    toggle={props.toggle}
+                    walmartSelected={props.walmartSelected}
+                    campsiteSelected={props.campsiteSelected}
+                    pointOfInterestDistance={props.pointOfInterestDistance}
+                    loading={props.loading}
+                    arcRoute={props.arcRoute}
+                    onChangeHandler={props.onChangeHandler}
+                    routeChangeHandler={props.routeChangeHandler}
+                    start={props.start}
+                    end={props.end}
+                />
+                : null
             }
         </div>
 

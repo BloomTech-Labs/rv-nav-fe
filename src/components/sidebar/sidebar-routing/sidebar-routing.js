@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import SidebarMenu from '../SidebarMenu.js'
-import { ReactComponent as ToggleShowArrow } from './icons/show-sidebar.svg'
-import { ReactComponent as ToggleHideArrow } from './icons/hide-sidebar.svg'
+import { ReactComponent as ToggleShowArrow } from '../../../assets/img/show-sidebar.svg'
+import { ReactComponent as ToggleHideArrow } from '../../../assets/img/hide-sidebar.svg'
 import { NavLink } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
@@ -26,7 +25,7 @@ const RoutingSidebar = (props) => {
     const toggleSidebar = () => { //functions that implements animation for sidebar toggle
         setState({ ...state, sidebar: !state.sidebar })
 
-        if (state.sidebar == false) {
+        if (state.sidebar === false) {
             let div = document.getElementsByClassName('mainSidebarContainer')[0]
             div.style.animation = 'slideLeft .5s';
             div.style.left = '0px';
@@ -41,13 +40,12 @@ const RoutingSidebar = (props) => {
     console.log('SIDEBARROUTING STATE', props.textDirections)
 
     //function that dynamically changes the sidebar styles
-    const sidebarAnchor = () => { //anchors sidebar to the left and expands height once loaded
+    const sidebarAnchor = () => { 
         let div = document.getElementsByClassName('mainSidebarContainer')[0]
         div.style.margin = '0px';
         div.style.height = '100%';
     }
 
-    //toggles state back to render the initial sidebar form
     const revertChanges = () => { //changes state to go back to the initial form and changes styles of the sidebar dynamically
 
         props.setState({
@@ -98,14 +96,14 @@ const RoutingSidebar = (props) => {
         <div className='containerWithArrow'>
             {props.loading !== 'Routing successful' ?
                 <div className='loadingStatus'>
-                    <p className="route-loading">{props.loading}
+                    <div className="route-loading">{props.loading}
                     <Loader
                         type="Rings"
                         color="#00B2D9"
                         height={100}
                         width={100}
                     />
-                    </p>
+                    </div>
                 </div> 
                 :
                 <>
