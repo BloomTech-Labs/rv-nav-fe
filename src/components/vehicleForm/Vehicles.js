@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { getVehicles, deleteVehicles } from "../../store/actions";
 import { selectVehicle } from "../../store/actions/selectVehicle.js";
-import VehicleForm from "./VehicleForm(do not use)";
+import VehicleForm from "./VehicleForm.js";
 import Button from 'react-bootstrap/Button';
 import "./Vehicles.css"
 
@@ -82,7 +82,6 @@ class Vehicles extends React.Component {
         </div>
       )}
       )}
-      
       </div>
     )
   }

@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
-// import { NavLink } from 'react-router-dom'
 
 const Header = styled.div`
   height: 80px;
@@ -21,37 +20,12 @@ const Text = styled.span`
 
 const MapHeader = () => {
 
-  // const [sidebar, setSidebar] = useState(true)
-
-  // const toggleSidebar = () => {
-  //     //Google analytics tracking
-  //     window.gtag("event", "sidebar toggle", {
-  //       event_category: "sidebar",
-  //       event_label: "sidebar toggle"
-  //     });
-  //     setSidebar(false)
-  //   }
-
-
-
   return (
     <>
       <Header className="rv-way-header">
         <Text className="rv-way-header-text">RV WAY</Text>
       </Header>
     </>
-    // <div>
-    // {/* <Nav /> */}
-    // <div className="open-button-wrap">
-    //   <i className="fas fa-arrow-circle-right" onClick={toggleSidebar}   ></i>
-    //   <NavLink  to="/">
-    //     <Button 
-    //       className="logout-btn"
-    //       variant="warning">{localStorage.token ? `Log Out` : `Login / Signup`}
-    //     </Button>
-    //   </NavLink>
-    // </div>
-    // </div>
 
   )
 }

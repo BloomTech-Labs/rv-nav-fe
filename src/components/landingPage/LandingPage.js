@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./LandingPage.scss";
 import { connect } from "react-redux";
 import { logout } from "../../store/actions";
 import { ReactComponent as Heroback } from '../../assets/img/heroback.svg';
@@ -10,10 +9,10 @@ import { ReactComponent as OffRoad } from '../../assets/img/Off-Road.svg';
 import { ReactComponent as Map } from '../../assets/img/Map.svg';
 import { ReactComponent as Navigation2 } from '../../assets/img/navigation2.svg';
 
+//CSS STYLES
+import "./LandingPage.scss"; 
+
 class LandingPage extends Component {
-    // componentDidMount() {
-    //     this.props.logout(); //destroys user creds when this page is loaded, this is where the logout button links to
-    // }
 
     render() {
         return (

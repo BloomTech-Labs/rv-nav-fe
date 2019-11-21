@@ -33,11 +33,9 @@
     background-position-x: 7px;
     
     height: 45px;
-    // margin-bottom: 18px;
     border-radius: 4px;
     font-family: Heebo;
     padding-left: 30px;
-    // margin-top: 16px;
 
     
     p{
@@ -50,7 +48,6 @@
 
 #arrowDown{
     width: 100%;
-    // margin-left:280px;
     background-image: url(../../assets/img/gray-down.svg);
     background-repeat:no-repeat;
     background-position: center right;
@@ -90,7 +87,6 @@
             background-image: url('../../assets/img/blue-plus.svg');
             background-repeat:no-repeat;
             box-shadow: 0px 1px 1px rgb(231, 231, 231);
-            // padding-bottom: ;
             &:hover{
                 cursor: pointer;
             }
