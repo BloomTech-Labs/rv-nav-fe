@@ -39,10 +39,11 @@ const validateForm = errors => {
 
 
   
-  function RegisterForm(props){
+  const RegisterForm = (props) =>{
       console.log("props", props)
       
-      const [newUser,setNewUser] = useState({ error: null,
+    
+      const [newUser,setNewUser] = useState({ error: "",
         credentials: {
           email: "",
           password: "",
@@ -56,6 +57,11 @@ const validateForm = errors => {
         loading: false,
         isSignedIn: false
       });  
+      
+console.log("erorr props", props.error);
+console.log(" newUser ", newUser)
+
+
 
 //did not touch v
   const uiConfig = {
@@ -71,10 +77,13 @@ const validateForm = errors => {
   };
 //////////////////////////////////////////
 
-const handleChange = event => {
+const handleChange = event =>{ 
     event.preventDefault();
     const { name, value } = event.target;
     let errors = newUser.credentials.errors;
+    console.log("errors",errors)
+    // error debug attempt
+    // console.log("errors in handle change", errors)
 //// did not touch v 
     switch (name) {
 
@@ -90,16 +99,16 @@ const handleChange = event => {
       default:
         break;
     }
-///////////
-    setNewUser({...newUser.credentials, errors, [name]: value })
+/////////// maybe messing up something? v
+     setNewUser({...newUser, errors, [name]: value })
   };
 
-    
+     //GOT RID OF CREDENTIALS BETWEEN .NEWUSER AND --- 
   const registerSubmit = e => {
     e.preventDefault();
     //Google analytics tracking
-    const { password, confirmPassword } = newUser.credentials;
-
+    const { password, confirmPassword } = newUser;
+    // console.log("password",password)
     if (password !== confirmPassword) {
       // document.querySelector('#confirm-password-error').innerHTML = 'Passwords Must match!';
       alert("** Passwords don't match **")
@@ -113,45 +122,46 @@ const handleChange = event => {
       } else {
         console.error("Invalid Form");
       }
-      setNewUser({loading:true});
-      props.register({password: newUser.credentials.password,
-        email: newUser.credentials.email})
+     
+      setNewUser({...newUser, loading:true});
+      props.register({password: newUser.password,
+        email: newUser.email})
         .then(res => {
+            // v v v changed from RegisterForm.props.props
             if (res) {
-              RegisterForm.props
-              .props
+              props
                 .login({
-                  email: newUser.credentials.email,
-                  password: newUser.credentials.password
+                  email: newUser.email,
+                  password: newUser.password
                 })
                 .then(res => {
                   if (res) {
                     setNewUser({
         
                     });
-                    RegisterForm.props.history.push("/map");
+                    props.history.push("/map");
                   }
                 });
             }
           })
           .catch(err => {
             setTimeout(function () {
-              return RegisterForm.props.clearError();
+              return props.clearError();
             }, 3000);
           });
         }
         };
+        
 
 
 
-
-
+        
 useEffect(() =>{
-     const unregisterAuthObserver = firebase.auth().onAuthStateChanged(
-      (user) => setNewUser({ isSignedIn: !!user })
+      newUser.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+      (user) => setNewUser({...newUser, isSignedIn: !!user })
     );
-  });
-
+  },[])
+  
   
   function unmaskPassword  () {
     var passwordInput = document.querySelector('#password-input');
@@ -188,7 +198,7 @@ useEffect(() =>{
       passwordStatus.classList.remove('password-eye-off')
       passwordStatus.classList.add('password-eye')
     }
-  };
+  }
 
 
 
@@ -199,11 +209,13 @@ useEffect(() =>{
 
 
   
-    const { errors } = newUser.credentials;
-    
-
+   //most noticable change form old code vv
+    const {errors} = newUser.credentials; 
+      console.log("errors from creds 2 ", errors)
+      
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.email.length > 2 && this.state.credentials.password.length >= 8;
     return (
+      
       <div className="register-wrapper">
         <Header className="rv-way-header">
           <Text className="rv-way-header-text">RV WAY</Text>
@@ -220,6 +232,7 @@ useEffect(() =>{
                   <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
                 </div>
                 <div className="register-social-media">
+                    
                 {newUser.isSignedIn ?
                             (
                               <div>
@@ -234,28 +247,32 @@ useEffect(() =>{
                         ) : localStorage.getItem('firebaseui::rememberedAccounts') ? localStorage.removeItem('firebaseui::rememberedAccounts') : null}
                       </div>
                     ) :
+                    //was uiConfig={this.uiConfig}
                     (<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />)}
                 </div>
                 <div className="or">
                   <span>or</span>
                 </div>
                 <div className="register-input-and-button">
+                    
                   <label className="register-main-form-label">Email</label>
                   <input
                     className="register-main-form-input"
                     name="email"
                     // placeholder="Enter email"
                     type="email"
-                    value={newUser.credentials.email}
-                    onChange={newUser.handleChange}
+                    value={newUser.email}
+                    onChange={handleChange}
                     noValidate
+                    
                   ></input>
                   
                   {errors.email.length > 0 && (
             
                     <p className="register-main-form-error">{errors.email}</p>
                   )}
-                  {RegisterForm.props.error === "Email already taken" &&
+                  
+                  {props.error === "Email already taken" &&
                   
                   (
                     <p className="register-main-form-error">Email already taken</p>
@@ -268,7 +285,8 @@ useEffect(() =>{
                     id="password-input"
                     type="password"
                     name="password"
-                    value={newUser.credentials.password}
+                    value={newUser.password}
+                    
                     onChange={handleChange}
                     noValidate
                   ></input>
@@ -283,7 +301,7 @@ useEffect(() =>{
                       id="confirm-password-input"
                       type="password"
                       name="confirmPassword"
-                      value={newUser.credentials.confirmPassword}
+                      value={newUser.confirmPassword}
                       onChange={handleChange}
                     // noValidate
                     ></input>
@@ -311,7 +329,7 @@ useEffect(() =>{
     );
   }
 
-
+  
 const mapStateToProps = state => {
     console.log("state",state);
   return { error: state.error };
