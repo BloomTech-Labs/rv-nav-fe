@@ -36,27 +36,29 @@ const validateForm = errors => {
   return valid;
 };
 
-class RegisterForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      credentials: {
-        email: "",
-        password: "",
-        confirmPassword: "",
-        errors: {
+
+
+  
+  function RegisterForm(props){
+      console.log("props", props)
+      
+      const [newUser,setNewUser] = useState({ error: null,
+        credentials: {
           email: "",
           password: "",
-          confirmPassword: ""
-        }
-      },
-      loading: false,
-      isSignedIn: false
-    };
-  }
+          confirmPassword: "",
+          errors: {
+            email: "",
+            password: "",
+            confirmPassword: ""
+          }
+        },
+        loading: false,
+        isSignedIn: false
+      });  
 
-  uiConfig = {
+//did not touch v
+  const uiConfig = {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
@@ -67,16 +69,13 @@ class RegisterForm extends Component {
       firebase.auth.FacebookAuthProvider.PROVIDER_ID
     ]
   };
+//////////////////////////////////////////
 
-
-
-
-  handleChange = event => {
+const handleChange = event => {
     event.preventDefault();
     const { name, value } = event.target;
-    let errors = this.state.credentials.errors;
-
-    
+    let errors = newUser.credentials.errors;
+//// did not touch v 
     switch (name) {
 
       case "email":
@@ -91,22 +90,16 @@ class RegisterForm extends Component {
       default:
         break;
     }
-
-
-
-    this.setState({
-      credentials: { ...this.state.credentials, errors, [name]: value }
-    });
-    
+///////////
+    setNewUser({...newUser.credentials, errors, [name]: value })
   };
 
-  
-
-  registerSubmit = e => {
+    
+  const registerSubmit = e => {
     e.preventDefault();
     //Google analytics tracking
-    const { password, confirmPassword } = this.state.credentials;
-    
+    const { password, confirmPassword } = newUser.credentials;
+
     if (password !== confirmPassword) {
       // document.querySelector('#confirm-password-error').innerHTML = 'Passwords Must match!';
       alert("** Passwords don't match **")
@@ -115,56 +108,52 @@ class RegisterForm extends Component {
         event_category: "access",
         event_label: "register"
       });
-      if (validateForm(this.state.credentials.errors)) {
-                        
+      if (validateForm(newUser.credentials.errors)) {
         console.info("Valid Form");
       } else {
         console.error("Invalid Form");
       }
-      this.setState({ loading: true });
-      this.props
-        .register({
-          password: this.state.credentials.password,
-          email: this.state.credentials.email
-        })
-      
-
+      setNewUser({loading:true});
+      props.register({password: newUser.credentials.password,
+        email: newUser.credentials.email})
         .then(res => {
-          if (res) {
-            this.props
-            .props
-              .login({
-                email: this.state.credentials.email,
-                password: this.state.credentials.password
-              })
-              .then(res => {
-                if (res) {
-                  this.setState({
+            if (res) {
+              RegisterForm.props
+              .props
+                .login({
+                  email: newUser.credentials.email,
+                  password: newUser.credentials.password
+                })
+                .then(res => {
+                  if (res) {
+                    setNewUser({
+        
+                    });
+                    RegisterForm.props.history.push("/map");
+                  }
+                });
+            }
+          })
+          .catch(err => {
+            setTimeout(function () {
+              return RegisterForm.props.clearError();
+            }, 3000);
+          });
+        }
+        };
 
-                  });
-                  this.props.history.push("/map");
-                }
-              });
-          }
-        })
-        .catch(err => {
-          setTimeout(function () {
-            return this.props.clearError();
-          }, 3000);
-        });
-    }
-  };
 
- 
 
-  componentDidMount() {
-    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
-      (user) => this.setState({ isSignedIn: !!user })
+
+
+useEffect(() =>{
+     const unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+      (user) => setNewUser({ isSignedIn: !!user })
     );
-  }
+  });
 
-
-  unmaskPassword() {
+  
+  function unmaskPassword  () {
     var passwordInput = document.querySelector('#password-input');
     var passwordStatus = document.querySelector('.password-mask');
     // if (document.querySelector('#password-eye')) {
@@ -180,10 +169,10 @@ class RegisterForm extends Component {
       passwordStatus.classList.remove('password-eye-off')
       passwordStatus.classList.add('password-eye')
     }
-  }
+  };
 
 
-  unmaskConfirmPassword() {
+   function unmaskConfirmPassword() {
     var passwordInput = document.querySelector('#confirm-password-input');
     var passwordStatus = document.querySelector('.password-mask-confirm');
     // if (document.querySelector('#password-eye')) {
@@ -199,12 +188,19 @@ class RegisterForm extends Component {
       passwordStatus.classList.remove('password-eye-off')
       passwordStatus.classList.add('password-eye')
     }
-  }
+  };
 
 
 
-  render() {
-    const { errors } = this.state.credentials;
+
+
+  
+
+
+
+  
+    const { errors } = newUser.credentials;
+    
 
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.email.length > 2 && this.state.credentials.password.length >= 8;
     return (
@@ -213,7 +209,7 @@ class RegisterForm extends Component {
           <Text className="rv-way-header-text">RV WAY</Text>
         </Header>
         <div className="register-main">
-          {this.state.loading === true ?
+        {newUser.loading === true ?
             (
             <p className="register-auth-loading">Loading...</p>
           ) : (
@@ -224,11 +220,11 @@ class RegisterForm extends Component {
                   <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
                 </div>
                 <div className="register-social-media">
-                  {this.state.isSignedIn ?
-                    (
-                      <div>
-                        {this.state.isSignedIn ? (
-    
+                {newUser.isSignedIn ?
+                            (
+                              <div>
+                                {newUser.isSignedIn ? (
+                          
 
                           <>
                             <h6>Welcome  {firebase.auth().currentUser.displayName}</h6>
@@ -238,8 +234,7 @@ class RegisterForm extends Component {
                         ) : localStorage.getItem('firebaseui::rememberedAccounts') ? localStorage.removeItem('firebaseui::rememberedAccounts') : null}
                       </div>
                     ) :
-                  
-                    (<StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />)}
+                    (<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />)}
                 </div>
                 <div className="or">
                   <span>or</span>
@@ -251,44 +246,45 @@ class RegisterForm extends Component {
                     name="email"
                     // placeholder="Enter email"
                     type="email"
-                    value={this.state.credentials.email}
-                    onChange={this.handleChange}
-                    
+                    value={newUser.credentials.email}
+                    onChange={newUser.handleChange}
                     noValidate
                   ></input>
+                  
                   {errors.email.length > 0 && (
+            
                     <p className="register-main-form-error">{errors.email}</p>
                   )}
-                  {this.props.error === "Email already taken" &&
-                
+                  {RegisterForm.props.error === "Email already taken" &&
+                  
                   (
                     <p className="register-main-form-error">Email already taken</p>
                   )}
                 
-                  <span className="password-mask" onClick={this.unmaskPassword}>MASK</span>
+                <span className="password-mask" onClick={unmaskPassword}>MASK</span>
                   <label className="register-main-form-label" id="password">Password</label>
                   <input
                     className="register-main-form-input"
                     id="password-input"
                     type="password"
                     name="password"
-                    value={this.state.credentials.password}
-                    onChange={this.handleChange}
+                    value={newUser.credentials.password}
+                    onChange={handleChange}
                     noValidate
                   ></input>
                   {errors.password.length > 0 && (
                     <p className="register-main-form-error">{errors.password}</p>
                   )}
                   <div>
-                    <span className="password-mask-confirm" onClick={this.unmaskConfirmPassword}>MASK</span>
+                    <span className="password-mask-confirm" onClick={unmaskConfirmPassword}>MASK</span>
                     <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
                     <input
                       className="register-main-form-input"
                       id="confirm-password-input"
                       type="password"
                       name="confirmPassword"
-                      value={this.state.credentials.confirmPassword}
-                      onChange={this.handleChange}
+                      value={newUser.credentials.confirmPassword}
+                      onChange={handleChange}
                     // noValidate
                     ></input>
                     {errors.confirmPassword.length > 0 && (
@@ -298,7 +294,7 @@ class RegisterForm extends Component {
                   <button
                     className="register-lets-go-button"
                     variant="warning"
-                    onClick={this.registerSubmit}
+                    onClick={registerSubmit}
                     type="submit"
                   >
                     Let's Go
@@ -314,10 +310,12 @@ class RegisterForm extends Component {
       </div>
     );
   }
-}
+
 
 const mapStateToProps = state => {
+    console.log("state",state);
   return { error: state.error };
+  
 };
 
 export default withRouter(
