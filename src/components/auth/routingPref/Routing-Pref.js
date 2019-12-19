@@ -41,17 +41,17 @@ const RoutingPref = () => {
           <Text className="rv-way-header-text">RV WAY</Text>
         </Header>
         <div className="register-main">
-        {newUser.loading === true ?
+        {/* {newUser.loading === true ?
             (
             <p className="register-auth-loading">Loading...</p>
-          ) : (
+          ) : ( */}
               <form className="register-main-form">
                 <div className="register-header">
                   <h2 className="register-welcome-home">Welcome Home!</h2>
                   <h4 className="register-lets-get-you-settled">Lets get you settled</h4>
                   <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
                 </div>
-                <div className="register-social-media">
+                {/* <div className="register-social-media">
                     
                 {newUser.isSignedIn ?
                             (
@@ -69,7 +69,7 @@ const RoutingPref = () => {
                     ) :
                     //was uiConfig={this.uiConfig}
                     (<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />)}
-                </div>
+                </div> */}
                 <div className="or">
                   <span>or</span>
                 </div>
@@ -81,13 +81,13 @@ const RoutingPref = () => {
                     name="email"
                     // placeholder="Enter email"
                     type="email"
-                    value={newUser.email}
-                    onChange={handleChange}
+                    // value={newUser.email}
+                    // onChange={handleChange}
                     noValidate
                     
                   ></input>
                   
-                  {errors.email.length > 0 && (
+                  {/* {errors.email.length > 0 && (
             
                     <p className="register-main-form-error">{errors.email}</p>
                   )}
@@ -96,9 +96,9 @@ const RoutingPref = () => {
                   
                   (
                     <p className="register-main-form-error">Email already taken</p>
-                  )}
+                  )} */}
                 
-                <span className="password-mask" onClick={handleChange}>MASK</span>
+                {/* <span className="password-mask" onClick={handleChange}>MASK</span>
                   <label className="register-main-form-label" id="password">Password</label>
                   <input
                     className="register-main-form-input"
@@ -124,15 +124,15 @@ const RoutingPref = () => {
                       value={newUser.confirmPassword}
                       onChange={handleChange}
                     // noValidate
-                    ></input>
-                    {errors.confirmPassword.length > 0 && (
+                    ></input> */}
+                    {/* {errors.confirmPassword.length > 0 && (
                       <p id="confirm-password-error" className="register-main-form-error">{errors.confirmPassword}</p>
-                    )}
-                  </div>
+                    )} */}
+                  {/* </div> */}
                   <button
                     className="register-lets-go-button"
                     variant="warning"
-                    onClick={registerSubmit}
+                    // onClick={registerSubmit}
                     type="submit"
                   >
                     Let's Go
@@ -142,6 +142,7 @@ const RoutingPref = () => {
                     <span>Already have an account? <a id="sign-in" href="/login">Sign In</a></span>
                   </div>
                 </div>
+                
               </form>
             )}
         </div>
