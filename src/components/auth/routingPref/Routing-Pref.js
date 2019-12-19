@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { register, login, clearError } from "../../../store/actions";
 import { withRouter } from "react-router-dom";
 import "../register/Register.css"
-import firebase from 'firebase';
 import styled from 'styled-components';
 
 const Header = styled.div`
@@ -47,9 +46,10 @@ const RoutingPref = () => {
           ) : ( */}
               <form className="register-main-form">
                 <div className="register-header">
-                  <h2 className="register-welcome-home">Welcome Home!</h2>
-                  <h4 className="register-lets-get-you-settled">Lets get you settled</h4>
-                  <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
+                  <h2 className="register-welcome-home">Tell us about your routing preferences!</h2>
+                </div>
+                <div className="or">
+                  <span>I want to avoid</span>
                 </div>
                 {/* <div className="register-social-media">
                     
@@ -70,22 +70,41 @@ const RoutingPref = () => {
                     //was uiConfig={this.uiConfig}
                     (<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />)}
                 </div> */}
-                <div className="or">
-                  <span>or</span>
-                </div>
+
                 <div className="register-input-and-button">
-                    
-                  <label className="register-main-form-label">Email</label>
+
+                 <div>
+                   
                   <input
-                    className="register-main-form-input"
-                    name="email"
-                    // placeholder="Enter email"
-                    type="email"
-                    // value={newUser.email}
-                    // onChange={handleChange}
-                    noValidate
-                    
+                    name="DirtRoads"
+                    id="DirtRoads"
+                    type="checkbox"
+                  ></input> 
+                  <label for="DirtRoads" className="register-main-form-label">Dirt Roads longer than 2 miles</label>
+                   </div>   
+                  
+                  
+                  <div>
+                   <input
+                    id="DirtRoads"
+                    name="SteepGrade"
+                    id="Steep"
+                    type="checkbox"
                   ></input>
+                  <label for="Steep" className="register-main-form-label">Grades steeper than 10%</label>
+                   </div> 
+                  
+
+                    <div>
+                   <input
+                    
+                    name="Potholes"
+                    id="Potholes"
+                    type="checkbox"
+                  ></input>
+                    <label for="Potholes" className="register-main-form-label">Potholes</label>
+                   </div> 
+                  
                   
                   {/* {errors.email.length > 0 && (
             
@@ -135,11 +154,11 @@ const RoutingPref = () => {
                     // onClick={registerSubmit}
                     type="submit"
                   >
-                    Let's Go
+                    Add to My Preferences
                     </button>
                   
                   <div className="already-have-an-account">
-                    <span>Already have an account? <a id="sign-in" href="/login">Sign In</a></span>
+                    <span>Skip this step</span>
                   </div>
                 </div>
                 
