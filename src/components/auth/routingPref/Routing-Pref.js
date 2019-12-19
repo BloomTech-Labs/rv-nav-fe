@@ -2,7 +2,8 @@ import React, { Component, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { register, login, clearError } from "../../../store/actions";
 import { withRouter } from "react-router-dom";
-import "../register/Register.css"
+// import "../register/Register.css"
+import "../routingPref/Routing-Pref.css"
 import styled from 'styled-components';
 
 const Header = styled.div`
@@ -48,7 +49,7 @@ const RoutingPref = () => {
                 <div className="register-header">
                   <h2 className="register-welcome-home">Tell us about your routing preferences!</h2>
                 </div>
-                <div className="or">
+                <div className="avoid">
                   <span>I want to avoid</span>
                 </div>
                 {/* <div className="register-social-media">
@@ -163,7 +164,6 @@ const RoutingPref = () => {
                 </div>
                 
               </form>
-            )}
         </div>
       </div>
     );
