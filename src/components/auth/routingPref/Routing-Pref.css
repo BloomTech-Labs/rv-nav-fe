@@ -100,6 +100,16 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     font-weight: bold;
 }
 
+.go-back{
+    color:#00B2D9;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.go-back.a,a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+}
+
 #password-eye {
     font-size: 10px;
 } 
@@ -126,6 +136,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     margin-right: 206px;
     margin-top: 161px;
     /* text-align: center; */
+    box-shadow: 2px 2px 3px rgba(42, 46, 67, 0.1);
 
 }
 
@@ -394,7 +405,7 @@ p.register-main-form-error {
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
-    color: rgba(53, 195, 226, 0.95);
+    color: rgba(63, 67, 86, 0.7)
 
 }
 
