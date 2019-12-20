@@ -11,6 +11,8 @@ import RoutingPref from './components/auth/routingPref/Routing-Pref';
 
 
 
+
+
 const App = () => {
   return (
     <div className="App">
@@ -20,6 +22,8 @@ const App = () => {
       <Route path="/login" component={Login} />
       <Route path="/register" component={RegisterHooks} />
       <Route path="/routingPref" component = {RoutingPref}/>
+      
+      
     </div>
   );
 };

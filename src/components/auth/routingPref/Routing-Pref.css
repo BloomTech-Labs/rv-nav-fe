@@ -115,6 +115,68 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     text-decoration: none;
 }
 
+
+/* CUSTOM CHECKBOX CODE */
+            /* input */
+.checkboxes {
+    position: absolute;
+    opacity: 0;
+    /* height:0;
+    width:0; */
+    cursor: pointer;
+    margin-top:5px;
+    margin-left:2px;
+    
+}
+
+.checkbox-custom{
+    position: absolute;
+  top: 100;
+  left:50;
+    margin-top:3px;
+    height:17px;
+    width:17px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 2px solid #92939D;
+    cursor: pointer;
+}
+
+.register-main-form-label:hover input ~ .checkbox-custom {
+    background-color: transparent;
+  }
+
+  .checkbox-custom:after{
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+
+  .register-main-form-label input:checked  ~ .checkbox-custom:after {
+    display:block;
+  }
+
+
+  .register-main-form-label .checkbox-custom:after {
+    left: 4px;
+    top: -3px;
+    width: 6px;
+    height: 15px;
+    border: solid #00B2D9;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+.checkbox-options{
+    margin-left:25px;
+}
+
+/* CUSTOM CHECKBOX CODE ENDING */
+
 #password-eye {
     font-size: 10px;
 } 
@@ -264,9 +326,10 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .register-main-form-label {
     color:#3D4053;
     align-self: flex-start;
-    margin-left: 5px;
     font-size: 16px;
     margin-bottom: 7px;
+    
+    
     
     
 }

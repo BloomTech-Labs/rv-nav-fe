@@ -81,35 +81,44 @@ const RoutingPref = () => {
                 <div className="register-input-and-button">
 
                  <div>
-                   
+                 <label for="DirtRoads" className="register-main-form-label">
                   <input
                     name="DirtRoads"
                     id="DirtRoads"
                     type="checkbox"
+                    className="checkboxes"
                   ></input> 
-                  <label for="DirtRoads" className="register-main-form-label">Dirt Roads longer than 2 miles</label>
+                  <span className="checkbox-custom"></span>
+                  <span className="checkbox-options">Dirt Roads longer than 2 miles</span>
+                  </label>
                    </div>   
                   
                   
                   <div>
+                    <label for="Steep" className="register-main-form-label">
                    <input
-                    id="DirtRoads"
                     name="SteepGrade"
                     id="Steep"
                     type="checkbox"
+                    className="checkboxes"
                   ></input>
-                  <label for="Steep" className="register-main-form-label">Grades steeper than 10%</label>
+                  <span className="checkbox-custom"></span>
+                  <span className="checkbox-options">Grades steeper than 10%</span>
+                  </label>
                    </div> 
                   
 
                     <div>
+                    <label for="Potholes" className="register-main-form-label">
                    <input
-                    
+                    className="checkboxes"
                     name="Potholes"
                     id="Potholes"
                     type="checkbox"
                   ></input>
-                    <label for="Potholes" className="register-main-form-label">Potholes</label>
+                  <span className="checkbox-custom"></span>
+                   <span className="checkbox-options">Potholes</span>
+                   </label>
                    </div> 
                   
                   
