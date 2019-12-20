@@ -5,7 +5,8 @@ import { Route } from 'react-router-dom';
 import Map from './components/map/Map';
 import LandingPage from './components/landingPage/LandingPage';
 import Login from './components/auth/login/Login'
-import Register from './components/auth/register/Register'
+import Register from './components/auth/register/Register';
+import PersonalInfo from './components/personalInfoForm/PersonalInfoForm';
 
 
 
@@ -15,7 +16,9 @@ const App = () => {
       <Route path="/" exact component={LandingPage} />
       {/* <Route path="/auth" component={Auth} /> */}
       <Route path="/map" component={Map} />
+      {/* <Route path="/loading" component={Loading} /> */}
       <Route path="/login" component={Login} />
+      <Route path="/personal" component={PersonalInfo} />
       <Route path="/register" component={Register} />
     </div>
   );
