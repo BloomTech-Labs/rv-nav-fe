@@ -5,7 +5,8 @@ import { withRouter } from "react-router-dom";
 // import "../register/Register.css"
 import "../routingPref/Routing-Pref.css"
 import styled from 'styled-components';
-import backIcon from "./imgs/back.svg";
+import OnboardLoad from '../loading/LoadingPage';
+
 
 const Header = styled.div`
   height: 80px;
@@ -26,26 +27,62 @@ const Text = styled.span`
 `
 
 
-const RoutingPref = () => {
-    const [routing,setRouting] = useState({});
+const RoutingPref = (props) => {
+    const [loading,setLoading] = useState(false);
+    const [dirtRoad, setRoad] = React.useState(false)
+    const [steep, setSteep] = React.useState(false)
+    const [holes, setHoles] = React.useState(false)
+    
+  const handleRoads = () => setRoad(!dirtRoad)
+  const handleSteep = () => setSteep(!steep)
+  const handleHoles = () => setHoles(!holes)
 
     useEffect(() =>{
         
     },[])
+    console.log("props",props)
 
-    const handleChange = e =>{
-        setRouting({...routing, [e.target.name]: e.target.value})
-    }
-    return(
+
+
+    let regSubmit = event => {
+      event.preventDefault();
+      //Google analytics tracking
+      window.gtag("event", "register", {
+        event_category: "access",
+        event_label: "register"
+      });
+      setLoading(true);
+      if(setLoading === true){
+        // make loading page its own component render on loading true
+        return <OnboardLoad/>
+      }
+        props.register(dirtRoad,steep,holes)
+        .then(res => {
+          setLoading(false);
+          // this.setState({
+          //   email: "",
+          //   password: ""
+          // });
+          if (res) {
+            props.history.push("/map");
+          }
+        }) //put register errors
+        .catch(err => {
+          setLoading(false);
+          console.log("login err", err);
+        });
+    };
+      return(
         <div className="register-wrapper">
         <Header className="rv-way-header">
           <Text className="rv-way-header-text">RV WAY</Text>
         </Header>
         <div className="register-main">
-        {/* {newUser.loading === true ?
+         {/* {newUser.loading === false ?
             (
             <p className="register-auth-loading">Loading...</p>
-          ) : ( */}
+          ) : ( */ }
+        
               <form className="register-main-form">
                 <div className="go-back-div"><a className="go-back" href="#">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,10 +120,12 @@ const RoutingPref = () => {
                  <div>
                  <label for="DirtRoads" className="register-main-form-label">
                   <input
+                  onClick={handleRoads}
                     name="DirtRoads"
                     id="DirtRoads"
                     type="checkbox"
                     className="checkboxes"
+                    dirtRoad={dirtRoad}
                   ></input> 
                   <span className="checkbox-custom"></span>
                   <span className="checkbox-options">Dirt Roads longer than 2 miles</span>
@@ -97,10 +136,12 @@ const RoutingPref = () => {
                   <div>
                     <label for="Steep" className="register-main-form-label">
                    <input
+                   onClick={handleSteep}
                     name="SteepGrade"
                     id="Steep"
                     type="checkbox"
                     className="checkboxes"
+                    steep={steep}
                   ></input>
                   <span className="checkbox-custom"></span>
                   <span className="checkbox-options">Grades steeper than 10%</span>
@@ -111,10 +152,12 @@ const RoutingPref = () => {
                     <div>
                     <label for="Potholes" className="register-main-form-label">
                    <input
+                   onClick={handleHoles}
                     className="checkboxes"
                     name="Potholes"
                     id="Potholes"
                     type="checkbox"
+                    holes={holes}
                   ></input>
                   <span className="checkbox-custom"></span>
                    <span className="checkbox-options">Potholes</span>
@@ -167,25 +210,36 @@ const RoutingPref = () => {
                   <button
                     className="register-lets-go-button"
                     variant="warning"
-                    // onClick={registerSubmit}
+                    onClick={regSubmit}
                     type="submit"
                   >
                     Add to My Preferences
                     </button>
                   
                   <div className="already-have-an-account">
-                    <a id="sign-in" href="#"><span>Skip this step</span></a>
+                    <a id="sign-in" href="/loadingPage"><span>Skip this step</span></a>
                   </div>
                 </div>
                 
               </form>
-        </div>
+        </div> 
       </div>
+     
     );
+    
   }
 
 
 
 
 
-export default RoutingPref
+  const mapStateToProps = state => {
+    return { error: state.error };
+  };
+  
+  export default withRouter(
+    connect(
+      mapStateToProps,
+      {register}
+    )(RoutingPref)
+  );
