@@ -1,0 +1,80 @@
+p{
+    color: darkgray;
+    align-items: flex-start;
+}
+
+h4{
+    font-weight: lighter;
+}
+
+.greeting h4{
+    font-weight: 400;
+}
+
+.Vehicle-Info-Wrapper{
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+.Vehicle-Name{
+    margin: 10px 0;
+
+    p{
+        align-items: center;
+        margin-bottom: 5px;
+    }
+}
+
+.VDLabel{
+    color: black;
+    font-weight: 340;
+    margin-top: 25px;
+}
+
+.VDMeasurements{
+    display: flex;
+    justify-content: space-evenly;
+    width: 99%;
+    align-content: flex-start;
+
+    p{
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+.registerInputBoxes-Wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    width: 99%;
+    align-content: flex-start;
+}
+
+.vehicleRegisterInput{
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    text-align: left;
+    width: 90%;
+}
+
+.registerInputBoxes {
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    text-align: center;
+}
+
+.go-back{
+    color:#00B2D9;
+    font-size: 16px;
+    font-weight: 500;
+}
+.go-back-div{
+    margin-top:15px;
+    margin-bottom: 15px;
+    margin-left:5px;
+}
+.go-back.a,a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+}
