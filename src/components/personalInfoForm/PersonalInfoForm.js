@@ -30,7 +30,8 @@ function validate(username) {
 class PersonalInfoForm extends React.Component {
   constructor() {
     super();
-    this.state = {
+    this.state = ({
+      personalInfo: {
       firstName: '',
       lastName: '',
       username: '',
@@ -38,12 +39,22 @@ class PersonalInfoForm extends React.Component {
       touched: {
         username: false
       },
-    };
+      }
+    });
   }
 
   handleChange = evt => {
     this.setState({ username: evt.target.value });
   };
+
+  handleRest = (event) => {
+    this.setState({
+      personalInfo: {
+        ...this.state.personalInfo,
+        [event.target.name]: (event.target.value)
+      }
+    })
+  }
 
 
   handleBlur = field => evt => {
@@ -62,18 +73,18 @@ class PersonalInfoForm extends React.Component {
   };
 
   canBeSubmitted() {
-    const errors = validate(this.state.username);
+    const errors = validate(this.state.personalInfo.username);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
   }
 
   render() {
-    const errors = validate(this.state.email, this.state.password);
+    const errors = validate(this.state.personalInfo.username);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
 
     const shouldMarkError = (field) => {
       const hasError = errors[field];
-      const shouldShow = this.state.touched[field];
+      const shouldShow = this.state.personalInfo.touched[field];
       return hasError ? shouldShow : false
     };
 
@@ -98,7 +109,7 @@ class PersonalInfoForm extends React.Component {
                     name="firstName"
                     type="text"
                     value={this.state.firstName}
-                    onChange={this.handleChange}/>
+                    onChange={this.handleRest}/>
 
                 <label className="register-main-form-label">Last Name</label>
 
@@ -107,7 +118,7 @@ class PersonalInfoForm extends React.Component {
                 name="lastName"
                 type="text"
                 value={this.state.lastName}
-                onChange={this.handleChange}/>
+                onChange={this.handleRest}/>
 
                 <label className="register-main-form-label">Username</label>
 
@@ -128,7 +139,7 @@ class PersonalInfoForm extends React.Component {
                     name="age"
                     type="number"
                     value={this.state.age}
-                    onChange={this.handleChange}/>         
+                    onChange={this.handleRest}/>         
 
 
                   <button className="register-lets-go-button" variant="warning" type="submit">
