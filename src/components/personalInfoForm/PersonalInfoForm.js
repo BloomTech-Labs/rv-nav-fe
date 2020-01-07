@@ -46,7 +46,7 @@ class PersonalInfoForm extends React.Component {
   };
 
 
-  handleBlur = (field) => (evt) => {
+  handleBlur = field => evt => {
     this.setState({
       touched: { ...this.state.touched, [field]: true },
     });
