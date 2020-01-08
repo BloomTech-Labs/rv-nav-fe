@@ -14,7 +14,6 @@ const Header = styled.div`
   width: auto
   background: #2A2E43;
 `;
-
 const Text = styled.span`
   position: absolute;
   left: 0.74%;
@@ -27,12 +26,10 @@ const Text = styled.span`
   font-family: Heebo;
   height: 60px;
 `;
-
 const VehicleInfo = () => {
   const [auto, setAuto] = useState({});
 
   useEffect(() => {}, []);
-
   const handleChange = e => {
     setAuto({ ...auto, [e.target.name]: e.target.value });
   };
@@ -101,7 +98,6 @@ const VehicleInfo = () => {
                   />
                   <p className="inputLabels">in.</p>
                 </div>
-
                 <div className="registerInputBoxes-Wrapper2">
                   <input
                     className="registerInputBoxes"
@@ -181,7 +177,6 @@ const VehicleInfo = () => {
               </div>
 
               <p className="classType">RV Type</p>
-
               <div className="Vehicle-Info-Size-4th">
                 <label>
                   <input type="radio" value="ClassA" />

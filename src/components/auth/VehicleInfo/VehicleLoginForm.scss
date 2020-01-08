@@ -2,9 +2,11 @@ p {
   color: rgba(42, 46, 67, 0.5);
   align-items: flex-start;
 }
+
 h4 {
   font-weight: lighter;
 }
+
 .greeting h4 {
   font-weight: 400;
   color: rgba(42, 46, 67, 0.8);
@@ -13,8 +15,10 @@ h4 {
   margin: 0 auto;
   max-width: 95%;
 }
+
 .Vehicle-Name {
   margin: 10px 0;
+
   p {
     align-items: center;
     margin-bottom: 5px;
@@ -57,9 +61,11 @@ h4 {
     text-align: left;
     margin-left: 12px;
     display: flex;
+
     color: rgba(42, 46, 67, 0.8);
   }
 }
+
 .registerInputBoxes-Wrapper3 {
   display: flex;
   float: left;
@@ -70,9 +76,11 @@ h4 {
     text-align: left;
     margin-left: 12px;
     display: flex;
+
     color: rgba(42, 46, 67, 0.8);
   }
 }
+
 .registerInputBoxes-Wrapper4 {
   display: flex;
   padding: 10px;
@@ -82,9 +90,11 @@ h4 {
     text-align: left;
     margin-left: 5px;
     display: flex;
+
     color: rgba(42, 46, 67, 0.8);
   }
 }
+
 .vehicleRegisterInput {
   border: none;
   border-bottom: 1px solid rgba(42, 46, 67, 0.5);
@@ -98,9 +108,11 @@ h4 {
   flex-direction: row;
   display: flex;
 }
+
 .registerInputBoxes-Wrapper {
   display: flex;
 }
+
 .go-back {
   color: #00b2d9;
   font-size: 16px;
@@ -122,9 +134,11 @@ a:active {
   display: flex;
   flex-flow: wrap;
   margin: 0;
+
   //   p {
   //     margin: 0;
   //   }
+
   //   .tires {
   //     margin-left: 20px;
   //   }
@@ -134,22 +148,31 @@ a:active {
   flex-flow: wrap;
   width: 75%;
   margin: 5px;
+
   .label {
     margin-left: 30px;
   }
+
   .label1 {
     margin-left: 20px;
   }
 }
+
 .classType {
   margin: 0;
 }
+
 .check {
   margin: 0;
 }
+
 a {
   display: flex;
   justify-content: center;
   padding-top: 12px;
   color: rgba(42, 46, 67, 0.7);
+}
+
+.registerInputBoxes {
+  max-width: 50%;
 }

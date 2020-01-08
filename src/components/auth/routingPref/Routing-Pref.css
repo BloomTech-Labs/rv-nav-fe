@@ -26,7 +26,9 @@
     }
 }
 
-.firebaseui-card-content, .firebaseui-card-footer {
+
+
+/* .firebaseui-card-content, .firebaseui-card-footer {
     display: flex;
     justify-content: center;
     padding: 0px;
@@ -56,9 +58,9 @@
     padding: 8px 16px;
     text-align: left;
     width: 100%;
-}
+} */
 
-/* !/ FIREBASE STYLING */
+/* !/ FIREBASE STYLING
 .firebaseui-list-item {
     margin: 0;
     width: 156px;
@@ -88,12 +90,96 @@
 span.firebaseui-idp-text.firebaseui-idp-text-long {
     font-size: 12px;
     padding-left: 5px;
-    /* color: rgb(183, 30, 210); */
+    /* color: rgb(183, 30, 210);} */
+
+
+.avoid{
+    margin-left:42px;
+    margin-bottom:7px;
+    color: rgba(42, 46, 67, 0.6);
+    font-weight: bold;
 }
+
+.go-back{
+    color:#00B2D9;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.go-back-div{
+    margin-top:15px;
+    margin-left:5px;
+}
+
+.go-back.a,a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+}
+
+
+/* CUSTOM CHECKBOX CODE */
+            /* input */
+.checkboxes {
+    position: absolute;
+    opacity: 0;
+    /* height:0;
+    width:0; */
+    cursor: pointer;
+    margin-top:5px;
+    margin-left:2px;
+    
+}
+
+.checkbox-custom{
+    position: absolute;
+  top: 100;
+  left:50;
+    margin-top:3px;
+    height:17px;
+    width:17px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 2px solid #92939D;
+    cursor: pointer;
+}
+
+.register-main-form-label:hover input ~ .checkbox-custom {
+    background-color: transparent;
+  }
+
+  .checkbox-custom:after{
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+
+  .register-main-form-label input:checked  ~ .checkbox-custom:after {
+    display:block;
+  }
+
+
+  .register-main-form-label .checkbox-custom:after {
+    left: 4px;
+    top: -3px;
+    width: 6px;
+    height: 15px;
+    border: solid #00B2D9;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+.checkbox-options{
+    margin-left:25px;
+}
+
+/* CUSTOM CHECKBOX CODE ENDING */
 
 #password-eye {
     font-size: 10px;
-}
+} 
 
 .register-main {
     display: flex;
@@ -115,9 +201,9 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     width: 423px;
     /* height: 700px; */
     margin-right: 206px;
-    margin-top: 161px;
+    margin-top: 115px;  
     /* text-align: center; */
-
+    box-shadow: 2px 2px 3px rgba(42, 46, 67, 0.1);
 }
 
 @media (max-width: 415px) {
@@ -146,6 +232,8 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .register-header {
     margin-left: 42px;
     margin-right: 42px;
+    margin-bottom:30px;
+    margin-top:150px;
 }
 
 @media (max-width: 415px) {
@@ -155,6 +243,8 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 }
 
 .register-welcome-home {
+    color:rgba(42, 46, 67, 0.8);
+    font-size:28px;
     margin-top: 38px;
     font-weight: 700;
     font-family: 'Heebo', sans-serif;
@@ -234,11 +324,14 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 }
 
 .register-main-form-label {
-    color: black;
+    color:#3D4053;
     align-self: flex-start;
-    margin-left: 0;
-    font-size: 14px;
-    margin-bottom: 1px;
+    font-size: 16px;
+    margin-bottom: 7px;
+    
+    
+    
+    
 }
 
  #password {
@@ -342,19 +435,20 @@ p.register-main-form-error {
     margin-top: 18px;
     height: 45px;
     font-weight: 700;
-    background: #FFFFFF;
-    border: 1px solid #E1E1E4;
+    background: #00B2D9;
+    border: 1px solid #00B2D9;
     box-sizing: border-box;
     border-radius: 3px;
-    border: 1px solid rgba(42, 46, 67, 0.5);
-    color: rgba(42, 46, 67, 0.6);
+    /* border: 1px solid rgba(42, 46, 67, 0.5); */
+    color: #F8F9FA;
 
 }
 
 .register-lets-go-button:hover {
-    color: #fff;
-    background-color: rgba(53, 195, 226, 0.95);
-    border: none;
+    /* color: #fff; */
+    border: 1px solid #00B2D9;
+    background-color: #00B2D9;
+    /* border: none; */
 }
 
 .already-have-an-account {
@@ -362,6 +456,10 @@ p.register-main-form-error {
     padding-left: 20px;
     padding-right: 20px;
     font-size: 16px;
+    margin-bottom:180px;
+    text-align: center;
+    color:rgba(63, 67, 86, 0.7);
+    font-weight: bold;
 }
 
 @media (max-width: 415px) {
@@ -374,7 +472,7 @@ p.register-main-form-error {
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
-    color: rgba(53, 195, 226, 0.95);
+    color: rgba(63, 67, 86, 0.7)
 
 }
 
