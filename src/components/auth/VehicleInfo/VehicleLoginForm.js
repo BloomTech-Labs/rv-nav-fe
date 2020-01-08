@@ -207,7 +207,7 @@ const VehicleInfo = () => {
               >
                 Add to My Vehicles
               </button>
-              <a id="sign-in" href="/preferences">
+              <a id="sign-in" href="/routingPref">
                 Skip this step
               </a>
             </div>
