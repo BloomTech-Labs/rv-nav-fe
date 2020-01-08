@@ -26,7 +26,7 @@ const App = () => {
       <Route path="/personal" component={Personal} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={RegisterHooks} />
-      <Route path="/routingPref" component = {RoutingPref}/>
+      <Route path="/preferences" component = {RoutingPref}/>
       <Route path="/load" component = {LoadingPage}/>
       
       
