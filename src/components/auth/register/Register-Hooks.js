@@ -139,7 +139,7 @@ const handleChange = event =>{
                     setNewUser({
         
                     });
-                    props.history.push("/map");
+                    props.history.push("/personal");
                   }
                 });
             }

@@ -28,8 +28,8 @@ function validate(username) {
 }
 
 class PersonalInfoForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = ({
       personalInfo: {
       firstName: '',
@@ -72,6 +72,11 @@ class PersonalInfoForm extends React.Component {
     alert(`Signed up with username: ${username}`);
   };
 
+  submitForm (e) {
+    e.preventDefault()
+    this.props.history.push('/vehicle');
+  };
+
   canBeSubmitted() {
     const errors = validate(this.state.personalInfo.username);
     const isDisabled = Object.keys(errors).some(x => errors[x]);
@@ -94,7 +99,7 @@ class PersonalInfoForm extends React.Component {
           <Text className="rv-way-header-text">RV WAY</Text>
         </Header>
         <div className="register-main">
-              <form className="personal-main-form">
+              <form className="personal-main-form" onSubmit={this.submitForm.bind(this)}>
                 <div className="register-header">
                   <h2 className="register-welcome-home">Welcome to RV Way!</h2>
                   <h6 className="register-lets-get-you-settled">Tell us about yourself...</h6>
@@ -147,7 +152,7 @@ class PersonalInfoForm extends React.Component {
                 </button>
                 
                   <div className="already-have-an-account">
-                    <a id="sign-in" href="/login">Skip this step</a>
+                    <a id="sign-in" href="/vehicle">Skip this step</a>
                   </div>
                 </div>
               </form>

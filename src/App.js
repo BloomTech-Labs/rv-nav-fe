@@ -20,6 +20,7 @@ const App = () => {
       <Route path="/" exact component={LandingPage} />
       {/* <Route path="/auth" component={Auth} /> */}
       <Route path="/map" component={Map} />
+      <Route path="/personal" component={Personal} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={RegisterHooks} />
       <Route path="/routingPref" component = {RoutingPref}/>
