@@ -4,9 +4,11 @@ import { Route } from 'react-router-dom';
 // import Auth from './components/auth/Auth';
 import Map from './components/map/Map';
 import LandingPage from './components/landingPage/LandingPage';
-import Login from './components/auth/login/Login'
+import Login from './components/auth/login/Login';
 import Register from './components/auth/register/Register';
-import PersonalInfo from './components/personalInfoForm/PersonalInfoForm';
+import RegisterHooks from './components/auth/register/Register-Hooks';
+
+
 
 const App = () => {
   return (
@@ -15,8 +17,7 @@ const App = () => {
       {/* <Route path="/auth" component={Auth} /> */}
       <Route path="/map" component={Map} />
       <Route path="/login" component={Login} />
-      <Route path="/personal" component={PersonalInfo} />
-      <Route path="/register" component={Register} />
+      <Route path="/register" component={RegisterHooks} />
     </div>
   );
 };
