@@ -219,7 +219,7 @@ const RoutingPref = (props) => {
                     </button>
                   
                   <div className="already-have-an-account">
-                    <a id="sign-in" href="/loadingPage"><span>Skip this step</span></a>
+                    <a id="sign-in" href="/map"><span>Skip this step</span></a>
                   </div>
                 </div>
                 
