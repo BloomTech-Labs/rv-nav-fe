@@ -10,7 +10,7 @@ import RegisterHooks from './components/auth/register/Register-Hooks';
 import RoutingPref from './components/auth/routingPref/Routing-Pref';
 import LoadingPage from './components/auth/loading/LoadingPage';
 import Personal from './components/personalInfoForm/PersonalInfoForm';
-
+import Vehicle from './components/auth/VehicleInfo/VehicleLoginForm';
 
 
 
@@ -26,7 +26,7 @@ const App = () => {
       <Route path="/register" component={RegisterHooks} />
       <Route path="/routingPref" component = {RoutingPref}/>
       <Route path="/load" component = {LoadingPage}/>
-      
+      <Route path="/vehicle" component = {Vehicle}/>
       
     </div>
   );
