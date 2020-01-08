@@ -7,6 +7,10 @@ import LandingPage from './components/landingPage/LandingPage';
 import Login from './components/auth/login/Login';
 import Register from './components/auth/register/Register';
 import RegisterHooks from './components/auth/register/Register-Hooks';
+import RoutingPref from './components/auth/routingPref/Routing-Pref';
+import LoadingPage from './components/auth/loading/LoadingPage';
+
+
 
 
 
@@ -18,6 +22,10 @@ const App = () => {
       <Route path="/map" component={Map} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={RegisterHooks} />
+      <Route path="/routingPref" component = {RoutingPref}/>
+      <Route path="/load" component = {LoadingPage}/>
+      
+      
     </div>
   );
 };
