@@ -8,6 +8,7 @@ import { ReactComponent as BackArrow } from "../../../assets/img/back.svg";
 // import { register, login, clearError } from "../../../store/actions";
 // import { withRouter } from "react-router-dom";
 // import firebase from 'firebase';
+import { PersonalInfoForm } from "../../personalInfoForm/PersonalInfoForm";
 
 const Header = styled.div`
   height: 80px;
@@ -27,7 +28,34 @@ const Text = styled.span`
   height: 60px;
 `;
 const VehicleInfo = () => {
-  const [auto, setAuto] = useState({});
+  const [auto, setAuto] = useState({
+    rvInfo: {
+      vehicleName: "",
+      heightFeet: "",
+      heightInches: "",
+      widthFeet: "",
+      widthInches: "",
+      lengthFeet: "",
+      lengthInches: "",
+      weightPounds: "",
+      axleCount: "",
+      vehicleClass: ""
+    }
+  });
+
+  // const handleOptionChange = e => {
+  //   setAuto({ ...auto, [auto.rvInfo.vehicleClass]: e.target.value });
+  // };
+
+  const handleRadio = event => {
+    //const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    setAuto({
+      rvInfo: {
+        ...auto.rvInfo,
+        vehicleClass: event.target.value
+      }
+    });
+  };
 
   useEffect(() => {}, []);
   const handleChange = e => {
@@ -62,7 +90,7 @@ const VehicleInfo = () => {
               <input
                 className="vehicleRegisterInput"
                 type="string"
-                name="name"
+                name="vehicleName"
                 placeholder=""
               />
             </div>
@@ -179,23 +207,51 @@ const VehicleInfo = () => {
               <p className="classType">RV Type</p>
               <div className="Vehicle-Info-Size-4th">
                 <label>
-                  <input type="radio" value="ClassA" />
+                  <input
+                    type="radio"
+                    value="ClassA"
+                    checked={auto.rvInfo.vehicleClass === "ClassA"}
+                    onChange={handleRadio}
+                  />
                   Class A
                 </label>
                 <label>
-                  <input className="label" type="radio" value="ClassB" />
+                  <input
+                    className="label"
+                    type="radio"
+                    value="ClassB"
+                    checked={auto.rvInfo.vehicleClass === "ClassB"}
+                    onChange={handleRadio}
+                  />
                   Class B
                 </label>
                 <label>
-                  <input className="label" type="radio" value="ClassC" />
+                  <input
+                    className="label"
+                    type="radio"
+                    value="ClassC"
+                    checked={auto.rvInfo.vehicleClass === "ClassC"}
+                    onChange={handleRadio}
+                  />
                   Class C
                 </label>
                 <label>
-                  <input type="radio" value="5thWheel" />
+                  <input
+                    type="radio"
+                    value="5thWheel"
+                    checked={auto.rvInfo.vehicleClass === "5thWheel"}
+                    onChange={handleRadio}
+                  />
                   5th wheel
                 </label>
                 <label>
-                  <input className="label1" type="radio" value="PullBehind" />
+                  <input
+                    className="label1"
+                    type="radio"
+                    value="PullBehind"
+                    checked={auto.rvInfo.vehicleClass === "PullBehind"}
+                    onChange={handleRadio}
+                  />
                   Pull behind
                 </label>
               </div>
