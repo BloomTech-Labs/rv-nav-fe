@@ -9,6 +9,8 @@ import Register from './components/auth/register/Register';
 import RegisterHooks from './components/auth/register/Register-Hooks';
 import RoutingPref from './components/auth/routingPref/Routing-Pref';
 import LoadingPage from './components/auth/loading/LoadingPage';
+import Personal from './components/personalInfoForm/PersonalInfoForm';
+import Vehicle from './components/auth/VehicleInfo/VehicleLoginForm';
 
 
 
@@ -20,6 +22,7 @@ const App = () => {
       <Route path="/" exact component={LandingPage} />
       {/* <Route path="/auth" component={Auth} /> */}
       <Route path="/map" component={Map} />
+      <Route path='/vehicle' component={Vehicle}/>
       <Route path="/personal" component={Personal} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={RegisterHooks} />
