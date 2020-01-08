@@ -9,6 +9,7 @@ import Register from './components/auth/register/Register';
 import RegisterHooks from './components/auth/register/Register-Hooks';
 import RoutingPref from './components/auth/routingPref/Routing-Pref';
 import LoadingPage from './components/auth/loading/LoadingPage';
+import Personal from './components/personalInfoForm/PersonalInfoForm';
 
 
 
