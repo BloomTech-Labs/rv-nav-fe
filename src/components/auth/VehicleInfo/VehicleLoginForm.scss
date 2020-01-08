@@ -1,0 +1,187 @@
+p {
+  color: rgba(42, 46, 67, 0.5);
+  align-items: flex-start;
+}
+
+h4 {
+  font-weight: lighter;
+}
+
+.greeting h4 {
+  font-weight: 400;
+  color: rgba(42, 46, 67, 0.8);
+}
+
+.Vehicle-Info-Wrapper {
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+.Vehicle-Name {
+  margin: 10px 0;
+
+  p {
+    align-items: center;
+    margin-bottom: 5px;
+  }
+}
+
+.VDLabel {
+  color: #3d4053;
+  font-weight: 340;
+  margin-top: 25px;
+}
+
+.VDMeasurements {
+  display: flex;
+  justify-content: space-evenly;
+  width: 99%;
+  align-content: flex-start;
+
+  p {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+.registerInputBoxes-Wrapper1 {
+  display: flex;
+  float: left;
+  padding: 10px;
+
+  p.inputLabels {
+    font-style: normal;
+    margin-bottom: 1px;
+    text-align: left;
+    margin-left: 12px;
+    display: flex;
+    color: rgba(42, 46, 67, 0.8);
+  }
+}
+.registerInputBoxes-Wrapper2 {
+  display: flex;
+  padding: 10px;
+  p.inputLabels {
+    font-style: normal;
+    margin-bottom: 1px;
+    text-align: left;
+    margin-left: 12px;
+    display: flex;
+
+    color: rgba(42, 46, 67, 0.8);
+  }
+}
+
+.registerInputBoxes-Wrapper3 {
+  display: flex;
+  float: left;
+  padding: 10px;
+  p.inputLabels {
+    font-style: normal;
+    margin-bottom: 1px;
+    text-align: left;
+    margin-left: 12px;
+    display: flex;
+
+    color: rgba(42, 46, 67, 0.8);
+  }
+}
+
+.registerInputBoxes-Wrapper4 {
+  display: flex;
+  padding: 10px;
+  p.inputLabels {
+    font-style: normal;
+    margin-bottom: 1px;
+    text-align: left;
+    margin-left: 5px;
+    display: flex;
+
+    color: rgba(42, 46, 67, 0.8);
+  }
+}
+
+.vehicleRegisterInput {
+  border: none;
+  border-bottom: 1px solid rgba(42, 46, 67, 0.5);
+  text-align: left;
+  width: 90%;
+}
+
+.registerInputBoxes {
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+  flex-direction: row;
+  display: flex;
+}
+
+.registerInputBoxes-Wrapper {
+  display: flex;
+}
+
+.go-back {
+  color: #00b2d9;
+  font-size: 16px;
+  font-weight: 500;
+}
+.go-back-div {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+}
+.go-back.a,
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+.Vehicle-Info-Size-3rd {
+  display: flex;
+  flex-flow: wrap;
+  margin: 0;
+
+  //   p {
+  //     margin: 0;
+  //   }
+
+  //   .tires {
+  //     margin-left: 20px;
+  //   }
+}
+
+.Vehicle-Info-Size-4th {
+  display: flex;
+  flex-flow: wrap;
+  width: 75%;
+  margin: 5px;
+
+  .label {
+    margin-left: 30px;
+  }
+
+  .label1 {
+    margin-left: 20px;
+  }
+}
+
+.classType {
+  margin: 0;
+}
+
+.check {
+  margin: 0;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  color: rgba(42, 46, 67, 0.7);
+}
+
+.registerInputBoxes {
+  max-width: 50%;
+}
