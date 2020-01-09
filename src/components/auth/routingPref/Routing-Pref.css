@@ -109,6 +109,8 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .go-back-div{
     margin-top:15px;
     margin-left:5px;
+    margin-right:300px;
+    margin-top:0px;
 }
 
 .go-back.a,a:hover, a:visited, a:link, a:active{
