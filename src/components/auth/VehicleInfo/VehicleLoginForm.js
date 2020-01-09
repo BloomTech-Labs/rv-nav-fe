@@ -160,20 +160,24 @@ const VehicleInfo = () => {
               </div>
 
               <div className="Vehicle-Info-Size-3rd">
-                <p>Axle Count</p>
-                <input
-                  className="registerInputBoxes"
-                  type="number"
-                  min="0"
-                  max="8"
-                  name="axleCount"
-                  placeholder=""
-                />
-                <label className="tires">
-                  <p className="check">Tires</p>
-                  <input className="registerCheckbox" type="checkbox" />I have a
-                  dual wheel vehicle
-                </label>
+                <div className="axle">
+                  <p>Axle Count</p>
+                  <input
+                    className="registerInputBoxes"
+                    type="number"
+                    min="0"
+                    max="8"
+                    name="axleCount"
+                    placeholder=""
+                  />
+                </div>
+                <div className="tires">
+                  <label className="tires">
+                    <p className="check">Tires</p>
+                    <input className="registerCheckbox" type="checkbox" />I have
+                    a dual wheel vehicle
+                  </label>
+                </div>
               </div>
 
               <p className="classType">RV Type</p>

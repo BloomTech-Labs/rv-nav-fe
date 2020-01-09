@@ -133,15 +133,16 @@ a:active {
 .Vehicle-Info-Size-3rd {
   display: flex;
   flex-flow: wrap;
+  //   justify-content: space-between;
   margin: 0;
 
-  //   p {
-  //     margin: 0;
-  //   }
+  p {
+    margin: 0;
+  }
 
-  //   .tires {
-  //     margin-left: 20px;
-  //   }
+  .tires {
+    margin-left: 20px;
+  }
 }
 .Vehicle-Info-Size-4th {
   display: flex;
