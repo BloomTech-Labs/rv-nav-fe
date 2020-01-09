@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./PersonalInfoForm.css"
-import styled from 'styled-components';
+import "./PersonalInfoForm.css";
+import styled from "styled-components";
 
 const Header = styled.div`
 height: 80px;
   width: auto
   background: #2A2E43;
-`
+`;
 const Text = styled.span`
   position: absolute;
   left: 0.74%;
@@ -18,6 +18,7 @@ const Text = styled.span`
   font-weight: bold;
   font-family: Heebo;
   height: 60px;
+
 `
 
 const PersonalInfoForm = (props) => {
