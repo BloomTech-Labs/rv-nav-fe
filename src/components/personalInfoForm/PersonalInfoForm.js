@@ -20,72 +20,35 @@ const Text = styled.span`
   height: 60px;
 `
 
-
-function validate(username) {
-  return {
-    username: username === ''
-  };
-}
-
 const PersonalInfoForm = (props) => {
-const [user, setUser] = useState({
-  personalInfo: {
-    firstName: '',
-    lastName: '',
-    username: '',
-    age: '',
-    touched: {
-      username: false
-    },
-  }
-});
-
-         
-const handleChange = evt => {
-            setUser({ username: evt.target.value });
-          };
-          
-  const handleRest = (event) => {
-            setUser({ [event.target.name]: (event.target.value)})
-    };
-
-  //Figured how to get the touched to read
-  // const handleBlur = field => evt => {
-  //   setUser({
-  //     touched: { ...touched, [field]: true },
-  //   });
-  // }
-  
-  // const handleSubmit = evt => {
-  //   if (!canBeSubmitted()) {
-  //     evt.preventDefault();
-  //     return;
-  //   }
-  //   const { username } = user;
-  //   alert(`Signed up with username: ${username}`);
-  // };
-  
-  const submitForm = (e) => {
-    e.preventDefault()
-    props.history.push('/vehicle');
-  };
-  console.log("hello", submitForm);
-  
-  const canBeSubmitted = () => {
-    const errors = validate(user.personalInfo.username);
-    const isDisabled = Object.keys(errors).some(x => errors[x]);
-    return !isDisabled;
-  }
-  
-
-    const errors = validate(user.personalInfo.username);
-    const isDisabled = Object.keys(errors).some(x => errors[x]);
+  const [user, setUser] = useState({
+    personalInfo: {
+      firstName: '',
+      lastName: '',
+      username: '',
+      age: ''
+      }
+  });
     
-    const shouldMarkError = (field) => {
-      const hasError = errors[field];
-      const shouldShow = user.personalInfo.touched[field];
-      return hasError ? shouldShow : false
+    
+    //Handles inputs
+    const handleChange = e => {
+      setUser({
+        personalInfo: {
+          ...user.personalInfo,
+          [e.target.name]: e.target.value,
+        }
+      });
     };
+    
+    // On submit will push to next onboarding component
+    const submitForm = (e) => {
+      e.preventDefault()
+      props.history.push('/vehicle');
+    };
+    console.log("hello", submitForm);
+    
+    
     
     return (
       <div className="register-wrapper">
@@ -107,8 +70,8 @@ const handleChange = evt => {
                     className="register-main-form-input"
                     name="firstName"
                     type="text"
-                    value={user.firstName}
-                    onChange={handleRest}/>
+                    value={user.personalInfo.firstName}
+                    onChange={handleChange}/>
 
                 <label className="register-main-form-label">Last Name</label>
 
@@ -116,18 +79,17 @@ const handleChange = evt => {
                 className="register-main-form-input"
                 name="lastName"
                 type="text"
-                value={user.lastName}
-                onChange={handleRest}/>
+                value={user.personalInfo.lastName}
+                onChange={handleChange}/>
 
                 <label className="register-main-form-label">Username</label>
 
                 <input
-                className={shouldMarkError('username') ? "error" : ""} 
-                id = "register-main-form-input"
-                // onBlur={handleBlur('username')}
+                className="register-main-form-input"
+                // id = "register-main-form-input"
                 name="username"
                 type="text"
-                value={user.username}
+                value={user.personalInfo.username}
                 onChange={handleChange}
                 />       
 
@@ -137,8 +99,8 @@ const handleChange = evt => {
                     className="register-main-age-input"
                     name="age"
                     type="number"
-                    value={user.age}
-                    onChange={handleRest}/>         
+                    value={user.personalInfo.age}
+                    onChange={handleChange}/>         
 
 
                   <button className="register-lets-go-button" variant="warning" type="submit" >
@@ -153,9 +115,65 @@ const handleChange = evt => {
         </div>
       </div>
 
-  )
+)
 };
+
+export default PersonalInfoForm;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function validate(username) {
+//   return {
+//     username: username === ''
+//   };
+// }
+
+// const handleChange = evt => {
+  //             setUser({ username: evt.target.value });
+  //           };
   
-  export default PersonalInfoForm;
+
+//Figured how to get the touched to read
+// const handleBlur = field => evt => {
+  //   setUser({
+//     touched: { ...touched, [field]: true },
+//   });
+// }
+
+// const handleSubmit = evt => {
+//   if (!canBeSubmitted()) {
+//     evt.preventDefault();
+//     return;
+//   }
+//   const { username } = user;
+//   alert(`Signed up with username: ${username}`);
+// };
+
+
+// const canBeSubmitted = () => {
+//   const errors = validate(user.personalInfo.username);
+//   const isDisabled = Object.keys(errors).some(x => errors[x]);
+//   return !isDisabled;
+// }
+
+
+  // const errors = validate(user.personalInfo.touched.username);
+  // const isDisabled = Object.keys(errors).some(x => errors[x]);
   
-  
+  // const shouldMarkError = (field) => {
+  //   const hasError = errors[field];
+  //   const shouldShow = user.personalInfo.touched[field];
+  //   return hasError ? shouldShow : false
+  // };
