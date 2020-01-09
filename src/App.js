@@ -18,7 +18,6 @@ const App = () => {
       <Route path="/" exact component={LandingPage} />
       {/* <Route path="/auth" component={Auth} /> */}
       <Route path="/map" component={Map} />
-      <Route path="/vehicle" component={Vehicle} />
       <Route path="/personal" component={Personal} />
       <Route path="/vehicle" component={RegisterVehicleForm} />
       <Route path="/login" component={Login} />

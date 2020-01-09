@@ -123,6 +123,7 @@ h4 {
   margin-bottom: 15px;
   margin-left: 5px;
 }
+
 .go-back.a,
 a:hover,
 a:visited,
@@ -130,11 +131,19 @@ a:link,
 a:active {
   text-decoration: none;
 }
+
 .Vehicle-Info-Size-3rd {
   display: flex;
   flex-flow: wrap;
-  //   justify-content: space-between;
   margin: 0;
+
+  .axle {
+    margin-bottom: 10px;
+    input {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
 
   p {
     margin: 0;
@@ -144,6 +153,7 @@ a:active {
     margin-left: 20px;
   }
 }
+
 .Vehicle-Info-Size-4th {
   display: flex;
   flex-flow: wrap;
