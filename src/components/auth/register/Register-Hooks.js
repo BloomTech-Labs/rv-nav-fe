@@ -229,7 +229,7 @@ useEffect(() =>{
                 <div className="register-header">
                   <h2 className="register-welcome-home">Welcome Home!</h2>
                   <h4 className="register-lets-get-you-settled">Lets get you settled</h4>
-                  <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
+                  <h6 className="register-sign-up-with-social-media">Sign up with social media</h6>
                 </div>
                 <div className="register-social-media">
                     
@@ -319,8 +319,13 @@ useEffect(() =>{
                     </button>
                   
                   <div className="already-have-an-account">
-                    <span>Already have an account? <a id="sign-in" href="/login">Sign In</a></span>
+                    <div>
+                      <span>Already have an account?</span>
+                    </div> 
+                  <div className="signup-contain">
+                      <a id="sign-in" href="/login">Sign In</a>
                   </div>
+                </div>
                 </div>
               </form>
             )}
