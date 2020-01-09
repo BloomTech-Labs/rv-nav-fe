@@ -71,15 +71,17 @@ const VehicleInfo = () => {
       <div className="register-main">
         <form className="register-main-form">
           <div className="go-back-div">
-            <BackArrow />
-            <span className="LoginFormBackArrow" id="routing">
-              Back
-            </span>
+            <a className="go-back" href="/personal">
+              <BackArrow />
+              <span className="LoginFormBackArrow" id="routing">
+                Back
+              </span>
+            </a>
           </div>
 
           <div className="greeting">
             <h4>
-              <b>Its great to meet you, (namehere)!</b>
+              <b>Its great to meet you, Allen!</b>
             </h4>
             <h4>Let's talk about your vehicle...</h4>
           </div>
@@ -200,7 +202,7 @@ const VehicleInfo = () => {
                   />
                 </div>
                 <div className="tires">
-                  <label className="tires">
+                  <label className="tiresLabel">
                     <p className="check">Tires</p>
                     <input className="registerCheckbox" type="checkbox" />I have
                     a dual wheel vehicle
