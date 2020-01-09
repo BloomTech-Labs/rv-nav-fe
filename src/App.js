@@ -13,7 +13,6 @@ import LoadingPage from "./components/auth/loading/LoadingPage";
 import Personal from "./components/personalInfoForm/PersonalInfoForm";
 import RegisterVehicleForm from "./components/auth/VehicleInfo/VehicleLoginForm";
 
-
 const App = () => {
   return (
     <div className="App">
@@ -24,10 +23,8 @@ const App = () => {
       <Route path="/vehicle" component={RegisterVehicleForm} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={RegisterHooks} />
-      <Route path="/routingPref" component = {RoutingPref}/>
-      <Route path="/load" component = {LoadingPage}/>
-      <Route path="/vehicle" component = {Vehicle}/>
-      
+      <Route path="/routingPref" component={RoutingPref} />
+      <Route path="/load" component={LoadingPage} />
     </div>
   );
 };
