@@ -231,11 +231,13 @@ class VehicleForm extends React.Component {
       <>
         <div className="back">
           <BackArrow />
+
           <p
             className='vehicleFormBackContainer'
             id="routing"
             onClick={this.props.selectVehicles}>Back
           </p>
+
           <p className="back-label">Add a vehicle</p>
         </div>
         <div className="form-wrapper">
@@ -253,6 +255,7 @@ class VehicleForm extends React.Component {
             >
             </input>
           </div>
+
           <div className="vehicle-spec-label">
             <div className='dimensionsTitle'>
               <p className="vehicle-spec">Height</p>
@@ -260,6 +263,7 @@ class VehicleForm extends React.Component {
                 <div className='measurementsParent'>
                   <div className='measurements'>
                     <p className='measurementsInput'>FEET</p>
+
                     <input
                       type="number"
                       min="0"
@@ -273,9 +277,11 @@ class VehicleForm extends React.Component {
                       id='heightInput'
                     />
                   </div>
+
                   <div className="plus">
                     <PlusSign />
                   </div>
+
                   <div className="measurements">
                     <p className='measurementsInput'>INCHES</p>
                     <input
@@ -292,6 +298,7 @@ class VehicleForm extends React.Component {
                   </div>
               </div>
             </div>
+
             <div className='dimensionsTitle'>
               <p className="vehicle-spec">Width</p>
               <div className='measurementsParent'>
@@ -308,9 +315,11 @@ class VehicleForm extends React.Component {
                     className="input-boxes"
                   />
                 </div>
+
                 <div className="plus">
                   <PlusSign />
                 </div>
+
                 <div className="measurements">
                   <p className='measurementsInput'>INCHES</p>
                   <input
@@ -329,6 +338,7 @@ class VehicleForm extends React.Component {
           </div>
           {this.state.specifications.heightFeet === undefined || this.state.specifications.heightFeet === 0 ?
             <p id='requiredField'>*Height is required</p>: null}
+
           <div className="vehicle-spec-label2">
             <div className='dimensionsTitle'>
               <p className="vehicle-spec">Length</p>
@@ -349,6 +359,7 @@ class VehicleForm extends React.Component {
                 <div className="plus">
                   <PlusSign />
                 </div>
+
                 <div className="measurements">
                   <p className='measurementsInput'>INCHES</p>
                   <input
@@ -364,6 +375,7 @@ class VehicleForm extends React.Component {
                 </div>
               </div>
             </div>
+
             <div className='dimensionsTitle' id='poundsContainer'>
               <p className="vehicle-spec">Weight</p>
               <div className='measurements'>
@@ -381,6 +393,7 @@ class VehicleForm extends React.Component {
               </div>
             </div>
           </div>
+
             <div className="form-section">
               <div className="measurements">
                 <p className='measurementsInput'>AXEL COUNT</p>
@@ -396,6 +409,8 @@ class VehicleForm extends React.Component {
                 >
                 </input>
               </div>
+
+
               <div className="tires-check-p">
                 <div className="tires-p">
                   <p className='tires-ptag' >Tires</p>
@@ -412,6 +427,7 @@ class VehicleForm extends React.Component {
                 </div>
               </div>
             </div>
+            
           <p className="vehicle-spec">RV TYPE</p>
           <div className="class-radios">
             <div className='classAbc'>

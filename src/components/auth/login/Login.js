@@ -4,7 +4,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../store/actions";
-import MapHeader from "../../header/MapHeader"
+import MapHeader from "../../header/MapHeader";
 
 //CSS STYLES
 import "./Login.css"
@@ -31,16 +31,15 @@ class LoginForm extends React.Component {
       },
       loading: false,
       isSignedIn: false
-    }
-
+    };
   }
 
   // Configure FirebaseUI.
   uiConfig = {
     // Popup signin flow rather than redirect flow.
-    signInFlow: 'popup',
+    signInFlow: "popup",
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: '/map',
+    signInSuccessUrl: "/map",
     // We will display Google and Facebook as auth providers.
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -49,9 +48,9 @@ class LoginForm extends React.Component {
   };
 
   componentDidMount() {
-    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
-      (user) => this.setState({ isSignedIn: !!user })
-    );
+    this.unregisterAuthObserver = firebase
+      .auth()
+      .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
     // console.log('%cFirebase USER from did mount:) ->>', 'color: red; font-size: 16px;', firebase.auth())
   }
 
@@ -62,17 +61,12 @@ class LoginForm extends React.Component {
 
     switch (name) {
       case "email":
-        errors.email =
-          value.length < 1
-            ? "Email cannot be empty"
-            : "";
+        errors.email = value.length < 1 ? "Email cannot be empty" : "";
         break;
 
       case "password":
         errors.password =
-          value.length < 8
-            ? "Password must be at least 8 characters long"
-            : "";
+          value.length < 8 ? "Password must be at least 8 characters long" : "";
         break;
       default:
         break;
@@ -114,19 +108,18 @@ class LoginForm extends React.Component {
   };
 
   unmaskPassword() {
-    var passwordInput = document.querySelector('#password-input');
-    var passwordStatus = document.querySelector('.password-mask');
-    passwordStatus.backgroundImage = 'none';
+    var passwordInput = document.querySelector("#password-input");
+    var passwordStatus = document.querySelector(".password-mask");
+    passwordStatus.backgroundImage = "none";
 
-    if (passwordStatus && passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      passwordStatus.classList.add('password-eye-off')
-      passwordStatus.classList.remove('password-eye')
-    }
-    else {
-      passwordInput.type = 'password';
-      passwordStatus.classList.remove('password-eye-off')
-      passwordStatus.classList.add('password-eye')
+    if (passwordStatus && passwordInput.type === "password") {
+      passwordInput.type = "text";
+      passwordStatus.classList.add("password-eye-off");
+      passwordStatus.classList.remove("password-eye");
+    } else {
+      passwordInput.type = "password";
+      passwordStatus.classList.remove("password-eye-off");
+      passwordStatus.classList.add("password-eye");
     }
   }
 
@@ -138,31 +131,48 @@ class LoginForm extends React.Component {
       <div className="login-wrapper">
         <MapHeader />
         <div className="login-main">
-          {loading === true ? <p className="login-auth-loading">Let the adventure begin...</p> :
+          {loading === true ? (
+            <p className="login-auth-loading">Let the adventure begin...</p>
+          ) : (
             <form className="login-main-form" onSubmit={this.loginSubmit}>
               <div className="login-header">
                 <h2 className="login-welcome-back">Welcome Back!</h2>
-                <h4 className="its-great-to-see-you-again">It's great to see you again.</h4>
+                <h4 className="its-great-to-see-you-again">
+                  It's great to see you again.
+                </h4>
               </div>
               <div className="login-social-media">
-                {this.state.isSignedIn ?
-                  (
-                    <div>
-                      {this.state.isSignedIn ? (
-                        <>
-                          <h6>Welcome  {firebase.auth().currentUser.displayName}</h6>
-                          <button onClick={() => firebase.auth().signOut()}>Logout</button>
-                        </>
-                      ) : localStorage.getItem('firebaseui::rememberedAccounts') ? localStorage.removeItem('firebaseui::rememberedAccounts') : null}
-                    </div>
-                  ) :
-                  (<StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />)}
+                {this.state.isSignedIn ? (
+                  <div>
+                    {this.state.isSignedIn ? (
+                      <>
+                        <h6>
+                          Welcome {firebase.auth().currentUser.displayName}
+                        </h6>
+                        <button onClick={() => firebase.auth().signOut()}>
+                          Logout
+                        </button>
+                      </>
+                    ) : localStorage.getItem(
+                        "firebaseui::rememberedAccounts"
+                      ) ? (
+                      localStorage.removeItem("firebaseui::rememberedAccounts")
+                    ) : null}
+                  </div>
+                ) : (
+                  <StyledFirebaseAuth
+                    uiConfig={this.uiConfig}
+                    firebaseAuth={firebase.auth()}
+                  />
+                )}
               </div>
               <div className="or">
                 <span>or</span>
               </div>
               {this.props.error === "Invalid username or password" ? (
-                <p className="login-main-form-error">Invalid Email or Password</p>
+                <p className="login-main-form-error">
+                  Invalid Email or Password
+                </p>
               ) : null}
               <div className="login-input-and-button">
                 <label className="login-main-form-label">Email</label>
@@ -178,8 +188,12 @@ class LoginForm extends React.Component {
                 {errors.email.length > 0 && (
                   <p className="login-main-form-error">{errors.email}</p>
                 )}
-                <span className="password-mask" onClick={this.unmaskPassword}>MASK</span>
-                <label className="login-main-form-label" id="password">Password</label>
+                <span className="password-mask" onClick={this.unmaskPassword}>
+                  MASK
+                </span>
+                <label className="login-main-form-label" id="password">
+                  Password
+                </label>
                 <input
                   className="login-main-form-input"
                   type="password"
@@ -194,18 +208,27 @@ class LoginForm extends React.Component {
                   <p className="login-main-form-error">{errors.password}</p>
                 )}
 
-                <button className="login-lets-go-button" variant="warning" type="submit">
+                <button
+                  className="login-lets-go-button"
+                  variant="warning"
+                  type="submit"
+                >
                   Let's Go
                 </button>
                 <div className="need-account">
-                  <span>Need to create an account? <a id="sign-up" href="/register">Sign Up</a></span>
+                  <span>
+                    Need to create an account?{" "}
+                    <a id="sign-up" href="/register">
+                      Sign Up
+                    </a>
+                  </span>
                 </div>
               </div>
             </form>
-
-          }
+          )}
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 
