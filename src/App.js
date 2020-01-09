@@ -24,7 +24,7 @@ const App = () => {
       <Route path="/register" component={RegisterHooks} />
       <Route path="/routingPref" component = {RoutingPref}/>
       <Route path="/load" component = {LoadingPage}/>
-      <Route path="/vehicle" component = {Vehicle}/>
+      
       
     </div>
   );
