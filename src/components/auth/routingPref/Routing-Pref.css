@@ -93,20 +93,20 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     /* color: rgb(183, 30, 210);} */
 
 
-.avoid{
+.register-main-form .avoid{
     margin-left:42px;
     margin-bottom:7px;
     color: rgba(42, 46, 67, 0.6);
     font-weight: bold;
 }
 
-.go-back{
+.register-main-form .go-back{
     color:#00B2D9;
     font-size: 16px;
     font-weight: 500;
 }
 
-.go-back-div{
+.register-main-form .go-back-div{
     margin-top:15px;
     margin-left:5px;
     margin-right:300px;
@@ -231,7 +231,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     margin-bottom: 10px;
 }
 
-.register-header {
+.register-main-form .register-header {
     margin-left: 42px;
     margin-right: 42px;
     margin-bottom:30px;
@@ -244,12 +244,13 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     }
 }
 
-.register-welcome-home {
+.register-main-form .register-welcome-home {
     color:rgba(42, 46, 67, 0.8);
     font-size:28px;
     margin-top: 38px;
     font-weight: 700;
     font-family: 'Heebo', sans-serif;
+    line-height: 41px;
 
 }
 
@@ -325,7 +326,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     background-position: center;
 }
 
-.register-main-form-label {
+.register-input-and-button .register-main-form-label {
     color:#3D4053;
     align-self: flex-start;
     font-size: 16px;
@@ -431,7 +432,7 @@ p.register-main-form-error {
     color: #ffc107;
 }
 
-.register-lets-go-button {
+.register-main-form .register-lets-go-button {
     margin: 0;
     width: 100%;
     margin-top: 18px;
@@ -446,7 +447,7 @@ p.register-main-form-error {
 
 }
 
-.register-lets-go-button:hover {
+.register-main-form .register-lets-go-button:hover {
     /* color: #fff; */
     border: 1px solid #00B2D9;
     background-color: #00B2D9;
