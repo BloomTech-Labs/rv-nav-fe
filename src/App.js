@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
 // import Auth from './components/auth/Auth';
-
 import Map from "./components/map/Map";
 import LandingPage from "./components/landingPage/LandingPage";
 import Login from "./components/auth/login/Login";
