@@ -11,7 +11,6 @@ h4 {
   font-weight: 400;
   color: rgba(42, 46, 67, 0.8);
 }
-
 .Vehicle-Info-Wrapper {
   margin: 0 auto;
   max-width: 95%;
@@ -25,30 +24,25 @@ h4 {
     margin-bottom: 5px;
   }
 }
-
 .VDLabel {
   color: #3d4053;
   font-weight: 340;
   margin-top: 25px;
 }
-
 .VDMeasurements {
   display: flex;
   justify-content: space-evenly;
   width: 99%;
   align-content: flex-start;
-
   p {
     width: 50%;
     margin: 0 auto;
   }
 }
-
 .registerInputBoxes-Wrapper1 {
   display: flex;
   float: left;
   padding: 10px;
-
   p.inputLabels {
     font-style: normal;
     margin-bottom: 1px;
@@ -107,7 +101,6 @@ h4 {
   text-align: left;
   width: 90%;
 }
-
 .registerInputBoxes {
   border: none;
   border-bottom: 1px solid black;
@@ -130,6 +123,7 @@ h4 {
   margin-bottom: 15px;
   margin-left: 5px;
 }
+
 .go-back.a,
 a:hover,
 a:visited,
@@ -143,13 +137,21 @@ a:active {
   flex-flow: wrap;
   margin: 0;
 
-  //   p {
-  //     margin: 0;
-  //   }
+  .axle {
+    margin-bottom: 10px;
+    input {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
 
-  //   .tires {
-  //     margin-left: 20px;
-  //   }
+  p {
+    margin: 0;
+  }
+
+  .tires {
+    margin-left: 20px;
+  }
 }
 
 .Vehicle-Info-Size-4th {
