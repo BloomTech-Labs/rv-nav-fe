@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from 'react-redux';
 import "./PersonalInfoForm.css";
 import styled from "styled-components";
 
@@ -22,25 +23,17 @@ const Text = styled.span`
 `
 
 const PersonalInfoForm = (props) => {
-  const [user, setUser] = useState({
-    personalInfo: {
-      firstName: '',
-      lastName: '',
-      username: '',
-      age: ''
-      }
-  });
-    
-    
-    //Handles inputs
-    const handleChange = e => {
-      setUser({
-        personalInfo: {
-          ...user.personalInfo,
-          [e.target.name]: e.target.value,
-        }
-      });
-    };
+ 
+  
+    //Handles inputs()proe
+    // setUser({
+    //   state.personalInfonalInfo: {
+    //     persousernfo: {
+    //       ...props.personalInfo,
+    //       [e.target.name]: e.target.value,
+    //   });
+    //   });
+    // };
     
     // On submit will push to next onboarding component
     const submitForm = (e) => {
@@ -48,7 +41,6 @@ const PersonalInfoForm = (props) => {
       props.history.push('/vehicle');
     };
     console.log("hello", submitForm);
-    
     
     
     return (
@@ -71,8 +63,9 @@ const PersonalInfoForm = (props) => {
                     className="register-main-form-input"
                     name="firstName"
                     type="text"
-                    value={user.personalInfo.firstName}
-                    onChange={handleChange}/>
+                    value={props.firstName}
+                    // onChange={e => {props.setState(e.target.name)}}
+                    />
 
                 <label className="register-main-form-label">Last Name</label>
 
@@ -80,18 +73,19 @@ const PersonalInfoForm = (props) => {
                 className="register-main-form-input"
                 name="lastName"
                 type="text"
-                value={user.personalInfo.lastName}
-                onChange={handleChange}/>
+                value={props.lastName}
+                // onChange={handleChange}
+                />
+                
 
                 <label className="register-main-form-label">Username</label>
 
                 <input
                 className="register-main-form-input"
-                // id = "register-main-form-input"
                 name="username"
                 type="text"
-                value={user.personalInfo.username}
-                onChange={handleChange}
+                value={props.username}
+                // onChange={handleChange}
                 />       
 
                 <label className="register-main-form-label">Age</label>
@@ -100,8 +94,9 @@ const PersonalInfoForm = (props) => {
                     className="register-main-age-input"
                     name="age"
                     type="number"
-                    value={user.personalInfo.age}
-                    onChange={handleChange}/>         
+                    value={props.age}
+                    // onChange={handleChange}
+                    />         
 
 
                   <button className="register-lets-go-button" variant="warning" type="submit" >
@@ -119,7 +114,14 @@ const PersonalInfoForm = (props) => {
 )
 };
 
-export default PersonalInfoForm;
+const mapStateToProps = state => {
+  console.log(state, 'personalInfo');
+  return {
+    personalInfo: state.personalInfo
+  }
+};
+
+export default connect(mapStateToProps, {})(PersonalInfoForm);
 
 
 
