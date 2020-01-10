@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { reducer } from './store/reducers/index';
+// import { reducer, onboardingReducer }  from './store/reducers';
+import reducer from './store/reducers/index';
+import onboardingReducer from './store/reducers/onboarding';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 //Sentry.io
@@ -16,7 +18,12 @@ Sentry.init({
 
 require('dotenv').config()
 
-export const store = createStore(reducer, applyMiddleware(thunk));
+const rootReducer = combineReducers({
+  firstState: reducer, 
+  secondState: onboardingReducer
+});
+
+export const store = createStore(rootReducer, applyMiddleware(thunk));
 
 
 ReactDOM.render(

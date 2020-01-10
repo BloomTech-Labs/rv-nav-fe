@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+import { connect } from "react-redux";
 import "./PersonalInfoForm.css";
 import styled from "styled-components";
+import { personalInfoAction } from "../../store/actions/OnboardingAction";
+import {
+  onboardingReducer,
+  initialState,
+  actions
+} from "../../store/reducers/onboarding";
 
 const Header = styled.div`
 height: 80px;
@@ -20,69 +27,21 @@ const Text = styled.span`
   height: 60px;
 `;
 
-function validate(username) {
-  return {
-    username: username === ""
-  };
-}
-
 const PersonalInfoForm = props => {
-  const [user, setUser] = useState({
-    personalInfo: {
-      firstName: "",
-      lastName: "",
-      username: "",
-      age: "",
-      touched: {
-        username: false
-      }
-    }
-  });
+  const [state, dispatch] = useReducer(onboardingReducer, initialState);
 
-  const handleChange = evt => {
-    setUser({ username: evt.target.value });
+  const handleChange = e => {
+    dispatch({
+      type: actions[e.target.name + "Changed"],
+      payload: e.target.value
+    });
   };
-
-  const handleRest = event => {
-    setUser({ [event.target.name]: event.target.value });
-  };
-
-  //Figured how to get the touched to read
-  // const handleBlur = field => evt => {
-  //   setUser({
-  //     touched: { ...touched, [field]: true },
-  //   });
-  // }
-
-  // const handleSubmit = evt => {
-  //   if (!canBeSubmitted()) {
-  //     evt.preventDefault();
-  //     return;
-  //   }
-  //   const { username } = user;
-  //   alert(`Signed up with username: ${username}`);
-  // };
-
+  // On submit will push to next onboarding component
   const submitForm = e => {
     e.preventDefault();
     props.history.push("/vehicle");
   };
   console.log("hello", submitForm);
-
-  const canBeSubmitted = () => {
-    const errors = validate(user.personalInfo.username);
-    const isDisabled = Object.keys(errors).some(x => errors[x]);
-    return !isDisabled;
-  };
-
-  const errors = validate(user.personalInfo.username);
-  const isDisabled = Object.keys(errors).some(x => errors[x]);
-
-  const shouldMarkError = field => {
-    const hasError = errors[field];
-    const shouldShow = user.personalInfo.touched[field];
-    return hasError ? shouldShow : false;
-  };
 
   return (
     <div className="register-wrapper">
@@ -105,8 +64,8 @@ const PersonalInfoForm = props => {
               className="register-main-form-input"
               name="firstName"
               type="text"
-              value={user.firstName}
-              onChange={handleRest}
+              value={props.firstName}
+              onChange={handleChange}
             />
 
             <label className="register-main-form-label">Last Name</label>
@@ -115,20 +74,18 @@ const PersonalInfoForm = props => {
               className="register-main-form-input"
               name="lastName"
               type="text"
-              value={user.lastName}
-              onChange={handleRest}
+              value={props.lastName}
+              // onChange={handleChange}
             />
 
             <label className="register-main-form-label">Username</label>
 
             <input
-              className={shouldMarkError("username") ? "error" : ""}
-              id="register-main-form-input"
-              // onBlur={handleBlur('username')}
+              className="register-main-form-input"
               name="username"
               type="text"
-              value={user.username}
-              onChange={handleChange}
+              value={props.username}
+              // onChange={handleChange}
             />
 
             <label className="register-main-form-label">Age</label>
@@ -137,8 +94,8 @@ const PersonalInfoForm = props => {
               className="register-main-age-input"
               name="age"
               type="number"
-              value={user.age}
-              onChange={handleRest}
+              value={props.age}
+              // onChange={handleChange}
             />
 
             <button
@@ -161,4 +118,54 @@ const PersonalInfoForm = props => {
   );
 };
 
+// const mapStateToProps = state => {
+//   console.log(state, "personalInfo");
+//   return {
+//     personalInfo: state.personalInfo
+//   };
+// };
+
+// export default connect(mapStateToProps, {})(PersonalInfoForm);
+
 export default PersonalInfoForm;
+
+// function validate(username) {
+//   return {
+//     username: username === ''
+//   };
+// }
+
+// const handleChange = evt => {
+//             setUser({ username: evt.target.value });
+//           };
+
+//Figured how to get the touched to read
+// const handleBlur = field => evt => {
+//   setUser({
+//     touched: { ...touched, [field]: true },
+//   });
+// }
+
+// const handleSubmit = evt => {
+//   if (!canBeSubmitted()) {
+//     evt.preventDefault();
+//     return;
+//   }
+//   const { username } = user;
+//   alert(`Signed up with username: ${username}`);
+// };
+
+// const canBeSubmitted = () => {
+//   const errors = validate(user.personalInfo.username);
+//   const isDisabled = Object.keys(errors).some(x => errors[x]);
+//   return !isDisabled;
+// }
+
+// const errors = validate(user.personalInfo.touched.username);
+// const isDisabled = Object.keys(errors).some(x => errors[x]);
+
+// const shouldMarkError = (field) => {
+//   const hasError = errors[field];
+//   const shouldShow = user.personalInfo.touched[field];
+//   return hasError ? shouldShow : false
+// };

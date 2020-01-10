@@ -1,26 +1,33 @@
 p {
   color: rgba(42, 46, 67, 0.5);
+  // font-weight: bold;
   align-items: flex-start;
 }
 
-h4 {
-  font-weight: lighter;
+a {
+  font-weight: bold;
+  font-size: 14px;
 }
 
-.greeting h4 {
-  font-weight: 400;
-  color: rgba(42, 46, 67, 0.8);
-}
+.greeting {
+  margin: 0 5px;
 
+  h4 {
+    font-size: 28px;
+    font-weight: 400;
+    color: rgba(42, 46, 67, 0.8);
+  }
+}
 .Vehicle-Info-Wrapper {
-  margin: 0 auto;
+  margin: 0 15px;
   max-width: 95%;
 }
 
 .Vehicle-Name {
-  margin: 10px 0;
+  margin: 20px 0;
 
   p {
+    font-weight: bold;
     align-items: center;
     margin-bottom: 5px;
   }
@@ -28,8 +35,10 @@ h4 {
 
 .VDLabel {
   color: #3d4053;
-  font-weight: 340;
+  font-size: 15px;
+  font-weight: bold;
   margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 .VDMeasurements {
@@ -37,9 +46,9 @@ h4 {
   justify-content: space-evenly;
   width: 99%;
   align-content: flex-start;
-
   p {
     width: 50%;
+    font-weight: bold;
     margin: 0 auto;
   }
 }
@@ -47,7 +56,7 @@ h4 {
 .registerInputBoxes-Wrapper1 {
   display: flex;
   float: left;
-  padding: 10px;
+  padding: 0px 10px 10px 0px;
 
   p.inputLabels {
     font-style: normal;
@@ -60,7 +69,9 @@ h4 {
 }
 .registerInputBoxes-Wrapper2 {
   display: flex;
-  padding: 10px;
+  // padding: 10px;
+  padding: 0px 10px 10px 15px;
+
   p.inputLabels {
     font-style: normal;
     margin-bottom: 1px;
@@ -75,7 +86,8 @@ h4 {
 .registerInputBoxes-Wrapper3 {
   display: flex;
   float: left;
-  padding: 10px;
+  padding: 0px 10px 10px 0px;
+
   p.inputLabels {
     font-style: normal;
     margin-bottom: 1px;
@@ -89,7 +101,8 @@ h4 {
 
 .registerInputBoxes-Wrapper4 {
   display: flex;
-  padding: 10px;
+  padding: 0px 10px 10px 15px;
+
   p.inputLabels {
     font-style: normal;
     margin-bottom: 1px;
@@ -107,7 +120,6 @@ h4 {
   text-align: left;
   width: 90%;
 }
-
 .registerInputBoxes {
   border: none;
   border-bottom: 1px solid black;
@@ -128,8 +140,17 @@ h4 {
 .go-back-div {
   margin-top: 15px;
   margin-bottom: 15px;
-  margin-left: 5px;
+  margin-left: 0px !important;
+
+  span {
+    font-size: 16px;
+  }
+
+  a {
+    justify-content: flex-start;
+  }
 }
+
 .go-back.a,
 a:hover,
 a:visited,
@@ -141,15 +162,29 @@ a:active {
 .Vehicle-Info-Size-3rd {
   display: flex;
   flex-flow: wrap;
-  margin: 0;
+  margin: 10px 0;
 
-  //   p {
-  //     margin: 0;
-  //   }
+  .axle {
+    margin-bottom: 10px;
+    input {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
 
-  //   .tires {
-  //     margin-left: 20px;
-  //   }
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .tires {
+    margin-left: 20px;
+
+    p {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .Vehicle-Info-Size-4th {
@@ -169,6 +204,7 @@ a:active {
 
 .classType {
   margin: 0;
+  font-weight: bold;
 }
 
 .check {
