@@ -438,12 +438,12 @@ p.register-main-form-error {
     margin-top: 25px;
     height: 45px;
     font-weight: 700;
-    background: #00B2D9;
-    border: 1px solid #00B2D9;
+    /* background: #00B2D9; */
+    border: 1px solid rgba(42,46,67,0.5);
     box-sizing: border-box;
     border-radius: 3px;
-    /* border: 1px solid rgba(42, 46, 67, 0.5); */
-    color: #F8F9FA;
+    border: 1px solid rgba(42, 46, 67, 0.5);
+    color: rgba(42,46,67,0.6);
 
 }
 
@@ -455,7 +455,7 @@ p.register-main-form-error {
 }
 
 .register-wrapper .already-have-an-account {
-    margin-top: 17px;
+    margin-top: 0px;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 16px;
