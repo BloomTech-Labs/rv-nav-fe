@@ -1,6 +1,6 @@
 import {ADD_VEHICLE, ADD_USER} from '../actions/OnboardingAction';
 
-const initialState = {
+export const initialState = {
     personalInfo: {
         firstName: '',
         lastName: '',
@@ -46,7 +46,7 @@ const onboardingReducer = (state = initialState, action) => {
                 loading: false,
                 rvInfo: { rvInfo: rvInfo }
       };
-
+      
     default:
         return state;
     }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { connect } from 'react-redux';
 import "../register/Register.css";
 import styled from "styled-components";
 import "./VehicleLoginForm.scss";
@@ -8,7 +9,6 @@ import { ReactComponent as BackArrow } from "../../../assets/img/back.svg";
 // import { register, login, clearError } from "../../../store/actions";
 // import { withRouter } from "react-router-dom";
 // import firebase from 'firebase';
-import { PersonalInfoForm } from "../../personalInfoForm/PersonalInfoForm";
 
 const Header = styled.div`
   height: 80px;
@@ -26,19 +26,11 @@ const Text = styled.span`
   font-weight: bold;
   font-family: Heebo;
   height: 60px;
-`;
-const VehicleInfo = () => {
+`
+
+const VehicleInfo = (props) => {
   const [auto, setAuto] = useState({
-    rvInfo: {
-      vehicleName: "",
-      heightFeet: "",
-      heightInches: "",
-      widthFeet: "",
-      widthInches: "",
-      lengthFeet: "",
-      lengthInches: "",
-      weightPounds: "",
-      axleCount: "",
+    classType: {
       vehicleClass: ""
     }
   });
@@ -91,6 +83,7 @@ const VehicleInfo = () => {
                 className="vehicleRegisterInput"
                 type="string"
                 name="vehicleName"
+                value={props.vehicleName}
                 placeholder=""
               />
             </div>
@@ -113,6 +106,7 @@ const VehicleInfo = () => {
                     min="0"
                     max="100"
                     name="heightFeet"
+                    value={props.heightFeet}
                     placeholder=""
                   />
                   <p className="inputLabels">ft.</p>
@@ -122,6 +116,7 @@ const VehicleInfo = () => {
                     min="0"
                     max="11"
                     name="heightInches"
+                    value={props.heightInches}
                     placeholder=""
                   />
                   <p className="inputLabels">in.</p>
@@ -133,6 +128,7 @@ const VehicleInfo = () => {
                     min="0"
                     max="100"
                     name="widthFeet"
+                    value={props.widthFeet}
                     placeholder=""
                   />
                   <p className="inputLabels">ft.</p>
@@ -142,6 +138,7 @@ const VehicleInfo = () => {
                     min="0"
                     max="11"
                     name="widthInches"
+                    value={props.widthInches}
                     placeholder=""
                   />
                   <p className="inputLabels">in.</p>
@@ -161,6 +158,7 @@ const VehicleInfo = () => {
                     min="0"
                     max="100"
                     name="lengthFeet"
+                    value={props.lengthFeet}
                     placeholder=""
                   />
                   <p className="inputLabels">ft.</p>
@@ -170,6 +168,7 @@ const VehicleInfo = () => {
                     min="0"
                     max="11"
                     name="lengthInches"
+                    value={props.lengthInches}
                     placeholder=""
                   />
                   <p className="inputLabels">in.</p>
@@ -181,6 +180,7 @@ const VehicleInfo = () => {
                     type="number"
                     min="0"
                     name="weightPounds"
+                    value={props.weightPounds}
                     placeholder=""
                   />
                   <p className="inputLabels">lbs.</p>
@@ -196,6 +196,7 @@ const VehicleInfo = () => {
                     min="0"
                     max="8"
                     name="axleCount"
+                    value={props.axleCount}
                     placeholder=""
                   />
                 </div>
@@ -214,7 +215,7 @@ const VehicleInfo = () => {
                   <input
                     type="radio"
                     value="ClassA"
-                    checked={auto.rvInfo.vehicleClass === "ClassA"}
+                    checked={auto.classType.vehicleClass === "ClassA"}
                     onChange={handleRadio}
                   />
                   Class A
@@ -224,7 +225,7 @@ const VehicleInfo = () => {
                     className="label"
                     type="radio"
                     value="ClassB"
-                    checked={auto.rvInfo.vehicleClass === "ClassB"}
+                    checked={auto.classType.vehicleClass === "ClassB"}
                     onChange={handleRadio}
                   />
                   Class B
@@ -234,7 +235,7 @@ const VehicleInfo = () => {
                     className="label"
                     type="radio"
                     value="ClassC"
-                    checked={auto.rvInfo.vehicleClass === "ClassC"}
+                    checked={auto.classType.vehicleClass === "ClassC"}
                     onChange={handleRadio}
                   />
                   Class C
@@ -243,7 +244,7 @@ const VehicleInfo = () => {
                   <input
                     type="radio"
                     value="5thWheel"
-                    checked={auto.rvInfo.vehicleClass === "5thWheel"}
+                    checked={auto.classType.vehicleClass === "5thWheel"}
                     onChange={handleRadio}
                   />
                   5th wheel
@@ -253,7 +254,7 @@ const VehicleInfo = () => {
                     className="label1"
                     type="radio"
                     value="PullBehind"
-                    checked={auto.rvInfo.vehicleClass === "PullBehind"}
+                    checked={auto.classType.vehicleClass === "PullBehind"}
                     onChange={handleRadio}
                   />
                   Pull behind
@@ -279,4 +280,11 @@ const VehicleInfo = () => {
   );
 };
 
-export default VehicleInfo;
+const mapStateToProps = state => {
+  console.log(state, 'rvInfo');
+  return {
+    rvInfo: state.rvInfo
+  }
+};
+
+export default connect(mapStateToProps, {})(VehicleInfo);
