@@ -22,8 +22,12 @@ const App = () => {
       <Route path="/vehicle" component={RegisterVehicleForm} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={RegisterHooks} />
-      <Route path="/routingPref" component={RoutingPref} />
-      <Route path="/load" component={LoadingPage} />
+
+      <Route path="/routingPref" component = {RoutingPref}/>
+      <Route path="/load" component = {LoadingPage}/>
+      
+      
+
     </div>
   );
 };
