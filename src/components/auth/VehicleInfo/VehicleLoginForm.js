@@ -1,6 +1,11 @@
+// import "../register/Register.css";
+// import { getBsProps } from "react-bootstrap/lib/utils/bootstrapUtils";
+// import { connect } from "react-redux";
+// import { register, login, clearError } from "../../../store/actions";
+// import { withRouter } from "react-router-dom";
+// import firebase from 'firebase';
 import React, { useState, useEffect, useReducer } from "react";
 import { connect } from "react-redux";
-import "../register/Register.css";
 import styled from "styled-components";
 import "./VehicleLoginForm.scss";
 import {
@@ -8,12 +13,6 @@ import {
   initialState
 } from "../../../store/reducers/onboarding";
 import { ReactComponent as BackArrow } from "../../../assets/img/back.svg";
-
-// import { getBsProps } from "react-bootstrap/lib/utils/bootstrapUtils";
-// import { connect } from "react-redux";
-// import { register, login, clearError } from "../../../store/actions";
-// import { withRouter } from "react-router-dom";
-// import firebase from 'firebase';
 
 const Header = styled.div`
   height: 80px;
