@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { connect } from 'react-redux';
+import React, { useState, useEffect, useReducer } from "react";
+import { connect } from "react-redux";
 import "../register/Register.css";
 import styled from "styled-components";
 import "./VehicleLoginForm.scss";
+import {
+  onboardingReducer,
+  initialState
+} from "../../../store/reducers/onboarding";
 import { ReactComponent as BackArrow } from "../../../assets/img/back.svg";
+
 // import { getBsProps } from "react-bootstrap/lib/utils/bootstrapUtils";
 // import { connect } from "react-redux";
 // import { register, login, clearError } from "../../../store/actions";
@@ -26,9 +31,10 @@ const Text = styled.span`
   font-weight: bold;
   font-family: Heebo;
   height: 60px;
-`
+`;
 
-const VehicleInfo = (props) => {
+const VehicleInfo = props => {
+  const [state, dispatch] = useReducer(onboardingReducer, initialState);
   const [auto, setAuto] = useState({
     classType: {
       vehicleClass: ""
@@ -53,7 +59,7 @@ const VehicleInfo = (props) => {
   const handleChange = e => {
     setAuto({ ...auto, [e.target.name]: e.target.value });
   };
-
+  console.log(props.firstName);
   return (
     <div className="register-wrapper">
       <Header className="rv-way-header">
@@ -70,11 +76,11 @@ const VehicleInfo = (props) => {
               </span>
             </a>
           </div>
-
           <div className="greeting">
             <h4>
-              <b>Its great to meet you, Allen!</b>
+              <b>Its great to meet you, {props.firstName}!</b>
             </h4>
+
             <h4>Let's talk about your vehicle...</h4>
           </div>
 
@@ -282,11 +288,13 @@ const VehicleInfo = (props) => {
   );
 };
 
-const mapStateToProps = state => {
-  console.log(state, 'rvInfo');
-  return {
-    rvInfo: state.rvInfo
-  }
-};
+// const mapStateToProps = state => {
+//   console.log(state, 'rvInfo');
+//   return {
+//     rvInfo: state.rvInfo
+//   }
+// };
 
-export default connect(mapStateToProps, {})(VehicleInfo);
+// export default connect(mapStateToProps, {})(VehicleInfo);
+
+export default VehicleInfo;
