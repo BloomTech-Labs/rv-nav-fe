@@ -6,6 +6,7 @@ import {
 
 export const initialState = {
   personalInfo: {
+    step: 1,
     firstName: "",
     lastName: "",
     username: "",
@@ -18,6 +19,7 @@ export const initialState = {
     formSubmitted: false
   },
   rvInfo: {
+    //step: 2
     vehicleName: "",
     heightFeet: "",
     heightInches: "",
@@ -40,17 +42,7 @@ export const actions = {
   infoAdded: "ADD_INFO"
 };
 
-// export const handlers = {
-//   [PERSONAL_INFO](state, action) {
-//     return {
-//       ...state,
-//       personalInfo: {
-//         ...state.personalInfo,
-//         ...action.payload.personalInfo
-//       }
-//     };
-//   }
-// };
+
 
 function validate(firstName, value) {
   if (typeof value === "string") value = value.trim();
@@ -116,7 +108,7 @@ export const onboardingReducer = (state = initialState, action) => {
     case actions.formSubmitted:
       // if the form has been successfully submitted,
       // stop here to prevent rage clicks and re-submissions
-      if (state.formCompleted) return state;
+      if (state.formCompleted) return state
       let formValid = true;
       // invalidate the form if values are missing or in error
       if (
@@ -144,12 +136,39 @@ export const onboardingReducer = (state = initialState, action) => {
         formSubmitted: true,
         formCompleted: formValid
       };
-    case actions.infoAdded:
-      return {
-        ...state,
-        personalInfo: [...state.personalInfo, action.payload]
-        // rvInfo: [...state.personalInfo.firstName, action.payload]
-      };
+      
+      default:
+        return state;
+      }
+    };
+    
+    export default onboardingReducer;
+
+
+
+
+
+
+
+
+
+
+
+    
+    // case "PASS_INFO":
+    //   return {
+    //     ...state,
+    //     personalInfo: {...state.personalInfo, personalInfo: [...state.personalInfo, action.payload] },
+    //     rvInfo: {...state.personalInfo.info, rv: [...state.personalInfo.info, ...state.rvInfo.rv, action.payload]}
+    //   };
+    // case 'PASS_INFO':
+    //   let info = state.personalInfo;
+    //   info.push(...state.info, rvInfo: [...state.info, action.payload]);
+    //   return {
+    //     ...state,
+    //     info: {...state.info, rvInfo: [...state.info, action.payload]}
+    //   }
+
     // case ADD_USER:
     //   console.log("users", state.personalInfo, action.payload);
     //   let users = state.personalInfo.slice();
@@ -172,10 +191,3 @@ export const onboardingReducer = (state = initialState, action) => {
     //     loading: false,
     //     rvInfo: { rvInfo: rvInfo }
     //   };
-
-    default:
-      return state;
-  }
-};
-
-export default onboardingReducer;
