@@ -234,3 +234,26 @@ a {
 .registerInputBoxes {
   max-width: 50%;
 }
+
+.register-lets-go-button {
+  margin: 0;
+  width: 100%;
+  margin-top: 18px;
+  height: 45px;
+  font-weight: 700;
+  // background: #ffffff;
+  // border: 1px solid #e1e1e4;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-family: "Heebo", sans-serif;
+  border: 1px solid rgba(42, 46, 67, 0.5);
+  color: rgba(42, 46, 67, 0.6);
+
+  &:hover {
+    color: #fff;
+    background-color: rgba(53, 195, 226, 0.95);
+    border: none;
+  }
+}
+
+// adding in a comment to hopefully make github work
