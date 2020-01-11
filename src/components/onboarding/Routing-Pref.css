@@ -2,7 +2,7 @@
     height: 100vh;
     /* background: #E5ECEE; */
     font-family: 'Heebo', sans-serif;
-    background-image: url(../../../assets/img/Sign-up-Background.svg);
+    background-image: url(../../assets/img/Sign-up-Background.svg);
     /* background-attachment: fixed; */
     background-repeat:no-repeat ;
     background-size: cover;
@@ -10,7 +10,7 @@
 
 @media (max-width: 415px) {
     .register-wrapper{
-        background-image: url(../../../assets/img/Sign-up-Background.svg);
+        background-image: url(../../assets/img/Sign-up-Background.svg);
         background-position: -120px;
     }
 }
@@ -304,7 +304,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     /* background-image:  */
-    background: url(../../../assets/img/google.svg),no-repeat, center;
+    background: url(../../assets/img/google.svg),no-repeat, center;
     background-position: center;
 }
 
@@ -322,7 +322,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     /* border-radius: 3px; */
     border: 1px solid #D1D3D6;
     border-left: 0;
-    background: url(../../../assets/img/facebook.svg), no-repeat, center;
+    background: url(../../assets/img/facebook.svg), no-repeat, center;
     background-position: center;
 }
 
@@ -353,7 +353,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     position: relative;
     right: -274px;
     bottom: -43px;
-    background:transparent url("../../../assets/img/eye.svg") no-repeat 0 center;
+    background:transparent url(../../assets/img/eye.svg) no-repeat 0 center;
     display: inline-block;
     text-indent: -1000em; 
     overflow: hidden; 
@@ -373,7 +373,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     position: relative;
     right: -273px;
     bottom: -42px;
-    background:transparent url("../../../assets/img/eye.svg") no-repeat 0 center;
+    background:transparent url(../../assets/img/eye.svg) no-repeat 0 center;
     display: inline-block;
     text-indent: -1000em; 
     overflow: hidden; 
@@ -391,11 +391,11 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 
 .password-eye {
-    background:transparent url("../../../assets/img/eye.svg") no-repeat 0 center;
+    background:transparent url(../../assets/img/eye.svg) no-repeat 0 center;
 }
 
 .password-eye-off{
-    background:transparent url("../../../assets/img/eye-off.svg") no-repeat 0 center;
+    background:transparent url(../../assets/img/eye-off.svg) no-repeat 0 center;
 }
 
 .register-main-form-input {

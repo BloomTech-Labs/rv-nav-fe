@@ -4,15 +4,15 @@
 // import { register, login, clearError } from "../../../store/actions";
 // import { withRouter } from "react-router-dom";
 // import firebase from 'firebase';
-import React, { useState, useEffect, useReducer } from "react";
-import { connect } from "react-redux";
+import React, { Component  } from "react";
+// import { connect } from "react-redux";
 import styled from "styled-components";
 import "./VehicleLoginForm.scss";
-import {
-  onboardingReducer,
-  initialState
-} from "../../../store/reducers/onboarding";
-import { ReactComponent as BackArrow } from "../../../assets/img/back.svg";
+// import {
+//   onboardingReducer,
+//   initialState
+// } from "../../store/reducers/onboarding";
+import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 
 const Header = styled.div`
   height: 80px;
@@ -32,69 +32,80 @@ const Text = styled.span`
   height: 60px;
 `;
 
-const VehicleInfo = props => {
-  const [state, dispatch] = useReducer(onboardingReducer, initialState);
-  const [auto, setAuto] = useState({
-    classType: {
-      vehicleClass: ""
-    }
-  });
+class VehicleInfo extends Component {
 
-  // const handleOptionChange = e => {
-  //   setAuto({ ...auto, [auto.rvInfo.vehicleClass]: e.target.value });
-  // };
+  continue = e => {
+    e.preventDefault()
+    this.props.nextStep();
+  }
 
-  const handleRadio = event => {
-    //const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-    setAuto({
-      rvInfo: {
-        ...auto.rvInfo,
-        vehicleClass: event.target.value
-      }
-    });
-  };
+  back = e => {
+    e.preventDefault()
+    this.props.prevStep();
+  }
 
-  useEffect(() => {}, []);
-  const handleChange = e => {
-    setAuto({ ...auto, [e.target.name]: e.target.value });
-  };
-  return (
-    <div className="register-wrapper">
-      <Header className="rv-way-header">
-        <Text className="rv-way-header-text">RV WAY</Text>
-      </Header>
+  //assigns state to a value based on which radio button has been clicked
+  // handleRadio = (event) => {
+  //   //const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+  //   this.setState({
+  //     specifications: {
+  //       ...this.state.specifications,
+  //       class_name: event.target.value
+  //     }
+  //   })
+  // }
+  
+  render() {
 
-      <div className="register-main">
-        <form className="register-main-form">
-          <div className="go-back-div">
-            <a className="go-back" href="/personal">
-              <BackArrow />
-              <span className="LoginFormBackArrow" id="routing">
-                Back
-              </span>
-            </a>
-          </div>
-          <div className="greeting">
-            <h4>
-              <b>
-                Its great to meet you,
-                {initialState.personalInfo.firstName}!
-              </b>
-            </h4>
+    const { handleRadio, handleChange, handleCheck, firstName,  vehicleName, heightFeet, heightInches,
+      widthFeet,
+      widthInches,
+      lengthFeet,
+      lengthInches,
+      weightPounds,
+      axleCount,    
+      class_name,
+      dual_tires,
+      trailer,
+      isSignedIn  } = this.props;
 
-            <h4>Let's talk about your vehicle...</h4>
-          </div>
-
-          <div className="Vehicle-Info-Wrapper">
+    return (
+      <div className="register-wrapper">
+    <Header className="rv-way-header">
+    <Text className="rv-way-header-text">RV WAY</Text>
+    </Header>
+    
+    <div className="register-main">
+    <form className="register-main-form">
+    <div className="go-back-div">
+    <a className="go-back">
+    <BackArrow />
+    <span className="LoginFormBackArrow" id="routing" onClick={this.back}>
+    Back
+    </span>
+    </a>
+    </div>
+    <div className="greeting">
+    <h4>
+    <b>
+      It's great to meet you, {firstName}!
+    </b>
+    </h4>
+    
+    <h4>Let's talk about your vehicle...</h4>
+    </div>
+    
+    <div className="Vehicle-Info-Wrapper">
             <div className="Vehicle-Name">
               <p>Vehicle Name</p>
               <input
                 className="vehicleRegisterInput"
                 type="string"
                 name="vehicleName"
-                value={props.vehicleName}
+                value={vehicleName}
+                onChange={handleChange('vehicleName')}
                 placeholder=""
-              />
+                />
             </div>
 
             <h6 className="VDLabel">
@@ -115,9 +126,10 @@ const VehicleInfo = props => {
                     min="0"
                     max="100"
                     name="heightFeet"
-                    value={props.heightFeet}
+                    value={heightFeet}
+                    onChange={handleChange('heightFeet')}
                     placeholder=""
-                  />
+                    />
                   <p className="inputLabels">ft.</p>
                   <input
                     className="registerInputBoxes"
@@ -125,9 +137,10 @@ const VehicleInfo = props => {
                     min="0"
                     max="11"
                     name="heightInches"
-                    value={props.heightInches}
+                    value={heightInches}
+                    onChange={handleChange('heightInches')}
                     placeholder=""
-                  />
+                    />
                   <p className="inputLabels">in.</p>
                 </div>
                 <div className="registerInputBoxes-Wrapper2">
@@ -137,9 +150,10 @@ const VehicleInfo = props => {
                     min="0"
                     max="100"
                     name="widthFeet"
-                    value={props.widthFeet}
+                    value={widthFeet}
+                    onChange={handleChange('widthFeet')}
                     placeholder=""
-                  />
+                    />
                   <p className="inputLabels">ft.</p>
                   <input
                     className="registerInputBoxes"
@@ -147,9 +161,10 @@ const VehicleInfo = props => {
                     min="0"
                     max="11"
                     name="widthInches"
-                    value={props.widthInches}
+                    value={widthInches}
+                    onChange={handleChange('widthInches')}
                     placeholder=""
-                  />
+                    />
                   <p className="inputLabels">in.</p>
                 </div>
               </div>
@@ -167,9 +182,10 @@ const VehicleInfo = props => {
                     min="0"
                     max="100"
                     name="lengthFeet"
-                    value={props.lengthFeet}
+                    value={lengthFeet}
+                    onChange={handleChange('lengthFeet')}
                     placeholder=""
-                  />
+                    />
                   <p className="inputLabels">ft.</p>
                   <input
                     className="registerInputBoxes"
@@ -177,9 +193,10 @@ const VehicleInfo = props => {
                     min="0"
                     max="11"
                     name="lengthInches"
-                    value={props.lengthInches}
+                    value={lengthInches}
+                    onChange={handleChange('lengthInches')}
                     placeholder=""
-                  />
+                    />
                   <p className="inputLabels">in.</p>
                 </div>
 
@@ -189,9 +206,10 @@ const VehicleInfo = props => {
                     type="number"
                     min="0"
                     name="weightPounds"
-                    value={props.weightPounds}
+                    value={weightPounds}
+                    onChange={handleChange('weightPounds')}
                     placeholder=""
-                  />
+                    />
                   <p className="inputLabels">lbs.</p>
                 </div>
               </div>
@@ -205,15 +223,22 @@ const VehicleInfo = props => {
                     min="0"
                     max="8"
                     name="axleCount"
-                    value={props.axleCount}
+                    value={axleCount}
+                    onChange={handleChange('axleCount')}
                     placeholder=""
-                  />
+                    />
                 </div>
                 <div className="tires">
                   <label className="tiresLabel">
                     <p className="check">Tires</p>
-                    <input className="registerCheckbox" type="checkbox" />I have
-                    a dual wheel vehicle
+                    <input 
+                    className="registerCheckbox" 
+                    type="checkbox" 
+                    checked={dual_tires}
+                    name= 'dual_tires'
+                    onChange= {handleCheck} 
+                    value={dual_tires} />
+                    I have a dual wheel vehicle
                   </label>
                 </div>
               </div>
@@ -224,9 +249,10 @@ const VehicleInfo = props => {
                   <input
                     type="radio"
                     value="ClassA"
-                    checked={auto.classType.vehicleClass === "ClassA"}
+                    name="class_A"
+                    checked={class_name === "ClassA"}
                     onChange={handleRadio}
-                  />
+                    />
                   Class A
                 </label>
                 <label>
@@ -234,28 +260,32 @@ const VehicleInfo = props => {
                     className="label"
                     type="radio"
                     value="ClassB"
-                    checked={auto.classType.vehicleClass === "ClassB"}
+                    name="class_B"
+                    checked={class_name === "ClassB"}
                     onChange={handleRadio}
-                  />
+                    />
                   Class B
                 </label>
                 <label>
                   <input
-                    className="label"
+                  className="label"
                     type="radio"
                     value="ClassC"
-                    checked={auto.classType.vehicleClass === "ClassC"}
+                    name="class_C"
+                    checked={class_name === "ClassC"}
                     onChange={handleRadio}
-                  />
+                    />
                   Class C
                 </label>
                 <label>
                   <input
+                    // className="label"
                     type="radio"
                     value="5thWheel"
-                    checked={auto.classType.vehicleClass === "5thWheel"}
+                    name="fifth_wheel"
+                    checked={class_name === "5thWheel"}
                     onChange={handleRadio}
-                  />
+                    />
                   5th wheel
                 </label>
                 <label>
@@ -263,9 +293,10 @@ const VehicleInfo = props => {
                     className="label1"
                     type="radio"
                     value="PullBehind"
-                    checked={auto.classType.vehicleClass === "PullBehind"}
+                    name="pull_behind"
+                    checked={class_name === "PullBehind"}
                     onChange={handleRadio}
-                  />
+                    />
                   Pull behind
                 </label>
               </div>
@@ -274,28 +305,55 @@ const VehicleInfo = props => {
                 className="register-lets-go-button"
                 variant="warning"
                 type="submit"
-              >
+                onClick={this.continue}
+                >
                 Add to My Vehicles
               </button>
-              <a id="sign-in" href="/routingPref">
+
+              <div className="already-have-an-account">
+            <a>
+              <span onClick={this.continue}>
                 Skip this step
-              </a>
+                </span>
+                </a>
+            </div>
             </div>
           </div>
           {/* Vehicle Info ENDS here */}
-        </form>
-      </div>
-    </div>
-  );
-};
+          </form>
+          </div>
+          </div>
+          );
+        };
+      }
+        
+        export default VehicleInfo;
+        
+        
+
+        // useEffect(() => {}, []);
+        // const handleChange = e => {
+        //   setAuto({ ...auto, [e.target.name]: e.target.value });
+        // };
+        
+        
+        // const [auto, setAuto] = useState({
+          //   classType: {
+            //     vehicleClass: ""
+            //   }
+            // });
+            
+            // const handleOptionChange = e => {
+              //   setAuto({ ...auto, [auto.rvInfo.vehicleClass]: e.target.value });
+            // };
 
 // const mapStateToProps = state => {
-//   console.log(state, 'rvInfo');
-//   return {
-//     rvInfo: state.rvInfo
-//   }
-// };
-
-// export default connect(mapStateToProps, {})(VehicleInfo);
-
-export default VehicleInfo;
+  //   console.log(state, 'rvInfo');
+  //   return {
+    //     rvInfo: state.rvInfo
+    //   }
+    // };
+    
+    // export default connect(mapStateToProps, {})(VehicleInfo);
+    
+    

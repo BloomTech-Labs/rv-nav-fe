@@ -1,13 +1,12 @@
-import React, { useReducer } from "react";
-import { connect } from "react-redux";
+import React, {Component} from "react";
 import "./PersonalInfoForm.css";
 import styled from "styled-components";
-import { personalInfoAction } from "../../store/actions/OnboardingAction";
-import {
-  onboardingReducer,
-  initialState,
-  actions
-} from "../../store/reducers/onboarding";
+// import { personalInfoAction } from "../../store/actions/OnboardingAction";
+// import {
+//   onboardingReducer,
+//   initialState,
+//   actions
+// } from "../../store/reducers/onboarding";
 
 const Header = styled.div`
 height: 80px;
@@ -27,29 +26,24 @@ const Text = styled.span`
   height: 60px;
 `;
 
-const PersonalInfoForm = props => {
-  const [state, dispatch] = useReducer(onboardingReducer, initialState);
+class PersonalInfoForm extends Component  {
 
-  const handleChange = e => {
-    dispatch({
-      type: actions[e.target.name + "Changed"],
-      payload: e.target.value
-    });
-  };
-  // On submit will push to next onboarding component
-  const submitForm = e => {
-    e.preventDefault();
-    props.history.push("/vehicle");
-  };
-  console.log("hello", submitForm);
+  continue = e => {
+    e.preventDefault()
+    this.props.nextStep();
+  }
 
-  return (
-    <div className="register-wrapper">
+  render() {
+
+    const { handleChange, firstName, lastName, username, age } = this.props;
+
+    return (
+      <div className="register-wrapper">
       <Header className="rv-way-header">
         <Text className="rv-way-header-text">RV WAY</Text>
       </Header>
       <div className="register-main">
-        <form className="personal-main-form" onSubmit={submitForm}>
+        <form className="personal-main-form">
           <div className="register-header">
             <h2 className="register-welcome-home">Welcome to RV Way!</h2>
             <h6 className="register-lets-get-you-settled">
@@ -64,9 +58,9 @@ const PersonalInfoForm = props => {
               className="register-main-form-input"
               name="firstName"
               type="text"
-              value={props.firstName}
-              onChange={handleChange}
-            />
+              value={firstName}
+              onChange={handleChange('firstName')}
+              />
 
             <label className="register-main-form-label">Last Name</label>
 
@@ -74,9 +68,9 @@ const PersonalInfoForm = props => {
               className="register-main-form-input"
               name="lastName"
               type="text"
-              value={props.lastName}
-              onChange={handleChange}
-            />
+              value={lastName}
+              onChange={handleChange('lastName')}
+              />
 
             <label className="register-main-form-label">Username</label>
 
@@ -84,9 +78,9 @@ const PersonalInfoForm = props => {
               className="register-main-form-input"
               name="username"
               type="text"
-              value={props.username}
-              onChange={handleChange}
-            />
+              value={username}
+              onChange={handleChange('username')}
+              />
 
             <label className="register-main-form-label">Age</label>
 
@@ -94,22 +88,26 @@ const PersonalInfoForm = props => {
               className="register-main-age-input"
               name="age"
               type="number"
-              value={props.age}
-              onChange={handleChange}
-            />
+              value={age}
+              onChange={handleChange('age')}
+              />
 
             <button
               className="register-lets-go-button"
               variant="warning"
               type="submit"
-            >
+              onClick={this.continue}
+              >
               Onward!
             </button>
 
+
             <div className="already-have-an-account">
-              <a id="sign-in" href="/vehicle">
+            <a>
+              <span onClick={this.continue}>
                 Skip this step
-              </a>
+                </span>
+                </a>
             </div>
           </div>
         </form>
@@ -118,20 +116,55 @@ const PersonalInfoForm = props => {
   );
 };
 
-// const mapStateToProps = state => {
-//   console.log(state, "personalInfo");
-//   return {
-//     personalInfo: state.personalInfo
-//   };
-// };
+}
 
-// export default connect(mapStateToProps, {})(PersonalInfoForm);
 
 export default PersonalInfoForm;
 
+
+// const [state, dispatch] = useReducer(onboardingReducer, initialState);
+
+// const nextStep= () => {
+//   const {step} = this.state;
+//   dispatch({
+//     type: step + 1
+//   })
+// };
+
+// // const prevStep= () => {
+// //   const {step} = this.state;
+// //   return {...this.state ( step - 1)};
+// // };
+
+// // const showStep = () => {
+// //   const {step} = this.state;
+// //   if(step === 1)
+// //   return {...this.state.personalInfo,nextStep() 
+// // }
+
+//Calling action from reducer to handle change for inputs
+// const handleChange = e => {
+//   dispatch({
+//     type: actions[e.target.name + "Changed"],
+//     payload: e.target.value
+//   });
+// };
+
+// On submit will push to next onboarding component
+// const submitForm = e => {
+//   e.preventDefault();
+//   props.history.push("/vehicle");
+// };
+// console.log("hello", submitForm);
+
+// Action to hold state and pass to next component
+// const handleInfo = info => {
+//   dispatch({ type: 'PASS_INFO', info })
+// };
+
 // function validate(username) {
-//   return {
-//     username: username === ''
+  //   return {
+    //     username: username === ''
 //   };
 // }
 

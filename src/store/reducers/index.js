@@ -23,7 +23,7 @@ const initialState = {
   // sidebar_open: true,
 };
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOADING:
       return {
@@ -124,4 +124,3 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
