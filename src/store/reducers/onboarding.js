@@ -11,6 +11,9 @@ export const initialState = {
     username: "",
     age: "",
     firstNameError: null,
+    lastNameError: null,
+    usernameError: null,
+    ageError: null,
     formCompleted: false,
     formSubmitted: false
   },
@@ -31,7 +34,10 @@ export const initialState = {
 export const actions = {
   firstNameChanged: "FIRST_NAME_CHANGED",
   lastNameChanged: "LAST_NAME_CHANGED",
-  formSubmitted: "FORM_SUBMITTED"
+  usernameChanged: "USERNAME_CHANGED",
+  ageChanged: "AGE_CHANGED",
+  formSubmitted: "FORM_SUBMITTED",
+  infoAdded: "ADD_INFO"
 };
 
 // export const handlers = {
@@ -53,20 +59,38 @@ function validate(firstName, value) {
       if (value.length === 0) {
         return "Must enter name";
       } else if (value.split(" ").length < 2) {
-        return "Must enter first and last name";
+        return "Must enter first name";
       } else {
         return null;
       }
       break;
     case "lastName":
       if (value.length === 0) {
-        return "Must enter email";
+        return "Must enter last name";
       } else if (
         !value.includes("@") ||
         !value.includes(".") ||
         value.split(".")[1].length < 2
       ) {
-        return "Must enter valid email";
+        return "Must enter valid last name";
+      } else {
+        return null;
+      }
+      break;
+    case "username":
+      if (value.length === 0) {
+        return "Must enter username";
+      } else if (value.split(" ").length < 2) {
+        return "Must enter username";
+      } else {
+        return null;
+      }
+      break;
+    case "age":
+      if (value.length === 0) {
+        return "Must enter age";
+      } else if (value.split(" ").length < 1) {
+        return "Must enter age";
       } else {
         return null;
       }
@@ -83,6 +107,12 @@ export const onboardingReducer = (state = initialState, action) => {
     case actions.lastNameChanged:
       error = validate("lastName", action.payload);
       return { ...state, lastName: action.payload, lastNameError: error };
+    case actions.usernameChanged:
+      error = validate("username", action.payload);
+      return { ...state, username: action.payload, usernameError: error };
+    case actions.ageChanged:
+      error = validate("age", action.payload);
+      return { ...state, age: action.payload, ageError: error };
     case actions.formSubmitted:
       // if the form has been successfully submitted,
       // stop here to prevent rage clicks and re-submissions
@@ -93,7 +123,11 @@ export const onboardingReducer = (state = initialState, action) => {
         state.firstNameError ||
         !state.firstName ||
         state.lastNameError ||
-        !state.lastName
+        !state.lastName ||
+        state.usernameError ||
+        !state.username ||
+        state.ageError ||
+        !state.age
       ) {
         formValid = false;
       }
@@ -109,6 +143,12 @@ export const onboardingReducer = (state = initialState, action) => {
         lastNameError,
         formSubmitted: true,
         formCompleted: formValid
+      };
+    case actions.infoAdded:
+      return {
+        ...state,
+        personalInfo: [...state.personalInfo, action.payload]
+        // rvInfo: [...state.personalInfo.firstName, action.payload]
       };
     // case ADD_USER:
     //   console.log("users", state.personalInfo, action.payload);
