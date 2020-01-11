@@ -58,7 +58,6 @@ const VehicleInfo = props => {
   const handleChange = e => {
     setAuto({ ...auto, [e.target.name]: e.target.value });
   };
-  console.log(props.firstName);
   return (
     <div className="register-wrapper">
       <Header className="rv-way-header">
@@ -77,7 +76,10 @@ const VehicleInfo = props => {
           </div>
           <div className="greeting">
             <h4>
-              <b>Its great to meet you, {props.firstName}!</b>
+              <b>
+                Its great to meet you,
+                {initialState.personalInfo.firstName}!
+              </b>
             </h4>
 
             <h4>Let's talk about your vehicle...</h4>

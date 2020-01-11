@@ -75,7 +75,7 @@ const PersonalInfoForm = props => {
               name="lastName"
               type="text"
               value={props.lastName}
-              // onChange={handleChange}
+              onChange={handleChange}
             />
 
             <label className="register-main-form-label">Username</label>
@@ -85,7 +85,7 @@ const PersonalInfoForm = props => {
               name="username"
               type="text"
               value={props.username}
-              // onChange={handleChange}
+              onChange={handleChange}
             />
 
             <label className="register-main-form-label">Age</label>
@@ -95,7 +95,7 @@ const PersonalInfoForm = props => {
               name="age"
               type="number"
               value={props.age}
-              // onChange={handleChange}
+              onChange={handleChange}
             />
 
             <button
