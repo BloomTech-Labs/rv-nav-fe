@@ -10,6 +10,7 @@ import RegisterHooks from "./components/auth/register/Register-Hooks";
 import LoadingPage from "./components/auth/loading/LoadingPage";
 import Main from "./components/onboarding/Main";
 
+
 const App = () => {
   return (
     <div className="App">
@@ -17,7 +18,7 @@ const App = () => {
       <Route path="/map" component={Map} />
       {/* <Route path="/load" component = {LoadingPage}/> */}
       <Route path="/onboarding" component={Main} />
-      <Route path="/register" component={RegisterHooks} />
+      <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
    
      
