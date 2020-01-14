@@ -142,7 +142,7 @@ class RegisterForm extends Component {
                   this.setState({
 
                   });
-                  this.props.history.push("/map");
+                  this.props.history.push("/onboarding");
                 }
               });
           }

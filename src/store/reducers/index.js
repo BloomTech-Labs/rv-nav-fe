@@ -18,7 +18,7 @@ import { SELECTED } from "../actions/selectVehicle";
 const initialState = {
   data: [],
   vehicles: {},
-  error: null,
+  error: "",
   selected_id: null
   // sidebar_open: true,
 };

@@ -15,14 +15,12 @@ const App = () => {
     <div className="App">
       <Route path="/" exact component={LandingPage} />
       <Route path="/map" component={Map} />
-      < Route path="/onboarding" component={Main} />
-      <Route path="/login" component={Login} />
+      {/* <Route path="/load" component = {LoadingPage}/> */}
+      <Route path="/onboarding" component={Main} />
       <Route path="/register" component={RegisterHooks} />
-
-      <Route path="/load" component = {LoadingPage}/>
-      
-      
-
+      <Route path="/login" component={Login} />
+   
+     
     </div>
   );
 };

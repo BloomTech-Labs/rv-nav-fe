@@ -35,8 +35,8 @@ export const register = creds => {
     dispatch({ type: LOADING });
     return axios
       .post(
-        "https://labs-rv-life-staging-1.herokuapp.com/users/register",
-        // "http://localhost:5000/users/register",
+        // "https://labs-rv-life-staging-1.herokuapp.com/users/register",
+        "http://localhost:5000/users/register",
         creds
       )
       .then(response => {
@@ -71,8 +71,8 @@ export const login = values => {
     dispatch({ type: LOADING });
     return axios
       .post(
-        "https://labs-rv-life-staging-1.herokuapp.com/users/login",
-        // "http://localhost:5000/users/login",
+        // "https://labs-rv-life-staging-1.herokuapp.com/users/login",
+        "http://localhost:5000/users/login",
         values
       )
       .then(res => {

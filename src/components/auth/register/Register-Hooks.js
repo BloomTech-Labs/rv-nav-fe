@@ -44,7 +44,7 @@ const validateForm = errors => {
       
     
       const [newUser,setNewUser] = useState({ error: "",
-        credentials: {
+      credentials: {
           email: "",
           password: "",
           confirmPassword: "",
@@ -139,7 +139,7 @@ const handleChange = event =>{
                     setNewUser({
         
                     });
-                    props.history.push("/personal");
+                    props.history.push("/onboarding");
                   }
                 });
             }

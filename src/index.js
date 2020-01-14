@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import thunk from 'redux-thunk';
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { reducer }  from './store/reducers';
+import { reducer } from './store/reducers/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 //Sentry.io
@@ -16,11 +16,7 @@ Sentry.init({
 
 require('dotenv').config()
 
-const rootReducer = combineReducers({
-  firstState: reducer
-});
-
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+export const store = createStore(reducer, applyMiddleware(thunk));
 
 
 ReactDOM.render(
@@ -31,4 +27,5 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
+
 
