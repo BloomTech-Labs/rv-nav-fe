@@ -218,9 +218,9 @@ class RegisterForm extends Component {
             (
             <p className="register-auth-loading">Loading...</p>
           ) : (
-              <form className="register-main-form">
-                <div className="register-header">
-                  <h2 className="register-welcome-home">Welcome Home!</h2>
+              <form className="register-main-form-one">
+                <div className="register-header-one">
+                  <h2 className="register-welcome-home-one">Welcome Home!</h2>
                   <h4 className="register-lets-get-you-settled">Lets get you settled</h4>
                   <h6 className="register-sign-up-with-social-media">Signup with social media</h6>
                 </div>
@@ -305,9 +305,14 @@ class RegisterForm extends Component {
                     Let's Go
                     </button>
                   
-                  <div className="already-have-an-account">
-                    <span>Already have an account? <a id="sign-in" href="/login">Sign In</a></span>
+                    <div className="already-have-an-account-one">
+                    <div>
+                      <span>Already have an account?</span>
+                    </div> 
+                  <div className="signup-contain">
+                      <a id="sign-in" href="/login">Sign In</a>
                   </div>
+                </div>
                 </div>
               </form>
             )}

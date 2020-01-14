@@ -7,13 +7,13 @@ class Main extends Component {
     state = {
         step: 1,
 
-        //step 1
+        //step 1 
             firstName: "",
             lastName: "",
             username: "",
             age: "",
   
-            //step: 2
+            //step: 2 
             vehicleName: "",
             heightFeet: "",
             heightInches: "",
@@ -134,6 +134,7 @@ class Main extends Component {
             if(step === 3)
             return (
                 <RoutingPref 
+                state = {this.state}
                 prevStep = {this.prevStep}
                 handleCheck = {this.handleCheck}
                 DirtRoads = {DirtRoads}

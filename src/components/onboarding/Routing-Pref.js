@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 // import { connect } from "react-redux";
 // import { register, login, clearError } from "../../store/actions";
 // import { withRouter } from "react-router-dom";
@@ -32,6 +33,15 @@ class RoutingPref extends Component {
     e.preventDefault()
     this.props.prevStep();
   }
+
+  handleSubmit = e => {
+   e.preventDefault()
+    axios.post("#", this.props.state)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => console.log(err.res));
+  }
   
   // regSubmit = event => {
   //   event.preventDefault();
@@ -62,8 +72,9 @@ class RoutingPref extends Component {
   //       console.log("login err", err);
   //     });
   //   };
-
+  
     render() {
+      console.log(this.props.state);
       const {handleCheck,  DirtRoads, SteepGrade, Potholes } =this.props;
       return (
         <div className="register-wrapper">
@@ -220,7 +231,7 @@ class RoutingPref extends Component {
             <button
               className="register-lets-go-button"
               variant="warning"
-              // onClick={regSubmit}
+              onClick={this.handleSubmit}
               type="submit"
               >
               Add to My Preferences
