@@ -15,8 +15,9 @@
     }
 }
 
-.firebaseui-idp-list {
+.register-wrapper .firebaseui-idp-list {
     display: flex;
+    margin:0;
 }
 
 @media (max-width: 415px) {
@@ -107,21 +108,21 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     color: #ffc107
 }
 
-.register-main-form {
+.register-wrapper .register-main-form-one {
     background-color: rgb(255, 255, 255);
     text-align: left;
     padding: 16px;
     border-top: 0;
     width: 423px;
-    /* height: 700px; */
-    margin-right: 206px;
-    margin-top: 161px;
+    height: 630px;
+    margin-right: 250px;
+    margin-top: 100px;
     /* text-align: center; */
 
 }
 
 @media (max-width: 415px) {
-    .register-main-form{
+    .register-main-form-one{
         margin: 0;
         padding: 0;
         background: rgba(255, 255, 255, 0.5);
@@ -143,35 +144,45 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     margin-bottom: 10px;
 }
 
-.register-header {
+.register-main .register-main-form-one .register-header-one {
     margin-left: 42px;
     margin-right: 42px;
+    margin-top: 0;
+    margin-bottom:0px;
+    color:#2A2E43;
+    
 }
 
 @media (max-width: 415px) {
-    .register-header {
+    .register-header-one {
         margin: 20px;
     }
 }
 
-.register-welcome-home {
-    margin-top: 38px;
+.register-main-form-one .register-header-one .register-welcome-home-one {
+    margin-top: 15px;
     font-weight: 700;
     font-family: 'Heebo', sans-serif;
+    font-size:36px;
+    line-height: 53px;
 
 }
 
 .register-lets-get-you-settled {
     margin-bottom: 22px;
+    font-size:28px;
+    line-height: 41px;
+    font-weight:normal;
 }
 
-.register-social-media {
-    /* width: 100%; */
+.register-wrapper .register-social-media {
+    width: 100%;
     color: black;
     text-align: center;
-    margin-left: 42px;
+    margin-left: 0px;
     margin-right: 42px;
     margin-top: 9px;
+    
 }
 
 @media (max-width: 415px) {
@@ -183,11 +194,13 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 }
 .register-sign-up-with-social-media {
     font-size: 16px;
+    font-weight:normal;
+    line-height: 23px;
 }
 
-.register-input-and-button {
-    margin-left: 42px;
-    margin-right: 42px;
+.register-wrapper .register-input-and-button {
+    margin-left: 40px;
+    margin-right: 39px;
 }
 
 @media (max-width: 415px) {
@@ -233,7 +246,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     background-position: center;
 }
 
-.register-main-form-label {
+.register-wrapper .register-main-form-label {
     color: black;
     align-self: flex-start;
     margin-left: 0;
@@ -357,25 +370,38 @@ p.register-main-form-error {
     border: none;
 }
 
-.already-have-an-account {
+.register-wrapper .already-have-an-account-one  {
     margin-top: 17px;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 16px;
+    
+    display:flex;
+    flex-direction: row;
+    
+}
+
+.register-wrapper .already-have-an-account-one a {
+    padding-top:0px;
 }
 
 @media (max-width: 415px) {
-    .already-have-an-account {
+    .already-have-an-account-one {
         text-align: center;
     }
 }
 
-.already-have-an-account #sign-in {
+.register-wrapper .already-have-an-account-one #sign-in {
     font-size: 16px;
-    font-weight: 700;
     text-decoration: none;
     color: rgba(53, 195, 226, 0.95);
+    font-weight: bold;
 
+
+}
+
+.signup-contain{
+    margin-left:5px;
 }
 
 .btn-warning{

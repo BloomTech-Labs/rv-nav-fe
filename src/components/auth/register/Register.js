@@ -38,6 +38,7 @@ const validateForm = errors => {
 
 class RegisterForm extends Component {
   constructor(props) {
+    console.log('props', props);
     super(props);
     this.state = {
       error: null,
@@ -132,7 +133,6 @@ class RegisterForm extends Component {
         .then(res => {
           if (res) {
             this.props
-            .props
               .login({
                 email: this.state.credentials.email,
                 password: this.state.credentials.password
@@ -142,12 +142,13 @@ class RegisterForm extends Component {
                   this.setState({
 
                   });
-                  this.props.history.push("/map");
+                  this.props.history.push("/onboarding");
                 }
               });
           }
         })
         .catch(err => {
+          console.log('error', err);
           setTimeout(function () {
             return this.props.clearError();
           }, 3000);
