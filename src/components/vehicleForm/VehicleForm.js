@@ -178,7 +178,7 @@ class VehicleForm extends React.Component {
       dual_tires: this.state.specifications.dual_tires
     }
     console.log("sent", send);
-    console.log("id", this.props.id);
+    console.log("ID", this.props.id);
     if (this.props.editing) {
       this.props.updateVehicle(send, this.props.id);
       this.props.editVehicleToggle(this.props.id);
