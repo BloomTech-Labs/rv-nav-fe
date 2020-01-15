@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./PersonalInfoForm.css";
 import styled from "styled-components";
 // import { personalInfoAction } from "../../store/actions/OnboardingAction";
@@ -26,101 +26,93 @@ const Text = styled.span`
   height: 60px;
 `;
 
-class PersonalInfoForm extends Component  {
-
+class PersonalInfoForm extends Component {
   continue = e => {
-    e.preventDefault()
+    e.preventDefault();
     this.props.nextStep();
-  }
+  };
 
   render() {
-
-    const { handleChange, firstName, lastName, username, age } = this.props;
+    const { handleChange, first_name, last_name, user_name, age } = this.props;
 
     return (
       <div className="register-wrapper">
-      <Header className="rv-way-header">
-        <Text className="rv-way-header-text">RV WAY</Text>
-      </Header>
-      <div className="register-main">
-        <form className="personal-main-form">
-          <div className="register-header">
-            <h2 className="register-welcome-home">Welcome to RV Way!</h2>
-            <h6 className="register-lets-get-you-settled">
-              Tell us about yourself...
-            </h6>
-          </div>
-
-          <div className="register-input-and-button">
-            <label className="register-main-form-label">First Name</label>
-
-            <input
-              className="register-main-form-input"
-              name="firstName"
-              type="text"
-              value={firstName}
-              onChange={handleChange('firstName')}
-              />
-
-            <label className="register-main-form-label">Last Name</label>
-
-            <input
-              className="register-main-form-input"
-              name="lastName"
-              type="text"
-              value={lastName}
-              onChange={handleChange('lastName')}
-              />
-
-            <label className="register-main-form-label">Username</label>
-
-            <input
-              className="register-main-form-input"
-              name="username"
-              type="text"
-              value={username}
-              onChange={handleChange('username')}
-              />
-
-            <label className="register-main-form-label">Age</label>
-
-            <input
-              className="register-main-age-input"
-              name="age"
-              type="number"
-              value={age}
-              onChange={handleChange('age')}
-              />
-
-            <button
-              className="register-lets-go-button"
-              variant="warning"
-              type="submit"
-              onClick={this.continue}
-              >
-              Onward!
-            </button>
-
-
-            <div className="already-have-an-account">
-            <a>
-              <span onClick={this.continue}>
-                Skip this step
-                </span>
-                </a>
+        <Header className="rv-way-header">
+          <Text className="rv-way-header-text">RV WAY</Text>
+        </Header>
+        <div className="register-main">
+          <form className="personal-main-form">
+            <div className="register-header">
+              <h2 className="register-welcome-home">Welcome to RV Way!</h2>
+              <h6 className="register-lets-get-you-settled">
+                Tell us about yourself...
+              </h6>
             </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
 
+            <div className="register-input-and-button">
+              <label className="register-main-form-label">First Name</label>
+
+              <input
+                className="register-main-form-input"
+                name="first_name"
+                type="text"
+                value={first_name}
+                onChange={handleChange("first_name")}
+              />
+
+              <label className="register-main-form-label">Last Name</label>
+
+              <input
+                className="register-main-form-input"
+                name="last_name"
+                type="text"
+                value={last_name}
+                onChange={handleChange("last_name")}
+              />
+
+              <label className="register-main-form-label">Username</label>
+
+              <input
+                className="register-main-form-input"
+                name="user_name"
+                type="text"
+                value={user_name}
+                onChange={handleChange("user_name")}
+              />
+
+              <label className="register-main-form-label">Age</label>
+
+              <input
+                className="register-main-age-input"
+                name="age"
+                type="number"
+                value={age}
+                onChange={handleChange("age")}
+              />
+
+              <button
+                className="register-lets-go-button"
+                variant="warning"
+                type="submit"
+                onClick={this.continue}
+              >
+                Onward!
+              </button>
+
+              <div className="already-have-an-account">
+                <a>
+                  <span onClick={this.continue}>Skip this step</span>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
 }
 
-
 export default PersonalInfoForm;
-
 
 // const [state, dispatch] = useReducer(onboardingReducer, initialState);
 
@@ -139,7 +131,7 @@ export default PersonalInfoForm;
 // // const showStep = () => {
 // //   const {step} = this.state;
 // //   if(step === 1)
-// //   return {...this.state.personalInfo,nextStep() 
+// //   return {...this.state.personalInfo,nextStep()
 // // }
 
 //Calling action from reducer to handle change for inputs
@@ -163,8 +155,8 @@ export default PersonalInfoForm;
 // };
 
 // function validate(username) {
-  //   return {
-    //     username: username === ''
+//   return {
+//     username: username === ''
 //   };
 // }
 
