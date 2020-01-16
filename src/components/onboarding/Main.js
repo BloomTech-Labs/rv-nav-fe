@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import PersonalInfo from "./PersonalInfoForm";
 import VehicleLoginForm from "./VehicleLoginForm";
 import RoutingPref from "./Routing-Pref";
+import { connect } from "react-redux";
+import { onboarding} from "../../store/actions";
+import { withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Main extends Component {
   state = {
@@ -36,9 +40,6 @@ class Main extends Component {
   };
 
   vehicleSubmit = (event) => {
-
-
-
     // event.preventDefault();
     //Google analytics tracking
     window.gtag("event", "create vehicle", {
@@ -99,7 +100,15 @@ class Main extends Component {
     //   this.props.addVehicle(send);
     //   this.closeVehicleForm();
     // }
-    this.props.addVehicle(send);
+    this.props.onboarding(send)
+    .then(res => {
+        if (res) {
+            
+          return  <Redirect to='/map'/>
+                }
+              });
+          
+    
     
     this.setState({
         // name: '',
@@ -278,6 +287,6 @@ class Main extends Component {
 
 const mapStateToProps = state => ({})
 
-export default Main(connect(
-  mapStateToProps, { addVehicle }
+export default withRouter(connect(
+  mapStateToProps, { onboarding }
 )(Main))

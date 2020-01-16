@@ -34,47 +34,20 @@ class RoutingPref extends Component {
     this.props.prevStep();
   }
 
-  handleSubmit = e => {
-   e.preventDefault()
-    axios.post("#", this.props.state)
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => console.log(err.res));
-  }
-  
-  // regSubmit = event => {
-  //   event.preventDefault();
-  //   //Google analytics tracking
-  //   window.gtag("event", "register", {
-  //     event_category: "access",
-  //     event_label: "register"
-  //   });
-  //   setLoading(true);
-  //   if (setLoading === true) {
-  //     // make loading page its own component render on loading true
-  //     return <OnboardLoad />;
-  //   }
-  //   props
-  //   .register(dirtRoad, steep, holes)
+  // handleSubmit = e => {
+  //  e.preventDefault()
+  //   axios.post("#", this.props.state)
   //   .then(res => {
-  //     setLoading(false);
-  //     // this.setState({
-  //       //   email: "",
-  //       //   password: ""
-  //       // });
-  //       if (res) {
-  //         props.history.push("/map");
-  //       }
-  //     }) //put register errors
-  //     .catch(err => {
-  //       setLoading(false);
-  //       console.log("login err", err);
-  //     });
-  //   };
+  //     console.log(res)
+  //   })
+  //   .catch(err => console.log(err.res));
+  // }
+  
+
   
     render() {
-      console.log(this.props.state);
+      console.log("STATE",this.props.state);
+      console.log("PROPS",this.props);
       const {handleCheck, vehicleSubmit, DirtRoads, SteepGrade, Potholes } =this.props;
       return (
         <div className="register-wrapper">
