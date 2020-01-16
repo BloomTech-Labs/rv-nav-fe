@@ -4,14 +4,14 @@
 // import { register, login, clearError } from "../../../store/actions";
 // import { withRouter } from "react-router-dom";
 // import firebase from 'firebase';
-import React, { Component } from "react";
 // import { connect } from "react-redux";
-import styled from "styled-components";
-import "./VehicleLoginForm.scss";
 // import {
-//   onboardingReducer,
-//   initialState
-// } from "../../store/reducers/onboarding";
+  //   onboardingReducer,
+  //   initialState
+  // } from "../../store/reducers/onboarding";
+  import React, { Component } from "react";
+  import styled from "styled-components";
+  import "./VehicleLoginForm.scss";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 
 const Header = styled.div`
@@ -19,6 +19,7 @@ const Header = styled.div`
   width: auto
   background: #2A2E43;
 `;
+
 const Text = styled.span`
   position: absolute;
   left: 0.74%;
@@ -43,16 +44,9 @@ class VehicleInfo extends Component {
     this.props.prevStep();
   };
 
-  //assigns state to a value based on which radio button has been clicked
-  // handleRadio = (event) => {
-  //   //const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-  //   this.setState({
-  //     specifications: {
-  //       ...this.state.specifications,
-  //       vehicle_class: event.target.value
-  //     }
-  //   })
-  // }
+
+
+
 
   render() {
     const {

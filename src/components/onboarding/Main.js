@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import PersonalInfo from "./PersonalInfoForm";
 import VehicleLoginForm from "./VehicleLoginForm";
 import RoutingPref from "./Routing-Pref";
+import { connect } from "react-redux";
+import { onboarding} from "../../store/actions";
+import { withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Main extends Component {
   state = {
@@ -15,9 +19,12 @@ class Main extends Component {
 
     //step: 2
     name: "",
-    height: "",
-    width: "",
-    length: "",
+    heightFeet: "",
+    heightInches: "",
+    widthFeet: "",
+    widthInches: "",
+    lengthFeet: "",
+    lengthInches: "",
     weight: "",
     axel_count: "",
     vehicle_class: "", //controlled input of one letter
@@ -31,6 +38,122 @@ class Main extends Component {
     SteepGrade: false,
     Potholes: false
   };
+
+  vehicleSubmit = (event) => {
+    // event.preventDefault();
+    //Google analytics tracking
+    window.gtag("event", "create vehicle", {
+      event_category: "submit",
+      event_label: "create vehicle"
+    });
+
+    let height = this.combineDistanceUnits(this.state.heightInches, this.state.heightFeet);
+    let width = this.combineDistanceUnits(this.state.widthInches, this.state.widthFeet);
+    let length = this.combineDistanceUnits(this.state.lengthInches, this.state.lengthFeet);
+    let weight = this.state.weight;
+    let axel_count = this.state.axel_count;
+    let vehicle_class = this.state.class_name;
+    let trailer = this.state.trailer;
+    if (vehicle_class === "Trailer") {
+      vehicle_class = "";
+      trailer = true;
+    }
+    if (weight === "") {
+      weight = 0;
+    }
+    if (axel_count === "") {
+      axel_count = 0;
+    }
+    //make sure all values entered are sent as the correct data type to the back end
+    parseFloat(height);
+    parseFloat(length);
+    parseFloat(width);
+    parseFloat(weight);
+    parseInt(axel_count);
+
+    //send is the object that is sent to the web backend to be stored
+    //it is made using values from the form, some of which are processed and converted before being assigned to the keys here
+    let send = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      user_name: this.state.user_name,
+      age: this.state.age,
+      name: this.state.name,
+      height: height,
+      width: width,
+      length: length,
+      weight: weight,
+      axel_count: axel_count,
+      vehicle_class: vehicle_class,
+      trailer: trailer,
+      dual_tires: this.state.dual_tires,
+      DirtRoads: this.state.DirtRoads,
+      SteepGrade: this.state.SteepGrade,
+      Potholes: this.state.Potholes
+    }
+    console.log("sent", send);
+    console.log("ID", this.props.id);
+    // if (this.props.editing) {
+    //   this.props.updateVehicle(send, this.props.id);
+    //   this.props.editVehicleToggle(this.props.id);
+    // } else {
+    //   this.props.addVehicle(send);
+    //   this.closeVehicleForm();
+    // }
+    this.props.onboarding(send)
+    .then(res => {
+        if (res) {
+            
+          return  <Redirect to='/map'/>
+                }
+              });
+          
+    
+    
+    this.setState({
+        // name: '',
+        // heightFeet: '',
+        // heightInches: '',
+        // widthFeet: '',
+        // widthInches: '',
+        // lengthFeet: '',
+        // lengthInches: '',
+        // weight: '',
+        // axel_count: '',
+        // vehicle_class: '',
+        // dual_tires: false,
+        // trailer: false,
+      first_name: "",
+      last_name: "",
+      user_name: "",
+      age: "",
+      name: "",
+      height:"",
+      width: "",
+      length: "",
+      weight: "",
+      axel_count: "",
+      vehicle_class: "",
+      trailer: false,
+      dual_tires: false,
+      DirtRoads: false,
+      SteepGrade: false,
+      Potholes: false
+    })
+  }
+
+   //combines feet and inch units into feet only, to be sent to the backend
+   combineDistanceUnits = (inchesIn, feetIn) => {
+    let inches = inchesIn;
+    let feet = feetIn;
+    if (feet === "") {
+      feet = 0;
+    } if (inches === "") {
+      inches = 0;
+    }
+    const inchesCombined = feet + (inches / 12);
+    return inchesCombined;
+  }
 
   nextStep = () => {
     const { step } = this.state;
@@ -75,9 +198,12 @@ class Main extends Component {
       user_name,
       age,
       name,
-      height,
-      width,
-      length,
+      heightFeet,
+      heightInches,
+      widthFeet,
+      widthInches,
+      lengthFeet,
+      lengthInches,
       weight,
       axel_count,
       vehicle_class,
@@ -140,6 +266,7 @@ class Main extends Component {
           state={this.state}
           prevStep={this.prevStep}
           handleCheck={this.handleCheck}
+          vehicleSubmit = {this.vehicleSubmit}
           DirtRoads={DirtRoads}
           SteepGrade={SteepGrade}
           Potholes={Potholes}
@@ -158,4 +285,8 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapStateToProps = state => ({})
+
+export default withRouter(connect(
+  mapStateToProps, { onboarding }
+)(Main))
