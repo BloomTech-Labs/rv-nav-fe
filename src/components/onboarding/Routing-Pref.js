@@ -231,7 +231,7 @@ class RoutingPref extends Component {
             <button
               className="register-lets-go-button"
               variant="warning"
-              onClick={this.handleSubmit}
+              onClick={vehicleSubmit}
               type="submit"
               >
               Add to My Preferences

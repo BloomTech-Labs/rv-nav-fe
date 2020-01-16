@@ -99,6 +99,8 @@ class Main extends Component {
     //   this.props.addVehicle(send);
     //   this.closeVehicleForm();
     // }
+    this.props.addVehicle(send);
+    
     this.setState({
         // name: '',
         // heightFeet: '',
@@ -274,4 +276,8 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapStateToProps = state => ({})
+
+export default Main(connect(
+  mapStateToProps, { addVehicle }
+)(Main))
