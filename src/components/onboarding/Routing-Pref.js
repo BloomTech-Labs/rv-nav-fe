@@ -75,7 +75,7 @@ class RoutingPref extends Component {
   
     render() {
       console.log(this.props.state);
-      const {handleCheck,  DirtRoads, SteepGrade, Potholes } =this.props;
+      const {handleCheck, vehicleSubmit, DirtRoads, SteepGrade, Potholes } =this.props;
       return (
         <div className="register-wrapper">
       <Header className="rv-way-header">
