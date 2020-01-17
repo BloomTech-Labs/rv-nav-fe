@@ -38,11 +38,11 @@ You can find the deployed project at https://www.rvnav.com/ .
 
 ## Project Overview
 
-[Trello Board](https://trello.com/b/ZNvvjtyN/labs17-rv-road-life)
+[Trello Board](https://trello.com/b/BLl1FDC5/labs-19-rv-nav)
 
 [Product Canvas](https://www.notion.so/RV-Road-Life-e8e617ec8a144c19b9fd635b330b7f49)
 
-[UX Design files](https://www.figma.com/file/Y5d4B47bXEcBgP9mtgq6gx/Labs17_RV-Road-Life%2C-Harper-%26-Joanne?node-id=325%3A176)
+[UX Design files](https://www.figma.com/file/Y5d4B47bXEcBgP9mtgq6gx/Labs17_RV-Road-Life%2C-Harper-%26-Joanne?node-id=1667%3A0)
 
 Traveling safely for RVers is difficult. RV Life will get you to where you need to go safely and with no hassle.
 
@@ -60,7 +60,15 @@ Using several available data sources integrated into a map thats designed for RV
 
 #### React.js
 
-- most flexible javascript framework
+- most flexible Javascript framework
+
+#### Redux
+
+- A predictable state container for Javascript Apps
+
+#### Class Components
+
+- Used to manage state within React elements
 
 #### Front end deployed to Heroku
 
@@ -71,6 +79,14 @@ Using several available data sources integrated into a map thats designed for RV
 - Universal
 - Easy to setup
 - Easy to manage
+
+#### Express
+
+- a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications
+
+#### JSON Web Tokens
+
+- An open, industry standard RFC 7519 method for representing claims securely between two parties.
 
 # APIs
 
@@ -84,8 +100,9 @@ Used for the Map rendered to the screen, as well as the users Geolocation.
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-    *  REACT_APP_GOOGLEMAP - this ket enables the use of Google maps api
     *  REACT_APP_ARC_KEY - this key enables the use of the Arcgis Api
+    *  REACT_APP_FIREBASE_API_KEY - this key enables us to use Firebase API
+    *  REACT_APP_FIREBASE_AUTH_DOMAIN - this key enables us to use Firebase Auth Domain
 
 # Testing
 
