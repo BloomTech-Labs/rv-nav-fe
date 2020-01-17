@@ -6,12 +6,12 @@
 // import firebase from 'firebase';
 // import { connect } from "react-redux";
 // import {
-  //   onboardingReducer,
-  //   initialState
-  // } from "../../store/reducers/onboarding";
-  import React, { Component } from "react";
-  import styled from "styled-components";
-  import "./VehicleLoginForm.scss";
+//   onboardingReducer,
+//   initialState
+// } from "../../store/reducers/onboarding";
+import React, { Component } from "react";
+import styled from "styled-components";
+import "./VehicleLoginForm.scss";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 
 const Header = styled.div`
@@ -44,16 +44,12 @@ class VehicleInfo extends Component {
     this.props.prevStep();
   };
 
-
-
-
-
   render() {
     const {
       handleRadio,
       handleChange,
       handleCheck,
-      first_name,
+      firstName,
       name,
       heightFeet,
       heightInches,
@@ -91,7 +87,7 @@ class VehicleInfo extends Component {
             </div>
             <div className="greeting">
               <h4>
-                <b>It's great to meet you, {first_name}!</b>
+                <b>It's great to meet you, {firstName}!</b>
               </h4>
 
               <h4>Let's talk about your vehicle...</h4>

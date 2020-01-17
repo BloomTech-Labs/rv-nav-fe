@@ -3,18 +3,20 @@ import PersonalInfo from "./PersonalInfoForm";
 import VehicleLoginForm from "./VehicleLoginForm";
 import RoutingPref from "./Routing-Pref";
 import { connect } from "react-redux";
-import { onboarding} from "../../store/actions";
+import { onboarding } from "../../store/actions";
+import { login } from "../../store/actions";
 import { withRouter } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 class Main extends Component {
   state = {
     step: 1,
 
     //step 1
-    first_name: "",
-    last_name: "",
-    user_name: "",
+    firstName: "",
+    lastName: "",
+    userName: "",
     age: "",
 
     //step: 2
@@ -39,7 +41,7 @@ class Main extends Component {
     Potholes: false
   };
 
-  vehicleSubmit = (event) => {
+  vehicleSubmit = event => {
     // event.preventDefault();
     //Google analytics tracking
     window.gtag("event", "create vehicle", {
@@ -47,9 +49,18 @@ class Main extends Component {
       event_label: "create vehicle"
     });
 
-    let height = this.combineDistanceUnits(this.state.heightInches, this.state.heightFeet);
-    let width = this.combineDistanceUnits(this.state.widthInches, this.state.widthFeet);
-    let length = this.combineDistanceUnits(this.state.lengthInches, this.state.lengthFeet);
+    let height = this.combineDistanceUnits(
+      this.state.heightInches,
+      this.state.heightFeet
+    );
+    let width = this.combineDistanceUnits(
+      this.state.widthInches,
+      this.state.widthFeet
+    );
+    let length = this.combineDistanceUnits(
+      this.state.lengthInches,
+      this.state.lengthFeet
+    );
     let weight = this.state.weight;
     let axel_count = this.state.axel_count;
     let vehicle_class = this.state.class_name;
@@ -74,9 +85,9 @@ class Main extends Component {
     //send is the object that is sent to the web backend to be stored
     //it is made using values from the form, some of which are processed and converted before being assigned to the keys here
     let send = {
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      user_name: this.state.user_name,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      userName: this.state.userName,
       age: this.state.age,
       name: this.state.name,
       height: height,
@@ -90,7 +101,7 @@ class Main extends Component {
       DirtRoads: this.state.DirtRoads,
       SteepGrade: this.state.SteepGrade,
       Potholes: this.state.Potholes
-    }
+    };
     console.log("sent", send);
     console.log("ID", this.props.id);
     // if (this.props.editing) {
@@ -100,35 +111,31 @@ class Main extends Component {
     //   this.props.addVehicle(send);
     //   this.closeVehicleForm();
     // }
-    this.props.onboarding(send)
-    .then(res => {
-        if (res) {
-            
-          return  <Redirect to='/map'/>
-                }
-              });
-          
-    
-    
+    // this.props.onboarding(send).then(res => {
+    //   if (res) {
+    //     return <Redirect to="/map" />;
+
+    // });
+
     this.setState({
-        // name: '',
-        // heightFeet: '',
-        // heightInches: '',
-        // widthFeet: '',
-        // widthInches: '',
-        // lengthFeet: '',
-        // lengthInches: '',
-        // weight: '',
-        // axel_count: '',
-        // vehicle_class: '',
-        // dual_tires: false,
-        // trailer: false,
-      first_name: "",
-      last_name: "",
-      user_name: "",
+      // name: '',
+      // heightFeet: '',
+      // heightInches: '',
+      // widthFeet: '',
+      // widthInches: '',
+      // lengthFeet: '',
+      // lengthInches: '',
+      // weight: '',
+      // axel_count: '',
+      // vehicle_class: '',
+      // dual_tires: false,
+      // trailer: false,
+      firstName: "",
+      lastName: "",
+      userName: "",
       age: "",
       name: "",
-      height:"",
+      height: "",
       width: "",
       length: "",
       weight: "",
@@ -139,21 +146,71 @@ class Main extends Component {
       DirtRoads: false,
       SteepGrade: false,
       Potholes: false
-    })
-  }
+    });
+  };
 
-   //combines feet and inch units into feet only, to be sent to the backend
-   combineDistanceUnits = (inchesIn, feetIn) => {
+  //combines feet and inch units into feet only, to be sent to the backend
+  combineDistanceUnits = (inchesIn, feetIn) => {
     let inches = inchesIn;
     let feet = feetIn;
     if (feet === "") {
       feet = 0;
-    } if (inches === "") {
+    }
+    if (inches === "") {
       inches = 0;
     }
-    const inchesCombined = feet + (inches / 12);
+    const inchesCombined = feet + inches / 12;
     return inchesCombined;
-  }
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const { firstName, lastName, userName, age } = this.state;
+    // axios;
+    // .get(`https://localhost:5000/users/${id}`)
+    // .then(res => {
+    //   this.setState(res.data);
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    //   this.errored = true;
+    // });
+
+    // axios;
+    // .post(`https://localhost:5000/users/whatever`, username)
+    // model on backend finds id for that  username and sends back ID
+    // .then(res => {
+    //  let ID = res.data.id;
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    //   this.errored = true;
+    // });
+
+    axios
+      .put(`http://localhost:5000/users/${ID}`, {
+        firstName,
+        lastName,
+        userName,
+        age
+      })
+      .then(res => {
+        this.setState(res.data);
+        localStorage.setItem("token", res.data.token);
+        this.setState({ type: login, payload: res.data });
+        return true;
+      })
+      .catch(err => console.log(err.res));
+    // const { name, heightFeet, heightInches, widthFeet, widthInches, lengthFeet, lengthInches, weight, axel_count, vehicle_class, dual_tires, class_A,
+    //   class_B, class_C, fifth_wheel, pull_behind, trailer, isSignedIn, DirtRoads, SteepGrade, Potholes } = this.state;
+    // axios
+    // .post('http://localhost:5000/vehicle', { name, heightFeet, heightInches, widthFeet, widthInches, lengthFeet, lengthInches, weight, axel_count, vehicle_class, dual_tires, class_A,
+    //   class_B, class_C, fifth_wheel, pull_behind, trailer, isSignedIn, DirtRoads, SteepGrade, Potholes })
+    //   .then(res => {
+    //     this.setState(res.data);
+    //   })
+    //   .catch(err => console.log(err.res));
+  };
 
   nextStep = () => {
     const { step } = this.state;
@@ -193,9 +250,9 @@ class Main extends Component {
   showStep = () => {
     const {
       step,
-      first_name,
-      last_name,
-      user_name,
+      firstName,
+      lastName,
+      userName,
       age,
       name,
       heightFeet,
@@ -225,9 +282,9 @@ class Main extends Component {
         <PersonalInfo
           handleChange={this.handleChange}
           nextStep={this.nextStep}
-          firstName={first_name}
-          lastName={last_name}
-          username={user_name}
+          firstName={firstName}
+          lastName={lastName}
+          username={userName}
           age={age}
         />
       );
@@ -239,7 +296,7 @@ class Main extends Component {
           handleCheck={this.handleCheck}
           nextStep={this.nextStep}
           prevStep={this.prevStep}
-          firstName={first_name}
+          firstName={firstName}
           vehicleName={name}
           heightFeet={heightFeet}
           heightInches={heightInches}
@@ -266,7 +323,8 @@ class Main extends Component {
           state={this.state}
           prevStep={this.prevStep}
           handleCheck={this.handleCheck}
-          vehicleSubmit = {this.vehicleSubmit}
+          vehicleSubmit={this.vehicleSubmit}
+          onSubmit={this.onSubmit}
           DirtRoads={DirtRoads}
           SteepGrade={SteepGrade}
           Potholes={Potholes}
@@ -285,8 +343,6 @@ class Main extends Component {
   }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({});
 
-export default withRouter(connect(
-  mapStateToProps, { onboarding }
-)(Main))
+export default withRouter(connect(mapStateToProps, { login })(Main));
