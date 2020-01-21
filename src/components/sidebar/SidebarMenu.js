@@ -29,7 +29,7 @@ const SidebarMenu = (props) => {
                     <div className="hamburger-options-parent">
                         <div className='navlinkclass'>
                            
-                             <h5>Map Views</h5>
+                             <h5 className="map-view">Map Views</h5>
                         </div>
                         <div className='navlinkclass'>
                             <SatIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
