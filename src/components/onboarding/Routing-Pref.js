@@ -49,6 +49,7 @@ class RoutingPref extends Component {
       handleCheck,
       vehicleSubmit,
       onSubmit,
+      mainSubmit,
       DirtRoads,
       SteepGrade,
       Potholes

@@ -7,9 +7,20 @@ import { onboarding } from "../../store/actions";
 import { login } from "../../store/actions";
 import { withRouter } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import { updateUser, clearError, register } from "../../store/actions/index";
 import axios from "axios";
 
+const validateForm = errors => {
+  let valid = true;
+
+  return valid;
+};
 class Main extends Component {
+  componentDidMount() {
+    const { id } = this.props;
+    register(id);
+  }
+
   state = {
     step: 1,
 
@@ -103,7 +114,7 @@ class Main extends Component {
       Potholes: this.state.Potholes
     };
     console.log("sent", send);
-    console.log("ID", this.props.id);
+    console.log("ID MAIN FORM", this.props.id);
     // if (this.props.editing) {
     //   this.props.updateVehicle(send, this.props.id);
     //   this.props.editVehicleToggle(this.props.id);
@@ -163,7 +174,7 @@ class Main extends Component {
     return inchesCombined;
   };
 
-  onSubmit = e => {
+  onSubmit = (e, id) => {
     e.preventDefault();
     const { firstName, lastName, userName, age } = this.state;
     // axios;
@@ -186,21 +197,26 @@ class Main extends Component {
     //   console.log(error);
     //   this.errored = true;
     // });
-
     axios
-      .put(`http://localhost:5000/users/${ID}`, {
-        firstName,
-        lastName,
-        userName,
-        age
-      })
+      .put(
+        `http://localhost:5000/users/${id}`,
+        {
+          firstName,
+          lastName,
+          userName,
+          age
+        },
+        id
+      )
       .then(res => {
-        this.setState(res.data);
-        localStorage.setItem("token", res.data.token);
-        this.setState({ type: login, payload: res.data });
-        return true;
+        console.log("ID FROM AXIOS", id);
+        // localStorage.setItem("token", res.data.token);
+        if (res) {
+          this.setState(res.data);
+          // return true;
+        }
       })
-      .catch(err => console.log(err.res));
+      .catch(err => console.log(err.response));
     // const { name, heightFeet, heightInches, widthFeet, widthInches, lengthFeet, lengthInches, weight, axel_count, vehicle_class, dual_tires, class_A,
     //   class_B, class_C, fifth_wheel, pull_behind, trailer, isSignedIn, DirtRoads, SteepGrade, Potholes } = this.state;
     // axios
@@ -225,6 +241,30 @@ class Main extends Component {
       step: step - 1
     });
   };
+
+  // mainSubmit = e => {
+  //   e.preventDefault();
+
+  //   this.props
+  //     .updateUser({
+  //       firstName: this.state.firstName,
+  //       lastName: this.state.lastName,
+  //       userName: this.state.userName,
+  //       age: this.state.age
+  //     })
+  //     .then(res => {
+  //       if (res) {
+  //         this.setState(res.data);
+  //         this.props.history.push("/map");
+  //       }
+  //     })
+  //     .catch(err => {
+  //       console.log("error", err);
+  //       setTimeout(function() {
+  //         return this.props.clearError();
+  //       }, 2000);
+  //     });
+  // };
 
   //assigns state to a value based on which radio button has been clicked
   handleRadio = event => {
@@ -325,6 +365,7 @@ class Main extends Component {
           handleCheck={this.handleCheck}
           vehicleSubmit={this.vehicleSubmit}
           onSubmit={this.onSubmit}
+          mainSubmit={this.mainSubmit}
           DirtRoads={DirtRoads}
           SteepGrade={SteepGrade}
           Potholes={Potholes}
@@ -343,6 +384,12 @@ class Main extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+export default Main;
 
-export default withRouter(connect(mapStateToProps, { login })(Main));
+// const mapStateToProps = state => {
+//   return { error: state.error };
+// };
+
+// export default withRouter(
+//   connect(mapStateToProps, { register, updateUser, clearError })(Main)
+// );

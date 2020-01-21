@@ -54,30 +54,30 @@ class PersonalInfoForm extends Component {
 
               <input
                 className="register-main-form-input"
-                name="first_name"
+                name="firstName"
                 type="text"
                 value={firstName}
-                onChange={handleChange("first_name")}
+                onChange={handleChange("firstName")}
               />
 
               <label className="register-main-form-label">Last Name</label>
 
               <input
                 className="register-main-form-input"
-                name="last_name"
+                name="lastName"
                 type="text"
                 value={lastName}
-                onChange={handleChange("last_name")}
+                onChange={handleChange("lastName")}
               />
 
               <label className="register-main-form-label">Username</label>
 
               <input
                 className="register-main-form-input"
-                name="user_name"
+                name="userName"
                 type="text"
                 value={userName}
-                onChange={handleChange("user_name")}
+                onChange={handleChange("userName")}
               />
 
               <label className="register-main-form-label">Age</label>

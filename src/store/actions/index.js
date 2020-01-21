@@ -1,14 +1,14 @@
-import axios from 'axios';
-import firebase from 'firebase';
+import axios from "axios";
+import firebase from "firebase";
 
-export const LOADING = 'LOADING';
-export const ERROR_MESSAGE = 'ERROR_MESSAGE';
-export const REGISTER = 'REGISTER';
-export const LOGIN = 'LOGIN';
+export const LOADING = "LOADING";
+export const ERROR_MESSAGE = "ERROR_MESSAGE";
+export const REGISTER = "REGISTER";
+export const LOGIN = "LOGIN";
 export const ONBOARDING = "ONBOARDING";
-export const ADD_VEHICLE = 'ADD_VEHICLE';
-export const GET_VEHICLE = 'GET_VEHICLE';
-export const GET_WALMARTS = 'GET_WALMARTS';
+export const ADD_VEHICLE = "ADD_VEHICLE";
+export const GET_VEHICLE = "GET_VEHICLE";
+export const GET_WALMARTS = "GET_WALMARTS";
 export const DELETE_VEHICLE = "DELETE_VEHICLE";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const INVALID_CREDENTIALS = "INVALID_CREDENTIALS";
@@ -17,6 +17,7 @@ export const DUPLICATE_USER = "DUPLICATE_USER";
 export const DUPLICATE_EMAIL = "DUPLICATE_EMAIL";
 export const LOGOUT = "LOGOUT";
 export const CLOSE_SIDE_BAR = "CLOSE_SIDE_BAR ";
+export const GET_USER = "GET_USER";
 
 export function authError(error) {
   return { type: "AUTH_ERROR", payload: error };
@@ -31,7 +32,6 @@ export function closeSideBar() {
 }
 
 export const register = creds => {
-
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
@@ -43,7 +43,8 @@ export const register = creds => {
       .then(response => {
         dispatch({ type: REGISTER, payload: response.data });
         console.log("response", response.data);
-        return true;
+
+        return response.data;
       })
       .catch(err => {
         if (
@@ -67,7 +68,7 @@ export const register = creds => {
       });
   };
 };
-export const login = values => {
+export const login = (values, id) => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
@@ -78,12 +79,13 @@ export const login = values => {
       )
       .then(res => {
         // console.log(res, '####### FROM LOGIN #######'); // data was created successfully and logs to console
+        console.log("id from login action", res);
         localStorage.setItem("token", res.data.token);
-        dispatch({ type: LOGIN, payload: res.data });
+        dispatch({ type: LOGIN, payload: res.data, id });
         return true;
       })
       .catch(err => {
-        console.error(err)
+        console.error(err);
         if (authError(err).payload.response.status === 401) {
           dispatch({ type: INVALID_CREDENTIALS });
           setTimeout(() => {
@@ -103,26 +105,31 @@ export const logout = () => {
     event_label: "logout"
   });
 
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
 
   if (token) {
-    localStorage.removeItem(token)
+    localStorage.removeItem(token);
     // console.log('%cLogged out from Database User', 'font-size: 16px; color: green;')
   } else if (firebase.auth().currentUser !== null) {
-    firebase.auth().signOut()
+    firebase.auth().signOut();
     // console.log('%cLogged out from Firebase User', 'font-size: 16px; color: green;')
   }
-  return { type: LOGOUT }
-}
+  return { type: LOGOUT };
+};
 
 export const addVehicle = value => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-       .post(
+      .post(
         //'https://labs-rv-life-staging-1.herokuapp.com/vehicle',
-      "http://localhost:5000/vehicle", value,
-        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
+        "http://localhost:5000/vehicle",
+        value,
+        {
+          headers: { Authorization: localStorage.getItem("token") },
+          "Content-Type": "application/json"
+        }
+      )
       .then(res => {
         console.log("add vehicle res", res); // data was created successfully and logs to console
 
@@ -131,7 +138,7 @@ export const addVehicle = value => {
       })
       .catch(err => {
         console.log("add vehicle err", err); // there was an error creating the data and logs to console
-        dispatch({ type: ERROR_MESSAGE, errorMessage: 'request failed' });
+        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
 };
@@ -140,10 +147,15 @@ export const onboarding = value => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-       .post(
+      .post(
         //'https://labs-rv-life-staging-1.herokuapp.com/onboarding',
-      "http://localhost:5000/onboarding", value,
-        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
+        "http://localhost:5000/onboarding",
+        value,
+        {
+          headers: { Authorization: localStorage.getItem("token") },
+          "Content-Type": "application/json"
+        }
+      )
       .then(res => {
         console.log("add onboarding res", res); // data was created successfully and logs to console
 
@@ -152,7 +164,7 @@ export const onboarding = value => {
       })
       .catch(err => {
         console.log("add onboarding err", err); // there was an error creating the data and logs to console
-        dispatch({ type: ERROR_MESSAGE, errorMessage: 'request failed' });
+        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
 };
@@ -161,8 +173,10 @@ export const getVehicles = () => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .get('https://labs-rv-life-staging-1.herokuapp.com/vehicle',
-        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
+      .get("https://labs-rv-life-staging-1.herokuapp.com/vehicle", {
+        headers: { Authorization: localStorage.getItem("token") },
+        "Content-Type": "application/json"
+      })
       .then(res => {
         console.log("get vehicle res", res); // data was created successfully and logs to console
 
@@ -171,7 +185,58 @@ export const getVehicles = () => {
       })
       .catch(err => {
         console.log("get vehicle err", err); // there was an error creating the data and logs to console
-        dispatch({ type: ERROR_MESSAGE, errorMessage: 'request failed' });
+        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
+      });
+  };
+};
+
+export const updateUser = (value, id) => {
+  //Google analytics tracking
+  window.gtag("event", "update user", {
+    event_category: "update",
+    event_label: "update user"
+  });
+  return dispatch => {
+    dispatch({ type: LOADING });
+    return axios
+      .put(
+        // `https://labs-rv-life-staging-1.herokuapp.com/user/${id}`, value,
+        `http://localhost:5000/users/${id}`,
+        value,
+        {
+          headers: { Authorization: localStorage.getItem("token") },
+          "Content-Type": "application/json"
+        }
+      )
+      .then(res => {
+        console.log("update res", res); // data was created successfully and logs to console
+
+        // dispatch({ type: UPDATE_USER, payload: {value, id} });
+        dispatch({ type: LOADING });
+        return axios
+          .get(
+            // 'https://labs-rv-life-staging-1.herokuapp.com/users',
+            "http://localhost:5000/users",
+            {
+              headers: { Authorization: localStorage.getItem("token") },
+              "Content-Type": "application/json"
+            }
+          )
+          .then(res => {
+            console.log("get user res", res); // data was created successfully and logs to console
+
+            dispatch({ type: GET_USER, payload: res.data });
+            return true;
+          })
+          .catch(err => {
+            console.log("get user err", err); // there was an error creating the data and logs to console
+            dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
+          });
+        // return true;
+      })
+      .catch(err => {
+        console.log("update user err:", err); // there was an error creating the data and logs to console
+        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
 };
@@ -185,16 +250,24 @@ export const updateVehicle = (value, id) => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .put(`https://labs-rv-life-staging-1.herokuapp.com/vehicle/${id}`, value,
-        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
+      .put(
+        `https://labs-rv-life-staging-1.herokuapp.com/vehicle/${id}`,
+        value,
+        {
+          headers: { Authorization: localStorage.getItem("token") },
+          "Content-Type": "application/json"
+        }
+      )
       .then(res => {
         console.log("update res", res); // data was created successfully and logs to console
 
         // dispatch({ type: UPDATE_VEHICLE, payload: {value, id} });
         dispatch({ type: LOADING });
         return axios
-          .get('https://labs-rv-life-staging-1.herokuapp.com/vehicle',
-            { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
+          .get("https://labs-rv-life-staging-1.herokuapp.com/vehicle", {
+            headers: { Authorization: localStorage.getItem("token") },
+            "Content-Type": "application/json"
+          })
           .then(res => {
             console.log("get vehicle res", res); // data was created successfully and logs to console
 
@@ -203,17 +276,17 @@ export const updateVehicle = (value, id) => {
           })
           .catch(err => {
             console.log("get vehicle err", err); // there was an error creating the data and logs to console
-            dispatch({ type: ERROR_MESSAGE, errorMessage: 'request failed' });
+            dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
           });
         // return true;
       })
       .catch(err => {
         console.log("update vehicle err:", err); // there was an error creating the data and logs to console
-        dispatch({ type: ERROR_MESSAGE, errorMessage: 'request failed' });
+        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
 };
-export const deleteVehicles = (id) => {
+export const deleteVehicles = id => {
   //Google analytics tracking
   window.gtag("event", "delete vehicle", {
     event_category: "delete",
@@ -222,8 +295,10 @@ export const deleteVehicles = (id) => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .delete(`https://labs-rv-life-staging-1.herokuapp.com/vehicle/${id}`,
-        { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
+      .delete(`https://labs-rv-life-staging-1.herokuapp.com/vehicle/${id}`, {
+        headers: { Authorization: localStorage.getItem("token") },
+        "Content-Type": "application/json"
+      })
       .then(res => {
         console.log("de;lete res", res); // data was created successfully and logs to console
 
@@ -232,9 +307,7 @@ export const deleteVehicles = (id) => {
       })
       .catch(err => {
         console.log("delete vehicle err:", err); // there was an error creating the data and logs to console
-        dispatch({ type: ERROR_MESSAGE, errorMessage: 'request failed' });
+        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
 };
-
-

@@ -1,20 +1,20 @@
 import React from "react";
-import firebase from "firebase"
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../store/actions";
 import MapHeader from "../../header/MapHeader";
 
 //CSS STYLES
-import "./Login.css"
+import "./Login.css";
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN
-}
+};
 
-firebase.initializeApp(config)
+firebase.initializeApp(config);
 
 class LoginForm extends React.Component {
   constructor() {
@@ -236,9 +236,4 @@ const mapStateToProps = state => {
   return { error: state.error };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { login }
-  )(LoginForm)
-);
+export default withRouter(connect(mapStateToProps, { login })(LoginForm));
