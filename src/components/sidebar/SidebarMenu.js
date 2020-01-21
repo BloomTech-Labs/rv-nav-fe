@@ -20,12 +20,42 @@ const SidebarMenu = (props) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu className='dropdownmenu'>
-                <NavLink className='dropdownitem1' to="/">
-                    <div className='navlinkclass'>
-                        <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
-                        <Dropdown.Item className='dropdownitem1' onClick={() => { props.logout(); props.history.push('/login') }} > Logout</Dropdown.Item>
+                {/* <div className='dropdownitem1' to="/"> */}
+                    <div className="hamburger-options-parent">
+                        <div className='navlinkclass'>
+                           
+                             <h5>Map Views</h5>
+                        </div>
+                        <div className='navlinkclass'>
+                            <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
+                            <Dropdown.Item className='dropdownitem1'> Satellite</Dropdown.Item>
+                        </div>
+                        <div className='navlinkclass'>
+                            <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
+                            <Dropdown.Item className='dropdownitem1' > Terrain</Dropdown.Item>
+                        </div>
+                        <div className='navlinkclass'>
+                            <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
+                            <h5>Routing Preferences</h5>
+                        </div>
+                        <div className='navlinkclass'>
+                            <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
+                            <Dropdown.Item className='dropdownitem1' > My Vehicles</Dropdown.Item>
+                        </div>
+                        <div className='navlinkclass'>
+                            <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
+                            <Dropdown.Item className='dropdownitem1' > Saved Routes</Dropdown.Item>
+                        </div>
+                        <div className='navlinkclass'>
+                            <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
+                            <Dropdown.Item className='dropdownitem1' > Routing Options</Dropdown.Item>
+                        </div>
+                        <div className='navlinkclass'>
+                            <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
+                            <Dropdown.Item className='dropdownitem1' onClick={() => { props.logout(); props.history.push('/login') }} > Logout</Dropdown.Item>
+                        </div>
                     </div>
-                </NavLink>
+                {/* </div> */}
             </Dropdown.Menu>
         </Dropdown>
     )

@@ -1,3 +1,10 @@
+.hamburger-options-parent{
+    display:flex;
+    flex-direction: column;
+}
+
+
+
 .dropdown {
     width: 100%;
     display: flex;
