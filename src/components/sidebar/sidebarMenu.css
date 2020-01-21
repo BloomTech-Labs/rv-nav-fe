@@ -1,6 +1,12 @@
 .hamburger-options-parent{
     display:flex;
     flex-direction: column;
+    color: rgba(237, 238, 241, 0.95);
+    font-family: "Heebo", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+
 }
 
 
@@ -103,26 +109,26 @@
     width: 375px;
 }
 
-.dropdownitem {
+.hamburger-options-parent .dropdownitem {
     color: white;
 }
 
-.dropdownitem:hover {
+.hamburger-options-parent .dropdownitem:hover {
     color: white;
     text-decoration: none;
 }
 
-.dropdownitem:hover {
+.hamburger-options-parent .dropdownitem:hover {
     background: #2A2E43;
     color: white;
 }
 
-.dropdownitem1 {
+.hamburger-options-parent .dropdownitem1 {
     color: white;
 }
 
 .logoutclass {
-    margin-left: 25px;
+    margin-left: 10px;
     margin-top: 3px;
 }
 
@@ -132,9 +138,21 @@
 
 .navlinkclass {
     display: flex;
+    margin-right:10px;
 }
 
-.dropdownitem1:hover {
+.navlinkclassBorder{
+    display:flex;
+    border-bottom: 1px solid rgba(237, 238, 241, 0.2);
+
+}
+.navlinkclass h5{
+    display:flex;
+    font-size:14px;
+
+}
+
+.hamburger-options-parent .dropdownitem1:hover {
     background: rgb(57, 62, 90);
     color: white;
     text-decoration: none;
