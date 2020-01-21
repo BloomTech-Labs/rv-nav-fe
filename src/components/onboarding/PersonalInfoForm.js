@@ -33,7 +33,7 @@ class PersonalInfoForm extends Component {
   };
 
   render() {
-    const { handleChange, first_name, last_name, user_name, age } = this.props;
+    const { handleChange, firstName, lastName, userName, age } = this.props;
 
     return (
       <div className="register-wrapper">
@@ -54,30 +54,30 @@ class PersonalInfoForm extends Component {
 
               <input
                 className="register-main-form-input"
-                name="first_name"
+                name="firstName"
                 type="text"
-                value={first_name}
-                onChange={handleChange("first_name")}
+                value={firstName}
+                onChange={handleChange("firstName")}
               />
 
               <label className="register-main-form-label">Last Name</label>
 
               <input
                 className="register-main-form-input"
-                name="last_name"
+                name="lastName"
                 type="text"
-                value={last_name}
-                onChange={handleChange("last_name")}
+                value={lastName}
+                onChange={handleChange("lastName")}
               />
 
               <label className="register-main-form-label">Username</label>
 
               <input
                 className="register-main-form-input"
-                name="user_name"
+                name="userName"
                 type="text"
-                value={user_name}
-                onChange={handleChange("user_name")}
+                value={userName}
+                onChange={handleChange("userName")}
               />
 
               <label className="register-main-form-label">Age</label>

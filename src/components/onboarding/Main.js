@@ -3,18 +3,31 @@ import PersonalInfo from "./PersonalInfoForm";
 import VehicleLoginForm from "./VehicleLoginForm";
 import RoutingPref from "./Routing-Pref";
 import { connect } from "react-redux";
-import { onboarding} from "../../store/actions";
+import { onboarding } from "../../store/actions";
+import { login } from "../../store/actions";
 import { withRouter } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import { updateUser, clearError, register } from "../../store/actions/index";
+import axios from "axios";
 
+const validateForm = errors => {
+  let valid = true;
+
+  return valid;
+};
 class Main extends Component {
+  componentDidMount() {
+    const { id } = this.props;
+    register(id);
+  }
+
   state = {
     step: 1,
 
     //step 1
-    first_name: "",
-    last_name: "",
-    user_name: "",
+    firstName: "",
+    lastName: "",
+    userName: "",
     age: "",
 
     //step: 2
@@ -39,7 +52,7 @@ class Main extends Component {
     Potholes: false
   };
 
-  vehicleSubmit = (event) => {
+  vehicleSubmit = event => {
     // event.preventDefault();
     //Google analytics tracking
     window.gtag("event", "create vehicle", {
@@ -47,9 +60,18 @@ class Main extends Component {
       event_label: "create vehicle"
     });
 
-    let height = this.combineDistanceUnits(this.state.heightInches, this.state.heightFeet);
-    let width = this.combineDistanceUnits(this.state.widthInches, this.state.widthFeet);
-    let length = this.combineDistanceUnits(this.state.lengthInches, this.state.lengthFeet);
+    let height = this.combineDistanceUnits(
+      this.state.heightInches,
+      this.state.heightFeet
+    );
+    let width = this.combineDistanceUnits(
+      this.state.widthInches,
+      this.state.widthFeet
+    );
+    let length = this.combineDistanceUnits(
+      this.state.lengthInches,
+      this.state.lengthFeet
+    );
     let weight = this.state.weight;
     let axel_count = this.state.axel_count;
     let vehicle_class = this.state.class_name;
@@ -74,9 +96,9 @@ class Main extends Component {
     //send is the object that is sent to the web backend to be stored
     //it is made using values from the form, some of which are processed and converted before being assigned to the keys here
     let send = {
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      user_name: this.state.user_name,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      userName: this.state.userName,
       age: this.state.age,
       name: this.state.name,
       height: height,
@@ -90,9 +112,9 @@ class Main extends Component {
       DirtRoads: this.state.DirtRoads,
       SteepGrade: this.state.SteepGrade,
       Potholes: this.state.Potholes
-    }
+    };
     console.log("sent", send);
-    console.log("ID", this.props.id);
+    console.log("ID MAIN FORM", this.props.id);
     // if (this.props.editing) {
     //   this.props.updateVehicle(send, this.props.id);
     //   this.props.editVehicleToggle(this.props.id);
@@ -100,35 +122,31 @@ class Main extends Component {
     //   this.props.addVehicle(send);
     //   this.closeVehicleForm();
     // }
-    this.props.onboarding(send)
-    .then(res => {
-        if (res) {
-            
-          return  <Redirect to='/map'/>
-                }
-              });
-          
-    
-    
+    // this.props.onboarding(send).then(res => {
+    //   if (res) {
+    //     return <Redirect to="/map" />;
+
+    // });
+
     this.setState({
-        // name: '',
-        // heightFeet: '',
-        // heightInches: '',
-        // widthFeet: '',
-        // widthInches: '',
-        // lengthFeet: '',
-        // lengthInches: '',
-        // weight: '',
-        // axel_count: '',
-        // vehicle_class: '',
-        // dual_tires: false,
-        // trailer: false,
-      first_name: "",
-      last_name: "",
-      user_name: "",
+      // name: '',
+      // heightFeet: '',
+      // heightInches: '',
+      // widthFeet: '',
+      // widthInches: '',
+      // lengthFeet: '',
+      // lengthInches: '',
+      // weight: '',
+      // axel_count: '',
+      // vehicle_class: '',
+      // dual_tires: false,
+      // trailer: false,
+      firstName: "",
+      lastName: "",
+      userName: "",
       age: "",
       name: "",
-      height:"",
+      height: "",
       width: "",
       length: "",
       weight: "",
@@ -139,21 +157,76 @@ class Main extends Component {
       DirtRoads: false,
       SteepGrade: false,
       Potholes: false
-    })
-  }
+    });
+  };
 
-   //combines feet and inch units into feet only, to be sent to the backend
-   combineDistanceUnits = (inchesIn, feetIn) => {
+  //combines feet and inch units into feet only, to be sent to the backend
+  combineDistanceUnits = (inchesIn, feetIn) => {
     let inches = inchesIn;
     let feet = feetIn;
     if (feet === "") {
       feet = 0;
-    } if (inches === "") {
+    }
+    if (inches === "") {
       inches = 0;
     }
-    const inchesCombined = feet + (inches / 12);
+    const inchesCombined = feet + inches / 12;
     return inchesCombined;
-  }
+  };
+
+  onSubmit = (e, id) => {
+    e.preventDefault();
+    const { firstName, lastName, userName, age } = this.state;
+    // axios;
+    // .get(`https://localhost:5000/users/${id}`)
+    // .then(res => {
+    //   this.setState(res.data);
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    //   this.errored = true;
+    // });
+
+    // axios;
+    // .post(`https://localhost:5000/users/whatever`, username)
+    // model on backend finds id for that  username and sends back ID
+    // .then(res => {
+    //  let ID = res.data.id;
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    //   this.errored = true;
+    // });
+    axios
+      .put(
+        `http://localhost:5000/users/${id}`,
+        {
+          firstName,
+          lastName,
+          userName,
+          age
+        },
+        id
+      )
+      .then(res => {
+        console.log("ID FROM AXIOS", id);
+        // localStorage.setItem("token", res.data.token);
+        if (res) {
+          this.setState(res.data);
+          // return true;
+        }
+      })
+      .catch(err => console.log(err.response));
+    // const { name, heightFeet, heightInches, widthFeet, widthInches, lengthFeet, lengthInches, weight, axel_count, vehicle_class, dual_tires, class_A,
+    //   class_B, class_C, fifth_wheel, pull_behind, trailer, isSignedIn, DirtRoads, SteepGrade, Potholes } = this.state;
+    // axios
+    // .post('http://localhost:5000/vehicle', { name, heightFeet, heightInches, widthFeet, widthInches, lengthFeet, lengthInches, weight, axel_count, vehicle_class, dual_tires, class_A,
+    //   class_B, class_C, fifth_wheel, pull_behind, trailer, isSignedIn, DirtRoads, SteepGrade, Potholes })
+    //   .then(res => {
+    //     this.setState(res.data);
+    //   })
+    //   .catch(err => console.log(err.res));
+  };
 
   nextStep = () => {
     const { step } = this.state;
@@ -168,6 +241,30 @@ class Main extends Component {
       step: step - 1
     });
   };
+
+  // mainSubmit = e => {
+  //   e.preventDefault();
+
+  //   this.props
+  //     .updateUser({
+  //       firstName: this.state.firstName,
+  //       lastName: this.state.lastName,
+  //       userName: this.state.userName,
+  //       age: this.state.age
+  //     })
+  //     .then(res => {
+  //       if (res) {
+  //         this.setState(res.data);
+  //         this.props.history.push("/map");
+  //       }
+  //     })
+  //     .catch(err => {
+  //       console.log("error", err);
+  //       setTimeout(function() {
+  //         return this.props.clearError();
+  //       }, 2000);
+  //     });
+  // };
 
   //assigns state to a value based on which radio button has been clicked
   handleRadio = event => {
@@ -193,9 +290,9 @@ class Main extends Component {
   showStep = () => {
     const {
       step,
-      first_name,
-      last_name,
-      user_name,
+      firstName,
+      lastName,
+      userName,
       age,
       name,
       heightFeet,
@@ -225,9 +322,9 @@ class Main extends Component {
         <PersonalInfo
           handleChange={this.handleChange}
           nextStep={this.nextStep}
-          firstName={first_name}
-          lastName={last_name}
-          username={user_name}
+          firstName={firstName}
+          lastName={lastName}
+          username={userName}
           age={age}
         />
       );
@@ -239,7 +336,7 @@ class Main extends Component {
           handleCheck={this.handleCheck}
           nextStep={this.nextStep}
           prevStep={this.prevStep}
-          firstName={first_name}
+          firstName={firstName}
           vehicleName={name}
           heightFeet={heightFeet}
           heightInches={heightInches}
@@ -266,7 +363,9 @@ class Main extends Component {
           state={this.state}
           prevStep={this.prevStep}
           handleCheck={this.handleCheck}
-          vehicleSubmit = {this.vehicleSubmit}
+          vehicleSubmit={this.vehicleSubmit}
+          onSubmit={this.onSubmit}
+          mainSubmit={this.mainSubmit}
           DirtRoads={DirtRoads}
           SteepGrade={SteepGrade}
           Potholes={Potholes}
@@ -285,8 +384,12 @@ class Main extends Component {
   }
 }
 
-const mapStateToProps = state => ({})
+export default Main;
 
-export default withRouter(connect(
-  mapStateToProps, { onboarding }
-)(Main))
+// const mapStateToProps = state => {
+//   return { error: state.error };
+// };
+
+// export default withRouter(
+//   connect(mapStateToProps, { register, updateUser, clearError })(Main)
+// );
