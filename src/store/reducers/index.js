@@ -17,6 +17,7 @@ import { SELECTED } from "../actions/selectVehicle";
 
 const initialState = {
   data: [],
+  id: [],
   vehicles: {},
   error: null,
   selected_id: null

@@ -3,11 +3,8 @@ import PersonalInfo from "./PersonalInfoForm";
 import VehicleLoginForm from "./VehicleLoginForm";
 import RoutingPref from "./Routing-Pref";
 import { connect } from "react-redux";
-import { onboarding } from "../../store/actions";
-import { login } from "../../store/actions";
+import { register, login } from "../../store/actions/index";
 import { withRouter } from "react-router-dom";
-import { Redirect } from "react-router-dom";
-import { updateUser, clearError, register } from "../../store/actions/index";
 import axios from "axios";
 
 const validateForm = errors => {
@@ -16,11 +13,6 @@ const validateForm = errors => {
   return valid;
 };
 class Main extends Component {
-  componentDidMount() {
-    const { id } = this.props;
-    register(id);
-  }
-
   state = {
     step: 1,
 
@@ -174,46 +166,16 @@ class Main extends Component {
     return inchesCombined;
   };
 
-  onSubmit = (e, id) => {
+  onSubmit = e => {
     e.preventDefault();
     const { firstName, lastName, userName, age } = this.state;
-    // axios;
-    // .get(`https://localhost:5000/users/${id}`)
-    // .then(res => {
-    //   this.setState(res.data);
-    // })
-    // .catch(error => {
-    //   console.log(error);
-    //   this.errored = true;
-    // });
 
-    // axios;
-    // .post(`https://localhost:5000/users/whatever`, username)
-    // model on backend finds id for that  username and sends back ID
-    // .then(res => {
-    //  let ID = res.data.id;
-    // })
-    // .catch(error => {
-    //   console.log(error);
-    //   this.errored = true;
-    // });
     axios
-      .put(
-        `http://localhost:5000/users/${id}`,
-        {
-          firstName,
-          lastName,
-          userName,
-          age
-        },
-        id
-      )
+      .put(`http://localhost:5000/users/${this.props.id}`)
       .then(res => {
-        console.log("ID FROM AXIOS", id);
-        // localStorage.setItem("token", res.data.token);
+        console.log("ID FROM AXIOS IN MAIN", this.props.id);
         if (res) {
-          this.setState(res.data);
-          // return true;
+          this.setState({}); // No need to setState.
         }
       })
       .catch(err => console.log(err.response));
@@ -271,7 +233,7 @@ class Main extends Component {
     // const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({
       ...this.state,
-      class_name: event.target.value
+      vehicle_class: event.target.value
     });
   };
 
@@ -346,7 +308,7 @@ class Main extends Component {
           lengthInches={lengthInches}
           weightPounds={weight}
           axleCount={axel_count}
-          class_name={vehicle_class}
+          vehicle_class={vehicle_class}
           dual_tires={dual_tires}
           class_A={class_A}
           class_B={class_B}
@@ -384,12 +346,8 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapStateToProps = state => {
+  return { id: state.id };
+};
 
-// const mapStateToProps = state => {
-//   return { error: state.error };
-// };
-
-// export default withRouter(
-//   connect(mapStateToProps, { register, updateUser, clearError })(Main)
-// );
+export default withRouter(connect(mapStateToProps, { register, login })(Main));
