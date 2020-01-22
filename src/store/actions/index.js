@@ -5,7 +5,6 @@ export const LOADING = "LOADING";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
 export const REGISTER = "REGISTER";
 export const LOGIN = "LOGIN";
-export const ONBOARDING = "ONBOARDING";
 export const ADD_VEHICLE = "ADD_VEHICLE";
 export const GET_VEHICLE = "GET_VEHICLE";
 export const GET_WALMARTS = "GET_WALMARTS";
@@ -17,7 +16,6 @@ export const DUPLICATE_USER = "DUPLICATE_USER";
 export const DUPLICATE_EMAIL = "DUPLICATE_EMAIL";
 export const LOGOUT = "LOGOUT";
 export const CLOSE_SIDE_BAR = "CLOSE_SIDE_BAR ";
-export const GET_USER = "GET_USER";
 
 export function authError(error) {
   return { type: "AUTH_ERROR", payload: error };
@@ -143,40 +141,18 @@ export const addVehicle = value => {
   };
 };
 
-export const onboarding = value => {
+export const getVehicles = () => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .post(
-        //'https://labs-rv-life-staging-1.herokuapp.com/onboarding',
-        "http://localhost:5000/onboarding",
-        value,
+      .get(
+        // "https://labs-rv-life-staging-1.herokuapp.com/vehicle",
+        "http://localhost:5000/vehicle",
         {
           headers: { Authorization: localStorage.getItem("token") },
           "Content-Type": "application/json"
         }
       )
-      .then(res => {
-        console.log("add onboarding res", res); // data was created successfully and logs to console
-
-        dispatch({ type: ONBOARDING, payload: res.data });
-        return true;
-      })
-      .catch(err => {
-        console.log("add onboarding err", err); // there was an error creating the data and logs to console
-        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
-      });
-  };
-};
-
-export const getVehicles = () => {
-  return dispatch => {
-    dispatch({ type: LOADING });
-    return axios
-      .get("https://labs-rv-life-staging-1.herokuapp.com/vehicle", {
-        headers: { Authorization: localStorage.getItem("token") },
-        "Content-Type": "application/json"
-      })
       .then(res => {
         console.log("get vehicle res", res); // data was created successfully and logs to console
 
@@ -185,57 +161,6 @@ export const getVehicles = () => {
       })
       .catch(err => {
         console.log("get vehicle err", err); // there was an error creating the data and logs to console
-        dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
-      });
-  };
-};
-
-export const updateUser = (value, id) => {
-  //Google analytics tracking
-  window.gtag("event", "update user", {
-    event_category: "update",
-    event_label: "update user"
-  });
-  return dispatch => {
-    dispatch({ type: LOADING });
-    return axios
-      .put(
-        // `https://labs-rv-life-staging-1.herokuapp.com/user/${id}`, value,
-        `http://localhost:5000/users/${id}`,
-        value,
-        {
-          headers: { Authorization: localStorage.getItem("token") },
-          "Content-Type": "application/json"
-        }
-      )
-      .then(res => {
-        console.log("update res", res); // data was created successfully and logs to console
-
-        // dispatch({ type: UPDATE_USER, payload: {value, id} });
-        dispatch({ type: LOADING });
-        return axios
-          .get(
-            // 'https://labs-rv-life-staging-1.herokuapp.com/users',
-            "http://localhost:5000/users",
-            {
-              headers: { Authorization: localStorage.getItem("token") },
-              "Content-Type": "application/json"
-            }
-          )
-          .then(res => {
-            console.log("get user res", res); // data was created successfully and logs to console
-
-            dispatch({ type: GET_USER, payload: res.data });
-            return true;
-          })
-          .catch(err => {
-            console.log("get user err", err); // there was an error creating the data and logs to console
-            dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
-          });
-        // return true;
-      })
-      .catch(err => {
-        console.log("update user err:", err); // there was an error creating the data and logs to console
         dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
@@ -286,6 +211,7 @@ export const updateVehicle = (value, id) => {
       });
   };
 };
+
 export const deleteVehicles = id => {
   //Google analytics tracking
   window.gtag("event", "delete vehicle", {

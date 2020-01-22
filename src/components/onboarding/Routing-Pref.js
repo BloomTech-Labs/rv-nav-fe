@@ -1,13 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
-// import { connect } from "react-redux";
-// import { register, login, clearError } from "../../store/actions";
-// import { withRouter } from "react-router-dom";
-// import "../register/Register.css"
 import "./Routing-Pref.css";
 import styled from "styled-components";
 import OnboardLoad from "../auth/loading/LoadingPage";
-// import { render } from "node-sass";
 
 const Header = styled.div`
   height: 80px;
@@ -38,9 +32,7 @@ class RoutingPref extends Component {
     console.log("PROPS", this.props);
     const {
       handleCheck,
-      vehicleSubmit,
       onSubmit,
-      mainSubmit,
       DirtRoads,
       SteepGrade,
       Potholes
@@ -51,11 +43,6 @@ class RoutingPref extends Component {
           <Text className="rv-way-header-text">RV WAY</Text>
         </Header>
         <div className="register-main">
-          {/* {newUser.loading === false ?
-            (
-              <p className="register-auth-loading">Loading...</p>
-          ) : ( */}
-
           <form className="register-main-form" onSubmit={onSubmit}>
             <div className="go-back-div">
               <a className="go-back">
@@ -84,32 +71,11 @@ class RoutingPref extends Component {
             <div className="avoid">
               <span>I want to avoid</span>
             </div>
-            {/* <div className="register-social-media">
-                    
-                    {newUser.isSignedIn ?
-                      (
-                        <div>
-                        {newUser.isSignedIn ? (
-                          
-                          
-                          <>
-                          <h6>Welcome  {firebase.auth().currentUser.displayName}</h6>
-                          <button onClick={() => firebase.auth().signOut()}>Logout</button>
-                                  </>
-                                  
-                                  ) : localStorage.getItem('firebaseui::rememberedAccounts') ? localStorage.removeItem('firebaseui::rememberedAccounts') : null}
-                                  </div>
-                                  ) :
-                                  //was uiConfig={this.uiConfig}
-                                  (<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />)}
-                                </div> */}
-
             <div className="register-input-and-button">
               <div>
                 <label htmlFor="DirtRoads" className="register-main-form-label">
                   <input
                     onChange={handleCheck}
-                    // onClick={handleCheck}
                     name="DirtRoads"
                     id="DirtRoads"
                     type="checkbox"
@@ -158,52 +124,9 @@ class RoutingPref extends Component {
                 </label>
               </div>
 
-              {/* {errors.email.length > 0 && (
-              
-              <p className="register-main-form-error">{errors.email}</p>
-              )}
-              
-              {props.error === "Email already taken" &&
-              
-              (
-                <p className="register-main-form-error">Email already taken</p>
-              )} */}
-
-              {/* <span className="password-mask" onClick={handleChange}>MASK</span>
-                  <label className="register-main-form-label" id="password">Password</label>
-                  <input
-                  className="register-main-form-input"
-                  id="password-input"
-                  type="password"
-                  name="password"
-                  value={newUser.password}
-                  
-                  onChange={handleChange}
-                  noValidate
-                  ></input>
-                  {errors.password.length > 0 && (
-                    <p className="register-main-form-error">{errors.password}</p>
-                    )}
-                    <div>
-                    <span className="password-mask-confirm" onClick={handleChange}>MASK</span>
-                    <label className="register-main-form-label" id="confirm-password">Confirm Password</label>
-                    <input
-                    className="register-main-form-input"
-                    id="confirm-password-input"
-                    type="password"
-                    name="confirmPassword"
-                    value={newUser.confirmPassword}
-                    onChange={handleChange}
-                    // noValidate
-                  ></input> */}
-              {/* {errors.confirmPassword.length > 0 && (
-              <p id="confirm-password-error" className="register-main-form-error">{errors.confirmPassword}</p>
-            )} */}
-              {/* </div> */}
               <button
                 className="register-lets-go-button"
                 variant="warning"
-                onClick={vehicleSubmit}
                 type="submit"
               >
                 Add to My Preferences
@@ -223,18 +146,3 @@ class RoutingPref extends Component {
 }
 
 export default RoutingPref;
-
-// const mapStateToProps = state => {
-//   return { error: state.error };
-// };
-// const [loading, setLoading] = useState(false);
-// const [dirtRoad, setRoad] = React.useState(false);
-// const [steep, setSteep] = React.useState(false);
-// const [holes, setHoles] = React.useState(false);
-
-// const handleRoads = () => setRoad(!dirtRoad);
-// const handleSteep = () => setSteep(!steep);
-// const handleHoles = () => setHoles(!holes);
-
-// useEffect(() => {}, []);
-// console.log("props", props);

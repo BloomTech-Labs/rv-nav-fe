@@ -54,8 +54,9 @@ export const reducer = (state = initialState, action) => {
       return initialState;
 
     case ADD_VEHICLE:
-      console.log("vehicles", state.vehicles.vehicles, action.payload);
-      let vehicles = state.vehicles.vehicles.slice();
+      console.log("vehicles", state.vehicles);
+      console.log("vehicles payload", action.payload);
+      let vehicles = state.vehicles.slice();
       vehicles.push(action.payload);
       console.log("vehicles push", vehicles);
       return {
