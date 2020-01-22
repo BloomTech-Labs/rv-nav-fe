@@ -33,15 +33,6 @@ class RoutingPref extends Component {
     this.props.prevStep();
   };
 
-  // handleSubmit = e => {
-  //  e.preventDefault()
-  //   axios.post("#", this.props.state)
-  //   .then(res => {
-  //     console.log(res)
-  //   })
-  //   .catch(err => console.log(err.res));
-  // }
-
   render() {
     console.log("STATE", this.props.state);
     console.log("PROPS", this.props);
@@ -115,9 +106,10 @@ class RoutingPref extends Component {
 
             <div className="register-input-and-button">
               <div>
-                <label for="DirtRoads" className="register-main-form-label">
+                <label htmlFor="DirtRoads" className="register-main-form-label">
                   <input
-                    onClick={handleCheck}
+                    onChange={handleCheck}
+                    // onClick={handleCheck}
                     name="DirtRoads"
                     id="DirtRoads"
                     type="checkbox"
@@ -133,7 +125,7 @@ class RoutingPref extends Component {
               </div>
 
               <div>
-                <label for="Steep" className="register-main-form-label">
+                <label htmlFor="Steep" className="register-main-form-label">
                   <input
                     name="SteepGrade"
                     id="Steep"
@@ -151,7 +143,7 @@ class RoutingPref extends Component {
               </div>
 
               <div>
-                <label for="Potholes" className="register-main-form-label">
+                <label htmlFor="Potholes" className="register-main-form-label">
                   <input
                     className="checkboxes"
                     name="Potholes"

@@ -16,8 +16,8 @@ import {
 import { SELECTED } from "../actions/selectVehicle";
 
 const initialState = {
+  user: {},
   data: [],
-  id: [],
   vehicles: {},
   error: null,
   selected_id: null
@@ -34,6 +34,7 @@ export const reducer = (state = initialState, action) => {
       };
     case REGISTER:
       return {
+        user: { ...action.payload },
         ...state,
         // error: null,
         loading: false,
@@ -42,6 +43,7 @@ export const reducer = (state = initialState, action) => {
     case LOGIN:
       return {
         ...state,
+        token: action.payload,
         // error: null,
         loading: false,
         data: [...state.data, { value: action.payload }]

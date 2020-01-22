@@ -9,9 +9,9 @@ import axios from "axios";
 
 const validateForm = errors => {
   let valid = true;
-
   return valid;
 };
+
 class Main extends Component {
   state = {
     step: 1,
@@ -66,7 +66,7 @@ class Main extends Component {
     );
     let weight = this.state.weight;
     let axel_count = this.state.axel_count;
-    let vehicle_class = this.state.class_name;
+    let vehicle_class = this.state.vehicle_class;
     let trailer = this.state.trailer;
     if (vehicle_class === "Trailer") {
       vehicle_class = "";
@@ -120,36 +120,20 @@ class Main extends Component {
 
     // });
 
-    this.setState({
-      // name: '',
-      // heightFeet: '',
-      // heightInches: '',
-      // widthFeet: '',
-      // widthInches: '',
-      // lengthFeet: '',
-      // lengthInches: '',
-      // weight: '',
-      // axel_count: '',
-      // vehicle_class: '',
-      // dual_tires: false,
-      // trailer: false,
-      firstName: "",
-      lastName: "",
-      userName: "",
-      age: "",
-      name: "",
-      height: "",
-      width: "",
-      length: "",
-      weight: "",
-      axel_count: "",
-      vehicle_class: "",
-      trailer: false,
-      dual_tires: false,
-      DirtRoads: false,
-      SteepGrade: false,
-      Potholes: false
-    });
+    // this.setState({
+    //   // name: "",
+    //   // height: "",
+    //   // width: "",
+    //   // length: "",
+    //   // weight: "",
+    //   // axel_count: "",
+    //   // vehicle_class: "",
+    //   // trailer: false,
+    //   // dual_tires: false,
+    //   // DirtRoads: false,
+    //   // SteepGrade: false,
+    //   // Potholes: false
+    // });
   };
 
   //combines feet and inch units into feet only, to be sent to the backend
@@ -171,7 +155,12 @@ class Main extends Component {
     const { firstName, lastName, userName, age } = this.state;
 
     axios
-      .put(`http://localhost:5000/users/${this.props.id}`)
+      .put(`http://localhost:5000/users/user/${this.props.id}`, {
+        firstName,
+        lastName,
+        userName,
+        age
+      })
       .then(res => {
         console.log("ID FROM AXIOS IN MAIN", this.props.id);
         if (res) {
@@ -179,15 +168,74 @@ class Main extends Component {
         }
       })
       .catch(err => console.log(err.response));
-    // const { name, heightFeet, heightInches, widthFeet, widthInches, lengthFeet, lengthInches, weight, axel_count, vehicle_class, dual_tires, class_A,
-    //   class_B, class_C, fifth_wheel, pull_behind, trailer, isSignedIn, DirtRoads, SteepGrade, Potholes } = this.state;
-    // axios
-    // .post('http://localhost:5000/vehicle', { name, heightFeet, heightInches, widthFeet, widthInches, lengthFeet, lengthInches, weight, axel_count, vehicle_class, dual_tires, class_A,
-    //   class_B, class_C, fifth_wheel, pull_behind, trailer, isSignedIn, DirtRoads, SteepGrade, Potholes })
-    //   .then(res => {
-    //     this.setState(res.data);
-    //   })
-    //   .catch(err => console.log(err.res));
+    const {
+      name,
+      heightFeet,
+      heightInches,
+      widthFeet,
+      widthInches,
+      lengthFeet,
+      lengthInches,
+      weight,
+      axel_count,
+      vehicle_class,
+      dual_tires,
+      class_A,
+      class_B,
+      class_C,
+      fifth_wheel,
+      pull_behind,
+      trailer,
+      isSignedIn,
+      DirtRoads,
+      SteepGrade,
+      Potholes
+    } = this.state;
+    let height = this.combineDistanceUnits(
+      this.state.heightInches,
+      this.state.heightFeet
+    );
+    let width = this.combineDistanceUnits(
+      this.state.widthInches,
+      this.state.widthFeet
+    );
+    let length = this.combineDistanceUnits(
+      this.state.lengthInches,
+      this.state.lengthFeet
+    );
+    axios
+      .post(
+        "http://localhost:5000/vehicle",
+        {
+          name,
+          height: Number(height),
+
+          width: Number(width),
+
+          length: Number(length),
+
+          weight: Number(weight),
+          axel_count: Number(axel_count),
+          vehicle_class,
+          dual_tires,
+          class_A,
+          class_B,
+          class_C,
+          fifth_wheel,
+          pull_behind,
+          trailer,
+
+          DirtRoads,
+          SteepGrade,
+          Potholes,
+          user_id: this.props.id
+        }
+        // { headers: { authorization: token } }
+      )
+      .then(res => {
+        console.log("response", res);
+      })
+      .catch(err => console.log(err));
   };
 
   nextStep = () => {
@@ -203,30 +251,6 @@ class Main extends Component {
       step: step - 1
     });
   };
-
-  // mainSubmit = e => {
-  //   e.preventDefault();
-
-  //   this.props
-  //     .updateUser({
-  //       firstName: this.state.firstName,
-  //       lastName: this.state.lastName,
-  //       userName: this.state.userName,
-  //       age: this.state.age
-  //     })
-  //     .then(res => {
-  //       if (res) {
-  //         this.setState(res.data);
-  //         this.props.history.push("/map");
-  //       }
-  //     })
-  //     .catch(err => {
-  //       console.log("error", err);
-  //       setTimeout(function() {
-  //         return this.props.clearError();
-  //       }, 2000);
-  //     });
-  // };
 
   //assigns state to a value based on which radio button has been clicked
   handleRadio = event => {
@@ -299,7 +323,7 @@ class Main extends Component {
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           firstName={firstName}
-          vehicleName={name}
+          name={name}
           heightFeet={heightFeet}
           heightInches={heightInches}
           widthFeet={widthFeet}
@@ -307,7 +331,7 @@ class Main extends Component {
           lengthFeet={lengthFeet}
           lengthInches={lengthInches}
           weightPounds={weight}
-          axleCount={axel_count}
+          axel_count={axel_count}
           vehicle_class={vehicle_class}
           dual_tires={dual_tires}
           class_A={class_A}
@@ -347,7 +371,8 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => {
-  return { id: state.id };
+  console.log("state", state);
+  return { id: state.data[0].value.id, token: state.token[0] };
 };
 
 export default withRouter(connect(mapStateToProps, { register, login })(Main));
