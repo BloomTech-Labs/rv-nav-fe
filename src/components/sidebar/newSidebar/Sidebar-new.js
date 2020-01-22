@@ -9,6 +9,7 @@ import SidebarMenu from '../SidebarMenu';
 import './Sidebar-new.scss'
 
 const Sidebar = (props) => {
+    console.log("sidebarnewprops", props)
     const [state, setState] = useState({
         vehicleForm: "off",
         routing: "on",
@@ -90,7 +91,7 @@ const Sidebar = (props) => {
 
     return (
         <div className='mainSidebarContainer'>
-            <SidebarMenu />
+            <SidebarMenu/>
                 <div className={`${state.routing}`}>
                     <RoutingForm
                         addAVehicleForm={addAVehicleForm}

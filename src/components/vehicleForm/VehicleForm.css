@@ -5,6 +5,7 @@
     height: 100%;
 }
 
+
 .form-wrapper-scrolling{
     overflow-y: scroll;
     overflow-x: hidden;
@@ -114,6 +115,7 @@ align-items:center;
 font-size: 16px;
 margin: 10px 0 0 0;
 height: 1.625rem;
+color:white;
 
 }
 
@@ -346,6 +348,7 @@ font-family: Heebo;
 font-size: 16px;
 /* line-height: 23px; */
 /* margin-right:40px; */
+color:white;
 }
 
 .tires-check-p2{
@@ -446,6 +449,7 @@ border: 3px solid rgb(119, 157, 165) ;
     margin:0;
     text-align: left;
     /* width:100%; */
+    color:white;
 }
 
 .tag-radio{
@@ -487,6 +491,7 @@ border: 3px solid rgb(119, 157, 165) ;
     /* width: 100%; */
     font-size: 16px;
     margin-bottom: 0;
+    color: white;
 }
 
 #cancelButton{

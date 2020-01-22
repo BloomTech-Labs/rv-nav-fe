@@ -16,6 +16,7 @@ import { withRouter } from 'react-router-dom';
 
 
 const SidebarMenu = (props) => {
+    console.log("side bar menu",props)
     return (
         <Dropdown as={ButtonGroup} className='dropdown'>
 
@@ -37,7 +38,7 @@ const SidebarMenu = (props) => {
                         </div>
                         <div className='navlinkclassBorder '>
                             <TerrIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
-                            <Dropdown.Item className='dropdownitem1' > Terrain</Dropdown.Item>
+                            <Dropdown.Item className='dropdownitem1'> Terrain</Dropdown.Item>
                         </div>
                         <div className='navlinkclass'>
                                           {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
