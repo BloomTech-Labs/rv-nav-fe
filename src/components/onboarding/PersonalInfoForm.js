@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import "./PersonalInfoForm.css";
 import styled from "styled-components";
-// import { personalInfoAction } from "../../store/actions/OnboardingAction";
-// import {
-//   onboardingReducer,
-//   initialState,
-//   actions
-// } from "../../store/reducers/onboarding";
 
 const Header = styled.div`
 height: 80px;
@@ -113,84 +107,3 @@ class PersonalInfoForm extends Component {
 }
 
 export default PersonalInfoForm;
-
-// const [state, dispatch] = useReducer(onboardingReducer, initialState);
-
-// const nextStep= () => {
-//   const {step} = this.state;
-//   dispatch({
-//     type: step + 1
-//   })
-// };
-
-// // const prevStep= () => {
-// //   const {step} = this.state;
-// //   return {...this.state ( step - 1)};
-// // };
-
-// // const showStep = () => {
-// //   const {step} = this.state;
-// //   if(step === 1)
-// //   return {...this.state.personalInfo,nextStep()
-// // }
-
-//Calling action from reducer to handle change for inputs
-// const handleChange = e => {
-//   dispatch({
-//     type: actions[e.target.name + "Changed"],
-//     payload: e.target.value
-//   });
-// };
-
-// On submit will push to next onboarding component
-// const submitForm = e => {
-//   e.preventDefault();
-//   props.history.push("/vehicle");
-// };
-// console.log("hello", submitForm);
-
-// Action to hold state and pass to next component
-// const handleInfo = info => {
-//   dispatch({ type: 'PASS_INFO', info })
-// };
-
-// function validate(username) {
-//   return {
-//     username: username === ''
-//   };
-// }
-
-// const handleChange = evt => {
-//             setUser({ username: evt.target.value });
-//           };
-
-//Figured how to get the touched to read
-// const handleBlur = field => evt => {
-//   setUser({
-//     touched: { ...touched, [field]: true },
-//   });
-// }
-
-// const handleSubmit = evt => {
-//   if (!canBeSubmitted()) {
-//     evt.preventDefault();
-//     return;
-//   }
-//   const { username } = user;
-//   alert(`Signed up with username: ${username}`);
-// };
-
-// const canBeSubmitted = () => {
-//   const errors = validate(user.personalInfo.username);
-//   const isDisabled = Object.keys(errors).some(x => errors[x]);
-//   return !isDisabled;
-// }
-
-// const errors = validate(user.personalInfo.touched.username);
-// const isDisabled = Object.keys(errors).some(x => errors[x]);
-
-// const shouldMarkError = (field) => {
-//   const hasError = errors[field];
-//   const shouldShow = user.personalInfo.touched[field];
-//   return hasError ? shouldShow : false
-// };

@@ -1,14 +1,3 @@
-// import "../register/Register.css";
-// import { getBsProps } from "react-bootstrap/lib/utils/bootstrapUtils";
-// import { connect } from "react-redux";
-// import { register, login, clearError } from "../../../store/actions";
-// import { withRouter } from "react-router-dom";
-// import firebase from 'firebase';
-// import { connect } from "react-redux";
-// import {
-//   onboardingReducer,
-//   initialState
-// } from "../../store/reducers/onboarding";
 import React, { Component } from "react";
 import styled from "styled-components";
 import "./VehicleLoginForm.scss";
@@ -325,27 +314,3 @@ class VehicleInfo extends Component {
 }
 
 export default VehicleInfo;
-
-// useEffect(() => {}, []);
-// const handleChange = e => {
-//   setAuto({ ...auto, [e.target.name]: e.target.value });
-// };
-
-// const [auto, setAuto] = useState({
-//   classType: {
-//     vehicleClass: ""
-//   }
-// });
-
-// const handleOptionChange = e => {
-//   setAuto({ ...auto, [auto.rvInfo.vehicleClass]: e.target.value });
-// };
-
-// const mapStateToProps = state => {
-//   console.log(state, 'rvInfo');
-//   return {
-//     rvInfo: state.rvInfo
-//   }
-// };
-
-// export default connect(mapStateToProps, {})(VehicleInfo);

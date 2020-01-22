@@ -44,98 +44,6 @@ class Main extends Component {
     Potholes: false
   };
 
-  vehicleSubmit = event => {
-    // event.preventDefault();
-    //Google analytics tracking
-    window.gtag("event", "create vehicle", {
-      event_category: "submit",
-      event_label: "create vehicle"
-    });
-
-    let height = this.combineDistanceUnits(
-      this.state.heightInches,
-      this.state.heightFeet
-    );
-    let width = this.combineDistanceUnits(
-      this.state.widthInches,
-      this.state.widthFeet
-    );
-    let length = this.combineDistanceUnits(
-      this.state.lengthInches,
-      this.state.lengthFeet
-    );
-    let weight = this.state.weight;
-    let axel_count = this.state.axel_count;
-    let vehicle_class = this.state.vehicle_class;
-    let trailer = this.state.trailer;
-    if (vehicle_class === "Trailer") {
-      vehicle_class = "";
-      trailer = true;
-    }
-    if (weight === "") {
-      weight = 0;
-    }
-    if (axel_count === "") {
-      axel_count = 0;
-    }
-    //make sure all values entered are sent as the correct data type to the back end
-    parseFloat(height);
-    parseFloat(length);
-    parseFloat(width);
-    parseFloat(weight);
-    parseInt(axel_count);
-
-    //send is the object that is sent to the web backend to be stored
-    //it is made using values from the form, some of which are processed and converted before being assigned to the keys here
-    let send = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      userName: this.state.userName,
-      age: this.state.age,
-      name: this.state.name,
-      height: height,
-      width: width,
-      length: length,
-      weight: weight,
-      axel_count: axel_count,
-      vehicle_class: vehicle_class,
-      trailer: trailer,
-      dual_tires: this.state.dual_tires,
-      DirtRoads: this.state.DirtRoads,
-      SteepGrade: this.state.SteepGrade,
-      Potholes: this.state.Potholes
-    };
-    console.log("sent", send);
-    console.log("ID MAIN FORM", this.props.id);
-    // if (this.props.editing) {
-    //   this.props.updateVehicle(send, this.props.id);
-    //   this.props.editVehicleToggle(this.props.id);
-    // } else {
-    //   this.props.addVehicle(send);
-    //   this.closeVehicleForm();
-    // }
-    // this.props.onboarding(send).then(res => {
-    //   if (res) {
-    //     return <Redirect to="/map" />;
-
-    // });
-
-    // this.setState({
-    //   // name: "",
-    //   // height: "",
-    //   // width: "",
-    //   // length: "",
-    //   // weight: "",
-    //   // axel_count: "",
-    //   // vehicle_class: "",
-    //   // trailer: false,
-    //   // dual_tires: false,
-    //   // DirtRoads: false,
-    //   // SteepGrade: false,
-    //   // Potholes: false
-    // });
-  };
-
   //combines feet and inch units into feet only, to be sent to the backend
   combineDistanceUnits = (inchesIn, feetIn) => {
     let inches = inchesIn;
@@ -150,6 +58,7 @@ class Main extends Component {
     return inchesCombined;
   };
 
+  // Axios PUT and POST request for updating user and adding vehicle
   onSubmit = e => {
     e.preventDefault();
     const { firstName, lastName, userName, age } = this.state;
@@ -204,40 +113,34 @@ class Main extends Component {
       this.state.lengthFeet
     );
     axios
-      .post(
-        "http://localhost:5000/vehicle",
-        {
-          name,
-          height: Number(height),
+      .post("http://localhost:5000/vehicle", {
+        name,
+        height: Number(height),
+        width: Number(width),
+        length: Number(length),
+        weight: Number(weight),
+        axel_count: Number(axel_count),
+        vehicle_class,
+        dual_tires,
+        class_A,
+        class_B,
+        class_C,
+        fifth_wheel,
+        pull_behind,
+        trailer,
 
-          width: Number(width),
-
-          length: Number(length),
-
-          weight: Number(weight),
-          axel_count: Number(axel_count),
-          vehicle_class,
-          dual_tires,
-          class_A,
-          class_B,
-          class_C,
-          fifth_wheel,
-          pull_behind,
-          trailer,
-
-          DirtRoads,
-          SteepGrade,
-          Potholes,
-          user_id: this.props.id
-        }
-        // { headers: { authorization: token } }
-      )
+        DirtRoads,
+        SteepGrade,
+        Potholes,
+        user_id: this.props.id
+      })
       .then(res => {
         console.log("response", res);
       })
       .catch(err => console.log(err));
   };
 
+  // To go to the next form in the onboarding process
   nextStep = () => {
     const { step } = this.state;
     this.setState({
@@ -245,6 +148,7 @@ class Main extends Component {
     });
   };
 
+  // To go back to a previous step in the onboarding process
   prevStep = () => {
     const { step } = this.state;
     this.setState({
@@ -254,21 +158,21 @@ class Main extends Component {
 
   //assigns state to a value based on which radio button has been clicked
   handleRadio = event => {
-    // const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({
       ...this.state,
       vehicle_class: event.target.value
     });
   };
 
+  // Check for checkboxes in routing preferences
   handleCheck = event => {
-    //const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({
       ...this.state,
       [event.target.name]: event.target.checked
     });
   };
 
+  // Handle changes for inputs in forms
   handleChange = input => e => {
     this.setState({ [input]: e.target.value });
   };
@@ -349,9 +253,7 @@ class Main extends Component {
           state={this.state}
           prevStep={this.prevStep}
           handleCheck={this.handleCheck}
-          vehicleSubmit={this.vehicleSubmit}
           onSubmit={this.onSubmit}
-          mainSubmit={this.mainSubmit}
           DirtRoads={DirtRoads}
           SteepGrade={SteepGrade}
           Potholes={Potholes}
@@ -361,12 +263,7 @@ class Main extends Component {
 
   render() {
     const { step } = this.state;
-    return (
-      <>
-        {/* <h2> Step {step} of 3.</h2> */}
-        {this.showStep()}
-      </>
-    );
+    return <>{this.showStep()}</>;
   }
 }
 
