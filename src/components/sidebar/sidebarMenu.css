@@ -1,3 +1,16 @@
+.hamburger-options-parent{
+    display:flex;
+    flex-direction: column;
+    color: rgba(237, 238, 241, 0.95);
+    font-family: "Heebo", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+
+}
+
+
+
 .dropdown {
     width: 100%;
     display: flex;
@@ -28,6 +41,8 @@
     font-size: 32px;
     line-height: 53px;
     color: rgba(53, 195, 226, 0.95);
+    border-bottom: 1.5px solid rgba(237, 238, 241, 0.2);
+    
 }
 
 .hamcolor:hover {
@@ -94,41 +109,73 @@
     transform: translate3d(0px, 70px, 0px) !important;
     background: #2A2E43;
     width: 375px;
+    border-top: 1.5px solid rgba(248, 249, 250, 0.75);
+    border-radius: 0px;
 }
 
-.dropdownitem {
+.hamburger-options-parent .dropdownitem {
     color: white;
 }
 
-.dropdownitem:hover {
-    color: white;
+.hamburger-options-parent .dropdownitem:hover {
+    /* color: white; */
     text-decoration: none;
-}
-
-.dropdownitem:hover {
     background: #2A2E43;
-    color: white;
 }
 
-.dropdownitem1 {
+
+.hamburger-options-parent .dropdownitem1 {
     color: white;
+    padding-left: 15px;
 }
 
 .logoutclass {
-    margin-left: 25px;
+    margin-left: 15px;
     margin-top: 3px;
 }
+
+
 
 .sidebar-menu-item {
     display: flex;
 }
 
-.navlinkclass {
+.dropdownmenu .navlinkclass {
     display: flex;
+    margin-right:10px;
+    color: rgba(237, 238, 241, 0.95);
+    margin-bottom:10px
 }
 
-.dropdownitem1:hover {
-    background: rgb(57, 62, 90);
-    color: white;
+/* .dropdownmenu .navlinkclass:hover{
+    fill:#00B2D9;
+    color:  #00B2D9;
+    background:#2A2E43;
+} */
+
+
+
+.navlinkclassBorder{
+    display:flex;
+    border-bottom: 1px solid rgba(237, 238, 241, 0.2);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+
+}
+.navlinkclass h5{
+    display:flex;
+    font-size:14px;
+    color: rgba(237, 238, 241, 0.95);
+    margin-left:15px;
+    /* margin-top: 15px; */
+}
+
+.map-view{
+    margin-top:10px;
+}
+
+.hamburger-options-parent .dropdownitem1:hover {
+    background: #2A2E43;
+    color:  #00B2D9;
     text-decoration: none;
 }
