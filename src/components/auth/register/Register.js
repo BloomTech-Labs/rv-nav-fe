@@ -148,7 +148,7 @@ class RegisterForm extends Component {
         .catch(err => {
           console.log("error", err);
           setTimeout(function() {
-            return this.props.clearError();
+            // return this.props.clearError();
           }, 3000);
         });
     }
@@ -340,12 +340,6 @@ class RegisterForm extends Component {
       </div>
     );
   }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    register: id => register(id, dispatch)
-  };
 }
 
 const mapStateToProps = state => {

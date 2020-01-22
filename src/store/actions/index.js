@@ -42,7 +42,7 @@ export const register = creds => {
       )
       .then(response => {
         dispatch({ type: REGISTER, payload: response.data });
-        console.log("response", response.data);
+        console.log("RESPONSE FROM ACTION", response.data);
 
         return response.data;
       })
@@ -81,7 +81,7 @@ export const login = (values, id) => {
         // console.log(res, '####### FROM LOGIN #######'); // data was created successfully and logs to console
         console.log("id from login action", res);
         localStorage.setItem("token", res.data.token);
-        dispatch({ type: LOGIN, payload: res.data, id });
+        dispatch({ type: LOGIN, payload: res.data });
         return true;
       })
       .catch(err => {
