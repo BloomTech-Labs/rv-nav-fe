@@ -18,7 +18,7 @@ import { SELECTED } from "../actions/selectVehicle";
 const initialState = {
   user: {},
   data: [],
-  vehicles: {},
+  vehicles: [],
   error: null,
   selected_id: null
   // sidebar_open: true,
@@ -54,18 +54,20 @@ export const reducer = (state = initialState, action) => {
       return initialState;
 
     case ADD_VEHICLE:
-      console.log("vehicles", state.vehicles);
-      console.log("vehicles payload", action.payload);
-      let vehicles = state.vehicles.slice();
-      vehicles.push(action.payload);
-      console.log("vehicles push", vehicles);
+      console.log("vehicles state", state.vehicles);
+      console.log("add_vehicles payload", action.payload);
+      // let vehicles = state.vehicles.slice();
+      // vehicles.push(action.payload);
+      // console.log("vehicles push", vehicles);
       return {
         ...state,
         // error: null,
         loading: false,
-        vehicles: { vehicles: vehicles }
+        vehicles: [ ...state.vehicles, action.payload ]
       };
+      
     case GET_VEHICLE:
+      console.log("get_vehicles payload", action.payload);
       return {
         ...state,
         // error: null,

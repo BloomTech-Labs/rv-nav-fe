@@ -53,8 +53,8 @@ const RoutingDropdown = props => {
                     </section>
                     {/* That's right Jerry two functions are being called on the same on click!! How do you like me now!?  🤣🤣*/}
                     <div id="vehicleOptions">
-                      {props.vehicles.vehicles &&
-                        props.vehicles.vehicles.map((rv, index) => (
+                      {props.vehicles &&
+                        props.vehicles.map((rv, index) => (
                           <li
                             key={index}
                             onClick={() => {
@@ -80,7 +80,7 @@ const RoutingDropdown = props => {
 };
 
 const mapStateToProps = state => ({
-  vehicles: state.vehicles,
+  vehicles: state.vehicles.vehicles,
   selected_id: state.selected_id
 });
 
