@@ -63,9 +63,9 @@ export const reducer = (state = initialState, action) => {
         ...state,
         // error: null,
         loading: false,
-        vehicles: [ ...state.vehicles, action.payload ]
+        vehicles: [...state.vehicles.vehicles, action.payload]
       };
-      
+
     case GET_VEHICLE:
       console.log("get_vehicles payload", action.payload);
       return {
