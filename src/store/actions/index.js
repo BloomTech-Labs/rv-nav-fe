@@ -36,8 +36,10 @@ export const register = creds => {
     dispatch({ type: LOADING });
     return axios
       .post(
-        // "https://labs-rv-life-staging-1.herokuapp.com/users/register",
-        "http://localhost:5000/users/register",
+         "https://labs-rv-life-staging-1.herokuapp.com/users/register",
+        // "http://localhost:5000/users/register",
+        // `${URL}/users/register`
+
         creds
       )
       .then(response => {
@@ -72,8 +74,8 @@ export const login = values => {
     dispatch({ type: LOADING });
     return axios
       .post(
-        // "https://labs-rv-life-staging-1.herokuapp.com/users/login",
-        "http://localhost:5000/users/login",
+         "https://labs-rv-life-staging-1.herokuapp.com/users/login",
+        // "http://localhost:5000/users/login",
         values
       )
       .then(res => {
@@ -120,8 +122,8 @@ export const addVehicle = value => {
     dispatch({ type: LOADING });
     return axios
        .post(
-        //'https://labs-rv-life-staging-1.herokuapp.com/vehicle',
-      "http://localhost:5000/vehicle", value,
+        'https://labs-rv-life-staging-1.herokuapp.com/vehicle',
+      /*"http://localhost:5000/vehicle"*/value,
         { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
       .then(res => {
         console.log("add vehicle res", res); // data was created successfully and logs to console
@@ -141,8 +143,8 @@ export const onboarding = value => {
     dispatch({ type: LOADING });
     return axios
        .post(
-        //'https://labs-rv-life-staging-1.herokuapp.com/onboarding',
-      "http://localhost:5000/onboarding", value,
+        'https://labs-rv-life-staging-1.herokuapp.com/onboarding',
+      /*"http://localhost:5000/onboarding"*/ value,
         { headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json' })
       .then(res => {
         console.log("add onboarding res", res); // data was created successfully and logs to console
