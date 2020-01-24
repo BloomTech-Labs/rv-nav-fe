@@ -3,7 +3,7 @@ import PersonalInfo from "./PersonalInfoForm";
 import VehicleLoginForm from "./VehicleLoginForm";
 import RoutingPref from "./Routing-Pref";
 import { connect } from "react-redux";
-import { register, login } from "../../store/actions/index";
+import { register, login, addVehicle } from "../../store/actions/index";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 
@@ -112,33 +112,35 @@ class Main extends Component {
       this.state.lengthInches,
       this.state.lengthFeet
     );
-    axios
-      .post("http://localhost:5000/vehicle", {
-        name,
-        height: Number(height),
-        width: Number(width),
-        length: Number(length),
-        weight: Number(weight),
-        axel_count: Number(axel_count),
-        vehicle_class,
-        dual_tires,
-        class_A,
-        class_B,
-        class_C,
-        fifth_wheel,
-        pull_behind,
-        trailer,
 
-        DirtRoads,
-        SteepGrade,
-        Potholes,
-        user_id: this.props.id
-      })
-      .then(res => {
-        console.log("response", res);
-      })
-      .catch(err => console.log(err));
+    let vehicleStuff = {
+      name,
+      height: Number(height),
+      width: Number(width),
+      length: Number(length),
+      weight: Number(weight),
+      axel_count: Number(axel_count),
+      vehicle_class,
+      dual_tires,
+      class_A,
+      class_B,
+      class_C,
+      fifth_wheel,
+      pull_behind,
+      trailer,
+
+      DirtRoads,
+      SteepGrade,
+      Potholes,
+      user_id: this.props.id
+    };
+    this.props.addVehicle(vehicleStuff);
   };
+  //     .then(res => {
+  //       console.log("response", res);
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   // To go to the next form in the onboarding process
   nextStep = () => {
@@ -272,4 +274,6 @@ const mapStateToProps = state => {
   return { id: state.data[0].value.id, token: state.token[0] };
 };
 
-export default withRouter(connect(mapStateToProps, { register, login })(Main));
+export default withRouter(
+  connect(mapStateToProps, { addVehicle, register, login })(Main)
+);
