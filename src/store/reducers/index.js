@@ -1,17 +1,4 @@
-import {
-  LOADING,
-  REGISTER,
-  LOGIN,
-  LOGOUT,
-  ADD_VEHICLE,
-  GET_VEHICLE,
-  DELETE_VEHICLE,
-  DUPLICATE_USER,
-  DUPLICATE_EMAIL,
-  AUTH_ERROR,
-  INVALID_CREDENTIALS,
-  CLEAR_ERROR
-} from "../actions";
+import * as types from "../actions";
 
 import { SELECTED } from "../actions/selectVehicle";
 
@@ -26,13 +13,13 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOADING:
+    case types.LOADING:
       return {
         ...state,
         // error: null,
         loading: true
       };
-    case REGISTER:
+    case types.REGISTER:
       return {
         user: { ...action.payload },
         ...state,
@@ -40,7 +27,7 @@ export const reducer = (state = initialState, action) => {
         loading: false,
         data: [...state.data, { value: action.payload }]
       };
-    case LOGIN:
+    case types.LOGIN:
       return {
         ...state,
         token: action.payload,
@@ -48,12 +35,12 @@ export const reducer = (state = initialState, action) => {
         loading: false,
         data: [...state.data, { value: action.payload }]
       };
-    case LOGOUT:
+    case types.LOGOUT:
       localStorage.removeItem("token");
       localStorage.removeItem("id");
       return initialState;
 
-    case ADD_VEHICLE:
+    case types.ADD_VEHICLE_SUCCESS:
       console.log("vehicles state", state.vehicles);
       console.log("add_vehicles payload", action.payload);
       // let vehicles = state.vehicles.slice();
@@ -63,10 +50,12 @@ export const reducer = (state = initialState, action) => {
         ...state,
         // error: null,
         loading: false,
-        vehicles: [...state.vehicles.vehicles, action.payload]
+        vehicles: {
+          vehicles: [...state.vehicles.vehicles, action.payload]
+        }
       };
 
-    case GET_VEHICLE:
+    case types.GET_VEHICLE:
       console.log("get_vehicles payload", action.payload);
       return {
         ...state,
@@ -74,7 +63,7 @@ export const reducer = (state = initialState, action) => {
         loading: false,
         vehicles: { ...state.vehicles, vehicles: action.payload }
       };
-    case DELETE_VEHICLE:
+    case types.DELETE_VEHICLE:
       let filteredVehicles = state.vehicles.vehicles.filter(vehicle => {
         console.log("vehicle info", vehicle.id, action.payload);
         return vehicle.id !== action.payload;
@@ -85,31 +74,31 @@ export const reducer = (state = initialState, action) => {
         loading: false,
         vehicles: { vehicles: filteredVehicles }
       };
-    case AUTH_ERROR:
+    case types.AUTH_ERROR:
       return {
         ...state,
         error: "error",
         loading: false
       };
-    case DUPLICATE_USER:
+    case types.DUPLICATE_USER:
       return {
         ...state,
         error: "Username already taken",
         loading: false
       };
-    case DUPLICATE_EMAIL:
+    case types.DUPLICATE_EMAIL:
       return {
         ...state,
         error: "Email already taken",
         loading: false
       };
-    case INVALID_CREDENTIALS:
+    case types.INVALID_CREDENTIALS:
       return {
         ...state,
         error: "Invalid username or password",
         loading: false
       };
-    case CLEAR_ERROR:
+    case types.CLEAR_ERROR:
       return {
         ...state,
         error: null

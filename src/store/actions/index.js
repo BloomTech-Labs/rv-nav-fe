@@ -5,7 +5,7 @@ export const LOADING = "LOADING";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
 export const REGISTER = "REGISTER";
 export const LOGIN = "LOGIN";
-export const ADD_VEHICLE = "ADD_VEHICLE";
+export const ADD_VEHICLE_SUCCESS = "ADD_VEHICLE_SUCCESS";
 export const GET_VEHICLE = "GET_VEHICLE";
 export const GET_WALMARTS = "GET_WALMARTS";
 export const DELETE_VEHICLE = "DELETE_VEHICLE";
@@ -16,6 +16,7 @@ export const DUPLICATE_USER = "DUPLICATE_USER";
 export const DUPLICATE_EMAIL = "DUPLICATE_EMAIL";
 export const LOGOUT = "LOGOUT";
 export const CLOSE_SIDE_BAR = "CLOSE_SIDE_BAR ";
+export const ADD_VEHICLE_REQUEST = "ADD_VEHICLE_REQUEST";
 
 export function authError(error) {
   return { type: "AUTH_ERROR", payload: error };
@@ -117,10 +118,10 @@ export const logout = () => {
 
 export const addVehicle = value => {
   return dispatch => {
-    dispatch({ type: LOADING });
+    dispatch({ type: ADD_VEHICLE_REQUEST });
     return axios
       .post(
-        //'https://labs-rv-life-staging-1.herokuapp.com/vehicle',
+        // "https://labs-rv-life-staging-1.herokuapp.com/vehicle",
         "http://localhost:5000/vehicle",
         value,
         {
@@ -131,7 +132,7 @@ export const addVehicle = value => {
       .then(res => {
         console.log("add vehicle res", res); // data was created successfully and logs to console
 
-        dispatch({ type: ADD_VEHICLE, payload: res.data });
+        dispatch({ type: ADD_VEHICLE_SUCCESS, payload: res.data });
         return true;
       })
       .catch(err => {
