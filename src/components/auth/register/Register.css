@@ -96,16 +96,16 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     font-size: 10px;
 }
 
-.register-main {
+.register-wrapper .register-main {
     display: flex;
     justify-content: flex-end;
     /* height: 100%; */
 }
 
-.register-auth-loading {
+.register-wrapper .register-auth-loading {
     font-size: 4rem;
-    margin: 40px;
-    color: #ffc107
+    /* margin: 40px; */
+    color: black;
 }
 
 .register-wrapper .register-main-form-one {
@@ -409,3 +409,4 @@ p.register-main-form-error {
     justify-content: left;
     margin-left: 25%;   
 }
+

@@ -1,12 +1,14 @@
- .login-auth-loading{
+ .login-wrapper .login-auth-loading{
     font-size: 4rem;
     margin: 40px;
-    color: #2A2E43;
+    color: white;
     font-family: Heebo;
     font-style: normal;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 3rem;
     line-height: 53px;
+    margin-right:700px;
+    margin-top:200px;
 } 
 
 .login-wrapper {

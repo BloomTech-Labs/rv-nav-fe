@@ -43,7 +43,7 @@ class RoutingPref extends Component {
           <Text className="rv-way-header-text">RV WAY</Text>
         </Header>
         <div className="register-main">
-          <form className="register-main-form" onSubmit={onSubmit}>
+          <form className="register-main-form">
             <div className="go-back-div">
               <a className="go-back">
                 <svg
@@ -128,14 +128,15 @@ class RoutingPref extends Component {
                 className="register-lets-go-button"
                 variant="warning"
                 type="submit"
+                onClick={onSubmit}
               >
                 Add to My Preferences
               </button>
 
               <div className="already-have-an-account">
-                <a id="sign-in" href="/map">
+                {/* <a id="sign-in" href="/map">
                   <span>Skip this step</span>
-                </a>
+                </a> */}
               </div>
             </div>
           </form>

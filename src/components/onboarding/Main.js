@@ -135,6 +135,7 @@ class Main extends Component {
       user_id: this.props.id
     };
     this.props.addVehicle(vehicleStuff);
+    this.props.history.push("/login")
   };
   //     .then(res => {
   //       console.log("response", res);
