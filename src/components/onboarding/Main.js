@@ -64,7 +64,7 @@ class Main extends Component {
     const { firstName, lastName, userName, age } = this.state;
 
     axios
-      .put(`http://localhost:5000/users/user/${this.props.id}`, {
+      .put(`${process.env.REACT_APP_BASE_URL}/users/user/${this.props.id}`, {
         firstName,
         lastName,
         userName,
@@ -135,13 +135,8 @@ class Main extends Component {
       user_id: this.props.id
     };
     this.props.addVehicle(vehicleStuff);
-    this.props.history.push("/login")
+    this.props.history.push("/login");
   };
-  //     .then(res => {
-  //       console.log("response", res);
-  //     })
-  //     .catch(err => console.log(err));
-  // };
 
   // To go to the next form in the onboarding process
   nextStep = () => {
