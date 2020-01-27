@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../store/actions";
 import MapHeader from "../../header/MapHeader";
+import {loadingPage} from "../loading/LoadingPage";
 
 //CSS STYLES
 import "./Login.css";
@@ -89,22 +90,23 @@ class LoginForm extends React.Component {
       event_label: "login"
     });
     this.setState({ loading: true });
-    return this.props
-      .login(this.state.credentials)
-      .then(res => {
-        this.setState({ loading: false });
-        this.setState({
-          email: "",
-          password: ""
+      return this.props
+        .login(this.state.credentials)
+        .then(res => {
+          this.setState({ loading: false });
+          this.setState({
+            email: "",
+            password: ""
+          });
+          if (res) {
+
+            this.props.history.push("/map");
+          }
+        })
+        .catch(err => {
+          this.setState({ loading: false });
+          console.log("login err", err);
         });
-        if (res) {
-          this.props.history.push("/map");
-        }
-      })
-      .catch(err => {
-        this.setState({ loading: false });
-        console.log("login err", err);
-      });
   };
 
   unmaskPassword() {
@@ -125,13 +127,12 @@ class LoginForm extends React.Component {
 
   render() {
     const { errors } = this.state.credentials;
-    const { loading } = this.state.loading;
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.password.length >= 8;
     return (
       <div className="login-wrapper">
         <MapHeader />
         <div className="login-main">
-          {loading === true ? (
+          {this.state.loading === true ? (
             <p className="login-auth-loading">Let the adventure begin...</p>
           ) : (
             <form className="login-main-form" onSubmit={this.loginSubmit}>

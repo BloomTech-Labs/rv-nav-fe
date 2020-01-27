@@ -205,7 +205,7 @@ class RegisterForm extends Component {
         </Header>
         <div className="register-main">
           {this.state.loading === true ? (
-            <p className="register-auth-loading">Loading...</p>
+                <p className="register-auth-loading">Loading...</p>
           ) : (
             <form className="register-main-form-one">
               <div className="register-header-one">

@@ -9,6 +9,7 @@ return(
     <div class="loading-wrapper">
         <div class="wrapper">
             {/* <OnboardLoad/> */}
+            <h1>ARE U LOADING</h1>
         </div>        
     </div>
 );
