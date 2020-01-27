@@ -137,11 +137,6 @@ class Main extends Component {
     this.props.addVehicle(vehicleStuff);
     this.props.history.push("/login");
   };
-  //     .then(res => {
-  //       console.log("response", res);
-  //     })
-  //     .catch(err => console.log(err));
-  // };
 
   // To go to the next form in the onboarding process
   nextStep = () => {
