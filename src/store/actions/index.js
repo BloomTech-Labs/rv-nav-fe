@@ -196,10 +196,12 @@ export const deleteVehicles = id => {
     event_category: "delete",
     event_label: "delete vehicle"
   });
+
+  
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/vehicle/${id}`, {
+      .delete(`${process.env.REACT_APP_BASE_URL}/vehicle/id`,id, {
         headers: { Authorization: localStorage.getItem("token") },
         "Content-Type": "application/json"
       })

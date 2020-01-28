@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { getVehicles, deleteVehicles } from "../../store/actions";
 import { selectVehicle } from "../../store/actions/selectVehicle.js";
 import {ReactComponent as Exit} from "../../assets/img/Exit.svg";
+import {ReactComponent as Trash} from "../../assets/img/trash.svg";
+import {ReactComponent as Edit} from "../../assets/img/darkIcons/edit.svg";
 import VehicleFormDropDown from "./VehicleFormDropDown.js";
 import Button from "react-bootstrap/Button";
 import "./Vehicles.css";
@@ -113,8 +115,8 @@ toggleEdit = () =>{
                   </div>
                   
                   <div className="delete-edit">
-                    <Exit/>
-                    <Exit/>
+                    <Trash onClick={() => this.props.deleteVehicles(e.id)} className="deleteSVG"/>
+                    <Edit/>
                   </div>
                   
                 </div>

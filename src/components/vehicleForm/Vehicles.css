@@ -1,7 +1,7 @@
 
-  *{
+  /* *{
     border: red 1px solid;
-  }
+  } */
   
   .back-vehicle {
     display:flex;
@@ -147,12 +147,18 @@
 
 .name-parent{
 justify-content: flex-start;
-width:80%;
+width:75%;
 text-align: left;
 }
 
 .delete-edit{
   justify-content: flex-end;
+  
+  margin-left:5px;
+}
+
+.deleteSVG{
+  margin-right:15px;
 }
 .vehicle-name{
   
