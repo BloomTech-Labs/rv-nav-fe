@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { NavLink } from 'react-router-dom'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
@@ -13,11 +13,27 @@ import { ReactComponent as SettingsIcon } from '../../assets/img/lightIcons/sett
 import { logout } from '../../store/actions/'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Vehicles from "../vehicleForm/Vehicles"
 
 
 const SidebarMenu = (props) => {
+    const [show,setShow] = useState({ on:false,
+      });  
+
+    const toggle = () =>{
+        setShow({
+            on:!show.on
+        })
+    }
+
     console.log("side bar menu",props)
     return (
+        <>
+        <div className="toggle-parent">
+            {show.on && 
+                <Vehicles show={show}/>
+            }
+        </div>
         <Dropdown as={ButtonGroup} className='dropdown'>
 
             <Dropdown.Toggle split variant="success" id="dropdown-split-basic" className="hamcolor">
@@ -46,7 +62,7 @@ const SidebarMenu = (props) => {
                         </div>
                         <div className='navlinkclass'>
                             <CarIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
-                            <Dropdown.Item className='dropdownitem1' > My Vehicles</Dropdown.Item>
+                            <Dropdown.Item className='dropdownitem1' onClick={toggle} > My Vehicles</Dropdown.Item>
                         </div>
                         <div className='navlinkclass'>
                             <MapIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
@@ -63,8 +79,9 @@ const SidebarMenu = (props) => {
                     </div>
                 {/* </div> */}
             </Dropdown.Menu>
-        </Dropdown>
+        </Dropdown></>
     )
+    
 }
 
 const mapStateToProps = state => ({})
