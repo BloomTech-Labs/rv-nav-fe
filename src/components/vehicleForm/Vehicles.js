@@ -52,13 +52,13 @@ class Vehicles extends React.Component {
   };
 
   render() {
-    console.log("vehiclejs vehicle props", this.props.vehicles);
+    console.log("vehiclejs props", this.props);
     return (
       <>
       <div className="menu-vehicle">
         <div  id="dropdown-split-basic-vehicle" className="hamcolor-vehicle">
                   <div className='hamend-vehicle'>RV WAY </div>
-                  <div className="Exit-vehicles"><Exit/></div>
+                  <div className="Exit-vehicles" onClick={this.props.toggle}><Exit/></div>
               </div>
         <div className="back-vehicle">
             <BackArrow />
@@ -81,7 +81,7 @@ class Vehicles extends React.Component {
             {this.props.vehicles.vehicles &&
             this.props.vehicles.vehicles.map(e => (
               <div className="vehicle-layout">
-                <p className="vehicle-name">name - {e.name}</p>
+                <p className="vehicle-name">{e.name}</p>
               </div>
             ))}
           </div>

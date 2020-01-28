@@ -31,7 +31,7 @@ const SidebarMenu = (props) => {
         <>
         <div className="toggle-parent">
             {show.on && 
-                <Vehicles show={show}/>
+                <Vehicles show={show} toggle={toggle}/>
             }
         </div>
         <Dropdown as={ButtonGroup} className='dropdown'>
