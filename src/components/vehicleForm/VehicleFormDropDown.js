@@ -3,10 +3,10 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { addVehicle, updateVehicle } from "../../store/actions";
 import Form from "react-bootstrap/Form";
-import "./VehicleForm.css";
+import "./VehicleFormDropDown.css";
 import { NavLink } from "react-router-dom";
 import firebase from "firebase";
-
+import {ReactComponent as Exit} from "../../assets/img/Exit.svg";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { ReactComponent as PlusSign } from "../../assets/img/lightIcons/plus (1).svg";
 
@@ -117,10 +117,10 @@ class VehicleForm extends React.Component {
   //occurs when the submit button is clicked
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = event => {
-    event.preventDefault();
-    let div = document.getElementsByClassName("mainSidebarContainer")[0];
-    div.style.margin = "25px";
-    div.style.height = "335px";
+//     event.preventDefault();
+//     let div = document.getElementsByClassName("mainSidebarContainer")[0];
+//     div.style.margin = "25px";
+//     div.style.height = "335px";
 
     // this.props.setState({
     //   ...this.props.state,
@@ -130,10 +130,10 @@ class VehicleForm extends React.Component {
     //   directions: "off"
     // });
 
-    let menu = document.querySelector(
-      ".btn-group-vertical > .btn, .btn-group > .btn"
-    );
-    menu.style.backgroundColor = "white";
+    // let menu = document.querySelector(
+    //   ".btn-group-vertical > .btn, .btn-group > .btn"
+    // );
+    // menu.style.backgroundColor = "white";
 
     // event.preventDefault();
     //Google analytics tracking
@@ -242,44 +242,48 @@ class VehicleForm extends React.Component {
       </NavLink>
     ) : (
       <>
-        <div className="back">
+      <div  id="dropdown-split-basic-vehicle-new" className="hamcolor-vehicle-new">
+                  <div className='hamend-vehicle-new'>RV WAY </div>
+                  <div className="Exit-vehicles-new" onClick={this.props.toggle}><Exit/></div>
+              </div>
+        <div className="back-new">
           <BackArrow />
 
           <p
-            className="vehicleFormBackContainer"
-            id="routing"
-            onClick={this.props.selectVehicles}
+            className="vehicleFormBackContainer-new"
+            id="routing-new"
+            onClick={this.props.toggle}
           >
             Back
           </p>
 
-          <p className="back-label">Add a vehicle</p>
+          <p className="back-label-new">Add a vehicle</p>
         </div>
-        <div className="form-wrapper">
-          <h3 id="vehicleAddTitle">Add a new vehicle</h3>
-          <p className="vehicle-spec" required>
-            Name <span className="required">(required)</span>
+        <div className="form-wrapper-new">
+          <h3 id="vehicleAddTitle-new">Add a new vehicle</h3>
+          <p className="vehicle-spec-new" required>
+            Name <span className="required-new">(required)</span>
           </p>
-          <div className="measurements">
+          <div className="measurements-new">
             <input
-              className="start-input-div"
+              className="start-input-div-new"
               type="string"
               required
               name="name"
               placeholder="The Mystery Machine"
               value={this.state.specifications.name}
               onChange={this.handleText}
-              id="rv-name"
+              id="rv-name-new"
             ></input>
           </div>
 
-          <div className="vehicle-spec-label">
-            <div className="dimensionsTitle">
-              <p className="vehicle-spec">Height</p>
-              <div className="restrictionParent">
-                <div className="measurementsParent">
-                  <div className="measurements">
-                    <p className="measurementsInput">FEET</p>
+          <div className="vehicle-spec-label-new">
+            <div className="dimensionsTitle-new">
+              <p className="vehicle-spec-new">Height</p>
+              <div className="restrictionParent-new">
+                <div className="measurementsParent-new">
+                  <div className="measurements-new">
+                    <p className="measurementsInput-new">FEET</p>
 
                     <input
                       type="number"
@@ -289,18 +293,18 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.heightFeet}
                       onChange={this.handleChange}
-                      className="input-boxes"
+                      className="input-boxes-new"
                       required
-                      id="heightInput"
+                      id="heightInput-new"
                     />
                   </div>
 
-                  <div className="plus">
+                  <div className="plus-new">
                     <PlusSign />
                   </div>
 
-                  <div className="measurements">
-                    <p className="measurementsInput">INCHES</p>
+                  <div className="measurements-new">
+                    <p className="measurementsInput-new">INCHES</p>
                     <input
                       type="number"
                       min="0"
@@ -309,18 +313,18 @@ class VehicleForm extends React.Component {
                       placeholder="0"
                       value={this.state.specifications.heightInches}
                       onChange={this.handleChange}
-                      className="input-boxes"
+                      className="input-boxes-new"
                     />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="dimensionsTitle">
-              <p className="vehicle-spec">Width</p>
-              <div className="measurementsParent">
-                <div className="measurements">
-                  <p className="measurementsInput">FEET</p>
+            <div className="dimensionsTitle-new">
+              <p className="vehicle-spec-new">Width</p>
+              <div className="measurementsParent-new">
+                <div className="measurements-new">
+                  <p className="measurementsInput-new">FEET</p>
                   <input
                     type="number"
                     min="0"
@@ -329,16 +333,16 @@ class VehicleForm extends React.Component {
                     placeholder="0"
                     value={this.state.specifications.widthFeet}
                     onChange={this.handleChange}
-                    className="input-boxes"
+                    className="input-boxes-new"
                   />
                 </div>
 
-                <div className="plus">
+                <div className="plus-new">
                   <PlusSign />
                 </div>
 
-                <div className="measurements">
-                  <p className="measurementsInput">INCHES</p>
+                <div className="measurements-new">
+                  <p className="measurementsInput-new">INCHES</p>
                   <input
                     type="number"
                     min="0"
@@ -347,7 +351,7 @@ class VehicleForm extends React.Component {
                     placeholder="0"
                     value={this.state.specifications.widthInches}
                     onChange={this.handleChange}
-                    className="input-boxes"
+                    className="input-boxes-new"
                   />
                 </div>
               </div>
@@ -355,15 +359,15 @@ class VehicleForm extends React.Component {
           </div>
           {this.state.specifications.heightFeet === undefined ||
           this.state.specifications.heightFeet === 0 ? (
-            <p id="requiredField">*Height is required</p>
+            <p id="requiredField-new">*Height is required</p>
           ) : null}
 
-          <div className="vehicle-spec-label2">
-            <div className="dimensionsTitle">
-              <p className="vehicle-spec">Length</p>
-              <div className="measurementsParent">
-                <div className="measurements">
-                  <p className="measurementsInput">FEET</p>
+          <div className="vehicle-spec-label2-new">
+            <div className="dimensionsTitle-new">
+              <p className="vehicle-spec-new">Length</p>
+              <div className="measurementsParent-new">
+                <div className="measurements-new">
+                  <p className="measurementsInput-new">FEET</p>
                   <input
                     type="number"
                     min="0"
@@ -372,15 +376,15 @@ class VehicleForm extends React.Component {
                     placeholder="0"
                     value={this.state.specifications.lengthFeet}
                     onChange={this.handleChange}
-                    className="input-boxes"
+                    className="input-boxes-new"
                   />
                 </div>
-                <div className="plus">
+                <div className="plus-new">
                   <PlusSign />
                 </div>
 
-                <div className="measurements">
-                  <p className="measurementsInput">INCHES</p>
+                <div className="measurements-new">
+                  <p className="measurementsInput-new">INCHES</p>
                   <input
                     type="number"
                     min="0"
@@ -389,16 +393,16 @@ class VehicleForm extends React.Component {
                     placeholder="0"
                     value={this.state.specifications.lengthInches}
                     onChange={this.handleChange}
-                    className="input-boxes"
+                    className="input-boxes-new"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="dimensionsTitle" id="poundsContainer">
-              <p className="vehicle-spec">Weight</p>
-              <div className="measurements">
-                <p className="measurementsInput">POUNDS</p>
+            <div className="dimensionsTitle-new" id="poundsContainer-new">
+              <p className="vehicle-spec-new">Weight</p>
+              <div className="measurements-new">
+                <p className="measurementsInput-new">POUNDS</p>
                 <input
                   type="number"
                   min="0"
@@ -407,15 +411,15 @@ class VehicleForm extends React.Component {
                   placeholder="0"
                   value={this.state.specifications.weight}
                   onChange={this.handleChange}
-                  id="input-boxes-pounds"
+                  id="input-boxes-pounds-new"
                 />
               </div>
             </div>
           </div>
 
-          <div className="form-section">
-            <div className="measurements">
-              <p className="measurementsInput">AXEL COUNT</p>
+          <div className="form-section-new">
+            <div className="measurements-new">
+              <p className="measurementsInput-new">AXEL COUNT</p>
               <input
                 className="axels"
                 type="number"
@@ -425,32 +429,32 @@ class VehicleForm extends React.Component {
                 placeholder="0"
                 value={this.state.specifications.axel_count}
                 onChange={this.handleChange}
-                className="input-boxes"
+                className="input-boxes-new"
               ></input>
             </div>
 
-            <div className="tires-check-p">
-              <div className="tires-p">
-                <p className="tires-ptag">Tires</p>
+            <div className="tires-check-p-new">
+              <div className="tires-p-new">
+                <p className="tires-ptag-new">Tires</p>
               </div>
-              <div className="tires-check-p2">
+              <div className="tires-check-p2-new">
                 <Form.Check
                   name="dual_tires"
                   type="checkbox"
                   checked={this.state.specifications.dual_tires}
                   onChange={this.handleCheck}
-                  id={`inline-text-2`}
+                  id={`inline-text-2-new`}
                 />
-                <p className="tires-ptag">I have a dual wheel vehicle</p>
+                <p className="tires-ptag-new">I have a dual wheel vehicle</p>
               </div>
             </div>
           </div>
 
-          <p className="vehicle-spec">RV TYPE</p>
-          <div className="class-radios">
-            <div className="classAbc">
-              <div className="rv-radio">
-                <label className="form-radio">
+          <p className="vehicle-spec-new">RV TYPE</p>
+          <div className="class-radios-new">
+            <div className="classAbc-new">
+              <div className="rv-radio-new">
+                <label className="form-radio-new">
                   <input
                     type="radio"
                     value="ClassA"
@@ -460,8 +464,8 @@ class VehicleForm extends React.Component {
                   Class A
                 </label>
               </div>
-              <div className="rv-radio">
-                <label className="form-radio">
+              <div className="rv-radio-new">
+                <label className="form-radio-new">
                   <input
                     type="radio"
                     value="ClassB"
@@ -471,8 +475,8 @@ class VehicleForm extends React.Component {
                   Class B
                 </label>
               </div>
-              <div className="rv-radio">
-                <label className="form-radio">
+              <div className="rv-radio-new">
+                <label className="form-radio-new">
                   <input
                     type="radio"
                     value="ClassC"
@@ -483,9 +487,9 @@ class VehicleForm extends React.Component {
                 </label>
               </div>
             </div>
-            <div className="FithWheelContainer">
-              <div className="rv-radio">
-                <label className="form-radio">
+            <div className="FithWheelContainer-new">
+              <div className="rv-radio-new">
+                <label className="form-radio-new">
                   <input
                     type="radio"
                     value="5thWheel"
@@ -497,28 +501,28 @@ class VehicleForm extends React.Component {
                   5TH Wheel
                 </label>
               </div>
-              <div className="rv-radio-tagalong">
+              <div className="rv-radio-tagalong-new">
                 <input
                   type="radio"
                   value="tagalong"
                   checked={this.state.specifications.class_name === "tagalong"}
                   onChange={this.handleRadio}
                 />
-                <p id="tagalongCamper">Tagalong Camper</p>
+                <p id="tagalongCamper-new">Tagalong Camper</p>
               </div>
             </div>
-            <div className="buttons">
+            <div className="buttons-new">
               <button
-                className="btn-submit"
-                id="cancelButton"
+                className="btn-submit-new"
+                id="cancelButton-new"
                 onClick={this.props.selectVehicles}
               >
                 Cancel
               </button>
               {this.state.specifications.name === "" ? (
                 <button
-                  className="btn-submit"
-                  id="invalidAddButton"
+                  className="btn-submit-new"
+                  id="invalidAddButton-new"
                   onClick={this.requiredField}
                 >
                   Add
@@ -526,16 +530,16 @@ class VehicleForm extends React.Component {
               ) : this.state.specifications.heightFeet === undefined ||
                 this.state.specifications.heightFeet === 0 ? (
                 <button
-                  className="btn-submit"
-                  id="invalidAddButton"
+                  className="btn-submit-new"
+                  id="invalidAddButton-new"
                   onClick={this.requiredField}
                 >
                   Add
                 </button>
               ) : (
                 <button
-                  className="btn-submit"
-                  id="validAddButton"
+                  className="btn-submit-new"
+                  id="validAddButton-new"
                   onClick={this.vehicleSubmit}
                 >
                   Add

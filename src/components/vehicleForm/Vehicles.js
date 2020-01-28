@@ -80,7 +80,7 @@ toggle = () =>{
             <p
               className="vehicleFormBackContainer-vehicle"
               id="routing-vehicle"
-              onClick={this.props.selectVehicles}
+              onClick={this.props.toggle}
             >
               Back
             </p>
