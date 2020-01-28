@@ -1,4 +1,4 @@
-.vehicle-tabs{
+/* .vehicle-tabs{
     color: white;
     background-color: #6C757D;
     margin: 20px;
@@ -57,6 +57,143 @@
     font-size: 1.2rem;
     align-self: start;
     margin-left: 4px;
+  } */
+
+  *{
+    border: red 1px solid;
   }
   
+  .back-vehicle {
+    display:flex;
+    flex-direction:row;
+    background: #F8F9FA;
+    align-items: center;
+    padding: 10px;
 
+}
+
+.vehicleFormBackContainer-vehicle {
+  margin: 0;
+  color: #00B2D9;
+  border: 2px solid rgba(42, 46, 67, 0.5);
+  margin-right: 10px;
+  padding-right:10px;
+  border-top: none;
+  border-left: none;
+  border-bottom: none;
+}
+
+#routing-vehicle:hover{
+  cursor: pointer;
+}
+
+.back-label-vehicle {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  margin: 0;
+  /* identical to box height */
+  /* margin-top: 12px; */
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  /* padding-top:5px; */
+  /* Grayscale 80% */
+  
+  color: rgba(42, 46, 67, 0.8);
+  }
+
+  .form-wrapper-vehicle {
+    width:100%;
+    /* margin-bottom: 100px; */
+    padding:25px;
+    height: 100%;
+}
+
+/* #dropdown-split-basic-vehicle div{
+  position: relative;
+  left: 10px;
+} */
+
+.hamcolor-vehicle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  /* padding-right: 25px; */
+  background: white;
+  border-radius: 0px !important;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 53px;
+  color: rgba(53, 195, 226, 0.95);
+  border-bottom: 1.5px solid rgba(237, 238, 241, 0.2);
+  
+  
+}
+
+.Exit-vehicles{
+  margin-right:30px;
+}
+
+.hamcolor-vehicle {
+  background: #2A2E43;
+  color: rgba(53, 195, 226, 0.95);
+}
+
+.hamend-vehicle {
+  font-family: Heebo;
+  font-size: 36px;
+  font-weight: bold;
+  color: #00B2D9;
+}
+
+
+
+.menu-vehicle{
+  background: #2A2E43;
+  display:flex;
+  flex-direction: column;
+  width:20%;
+  
+}
+
+.add-delete-vehicles{
+  display:flex;
+  justify-content: flex-end;
+  margin-right:30px;
+  margin-top:10px;
+  font-weight: 500;
+  line-height: 23px;
+  font-size:14px;
+  
+}
+
+.button-style-one-vehicle{
+  color:#00B2D9;
+  padding-right:15px;
+  border-right:#00B2D9 2px solid ;
+  margin:0;
+  
+}
+.button-style-two-vehicle{
+  color:#00B2D9;
+  padding-left:15px;
+  margin:0;
+}
+
+.vehicle-layout{
+  display:flex;
+  color:white;
+}
+
+.vehicle-name{
+  justify-content: flex-start;
+  color:white;
+}
