@@ -1,18 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getVehicles, deleteVehicles } from "../../store/actions";
 import { selectVehicle } from "../../store/actions/selectVehicle.js";
 import {ReactComponent as Exit} from "../../assets/img/Exit.svg";
-import VehicleForm from "./VehicleForm.js";
+import VehicleFormDropDown from "./VehicleFormDropDown.js";
 import Button from "react-bootstrap/Button";
 import "./Vehicles.css";
 
 class Vehicles extends React.Component {
   state = {
     id: null,
-    editing: false
+    editing: false,
+    on:false,
   };
 
   componentDidMount() {
@@ -34,27 +35,40 @@ class Vehicles extends React.Component {
     });
   };
 
-  selected = id => {
-    //Google analytics tracking
-    window.gtag("event", "select vehicle", {
-      event_category: "select",
-      event_label: "select vehicle"
-    });
-    this.props.selectVehicle(id);
-  };
-  deselect = () => {
-    //Google analytics tracking
-    window.gtag("event", "deselect vehicle", {
-      event_category: "select",
-      event_label: "deselect vehicle"
-    });
-    this.props.selectVehicle(null);
-  };
+  // selected = id => {
+  //   //Google analytics tracking
+  //   window.gtag("event", "select vehicle", {
+  //     event_category: "select",
+  //     event_label: "select vehicle"
+  //   });
+  //   this.props.selectVehicle(id);
+  // };
+  // deselect = () => {
+  //   //Google analytics tracking
+  //   window.gtag("event", "deselect vehicle", {
+  //     event_category: "select",
+  //     event_label: "deselect vehicle"
+  //   });
+  //   this.props.selectVehicle(null);
+  // };
+
+  
+
+toggle = () =>{
+    this.setState({
+        on:!this.state.on
+    })
+}
 
   render() {
     console.log("vehiclejs props", this.props);
     return (
       <>
+      <div className="toggle-parent-vehicle">
+            {this.state.on && 
+                <VehicleFormDropDown  toggle={this.toggle}/>
+            }
+        </div>
       <div className="menu-vehicle">
         <div  id="dropdown-split-basic-vehicle" className="hamcolor-vehicle">
                   <div className='hamend-vehicle'>RV WAY </div>
@@ -66,7 +80,7 @@ class Vehicles extends React.Component {
             <p
               className="vehicleFormBackContainer-vehicle"
               id="routing-vehicle"
-              onClick={this.props.selectVehicles}
+              onClick={this.props.toggle}
             >
               Back
             </p>
@@ -74,7 +88,7 @@ class Vehicles extends React.Component {
             <p className="back-label-vehicle">My Vehicles</p>
           </div>
           <div className="add-delete-vehicles">
-              <span className="button-style-one-vehicle">ADD</span>
+              <span className="button-style-one-vehicle" onClick={this.toggle}>ADD</span>
               <span className="button-style-two-vehicle">EDIT</span>
           </div>
           <div className="form-wrapper-vehicle">
