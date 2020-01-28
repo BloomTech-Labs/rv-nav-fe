@@ -9,7 +9,7 @@ import Register from "./components/auth/register/Register";
 import RegisterHooks from "./components/auth/register/Register-Hooks";
 import LoadingPage from "./components/auth/loading/LoadingPage";
 import Main from "./components/onboarding/Main";
-import Vehicles from "./components/vehicleForm/Vehicles";
+
 
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
       <Route path="/onboarding" component={Main} />
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
-      <Route path="/Vehicles" component={Vehicles} />
+      
 
      
     </div>
