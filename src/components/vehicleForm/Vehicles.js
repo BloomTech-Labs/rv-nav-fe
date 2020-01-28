@@ -60,10 +60,13 @@ class Vehicles extends React.Component {
             return (
               <div
                 key={i}
-                className={`vehicle-tabs ${e.id === this.props.selected_id &&
-                  `highlight`}`}
+                className={`vehicle-tabs`}
               >
-                {e.id === this.props.selected_id ? (
+                {/* CLASSNAME AFTER VEHICLE ${e.id === this.props.selected_id &&
+                  `highlight`}` */}
+
+
+                {/* {e.id === this.props.selected_id ? (
                   <>
                     {" "}
                     <p className="select-text">selected for routing</p>{" "}
@@ -87,12 +90,12 @@ class Vehicles extends React.Component {
                   >
                     Select
                   </Button>
-                )}
+                )} */}
 
                 <div className="vehicle-txt">
                   <p className="vehicle-information">Vehicle Information</p>
                   <p className="vehicle-name">name - {e.name}</p>
-                  <p className="vehicle-name">
+                  {/* <p className="vehicle-name">
                     {e.height > 0 ? `height - ${e.height} feet` : null}
                   </p>
                   <p className="vehicle-name">
@@ -118,7 +121,7 @@ class Vehicles extends React.Component {
                   <p className="vehicle-name">
                     {" "}
                     {e.axel_count > 0 ? `axels - ${e.axel_count}` : null}
-                  </p>
+                  </p> */}
                 </div>
                 <div className="edit-delete">
                   <Button

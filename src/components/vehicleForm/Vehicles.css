@@ -1,11 +1,11 @@
-vehicle-tabs{
+.vehicle-tabs{
     color: white;
     background-color: #6C757D;
     margin: 20px;
     padding: 8px;
     border-radius: 8px;
     display: flex;
-    width: 90%;
+    width: 20%;
     flex-direction: column;
   }
   
@@ -59,3 +59,4 @@ vehicle-tabs{
     margin-left: 4px;
   }
   
+
