@@ -13,6 +13,7 @@ import Main from "./components/onboarding/Main";
 
 
 
+
 const App = () => {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/onboarding" component={Main} />
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
+      
       
       
 
