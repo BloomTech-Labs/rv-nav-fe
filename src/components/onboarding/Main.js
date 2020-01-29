@@ -267,7 +267,7 @@ class Main extends Component {
 
 const mapStateToProps = state => {
   console.log("state", state);
-  return { id: state.data[0].value.id, token: state.token[0] };
+  return { id: state.data[0].value.user.id, token: state.token[0] };
 };
 
 export default withRouter(
