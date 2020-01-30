@@ -127,6 +127,7 @@
 .hamburger-options-parent .dropdownitem1 {
     color: white;
     padding-left: 15px;
+    width:50%;
 }
 
 .logoutclass {
@@ -178,4 +179,10 @@
     background: #2A2E43;
     color:  #00B2D9;
     text-decoration: none;
+}
+
+.soon{
+    color:#00B2D9;
+    font-size: 10px;
+
 }

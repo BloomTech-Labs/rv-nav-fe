@@ -547,7 +547,7 @@ class VehicleForm extends React.Component {
               <button
                 className="btn-submit-update"
                 id="cancelButton-update"
-                onClick={this.props.selectVehicles}
+                onClick={this.props.toggleUpdateForm}
               >
                 Cancel
               </button>

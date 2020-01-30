@@ -50,11 +50,11 @@ const SidebarMenu = (props) => {
                         </div>
                         <div className='navlinkclass'>
                             <SatIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
-                            <Dropdown.Item className='dropdownitem1'> Satellite</Dropdown.Item>
+                            <Dropdown.Item className='dropdownitem1'> Satellite</Dropdown.Item> <span className="soon">Coming soon!</span>
                         </div>
                         <div className='navlinkclassBorder '>
                             <TerrIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
-                            <Dropdown.Item className='dropdownitem1'> Terrain</Dropdown.Item>
+                            <Dropdown.Item className='dropdownitem1'> Terrain</Dropdown.Item> <p className="soon">Coming soon!</p>
                         </div>
                         <div className='navlinkclass'>
                                           {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
@@ -66,11 +66,11 @@ const SidebarMenu = (props) => {
                         </div>
                         <div className='navlinkclass'>
                             <MapIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
-                            <Dropdown.Item className='dropdownitem1' > Saved Routes</Dropdown.Item>
+                            <Dropdown.Item className='dropdownitem1' > Saved Routes</Dropdown.Item> <p className="soon">Coming soon!</p>
                         </div>
                         <div className='navlinkclassBorder'>
                             <SettingsIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
-                            <Dropdown.Item className='dropdownitem1' > Routing Options</Dropdown.Item>
+                            <Dropdown.Item className='dropdownitem1' > Routing Options</Dropdown.Item> <p className="soon">Coming soon!</p>
                         </div>
                         <div className='navlinkclass'>
                             <OutIcon className='logoutclass' />              {/* Below is a callback function to logout from firebase & local user and push to /login -Noor */}
