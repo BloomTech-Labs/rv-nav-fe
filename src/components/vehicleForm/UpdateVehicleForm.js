@@ -216,11 +216,11 @@ class VehicleForm extends React.Component {
       dual_tires: this.state.specifications.dual_tires,
       user_id: this.props.id
     };
-    console.log("sent", send);
-    console.log("ID", this.props.id);
+    // console.log("sent", send);
+    // console.log("ID", this.props.id);
     
-      this.props.updateVehicle(send, this.props.id)
-    
+      this.props.updateVehicle(send, this.props.specifications.id)
+      this.props.toggleUpdateForm()
     this.setState({
       // specifications: {
       //   name: "",

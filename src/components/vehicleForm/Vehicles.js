@@ -99,6 +99,13 @@ toggleUpdateForm = () =>{
   })
 }
 
+splitDistanceUnits = (combined) => {
+  let realFeet = combined;
+
+  var feet = Math.floor(realFeet);
+  var inches = Math.round((realFeet - feet) * 12);
+  };
+
 Update = (id) => {
     
    
@@ -120,6 +127,30 @@ Update = (id) => {
              this.setState({
                specifications:e
            })
+           let heightFeetNew = Math.floor(e.height)
+           let heightInchesNew = Math.round((e.height - heightFeetNew) * 12 )
+           let widthFeetNew = Math.floor(e.width)
+           let widthInchesNew = Math.round((e.width - widthFeetNew) * 12 )
+           let lengthFeetNew = Math.floor(e.length)
+           let lengthInchesNew = Math.round((e.length - lengthFeetNew) * 12 )
+           
+           this.setState({
+            specifications:{
+              heightFeet:heightFeetNew,
+              heightInches:heightInchesNew,
+              widthFeet:widthFeetNew,
+              widthInches:widthInchesNew,
+              lengthFeet:lengthFeetNew,
+              lengthInches:lengthInchesNew,
+              weight:e.weight,
+              name:e.name,
+              axel_count:e.axel_count,
+              vehicle_class:e.vehicle_class,
+              dual_tires:e.dual_tires,
+              trailer:e.trailer,
+              id:e.id
+            }
+        })
            this.toggleUpdateForm()
            console.log("specfications",this.state.specifications)
            }     
@@ -130,6 +161,7 @@ Update = (id) => {
    });
   
 };
+
 
   render() {
     console.log("vehiclejs props", this.props);
