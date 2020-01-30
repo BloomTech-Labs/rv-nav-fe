@@ -11,6 +11,7 @@ import VehicleFormDropDown from "./VehicleFormDropDown.js";
 import UpdateVehicleForm from "./UpdateVehicleForm.js";
 import Button from "react-bootstrap/Button";
 import "./Vehicles.css";
+import axios from "axios";
 
 class Vehicles extends React.Component {
   state = {
@@ -19,6 +20,25 @@ class Vehicles extends React.Component {
     on:false,
     edit:false,
     updateForm:false,
+    specifications: {
+      name: "",
+       height: "", // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
+      heightFeet: undefined, // value that stores the user entry of height in feet
+      heightInches: "", // value that stores the user entry of height in inches
+        width: "", // these 3 width values follow the same structure as height
+      widthFeet: "",
+      widthInches: "",
+         length: "", // these 3 length values follow the same structure as height
+      lengthFeet: "",
+      lengthInches: "",
+      weight: "", //this will be sent in pounds? check BE docs
+      axel_count: "", //integer, unit implied
+      vehicle_class: "", //controlled input of one letter
+      //created_at: '', //check BE for format, generate date with js
+      dual_tires: false, //Bool, checkbox
+      trailer: false, //Bool, checkbox
+      isSignedIn: false
+    }
   };
 
   componentDidMount() {
@@ -39,6 +59,8 @@ class Vehicles extends React.Component {
       editing: false
     });
   };
+
+  
 
   // selected = id => {
   //   //Google analytics tracking
@@ -77,18 +99,84 @@ toggleUpdateForm = () =>{
   })
 }
 
+splitDistanceUnits = (combined) => {
+  let realFeet = combined;
+
+  var feet = Math.floor(realFeet);
+  var inches = Math.round((realFeet - feet) * 12);
+  };
+
+Update = (id) => {
+    
+   
+ return axios
+   .get(`${process.env.REACT_APP_BASE_URL}/vehicle`, {
+     headers: { Authorization: localStorage.getItem("token") },
+     "Content-Type": "application/json"
+   })
+   .then(res => {
+     console.log("update vehicle res", res.data); // data was created successfully and logs to console
+
+     res.data &&
+         res.data.map(e => {
+           console.log("e",e)
+           if(id === e.id){
+             console.log("ID",id)
+             console.log("e.ID",e.id)
+
+             this.setState({
+               specifications:e
+           })
+           let heightFeetNew = Math.floor(e.height)
+           let heightInchesNew = Math.round((e.height - heightFeetNew) * 12 )
+           let widthFeetNew = Math.floor(e.width)
+           let widthInchesNew = Math.round((e.width - widthFeetNew) * 12 )
+           let lengthFeetNew = Math.floor(e.length)
+           let lengthInchesNew = Math.round((e.length - lengthFeetNew) * 12 )
+           
+           this.setState({
+            specifications:{
+              heightFeet:heightFeetNew,
+              heightInches:heightInchesNew,
+              widthFeet:widthFeetNew,
+              widthInches:widthInchesNew,
+              lengthFeet:lengthFeetNew,
+              lengthInches:lengthInchesNew,
+              weight:e.weight,
+              name:e.name,
+              axel_count:e.axel_count,
+              vehicle_class:e.vehicle_class,
+              dual_tires:e.dual_tires,
+              trailer:e.trailer,
+              id:e.id
+            }
+        })
+           this.toggleUpdateForm()
+           console.log("specfications",this.state.specifications)
+           }     
+         })
+   })
+   .catch(err => {
+     console.log("get vehicle err", err); // there was an error creating the data and logs to console
+   });
+  
+};
+
+
   render() {
     console.log("vehiclejs props", this.props);
     return (
       <>
       <div className="toggle-parent-vehicle">
+        {/* If on === true then renders component */}
             {this.state.on && 
                 <VehicleFormDropDown  toggle={this.toggle}/>
             }
         </div>
         <div className="toggle-parent-vehicle">
+          {/* If on === true then renders component */}
             {this.state.updateForm && 
-                <UpdateVehicleForm  toggleUpdateForm={this.toggleUpdateForm}/>
+                <UpdateVehicleForm   specifications={this.state.specifications} toggleUpdateForm={this.toggleUpdateForm}/>
             }
         </div>
       <div className="menu-vehicle">
@@ -129,7 +217,7 @@ toggleUpdateForm = () =>{
                   
                   <div className="delete-edit">
                     <Trash onClick={() => this.props.deleteVehicles(e.id)} className="deleteSVG"/>
-                    <Edit onClick={this.toggleUpdateForm} />
+                    <Edit onClick={() => this.Update(e.id)} />
                   </div>
                   
                 </div>

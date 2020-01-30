@@ -149,6 +149,8 @@ export const getVehicles = () => {
 };
 
 export const updateVehicle = (value, id) => {
+  console.log("value",value)
+  console.log("id in update actions",id)
   //Google analytics tracking
   window.gtag("event", "update vehicle", {
     event_category: "update",
