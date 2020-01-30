@@ -61,27 +61,34 @@ class VehicleForm extends React.Component {
     //   });
     // }
 
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/vehicle`, {
-        headers: { Authorization: localStorage.getItem("token") },
-        "Content-Type": "application/json"
-      })
-      .then(res => {
-        console.log("update vehicle res", res.data); // data was created successfully and logs to console
+    // axios
+    //   .get(`${process.env.REACT_APP_BASE_URL}/vehicle`, {
+    //     headers: { Authorization: localStorage.getItem("token") },
+    //     "Content-Type": "application/json"
+    //   })
+    //   .then(res => {
+    //     console.log("update vehicle res", res.data); // data was created successfully and logs to console
 
         this.setState({
-            specifications:res.data[1]
+            specifications:this.props.specifications
         })
+        console.log("update Specifications", this.state.specifications)
+        console.log("update Specifications in props", this.props.specifications)
         
-      })
-      .catch(err => {
-        console.log("get vehicle err", err); // there was an error creating the data and logs to console
-      });
+    //   })
+    //   .catch(err => {
+    //     console.log("get vehicle err", err); // there was an error creating the data and logs to console
+    //   });
+
+    // this.props.vehicles.vehicles &&
+    //   this.props.vehicles.vehicles.map(e => {
+    //     this.props.Update(e.id)
+    //   })
 
     this.unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
-  }
+    }
 
   //handles input of numbers and converts into the right data type of int
   handleChange = event => {
@@ -93,6 +100,7 @@ class VehicleForm extends React.Component {
     });
   };
 
+  
   //handles text only input
   handleText = event => {
     this.setState({
@@ -120,7 +128,7 @@ class VehicleForm extends React.Component {
     this.setState({
       specifications: {
         ...this.state.specifications,
-        class_name: event.target.value
+        vehicle_class: event.target.value
       }
     });
   };
@@ -245,9 +253,20 @@ class VehicleForm extends React.Component {
     return inchesCombined;
   };
 
+  // splitDistanceUnits = (combined) => {
+  //   // let inches = inchesIn;
+  //   // let feet = feetIn;
+  //   if (combined === "") {
+  //     combined = 0;
+  //   }
+  //   combined % 12
+  //   const split = combined +  / 12;
+  //   return split;
+  // };
+
   render() {
-    console.log("VEHICLE FORM PROPS", this.props);
-    console.log("STATE FROM VEHICLEFORM", this.state);
+    // console.log("VEHICLE FORM PROPS", this.props);
+    // console.log("STATE FROM VEHICLEFORM", this.state);
     return !localStorage.token /*&& !this.state.isSignedIn*/ ? ( //Added checks for Firebase user.
       //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
       <NavLink to="/login">
@@ -568,8 +587,8 @@ class VehicleForm extends React.Component {
 
 // const mapStateToProps = state => ({});
 const mapStateToProps = state => {
-  console.log("state", state);
-  return { id: state.data[0].value.user.id };
+  //  vehicles: state.vehicles
+   return { id: state.data[0].value.user.id };
 };
 
 export default withRouter(
