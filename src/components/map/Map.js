@@ -192,6 +192,7 @@ class MapPage extends Component {
     }
     axios.post("https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve", formData, config)
       .then(res => {
+        console.log("Map post res",res)
         if (res) {
           let resLength = res.data.routes.features[0].geometry.paths[0].length;
           let startCoordinate = { lat: null, lng: null }; //the first coordinate sent to the clearance api

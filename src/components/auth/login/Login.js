@@ -142,8 +142,8 @@ class LoginForm extends React.Component {
                   It's great to see you again.
                 </h4>
               </div>
-              <div className="login-social-media">
-                {this.state.isSignedIn ? (
+              {/* <div className="login-social-media">
+                {/* {this.state.isSignedIn ? (
                   <div>
                     {this.state.isSignedIn ? (
                       <>
@@ -161,15 +161,15 @@ class LoginForm extends React.Component {
                     ) : null}
                   </div>
                 ) : (
-                  <StyledFirebaseAuth
-                    uiConfig={this.uiConfig}
-                    firebaseAuth={firebase.auth()}
-                  />
-                )}
-              </div>
-              <div className="or">
+                  // <StyledFirebaseAuth
+                  //   uiConfig={this.uiConfig}
+                  //   firebaseAuth={firebase.auth()}
+                  // />
+                )} *
+              </div> */}
+              {/* <div className="or">
                 <span>or</span>
-              </div>
+              </div> */}
               {this.props.error === "Invalid username or password" ? (
                 <p className="login-main-form-error">
                   Invalid Email or Password
@@ -217,12 +217,14 @@ class LoginForm extends React.Component {
                   Let's Go
                 </button>
                 <div className="need-account">
-                  <span>
-                    Need to create an account?{" "}
+                  <div>
+                    <span>Need to create an account?</span>
+                  </div>
+                  <div>
                     <a id="sign-up" href="/register">
                       Sign Up
                     </a>
-                  </span>
+                  </div>
                 </div>
               </div>
             </form>

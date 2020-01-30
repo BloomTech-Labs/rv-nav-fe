@@ -213,11 +213,11 @@ class RegisterForm extends Component {
                 <h4 className="register-lets-get-you-settled">
                   Lets get you settled
                 </h4>
-                <h6 className="register-sign-up-with-social-media">
+                {/* <h6 className="register-sign-up-with-social-media">
                   Signup with social media
-                </h6>
+                </h6> */}
               </div>
-              <div className="register-social-media">
+              {/* <div className="register-social-media">
                 {this.state.isSignedIn ? (
                   <div>
                     {this.state.isSignedIn ? (
@@ -236,15 +236,15 @@ class RegisterForm extends Component {
                     ) : null}
                   </div>
                 ) : (
-                  <StyledFirebaseAuth
-                    uiConfig={this.uiConfig}
-                    firebaseAuth={firebase.auth()}
-                  />
+                  // <StyledFirebaseAuth
+                  //   uiConfig={this.uiConfig}
+                  //   firebaseAuth={firebase.auth()}
+                  // />
                 )}
               </div>
               <div className="or">
                 <span>or</span>
-              </div>
+              </div> */}
               <div className="register-input-and-button">
                 <label className="register-main-form-label">Email</label>
                 <input

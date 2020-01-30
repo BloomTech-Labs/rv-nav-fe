@@ -263,8 +263,9 @@ class VehicleForm extends React.Component {
   //   const split = combined +  / 12;
   //   return split;
   // };
-
+  
   render() {
+    console.log("UPDATE FORM PROPS",this.props)
     // console.log("VEHICLE FORM PROPS", this.props);
     // console.log("STATE FROM VEHICLEFORM", this.state);
     return !localStorage.token /*&& !this.state.isSignedIn*/ ? ( //Added checks for Firebase user.
@@ -588,6 +589,7 @@ class VehicleForm extends React.Component {
 // const mapStateToProps = state => ({});
 const mapStateToProps = state => {
   //  vehicles: state.vehicles
+  
    return { id: state.data[0].value.user.id };
 };
 

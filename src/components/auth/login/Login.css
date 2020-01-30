@@ -371,6 +371,7 @@ p.login-main-form-error {
     padding-left: 20px;
     padding-right: 20px;
     font-size: 16px;
+    display:flex;
 }
 
 @media (max-width: 415px) {
@@ -384,6 +385,8 @@ p.login-main-form-error {
     font-weight: 700;
     text-decoration: none;
     color: rgba(53, 195, 226, 0.95);
+    padding-top:0px;
+    margin-left:5px;
 
 } 
 
