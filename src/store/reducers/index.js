@@ -25,10 +25,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         // error: null,
         loading: false,
-        data: [...state.data, { value: action.payload }]
+        // data: [...state.data, { value: action.payload }]
       };
     case types.LOGIN:
       return {
+        user: { ...action.payload.user },
         ...state,
         token: action.payload,
         // error: null,

@@ -2,12 +2,13 @@ import React,{useState} from "react";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getVehicles, deleteVehicles } from "../../store/actions";
+import { getVehicles, deleteVehicles,updateVehicle } from "../../store/actions";
 import { selectVehicle } from "../../store/actions/selectVehicle.js";
 import {ReactComponent as Exit} from "../../assets/img/Exit.svg";
 import {ReactComponent as Trash} from "../../assets/img/trash.svg";
 import {ReactComponent as Edit} from "../../assets/img/darkIcons/edit.svg";
 import VehicleFormDropDown from "./VehicleFormDropDown.js";
+import UpdateVehicleForm from "./UpdateVehicleForm.js";
 import Button from "react-bootstrap/Button";
 import "./Vehicles.css";
 
@@ -17,6 +18,7 @@ class Vehicles extends React.Component {
     editing: false,
     on:false,
     edit:false,
+    updateForm:false,
   };
 
   componentDidMount() {
@@ -69,6 +71,12 @@ toggleEdit = () =>{
   })
 }
 
+toggleUpdateForm = () =>{
+  this.setState({
+      updateForm:!this.state.updateForm
+  })
+}
+
   render() {
     console.log("vehiclejs props", this.props);
     return (
@@ -76,6 +84,11 @@ toggleEdit = () =>{
       <div className="toggle-parent-vehicle">
             {this.state.on && 
                 <VehicleFormDropDown  toggle={this.toggle}/>
+            }
+        </div>
+        <div className="toggle-parent-vehicle">
+            {this.state.updateForm && 
+                <UpdateVehicleForm  toggleUpdateForm={this.toggleUpdateForm}/>
             }
         </div>
       <div className="menu-vehicle">
@@ -116,7 +129,7 @@ toggleEdit = () =>{
                   
                   <div className="delete-edit">
                     <Trash onClick={() => this.props.deleteVehicles(e.id)} className="deleteSVG"/>
-                    <Edit/>
+                    <Edit onClick={this.toggleUpdateForm} />
                   </div>
                   
                 </div>
@@ -138,7 +151,7 @@ const mapStateToProps = state => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, { getVehicles, deleteVehicles, selectVehicle })(
+  connect(mapStateToProps, { getVehicles, deleteVehicles, selectVehicle,updateVehicle })(
     Vehicles
   )
 );
