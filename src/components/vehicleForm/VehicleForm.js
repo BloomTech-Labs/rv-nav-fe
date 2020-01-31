@@ -199,7 +199,7 @@ class VehicleForm extends React.Component {
       this.props.addVehicle(send);
       this.closeVehicleForm();
     }
-    alert("Vehcile Added!")
+    alert("Vehicle Added!");
     this.setState({
       // specifications: {
       //   name: "",

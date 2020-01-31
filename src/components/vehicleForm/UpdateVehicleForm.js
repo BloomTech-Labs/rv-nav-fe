@@ -7,10 +7,9 @@ import Form from "react-bootstrap/Form";
 import "./UpdateVehicleForm.css";
 import { NavLink } from "react-router-dom";
 import firebase from "firebase";
-import {ReactComponent as Exit} from "../../assets/img/Exit.svg";
+import { ReactComponent as Exit } from "../../assets/img/Exit.svg";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { ReactComponent as PlusSign } from "../../assets/img/lightIcons/plus (1).svg";
-
 
 class VehicleForm extends React.Component {
   constructor(props) {
@@ -20,13 +19,13 @@ class VehicleForm extends React.Component {
       //this is the object that will be sent to the BE
       specifications: {
         name: "",
-         height: "", // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
+        height: "", // value that gets sent to the backend, after combinining heightFeet and heightInches into one unit
         heightFeet: undefined, // value that stores the user entry of height in feet
         heightInches: "", // value that stores the user entry of height in inches
-          width: "", // these 3 width values follow the same structure as height
+        width: "", // these 3 width values follow the same structure as height
         widthFeet: "",
         widthInches: "",
-           length: "", // these 3 length values follow the same structure as height
+        length: "", // these 3 length values follow the same structure as height
         lengthFeet: "",
         lengthInches: "",
         weight: "", //this will be sent in pounds? check BE docs
@@ -69,12 +68,12 @@ class VehicleForm extends React.Component {
     //   .then(res => {
     //     console.log("update vehicle res", res.data); // data was created successfully and logs to console
 
-        this.setState({
-            specifications:this.props.specifications
-        })
-        console.log("update Specifications", this.state.specifications)
-        console.log("update Specifications in props", this.props.specifications)
-        
+    this.setState({
+      specifications: this.props.specifications
+    });
+    console.log("update Specifications", this.state.specifications);
+    console.log("update Specifications in props", this.props.specifications);
+
     //   })
     //   .catch(err => {
     //     console.log("get vehicle err", err); // there was an error creating the data and logs to console
@@ -88,7 +87,7 @@ class VehicleForm extends React.Component {
     this.unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
-    }
+  }
 
   //handles input of numbers and converts into the right data type of int
   handleChange = event => {
@@ -100,7 +99,6 @@ class VehicleForm extends React.Component {
     });
   };
 
-  
   //handles text only input
   handleText = event => {
     this.setState({
@@ -133,21 +131,21 @@ class VehicleForm extends React.Component {
     });
   };
 
-//   closeVehicleForm = () =>
-//     this.props.setState({
-//       vehicleForm: "off",
-//       routing: "on",
-//       vehicles: "off",
-//       directions: "off"
-//     });
+  //   closeVehicleForm = () =>
+  //     this.props.setState({
+  //       vehicleForm: "off",
+  //       routing: "on",
+  //       vehicles: "off",
+  //       directions: "off"
+  //     });
 
   //occurs when the submit button is clicked
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = event => {
-//     event.preventDefault();
-//     let div = document.getElementsByClassName("mainSidebarContainer")[0];
-//     div.style.margin = "25px";
-//     div.style.height = "335px";
+    //     event.preventDefault();
+    //     let div = document.getElementsByClassName("mainSidebarContainer")[0];
+    //     div.style.margin = "25px";
+    //     div.style.height = "335px";
 
     // this.props.setState({
     //   ...this.props.state,
@@ -218,10 +216,10 @@ class VehicleForm extends React.Component {
     };
     // console.log("sent", send);
     // console.log("ID", this.props.id);
-    
-      this.props.updateVehicle(send, this.props.specifications.id)
-      alert("Vehcile Updated!")
-      this.props.toggleUpdateForm()
+
+    this.props.updateVehicle(send, this.props.specifications.id);
+    alert("Vehicle Updated!");
+    this.props.toggleUpdateForm();
     this.setState({
       // specifications: {
       //   name: "",
@@ -264,9 +262,9 @@ class VehicleForm extends React.Component {
   //   const split = combined +  / 12;
   //   return split;
   // };
-  
+
   render() {
-    console.log("UPDATE FORM PROPS",this.props)
+    console.log("UPDATE FORM PROPS", this.props);
     // console.log("VEHICLE FORM PROPS", this.props);
     // console.log("STATE FROM VEHICLEFORM", this.state);
     return !localStorage.token /*&& !this.state.isSignedIn*/ ? ( //Added checks for Firebase user.
@@ -276,10 +274,18 @@ class VehicleForm extends React.Component {
       </NavLink>
     ) : (
       <>
-      <div  id="dropdown-split-basic-vehicle-update" className="hamcolor-vehicle-update">
-                  <div className='hamend-vehicle-update'>RV WAY </div>
-                  <div className="Exit-vehicles-update" onClick={this.props.toggleUpdateForm}><Exit/></div>
-              </div>
+        <div
+          id="dropdown-split-basic-vehicle-update"
+          className="hamcolor-vehicle-update"
+        >
+          <div className="hamend-vehicle-update">RV WAY </div>
+          <div
+            className="Exit-vehicles-update"
+            onClick={this.props.toggleUpdateForm}
+          >
+            <Exit />
+          </div>
+        </div>
         <div className="back-update">
           <BackArrow />
 
@@ -492,7 +498,9 @@ class VehicleForm extends React.Component {
                   <input
                     type="radio"
                     value="ClassA"
-                    checked={this.state.specifications.vehicle_class === "ClassA"}
+                    checked={
+                      this.state.specifications.vehicle_class === "ClassA"
+                    }
                     onChange={this.handleRadio}
                   />
                   Class A
@@ -503,7 +511,9 @@ class VehicleForm extends React.Component {
                   <input
                     type="radio"
                     value="ClassB"
-                    checked={this.state.specifications.vehicle_class === "ClassB"}
+                    checked={
+                      this.state.specifications.vehicle_class === "ClassB"
+                    }
                     onChange={this.handleRadio}
                   />
                   Class B
@@ -514,7 +524,9 @@ class VehicleForm extends React.Component {
                   <input
                     type="radio"
                     value="ClassC"
-                    checked={this.state.specifications.vehicle_class === "ClassC"}
+                    checked={
+                      this.state.specifications.vehicle_class === "ClassC"
+                    }
                     onChange={this.handleRadio}
                   />
                   Class C
@@ -539,7 +551,9 @@ class VehicleForm extends React.Component {
                 <input
                   type="radio"
                   value="tagalong"
-                  checked={this.state.specifications.vehicle_class === "tagalong"}
+                  checked={
+                    this.state.specifications.vehicle_class === "tagalong"
+                  }
                   onChange={this.handleRadio}
                 />
                 <p id="tagalongCamper-update">Tagalong Camper</p>
@@ -590,8 +604,8 @@ class VehicleForm extends React.Component {
 // const mapStateToProps = state => ({});
 const mapStateToProps = state => {
   //  vehicles: state.vehicles
-  
-   return { id: state.data[0].value.user.id };
+
+  return { id: state.data[0].value.user.id };
 };
 
 export default withRouter(
