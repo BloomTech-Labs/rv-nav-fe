@@ -197,6 +197,7 @@ class VehicleForm extends React.Component {
     } else {
       console.log("DO U HIT ME ", this.props);
       this.props.addVehicle(send);
+      alert("Vehcile Added!")
     //   this.closeVehicleForm();
         this.props.toggle()
     }
