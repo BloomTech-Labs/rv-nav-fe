@@ -17,10 +17,40 @@ Sentry.init({
 
 require("dotenv").config();
 
+function saveToLocalStorage(state){
+  try{
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem("state", serializedState)
+  }catch(e){
+    console.log(e)
+  }
+};
+
+function loadFromLocalStorage(){
+  try{
+    const serializedState = localStorage.getItem("state")
+    if(serializedState === null) return undefined
+    return JSON.parse(serializedState)
+  }catch(e){
+    console.log(e)
+    return undefined
+  }
+};
+
+// console.log(JSON.stringify(this.state))
+// console.log(JSON.parse(JSON.stringify(this.state)))
+const persistedState = loadFromLocalStorage()
 export const store = createStore(
+  
   reducer,
+  persistedState,
   composeWithDevTools(applyMiddleware(thunk))
 );
+console.log("state in index",store.getState())
+console.log("stringified state",JSON.stringify(store.getState()))
+console.log("pared state",JSON.parse(JSON.stringify(store.getState())))
+
+store.subscribe(() => saveToLocalStorage(store.getState()))
 
 ReactDOM.render(
   <Router>
