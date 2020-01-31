@@ -220,6 +220,7 @@ class VehicleForm extends React.Component {
     // console.log("ID", this.props.id);
     
       this.props.updateVehicle(send, this.props.specifications.id)
+      alert("Vehcile Updated!")
       this.props.toggleUpdateForm()
     this.setState({
       // specifications: {
