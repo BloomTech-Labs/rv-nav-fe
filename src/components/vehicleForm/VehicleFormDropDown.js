@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import "./VehicleFormDropDown.css";
 import { NavLink } from "react-router-dom";
 import firebase from "firebase";
-import {ReactComponent as Exit} from "../../assets/img/Exit.svg";
+import { ReactComponent as Exit } from "../../assets/img/Exit.svg";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { ReactComponent as PlusSign } from "../../assets/img/lightIcons/plus (1).svg";
 
@@ -106,21 +106,21 @@ class VehicleForm extends React.Component {
     });
   };
 
-//   closeVehicleForm = () =>
-//     this.props.setState({
-//       vehicleForm: "off",
-//       routing: "on",
-//       vehicles: "off",
-//       directions: "off"
-//     });
+  //   closeVehicleForm = () =>
+  //     this.props.setState({
+  //       vehicleForm: "off",
+  //       routing: "on",
+  //       vehicles: "off",
+  //       directions: "off"
+  //     });
 
   //occurs when the submit button is clicked
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = event => {
-//     event.preventDefault();
-//     let div = document.getElementsByClassName("mainSidebarContainer")[0];
-//     div.style.margin = "25px";
-//     div.style.height = "335px";
+    //     event.preventDefault();
+    //     let div = document.getElementsByClassName("mainSidebarContainer")[0];
+    //     div.style.margin = "25px";
+    //     div.style.height = "335px";
 
     // this.props.setState({
     //   ...this.props.state,
@@ -197,9 +197,9 @@ class VehicleForm extends React.Component {
     } else {
       console.log("DO U HIT ME ", this.props);
       this.props.addVehicle(send);
-      alert("Vehcile Added!")
-    //   this.closeVehicleForm();
-        this.props.toggle()
+      alert("Vehicle Added!");
+      //   this.closeVehicleForm();
+      this.props.toggle();
     }
     this.setState({
       // specifications: {
@@ -243,10 +243,15 @@ class VehicleForm extends React.Component {
       </NavLink>
     ) : (
       <>
-      <div  id="dropdown-split-basic-vehicle-new" className="hamcolor-vehicle-new">
-                  <div className='hamend-vehicle-new'>RV WAY </div>
-                  <div className="Exit-vehicles-new" onClick={this.props.toggle}><Exit/></div>
-              </div>
+        <div
+          id="dropdown-split-basic-vehicle-new"
+          className="hamcolor-vehicle-new"
+        >
+          <div className="hamend-vehicle-new">RV WAY </div>
+          <div className="Exit-vehicles-new" onClick={this.props.toggle}>
+            <Exit />
+          </div>
+        </div>
         <div className="back-new">
           <BackArrow />
 
