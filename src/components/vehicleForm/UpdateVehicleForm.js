@@ -40,50 +40,10 @@ class VehicleForm extends React.Component {
   }
 
   componentDidMount() {
-    // //checks if we are coming from the vehicles tab and therefore if we are editing
-    // if (this.props.editing) {
-    //   //assigns prefill values of previous entry for the form if we are editing
-    //   this.setState({
-    //     specifications: {
-    //       name: this.props.currentVehicle.name,
-    //       heightFeet: Math.floor(this.props.currentVehicle.height),
-    //       heightInches: Math.round((this.props.currentVehicle.height % 1) * 12),
-    //       widthFeet: Math.floor(this.props.currentVehicle.width),
-    //       widthInches: Math.round((this.props.currentVehicle.width % 1) * 12),
-    //       lengthFeet: Math.floor(this.props.currentVehicle.length),
-    //       lengthInches: Math.round((this.props.currentVehicle.length % 1) * 12),
-    //       weight: this.props.currentVehicle.weight,
-    //       vehicle_class: this.props.currentVehicle.vehicle_class,
-    //       axel_count: this.props.currentVehicle.axel_count,
-    //       dual_tires: this.props.currentVehicle.dual_tires
-    //     }
-    //   });
-    // }
-
-    // axios
-    //   .get(`${process.env.REACT_APP_BASE_URL}/vehicle`, {
-    //     headers: { Authorization: localStorage.getItem("token") },
-    //     "Content-Type": "application/json"
-    //   })
-    //   .then(res => {
-    //     console.log("update vehicle res", res.data); // data was created successfully and logs to console
-
+    
     this.setState({
       specifications: this.props.specifications
     });
-    console.log("update Specifications", this.state.specifications);
-    console.log("update Specifications in props", this.props.specifications);
-
-    //   })
-    //   .catch(err => {
-    //     console.log("get vehicle err", err); // there was an error creating the data and logs to console
-    //   });
-
-    // this.props.vehicles.vehicles &&
-    //   this.props.vehicles.vehicles.map(e => {
-    //     this.props.Update(e.id)
-    //   })
-
     this.unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
@@ -131,35 +91,9 @@ class VehicleForm extends React.Component {
     });
   };
 
-  //   closeVehicleForm = () =>
-  //     this.props.setState({
-  //       vehicleForm: "off",
-  //       routing: "on",
-  //       vehicles: "off",
-  //       directions: "off"
-  //     });
-
   //occurs when the submit button is clicked
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = event => {
-    //     event.preventDefault();
-    //     let div = document.getElementsByClassName("mainSidebarContainer")[0];
-    //     div.style.margin = "25px";
-    //     div.style.height = "335px";
-
-    // this.props.setState({
-    //   ...this.props.state,
-    //   vehicleForm: "off",
-    //   routing: "on",
-    //   vehicles: "off",
-    //   directions: "off"
-    // });
-
-    // let menu = document.querySelector(
-    //   ".btn-group-vertical > .btn, .btn-group > .btn"
-    // );
-    // menu.style.backgroundColor = "white";
-
     // event.preventDefault();
     //Google analytics tracking
     window.gtag("event", "create vehicle", {
@@ -214,9 +148,6 @@ class VehicleForm extends React.Component {
       dual_tires: this.state.specifications.dual_tires,
       user_id: this.props.id
     };
-    // console.log("sent", send);
-    // console.log("ID", this.props.id);
-
     this.props.updateVehicle(send, this.props.specifications.id);
     alert("Vehicle Updated!");
     this.props.toggleUpdateForm();
@@ -252,21 +183,7 @@ class VehicleForm extends React.Component {
     return inchesCombined;
   };
 
-  // splitDistanceUnits = (combined) => {
-  //   // let inches = inchesIn;
-  //   // let feet = feetIn;
-  //   if (combined === "") {
-  //     combined = 0;
-  //   }
-  //   combined % 12
-  //   const split = combined +  / 12;
-  //   return split;
-  // };
-
   render() {
-    console.log("UPDATE FORM PROPS", this.props);
-    // console.log("VEHICLE FORM PROPS", this.props);
-    // console.log("STATE FROM VEHICLEFORM", this.state);
     return !localStorage.token /*&& !this.state.isSignedIn*/ ? ( //Added checks for Firebase user.
       //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
       <NavLink to="/login">

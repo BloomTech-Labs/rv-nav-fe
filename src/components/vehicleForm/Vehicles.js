@@ -60,27 +60,6 @@ class Vehicles extends React.Component {
     });
   };
 
-  
-
-  // selected = id => {
-  //   //Google analytics tracking
-  //   window.gtag("event", "select vehicle", {
-  //     event_category: "select",
-  //     event_label: "select vehicle"
-  //   });
-  //   this.props.selectVehicle(id);
-  // };
-  // deselect = () => {
-  //   //Google analytics tracking
-  //   window.gtag("event", "deselect vehicle", {
-  //     event_category: "select",
-  //     event_label: "deselect vehicle"
-  //   });
-  //   this.props.selectVehicle(null);
-  // };
-
-  
-
 toggle = () =>{
     this.setState({
         on:!this.state.on
@@ -115,15 +94,9 @@ Update = (id) => {
      "Content-Type": "application/json"
    })
    .then(res => {
-     console.log("update vehicle res", res.data); // data was created successfully and logs to console
-
      res.data &&
          res.data.map(e => {
-           console.log("e",e)
            if(id === e.id){
-             console.log("ID",id)
-             console.log("e.ID",e.id)
-
              this.setState({
                specifications:e
            })
@@ -152,7 +125,6 @@ Update = (id) => {
             }
         })
            this.toggleUpdateForm()
-           console.log("specfications",this.state.specifications)
            }     
          })
    })
@@ -164,7 +136,6 @@ Update = (id) => {
 
 
   render() {
-    console.log("vehiclejs props", this.props);
     return (
       <>
       <div className="toggle-parent-vehicle">

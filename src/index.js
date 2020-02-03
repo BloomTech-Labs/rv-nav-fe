@@ -37,8 +37,7 @@ function loadFromLocalStorage(){
   }
 };
 
-// console.log(JSON.stringify(this.state))
-// console.log(JSON.parse(JSON.stringify(this.state)))
+
 const persistedState = loadFromLocalStorage()
 export const store = createStore(
   
