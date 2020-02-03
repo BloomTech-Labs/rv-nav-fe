@@ -86,7 +86,6 @@ class VehicleForm extends React.Component {
 
   //assigns state to a value based on whether a box is checked
   handleCheck = event => {
-    //const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({
       specifications: {
         ...this.state.specifications,
@@ -97,7 +96,6 @@ class VehicleForm extends React.Component {
 
   //assigns state to a value based on which radio button has been clicked
   handleRadio = event => {
-    //const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({
       specifications: {
         ...this.state.specifications,
@@ -106,35 +104,9 @@ class VehicleForm extends React.Component {
     });
   };
 
-  //   closeVehicleForm = () =>
-  //     this.props.setState({
-  //       vehicleForm: "off",
-  //       routing: "on",
-  //       vehicles: "off",
-  //       directions: "off"
-  //     });
-
   //occurs when the submit button is clicked
   //converts inputs from user to correct values to send to the backend, then send them
   vehicleSubmit = event => {
-    //     event.preventDefault();
-    //     let div = document.getElementsByClassName("mainSidebarContainer")[0];
-    //     div.style.margin = "25px";
-    //     div.style.height = "335px";
-
-    // this.props.setState({
-    //   ...this.props.state,
-    //   vehicleForm: "off",
-    //   routing: "on",
-    //   vehicles: "off",
-    //   directions: "off"
-    // });
-
-    // let menu = document.querySelector(
-    //   ".btn-group-vertical > .btn, .btn-group > .btn"
-    // );
-    // menu.style.backgroundColor = "white";
-
     // event.preventDefault();
     //Google analytics tracking
     window.gtag("event", "create vehicle", {
@@ -189,16 +161,12 @@ class VehicleForm extends React.Component {
       dual_tires: this.state.specifications.dual_tires,
       user_id: this.props.id
     };
-    console.log("sent", send);
-    console.log("ID", this.props.id);
     if (this.props.editing) {
       this.props.updateVehicle(send, this.props.id);
       this.props.editVehicleToggle(this.props.id);
     } else {
-      console.log("DO U HIT ME ", this.props);
       this.props.addVehicle(send);
       alert("Vehicle Added!");
-      //   this.closeVehicleForm();
       this.props.toggle();
     }
     this.setState({
@@ -234,8 +202,6 @@ class VehicleForm extends React.Component {
   };
 
   render() {
-    console.log("VEHICLE FORM PROPS", this.props);
-    console.log("STATE FROM VEHICLEFORM", this.state);
     return !localStorage.token /*&& !this.state.isSignedIn*/ ? ( //Added checks for Firebase user.
       //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
       <NavLink to="/login">
@@ -561,7 +527,6 @@ class VehicleForm extends React.Component {
 
 // const mapStateToProps = state => ({});
 const mapStateToProps = state => {
-  console.log("state", state);
   return { id: state.data[0].value.user.id };
 };
 

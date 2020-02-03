@@ -1,9 +1,7 @@
 .register-wrapper {
     height: 100vh;
-    /* background: #E5ECEE; */
     font-family: 'Heebo', sans-serif;
     background-image: url(../../assets/img/Sign-up-Background.svg);
-    /* background-attachment: fixed; */
     background-repeat:no-repeat ;
     background-size: cover;
 }
@@ -25,73 +23,6 @@
         justify-content: center;
     }
 }
-
-
-
-/* .firebaseui-card-content, .firebaseui-card-footer {
-    display: flex;
-    justify-content: center;
-    padding: 0px;
-}
-
-.firebaseui-idp-google, 
-.mdl-button.firebaseui-idp-google {
-    padding: 0 5px 0px 20px;
-}
-
-.firebaseui-idp-facebook,  
-.mdl-button.firebaseui-idp-facebook {
-    padding: 0 5px 0px 10px;
-}
-
-.firebaseui-card-content, .firebaseui-card-footer {
-    padding: 0 0px;
-}
-
-.firebaseui-idp-button {
-    direction: ltr;
-    font-weight: 500;
-    height: auto;
-    line-height: normal;
-    max-width: 220px;
-    min-height: 40px;
-    padding: 8px 16px;
-    text-align: left;
-    width: 100%;
-} */
-
-/* !/ FIREBASE STYLING
-.firebaseui-list-item {
-    margin: 0;
-    width: 156px;
-}
-
-.firebaseui-idp-button .mdl-button .mdl-js-button .mdl-button--raised .firebaseui-idp-google .firebaseui-id-idp-button {
-    margin-left: 5px;
-    width: 152px;
-    padding: 0 0px 0px 10px;
-}
-
-.firebaseui-idp-text .firebaseui-idp-text-long {
-    padding-left: 5px;
-    font-size: 12px;
-}
-
-.firebaseui-list-item {
-    margin: 0;
-    width: 159px;
-}
-
-.firebaseui-idp-button .mdl-button .mdl-js-button .mdl-button--raised .firebaseui-idp-facebook .firebaseui-id-idp-button {
-    padding: 0 0px 0 5px;
-    width: 154px;
-}
-
-span.firebaseui-idp-text.firebaseui-idp-text-long {
-    font-size: 12px;
-    padding-left: 5px;
-    /* color: rgb(183, 30, 210);} */
-
 
 .register-main-form .avoid{
     margin-left:42px;
@@ -123,8 +54,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .checkboxes {
     position: absolute;
     opacity: 0;
-    /* height:0;
-    width:0; */
     cursor: pointer;
     margin-top:5px;
     margin-left:2px;
@@ -186,7 +115,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .register-main {
     display: flex;
     justify-content: flex-end;
-    /* height: 100%; */
 }
 
 .register-auth-loading {
@@ -201,10 +129,8 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     padding: 16px;
     border-top: 0;
     width: 423px;
-    /* height: 700px; */
     margin-right: 206px;
     margin-top: 115px;  
-    /* text-align: center; */
     box-shadow: 2px 2px 3px rgba(42, 46, 67, 0.1);
 }
 
@@ -259,7 +185,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 }
 
 .register-social-media {
-    /* width: 100%; */
     color: black;
     text-align: center;
     margin-left: 42px;
@@ -285,7 +210,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 @media (max-width: 415px) {
     .register-input-and-button {
-        /* width: 90%; */
         margin: 20px;
         padding: 0px;
     }
@@ -303,7 +227,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     box-sizing: border-box;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    /* background-image:  */
     background: url(../../assets/img/google.svg),no-repeat, center;
     background-position: center;
 }
@@ -313,13 +236,10 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     width: 50%;
     margin: 0;
     padding: 0;
-    /* color: black; */
     font-size: 12px;
-    /* background: #4267B2; */
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;    
     box-sizing: border-box;
-    /* border-radius: 3px; */
     border: 1px solid #D1D3D6;
     border-left: 0;
     background: url(../../assets/img/facebook.svg), no-repeat, center;
@@ -330,11 +250,7 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     color:#3D4053;
     align-self: flex-start;
     font-size: 16px;
-    margin-bottom: 7px;
-    
-    
-    
-    
+    margin-bottom: 7px; 
 }
 
  #password {
@@ -403,7 +319,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     flex-direction: column;
     width:100%;
     padding: 0 5px 0 5px;
-    /* margin-bottom: 7px; */
     height: 42px;
     box-sizing: border-box;
     border-radius: 3px;
@@ -438,7 +353,6 @@ p.register-main-form-error {
     margin-top: 25px;
     height: 45px;
     font-weight: 700;
-    /* background: #00B2D9; */
     border: 1px solid rgba(42,46,67,0.5);
     box-sizing: border-box;
     border-radius: 3px;
@@ -448,10 +362,8 @@ p.register-main-form-error {
 }
 
 .register-main-form .register-lets-go-button:hover {
-    /* color: #fff; */
     border: 1px solid #00B2D9;
     background-color: #00B2D9;
-    /* border: none; */
 }
 
 .register-wrapper .already-have-an-account {

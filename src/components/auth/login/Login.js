@@ -52,7 +52,6 @@ class LoginForm extends React.Component {
     this.unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged(user => this.setState({ isSignedIn: !!user }));
-    // console.log('%cFirebase USER from did mount:) ->>', 'color: red; font-size: 16px;', firebase.auth())
   }
 
   handleChange = event => {
@@ -127,7 +126,6 @@ class LoginForm extends React.Component {
 
   render() {
     const { errors } = this.state.credentials;
-    // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.password.length >= 8;
     return (
       <div className="login-wrapper">
         <MapHeader />
@@ -142,6 +140,7 @@ class LoginForm extends React.Component {
                   It's great to see you again.
                 </h4>
               </div>
+              {/* BUTTONS FOR 3RD PARTY LOGIN. */}
               {/* <div className="login-social-media">
                 {/* {this.state.isSignedIn ? (
                   <div>
@@ -200,7 +199,6 @@ class LoginForm extends React.Component {
                   type="password"
                   id="password-input"
                   name="password"
-                  // placeholder=""
                   value={this.state.credentials.password}
                   onChange={this.handleChange}
                   required

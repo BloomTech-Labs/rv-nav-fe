@@ -1,6 +1,5 @@
 p {
   color: rgba(42, 46, 67, 0.5);
-  // font-weight: bold;
   align-items: flex-start;
 }
 
@@ -18,7 +17,6 @@ a {
   height: 725px;
   margin-right: 250px;
   margin-top: 100px;
-  /* text-align: center; */
 }
 
 .greeting {
@@ -81,7 +79,6 @@ a {
 }
 .registerInputBoxes-Wrapper2 {
   display: flex;
-  // padding: 10px;
   padding: 0px 10px 10px 15px;
 
   p.inputLabels {
@@ -241,8 +238,6 @@ a {
   margin-top: 18px;
   height: 45px;
   font-weight: 700;
-  // background: #ffffff;
-  // border: 1px solid #e1e1e4;
   box-sizing: border-box;
   border-radius: 3px;
   font-family: "Heebo", sans-serif;
@@ -256,4 +251,4 @@ a {
   }
 }
 
-// adding in a comment to hopefully make github work
+

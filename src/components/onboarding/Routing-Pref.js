@@ -134,9 +134,6 @@ class RoutingPref extends Component {
               </button>
 
               <div className="already-have-an-account">
-                {/* <a id="sign-in" href="/map">
-                  <span>Skip this step</span>
-                </a> */}
               </div>
             </div>
           </form>

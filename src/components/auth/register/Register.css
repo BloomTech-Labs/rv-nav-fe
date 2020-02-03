@@ -1,9 +1,7 @@
 .register-wrapper {
     height: 100vh;
-    /* background: #E5ECEE; */
     font-family: 'Heebo', sans-serif;
     background-image: url(../../../assets/img/Sign-up-Background.svg);
-    /* background-attachment: fixed; */
     background-repeat:no-repeat ;
     background-size: cover;
 }
@@ -89,7 +87,6 @@
 span.firebaseui-idp-text.firebaseui-idp-text-long {
     font-size: 12px;
     padding-left: 5px;
-    /* color: rgb(183, 30, 210); */
 }
 
 #password-eye {
@@ -99,12 +96,10 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 .register-wrapper .register-main {
     display: flex;
     justify-content: flex-end;
-    /* height: 100%; */
 }
 
 .register-wrapper .register-auth-loading {
     font-size: 4rem;
-    /* margin: 40px; */
     color: black;
 }
 
@@ -117,8 +112,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     height: 630px;
     margin-right: 250px;
     margin-top: 100px;
-    /* text-align: center; */
-
 }
 
 @media (max-width: 415px) {
@@ -205,7 +198,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 
 @media (max-width: 415px) {
     .register-input-and-button {
-        /* width: 90%; */
         margin: 20px;
         padding: 0px;
     }
@@ -223,7 +215,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     box-sizing: border-box;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    /* background-image:  */
     background: url(../../../assets/img/google.svg),no-repeat, center;
     background-position: center;
 }
@@ -233,13 +224,10 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     width: 50%;
     margin: 0;
     padding: 0;
-    /* color: black; */
     font-size: 12px;
-    /* background: #4267B2; */
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;    
     box-sizing: border-box;
-    /* border-radius: 3px; */
     border: 1px solid #D1D3D6;
     border-left: 0;
     background: url(../../../assets/img/facebook.svg), no-repeat, center;
@@ -320,7 +308,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
     flex-direction: column;
     width:100%;
     padding: 0 5px 0 5px;
-    /* margin-bottom: 7px; */
     height: 42px;
     box-sizing: border-box;
     border-radius: 3px;
@@ -337,7 +324,6 @@ span.firebaseui-idp-text.firebaseui-idp-text-long {
 }
 
 p.register-main-form-error {
-    /* margin: 0; */
     font-size: 0.8rem;
     color: rgb(233, 90, 90);
     margin-bottom: 0px;

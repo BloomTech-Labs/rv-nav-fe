@@ -1,7 +1,5 @@
 import axios from "axios";
 import firebase from "firebase";
-import { useStore } from "react-redux";
-
 export const LOADING = "LOADING";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
 export const REGISTER = "REGISTER";
@@ -38,8 +36,6 @@ export const register = creds => {
       .post(`${process.env.REACT_APP_BASE_URL}/users/register`, creds)
       .then(response => {
         dispatch({ type: REGISTER, payload: response.data });
-        console.log("RESPONSE FROM ACTION", response.data);
-
         return response.data;
       })
       .catch(err => {
@@ -70,8 +66,6 @@ export const login = (values, id) => {
     return axios
       .post(`${process.env.REACT_APP_BASE_URL}/users/login`, values)
       .then(res => {
-        // console.log(res, '####### FROM LOGIN #######'); // data was created successfully and logs to console
-        console.log("id from login action", res);
         localStorage.setItem("token", res.data.token);
         dispatch({ type: LOGIN, payload: res.data });
         return true;
@@ -101,7 +95,6 @@ export const logout = () => {
     localStorage.removeItem(token);
   } else if (firebase.auth().currentUser !== null) {
     firebase.auth().signOut();
-    // console.log('%cLogged out from Firebase User', 'font-size: 16px; color: green;')
   }
   return { type: LOGOUT };
 };
@@ -115,13 +108,10 @@ export const addVehicle = value => {
         "Content-Type": "application/json"
       })
       .then(res => {
-        console.log("add vehicle res", res); // data was created successfully and logs to console
-
         dispatch({ type: ADD_VEHICLE_SUCCESS, payload: res.data });
         return true;
       })
       .catch(err => {
-        console.log("add vehicle err", err); // there was an error creating the data and logs to console
         dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
@@ -136,21 +126,16 @@ export const getVehicles = () => {
         "Content-Type": "application/json"
       })
       .then(res => {
-        console.log("get vehicle res", res); // data was created successfully and logs to console
-
         dispatch({ type: GET_VEHICLE, payload: res.data });
         return true;
       })
       .catch(err => {
-        console.log("get vehicle err", err); // there was an error creating the data and logs to console
         dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
 };
 
 export const updateVehicle = (value, id) => {
-  console.log("value",value)
-  console.log("id in update actions",id)
   //Google analytics tracking
   window.gtag("event", "update vehicle", {
     event_category: "update",
@@ -164,9 +149,6 @@ export const updateVehicle = (value, id) => {
         "Content-Type": "application/json"
       })
       .then(res => {
-        console.log("update res", res); // data was created successfully and logs to console
-
-        // dispatch({ type: UPDATE_VEHICLE, payload: {value, id} });
         dispatch({ type: LOADING });
         return axios
           .get(`${process.env.REACT_APP_BASE_URL}/vehicle`, {
@@ -174,19 +156,14 @@ export const updateVehicle = (value, id) => {
             "Content-Type": "application/json"
           })
           .then(res => {
-            console.log("get vehicle res", res); // data was created successfully and logs to console
-
             dispatch({ type: GET_VEHICLE, payload: res.data });
             return true;
           })
           .catch(err => {
-            console.log("get vehicle err", err); // there was an error creating the data and logs to console
             dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
           });
-        // return true;
       })
       .catch(err => {
-        console.log("update vehicle err:", err); // there was an error creating the data and logs to console
         dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
@@ -208,13 +185,10 @@ export const deleteVehicles = id => {
         "Content-Type": "application/json"
       })
       .then(res => {
-        console.log("de;lete res", res); // data was created successfully and logs to console
-
         dispatch({ type: DELETE_VEHICLE, payload: id });
         return true;
       })
       .catch(err => {
-        console.log("delete vehicle err:", err); // there was an error creating the data and logs to console
         dispatch({ type: ERROR_MESSAGE, errorMessage: "request failed" });
       });
   };
