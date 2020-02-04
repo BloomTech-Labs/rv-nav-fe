@@ -113,6 +113,7 @@ export const logout = () => {
 };
 
 export const addVehicle = value => {
+  console.log("value step2", value)
   return dispatch => {
     dispatch({ type: ADD_VEHICLE_REQUEST });
     return axios
@@ -124,7 +125,7 @@ export const addVehicle = value => {
         "Content-Type": "application/json"
       })
       .then(res => {
-        console.log("add vehicle res", res); // data was created successfully and logs to console
+        console.log("add vehicle res ST3", res); // data was created successfully and logs to console
 
         dispatch({ type: ADD_VEHICLE_SUCCESS, payload: res.data });
         return true;

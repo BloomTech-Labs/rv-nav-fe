@@ -44,27 +44,17 @@ class Main extends Component {
     Potholes: false
   };
 
-  //combines feet and inch units into feet only, to be sent to the backend
-  combineDistanceUnits = (inchesIn, feetIn) => {
-    let inches = inchesIn;
-    let feet = feetIn;
-    if (feet === "") {
-      feet = 0;
-    }
-    if (inches === "") {
-      inches = 0;
-    }
-    const inchesCombined = feet + inches / 12;
-    return inchesCombined;
-  };
-
+  
   // Axios PUT and POST request for updating user and adding vehicle
   onSubmit = e => {
     e.preventDefault();
     const { firstName, lastName, userName, age } = this.state;
-
+    
     axios
-      .put(`${process.env.REACT_APP_BASE_URL}/users/user/${this.props.id}`, {
+    .put(
+      // `${process.env.REACT_APP_BASE_URL}/users/user/${this.props.id}`
+      `https://labs15rvlife.herokuapp.com/users/user/${this.props.id}`
+      , {
         firstName,
         lastName,
         userName,
@@ -77,76 +67,99 @@ class Main extends Component {
         }
       })
       .catch(err => console.log(err.response));
-    const {
-      name,
-      heightFeet,
-      heightInches,
-      widthFeet,
-      widthInches,
-      lengthFeet,
-      lengthInches,
-      weight,
-      axel_count,
-      vehicle_class,
-      dual_tires,
-      class_A,
-      class_B,
-      class_C,
-      fifth_wheel,
-      pull_behind,
-      trailer,
-      isSignedIn,
-      DirtRoads,
-      SteepGrade,
-      Potholes
-    } = this.state;
-    let height = this.combineDistanceUnits(
-      this.state.heightInches,
-      this.state.heightFeet
-    );
-    let width = this.combineDistanceUnits(
-      this.state.widthInches,
-      this.state.widthFeet
-    );
-    let length = this.combineDistanceUnits(
-      this.state.lengthInches,
-      this.state.lengthFeet
-    );
+      const {
+        name,
+        heightFeet,
+        heightInches,
+        widthFeet,
+        widthInches,
+        lengthFeet,
+        lengthInches,
+        weight,
+        axel_count,
+        vehicle_class,
+        dual_tires,
+        class_A,
+        class_B,
+        class_C,
+        fifth_wheel,
+        pull_behind,
+        trailer,
+        isSignedIn,
+        DirtRoads,
+        SteepGrade,
+        Potholes
+      } = this.state;
+      let height = this.combineDistanceUnits(
+        heightInches,
+        heightFeet
+        );
+        let width = this.combineDistanceUnits(
+          widthInches,
+          widthFeet
+          );
+          let length = this.combineDistanceUnits(
+            lengthInches,
+            lengthFeet
+      );
 
-    let vehicleStuff = {
-      name,
-      height: Number(height),
-      width: Number(width),
-      length: Number(length),
-      weight: Number(weight),
-      axel_count: Number(axel_count),
-      vehicle_class,
-      dual_tires,
-      class_A,
-      class_B,
-      class_C,
-      fifth_wheel,
-      pull_behind,
-      trailer,
+      parseFloat(height);
+      parseFloat(width);
+      parseFloat(length);
+      parseFloat(weight);
+      parseInt(axel_count);
 
-      DirtRoads,
-      SteepGrade,
-      Potholes,
-      user_id: this.props.id
+      let vehicleStuff = {
+        name,
+        height: height,
+        width: width,
+        length:  length,
+        weight: weight,
+        axel_count: axel_count,
+        vehicle_class,
+        dual_tires,
+        class_A,
+        class_B,
+        class_C,
+        fifth_wheel,
+        pull_behind,
+        trailer,
+        
+        DirtRoads,
+        SteepGrade,
+        Potholes,
+        user_id: this.props.id
+      };
+      console.log("Vehicle stuff ST1",vehicleStuff)
+      this.props.addVehicle(vehicleStuff);
+      this.props.history.push("/login");
     };
-    this.props.addVehicle(vehicleStuff);
-    this.props.history.push("/login");
-  };
+    
+    //combines feet and inch units into feet only, to be sent to the backend
+    combineDistanceUnits = (inchesIn, feetIn) => {
+      let inches = inchesIn;
+      let feet = feetIn;
+      if (feet === "") {
+        feet = 0;
+      }
+      if (inches === "") {
+        inches = 0;
+      }
+      const inchesCombined = feet + inches / 12;
+      return inchesCombined;
+    };
+    
+    // To go to the next form in the onboarding process
+    nextStep = () => {
+      const { step } = this.state;
+      this.setState({
+        step: step + 1
+      });
+    };
 
-  // To go to the next form in the onboarding process
-  nextStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + 1
-    });
-  };
 
-  // To go back to a previous step in the onboarding process
+
+    // To go back to a previous step in the onboarding process
   prevStep = () => {
     const { step } = this.state;
     this.setState({
