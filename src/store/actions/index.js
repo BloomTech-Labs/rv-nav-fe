@@ -35,7 +35,10 @@ export const register = creds => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .post(`${process.env.REACT_APP_BASE_URL}/users/register`, creds)
+      .post(
+        // `${process.env.REACT_APP_BASE_URL}/users/register`
+        "https://labs15rvlife.herokuapp.com/users/register"
+        , creds)
       .then(response => {
         dispatch({ type: REGISTER, payload: response.data });
         console.log("RESPONSE FROM ACTION", response.data);
@@ -68,7 +71,10 @@ export const login = (values, id) => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .post(`${process.env.REACT_APP_BASE_URL}/users/login`, values)
+      .post(
+        // `${process.env.REACT_APP_BASE_URL}/users/login`
+        "https://labs15rvlife.herokuapp.com/users/login"
+        , values)
       .then(res => {
         // console.log(res, '####### FROM LOGIN #######'); // data was created successfully and logs to console
         console.log("id from login action", res);
@@ -110,7 +116,10 @@ export const addVehicle = value => {
   return dispatch => {
     dispatch({ type: ADD_VEHICLE_REQUEST });
     return axios
-      .post(`${process.env.REACT_APP_BASE_URL}/vehicle`, value, {
+      .post(
+        // `${process.env.REACT_APP_BASE_URL}/vehicle`
+        "https://labs15rvlife.herokuapp.com/vehicle"
+        , value, {
         headers: { Authorization: localStorage.getItem("token") },
         "Content-Type": "application/json"
       })
@@ -131,7 +140,10 @@ export const getVehicles = () => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .get(`${process.env.REACT_APP_BASE_URL}/vehicle`, {
+      .get(
+        // `${process.env.REACT_APP_BASE_URL}/vehicle`
+        "https://labs15rvlife.herokuapp.com/vehicle"
+        , {
         headers: { Authorization: localStorage.getItem("token") },
         "Content-Type": "application/json"
       })
@@ -159,7 +171,10 @@ export const updateVehicle = (value, id) => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .put(`${process.env.REACT_APP_BASE_URL}/vehicle/${id}`, value, {
+      .put(
+        // `${process.env.REACT_APP_BASE_URL}/vehicle/${id}`
+        `https://labs15rvlife.herokuapp.com/vehicle/${id}`
+        , value, {
         headers: { Authorization: localStorage.getItem("token") },
         "Content-Type": "application/json"
       })
@@ -169,7 +184,10 @@ export const updateVehicle = (value, id) => {
         // dispatch({ type: UPDATE_VEHICLE, payload: {value, id} });
         dispatch({ type: LOADING });
         return axios
-          .get(`${process.env.REACT_APP_BASE_URL}/vehicle`, {
+          .get(
+            // `${process.env.REACT_APP_BASE_URL}/vehicle`
+            "https://labs15rvlife.herokuapp.com/vehicle"
+            , {
             headers: { Authorization: localStorage.getItem("token") },
             "Content-Type": "application/json"
           })
@@ -203,7 +221,10 @@ export const deleteVehicles = id => {
   return dispatch => {
     dispatch({ type: LOADING });
     return axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/vehicle/${id}`, {
+      .delete(
+        // `${process.env.REACT_APP_BASE_URL}/vehicle/${id}`
+        `https://labs15rvlife.herokuapp.com/vehicle/${id}`
+        , {
         headers: { Authorization: localStorage.getItem("token") },
         "Content-Type": "application/json"
       })
