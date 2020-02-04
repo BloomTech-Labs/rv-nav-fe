@@ -90,32 +90,48 @@ class Main extends Component {
         SteepGrade,
         Potholes
       } = this.state;
+      
       let height = this.combineDistanceUnits(
-        heightInches,
-        heightFeet
+        this.state.heightInches,
+        this.state.heightFeet
         );
         let width = this.combineDistanceUnits(
-          widthInches,
-          widthFeet
+          this.state.widthInches,
+          this.state.widthFeet
           );
           let length = this.combineDistanceUnits(
-            lengthInches,
-            lengthFeet
+            this.state.lengthInches,
+            this.state.lengthFeet
       );
+      console.log(this.state.heightFeet)
+      console.log(heightFeet)
+      console.log(this.state.heightInches)
+      console.log(heightInches)
+      console.log("MATH CHECK",this.combineDistanceUnits(
+        widthInches,
+        widthFeet));
+        console.log("MATH CHECK 2",this.combineDistanceUnits(
+          heightInches,
+        heightFeet));
+          console.log("MATH CHECK3 ",this.combineDistanceUnits(
+            lengthInches,
+            lengthFeet));
 
-      parseFloat(height);
-      parseFloat(width);
-      parseFloat(length);
-      parseFloat(weight);
-      parseInt(axel_count);
+      // parseFloat(height);
+      // parseFloat(width);
+      // parseFloat(length);
+      // parseFloat(weight);
+      // parseInt(axel_count);
+      console.log(height)
+      console.log(width)
 
       let vehicleStuff = {
         name,
-        height: height,
-        width: width,
-        length:  length,
-        weight: weight,
-        axel_count: axel_count,
+        height: Number(height),
+        width: Number(width),
+        length:  Number(length),
+        weight: Number(weight),
+        axel_count: Number(axel_count),
         vehicle_class,
         dual_tires,
         class_A,
