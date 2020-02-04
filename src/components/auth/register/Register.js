@@ -4,6 +4,7 @@ import { register, login, clearError } from "../../../store/actions";
 import { withRouter } from "react-router-dom";
 import "./Register.css";
 import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import styled from "styled-components";
 
 const Header = styled.div`
@@ -45,6 +46,10 @@ class RegisterForm extends Component {
         email: "",
         password: "",
         confirmPassword: "",
+        // firstName: "",
+        // lastName: "",
+        // userName: "",
+        // age: "",
         errors: {
           email: "",
           password: "",
@@ -124,11 +129,14 @@ class RegisterForm extends Component {
             console.log("ID LOGIN STATE", res);
             this.props
               .login({
+                // id: this.state.credentials.id,
                 email: this.state.credentials.email,
                 password: this.state.credentials.password
               })
               .then(res => {
                 if (res) {
+                  // localStorage.setItem("ID from register", res.id);
+                  // console.log("ID from register", res.id);
                   this.setState({});
                   if (res) {
                     this.props.history.push("/onboarding");
@@ -140,6 +148,7 @@ class RegisterForm extends Component {
         .catch(err => {
           console.log("error", err);
           setTimeout(function() {
+            // return this.props.clearError();
           }, 3000);
         });
     }
@@ -204,7 +213,6 @@ class RegisterForm extends Component {
                 <h4 className="register-lets-get-you-settled">
                   Lets get you settled
                 </h4>
-                {/* THE CODE BELOW IS FOR FIREBASE AUTH  THIRD PARTY LOGIN BUTTONS. */}
                 {/* <h6 className="register-sign-up-with-social-media">
                   Signup with social media
                 </h6> */}
@@ -237,12 +245,12 @@ class RegisterForm extends Component {
               <div className="or">
                 <span>or</span>
               </div> */}
-              {/* ----- END THIRD PARTY BUTTONS ---- */}
               <div className="register-input-and-button">
                 <label className="register-main-form-label">Email</label>
                 <input
                   className="register-main-form-input"
                   name="email"
+                  // placeholder="Enter email"
                   type="email"
                   value={this.state.credentials.email}
                   onChange={this.handleChange}
@@ -295,6 +303,7 @@ class RegisterForm extends Component {
                     name="confirmPassword"
                     value={this.state.credentials.confirmPassword}
                     onChange={this.handleChange}
+                    // noValidate
                   ></input>
                   {errors.confirmPassword.length > 0 && (
                     <p

@@ -1,4 +1,8 @@
 
+  /* *{
+    border: red 1px solid;
+  } */
+  
   .back-vehicle {
     display:flex;
     flex-direction:row;
@@ -30,17 +34,31 @@
   font-size: 16px;
   line-height: 23px;
   margin: 0;
+  /* identical to box height */
+  /* margin-top: 12px; */
   display: flex;
   flex-direction:row;
   align-items: center;
+  /* padding-top:5px; */
+  /* Grayscale 80% */
+  
   color: rgba(42, 46, 67, 0.8);
   }
+
+
+
+/* #dropdown-split-basic-vehicle div{
+  position: relative;
+  left: 10px;
+} */
+
 .hamcolor-vehicle {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-left: 10px;
+  /* padding-right: 25px; */
   background: white;
   border-radius: 0px !important;
   width: 100%;
@@ -51,6 +69,8 @@
   line-height: 53px;
   color: rgba(53, 195, 226, 0.95);
   border-bottom: 1.5px solid rgba(237, 238, 241, 0.2);
+  
+  
 }
 
 .Exit-vehicles{
@@ -108,6 +128,8 @@
 
 .form-wrapper-vehicle {
   width:100%;
+  /* margin-bottom: 100px; */
+  /* padding:25px; */
   height: 100%;
   justify-content: flex-start;
 }
@@ -131,6 +153,7 @@ text-align: left;
 
 .delete-edit{
   justify-content: flex-end;
+  
   margin-left:5px;
 }
 

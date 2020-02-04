@@ -37,6 +37,7 @@ const RoutingSidebar = (props) => {
         }
     }
 
+    console.log('SIDEBARROUTING STATE', props.textDirections)
 
     //function that dynamically changes the sidebar styles
     const sidebarAnchor = () => { 

@@ -37,9 +37,12 @@ const validateForm = errors => {
 };
 
 
-//BEST ATTEMPT AT REFACTORING REGISTER TO HOOKS. ERRORS OUT. <-------------
+
   
   const RegisterForm = (props) =>{
+      console.log("props", props)
+      
+    
       const [newUser,setNewUser] = useState({ error: "",
       credentials: {
           email: "",
@@ -54,6 +57,12 @@ const validateForm = errors => {
         loading: false,
         isSignedIn: false
       });  
+      
+console.log("erorr props", props.error);
+console.log(" newUser ", newUser)
+
+
+
 //did not touch v
   const uiConfig = {
     // Popup signin flow rather than redirect flow.
@@ -72,6 +81,9 @@ const handleChange = event =>{
     event.preventDefault();
     const { name, value } = event.target;
     let errors = newUser.credentials.errors;
+    console.log("errors",errors)
+    // error debug attempt
+    // console.log("errors in handle change", errors)
 //// did not touch v 
     switch (name) {
 
@@ -199,7 +211,7 @@ useEffect(() =>{
   
    //most noticable change form old code vv
     const {errors} = newUser.credentials; 
-
+      console.log("errors from creds 2 ", errors)
       
     // const isEnabled = this.state.credentials.username.length >= 5 && this.state.credentials.email.length > 2 && this.state.credentials.password.length >= 8;
     return (

@@ -71,6 +71,7 @@ class Main extends Component {
         age
       })
       .then(res => {
+        console.log("ID FROM AXIOS IN MAIN", this.props.id);
         if (res) {
           this.setState({}); // No need to setState.
         }
@@ -265,6 +266,7 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("state", state);
   return { id: state.data[0].value.user.id, token: state.token[0] };
 };
 
