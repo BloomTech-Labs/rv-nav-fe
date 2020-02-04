@@ -9,15 +9,18 @@ import SidebarMenu from '../SidebarMenu';
 import './Sidebar-new.scss'
 
 const Sidebar = (props) => {
+    console.log("sidebarnewprops", props)
     const [state, setState] = useState({
         vehicleForm: "off",
         routing: "on",
         vehicles: "off",
         directions: "off" //<-- for routing side bar component -Jerry
     })
+    console.log('props on Sidebar', props)
 
     
     const buttonSelect = (event) => { //gives the ability to the user to go to the directions sidebar 
+        console.log("event", event.target);
         setState({
             ...state,
             vehicleForm: "off",

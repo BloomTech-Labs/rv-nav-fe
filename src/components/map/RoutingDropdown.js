@@ -9,6 +9,8 @@ import "../map/routingForm.css";
 import "./routingDropdown.scss";
 
 const RoutingDropdown = props => {
+  console.log("RoutingDropdown props", props);
+
   const [state, setState] = useState({
     //Boolean for dropdown window to hide and show
     dropdown: false

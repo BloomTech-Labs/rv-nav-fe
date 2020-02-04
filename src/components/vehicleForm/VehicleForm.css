@@ -1,5 +1,6 @@
 .form-wrapper{
     width:100%;
+    /* margin-bottom: 100px; */
     padding:25px;
     height: 100%;
 }
@@ -70,6 +71,13 @@ align-self: start;
 margin-left: 4px;
 }
 
+/* .inputsFieldsContainer{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    border-radius: 3px;
+} */
+
 #routing{
     color:#00B2D9
 }
@@ -77,7 +85,9 @@ margin-left: 4px;
 .form-section{
     display:flex;
     align-items: center;
+    /* flex-direction: row; */
     width:100%;
+    /* margin-bottom: 20px; */
 }
 .vehicle-spec-label{
 display:flex;
@@ -92,13 +102,16 @@ height: 6.875rem;
 display:flex;
 flex-wrap: wrap;
 justify-content: space-between;
+/* width:100%; */
 color: rgba(237, 238, 241, 0.95);
 }
 
 p.vehicle-spec{
 display:flex;
 width:150px;
+/* margin:0 10px; */
 align-items:center;
+/* font-weight: 500; */
 font-size: 16px;
 margin: 10px 0 0 0;
 height: 1.625rem;
@@ -116,6 +129,7 @@ font-size: 16px;
     width:376px;
 }
 .measurements{
+    /* width:100%;  */
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
@@ -138,6 +152,8 @@ border: 1px solid rgba(42, 46, 67, 0.3);
 .measurementsParent{
     display:flex;
     flex-wrap: wrap;
+    /* width:100%; */
+    /* justify-content: space-between; */
     height: 4.375rem;
 }
 
@@ -146,6 +162,7 @@ border: 1px solid rgba(42, 46, 67, 0.3);
     flex-direction: column;
     align-items: space-between;
     height: 7.5rem;
+    /* width: 140px; */
 }
 
 p.measurementsInput{
@@ -154,6 +171,8 @@ p.measurementsInput{
     font-style: normal;
     margin-bottom:5px;
     text-align: left;
+    /* margin-left:12px; */
+    /* display:flex; */
     border-radius: 3px;
     color: rgba(237, 238, 241, 0.8);
 }
@@ -163,17 +182,32 @@ p.measurementsInput{
 }
 
 .tires-check{
+/* width:100%; */
 display:flex;
 flex-wrap:wrap;
 font-size:16px;
+
+/* justify-content:left; */
+/* padding-top:30px;
+margin-right:30px; */
 }
 
 .form-radio{
+    /* display:flex;
+    flex-direction: column;
+    width:10px;
+    padding:0px;
+    margin-right:30px;
+    justify-content: space-around; 
+    color: white; */
+    /* width: 160px; */
     color: white;
     font-size: 16px;
+    /* margin: 20px 20px 0 0; */
 }
 
 .form-check-label{
+/* width:160px; */
 display: flex; 
 flex-direction: row;
 font-family: Heebo;
@@ -183,6 +217,7 @@ color: rgba(237, 238, 241, 0.95);
 }
 
 .form-check.input{
+    /* margin:; */
     background: #DADADA;
     border-radius: 3px;
     border: 1px solid rgba(42, 46, 67, 0.3);
@@ -193,6 +228,8 @@ color: rgba(237, 238, 241, 0.95);
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    /* margin:30px; */
+   
 }
 
 
@@ -210,9 +247,12 @@ font-family: Heebo;
 font-style: normal;
 font-weight: 500;
 font-size: 18px;
+/* line-height: 26px; */
 display: flex;
 align-items: center;
 margin-bottom:20px;
+/* White text */
+
 color: rgba(237, 238, 241, 0.95);
 }
 
@@ -253,9 +293,14 @@ font-weight: 500;
 font-size: 16px;
 line-height: 23px;
 margin: 0;
+/* identical to box height */
+/* margin-top: 12px; */
 display: flex;
 flex-direction:row;
 align-items: center;
+/* padding-top:5px; */
+/* Grayscale 80% */
+
 color: rgba(42, 46, 67, 0.8);
 }
 
@@ -285,6 +330,7 @@ color: rgba(42, 46, 67, 0.8);
     height:2.8125rem;
     border-radius: 3px;
     border: 1px solid rgba(42, 46, 67, 0.3);
+    /* margin-left:10px; */
 }
 
 #p.tires-check{
@@ -292,16 +338,27 @@ color: rgba(42, 46, 67, 0.8);
 }
 
 .tires-check-p{
+/* display:flex; */
+/* width: 100%; */
+/* flex-direction: row; */
+/* justify-content: left; */
 font-family: Heebo;
+/* font-style: normal; */
+/* font-weight: normal; */
 font-size: 16px;
+/* line-height: 23px; */
+/* margin-right:40px; */
 color:white;
 }
 
 .tires-check-p2{
     width:100%;
+   
+    /* height:19px; */
     display:flex; 
     flex-wrap:row; 
     align-items: flex-end;
+
 }
 
 
@@ -317,16 +374,30 @@ color:white;
 button.btn-submit{
 width: 152px;
 height: 2.8125rem;
+/* background: #2A2E43; */
 background: #00B2D9;
 border-radius: 3px;
 margin-top: 10px;
 border: none;
+/* width:40%; */
+/* margin-left:75px; */
 }
+
+/* .btn-submit:hover{
+ background: #00B2D9;
+border: 3px solid rgb(119, 157, 165) ;
+
+} */
+
+
 
 .class-radios{
     width:100%;
     display:flex;
     flex-wrap: wrap; 
+    /* justify-content:center; */
+   
+  
 }
 
 .rv-radio{
@@ -334,6 +405,8 @@ border: none;
     height:1.25rem;
     display:flex;
     flex-direction: row;
+  
+  
 }
 
 .row1{
@@ -359,6 +432,7 @@ border: none;
     width:100%;
     display:flex;
     justify-content: space-between;
+    /* margin-top: 100px; */
     padding: 50px 0px;
 }
 
@@ -374,6 +448,7 @@ border: none;
     width:100%;
     margin:0;
     text-align: left;
+    /* width:100%; */
     color:white;
 }
 
@@ -387,6 +462,7 @@ border: none;
 }
 
 .tag-radio-child{
+    /* width:100%; */
     display:flex;
     flex-direction: row;
 }
@@ -412,6 +488,7 @@ border: none;
 }
 
 #tagalongCamper{
+    /* width: 100%; */
     font-size: 16px;
     margin-bottom: 0;
     color: white;

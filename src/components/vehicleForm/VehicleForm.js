@@ -189,15 +189,33 @@ class VehicleForm extends React.Component {
       dual_tires: this.state.specifications.dual_tires,
       user_id: this.props.id
     };
+    console.log("sent", send);
+    console.log("ID", this.props.id);
     if (this.props.editing) {
       this.props.updateVehicle(send, this.props.id);
       this.props.editVehicleToggle(this.props.id);
     } else {
+      console.log("DO U HIT ME ", this.props);
       this.props.addVehicle(send);
       this.closeVehicleForm();
     }
     alert("Vehicle Added!");
-    this.setState({});
+    this.setState({
+      // specifications: {
+      //   name: "",
+      //   heightFeet: "",
+      //   heightInches: "",
+      //   widthFeet: "",
+      //   widthInches: "",
+      //   lengthFeet: "",
+      //   lengthInches: "",
+      //   weight: "",
+      //   axel_count: "",
+      //   class_name: "",
+      //   dual_tires: false,
+      //   trailer: false
+      // }
+    });
   };
 
   //combines feet and inch units into feet only, to be sent to the backend
@@ -215,6 +233,8 @@ class VehicleForm extends React.Component {
   };
 
   render() {
+    console.log("VEHICLE FORM PROPS", this.props);
+    console.log("STATE FROM VEHICLEFORM", this.state);
     return !localStorage.token /*&& !this.state.isSignedIn*/ ? ( //Added checks for Firebase user.
       //Checks if there's a token,if there's one, renders form, if not renders message. -Jerry
       <NavLink to="/login">
@@ -529,8 +549,9 @@ class VehicleForm extends React.Component {
   }
 }
 
-
+// const mapStateToProps = state => ({});
 const mapStateToProps = state => {
+  console.log("state", state);
   return { id: state.data[0].value.user.id };
 };
 

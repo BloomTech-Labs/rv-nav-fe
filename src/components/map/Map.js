@@ -81,7 +81,11 @@ class MapPage extends Component {
           }),
           useHeadingEnabled: false  // Don't change orientation of the map
         });
+        console.log('TRACK WIDGET FROM MAP', track)
+        // console.log('TRACK WIDGET FROM MAP', track.view.center.y)
+  
         view.ui.add(track, "bottom-right");
+
         view.ui.move("zoom", "bottom-right");
 
       });
@@ -90,6 +94,7 @@ class MapPage extends Component {
 
   componentWillUnmount() {
     if (this.view) {
+      // destroy the map view
       this.view.container = null;
     }
   }

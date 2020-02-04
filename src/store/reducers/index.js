@@ -8,6 +8,7 @@ const initialState = {
   vehicles: [],
   error: null,
   selected_id: null
+  // sidebar_open: true,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -15,19 +16,23 @@ export const reducer = (state = initialState, action) => {
     case types.LOADING:
       return {
         ...state,
+        // error: null,
         loading: true
       };
     case types.REGISTER:
       return {
         user: { ...action.payload },
         ...state,
+        // error: null,
         loading: false,
+        // data: [...state.data, { value: action.payload }]
       };
     case types.LOGIN:
       return {
         user: { ...action.payload.user },
         ...state,
         token: action.payload,
+        // error: null,
         loading: false,
         data: [...state.data, { value: action.payload }]
       };
@@ -39,8 +44,12 @@ export const reducer = (state = initialState, action) => {
     case types.ADD_VEHICLE_SUCCESS:
       console.log("vehicles state", state.vehicles);
       console.log("add_vehicles payload", action.payload);
+      // let vehicles = state.vehicles.slice();
+      // vehicles.push(action.payload);
+      // console.log("vehicles push", vehicles);
       return {
         ...state,
+        // error: null,
         loading: false,
         vehicles: {
           vehicles: [...state.vehicles.vehicles, action.payload]
@@ -51,6 +60,7 @@ export const reducer = (state = initialState, action) => {
       console.log("get_vehicles payload", action.payload);
       return {
         ...state,
+        // error: null,
         loading: false,
         vehicles: { ...state.vehicles, vehicles: action.payload }
       };
@@ -100,6 +110,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         selected_id: action.payload
       };
+    // case CLOSE_SIDE_BAR:
+    //   return {
+    //     ...state,
+    //     sidebar_open: !sidebar_open
+    //   }
     default:
       return state;
   }

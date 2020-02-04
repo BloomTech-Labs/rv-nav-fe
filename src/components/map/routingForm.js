@@ -7,6 +7,7 @@ import "./routingForm.css"
 
 const RoutingForm = (props) => {
 
+  console.log('props on RoutingForm', props)
 
   return (
 
@@ -53,6 +54,7 @@ const RoutingForm = (props) => {
 }
 
 const mapStateToProps = state => {
+  console.log("state in route form", state)
   return {
     selected_id: state.selected_id,
     vehicles: state.vehicles
