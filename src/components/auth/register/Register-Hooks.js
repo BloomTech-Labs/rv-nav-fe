@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import styled from 'styled-components';
 
+// ERRORS OUT. BEST ATTEMPT AT REGISTER PAGE TO HOOKS REFACTOR. 
 
 const Header = styled.div`
   height: 80px;

@@ -103,6 +103,7 @@ class Main extends Component {
             this.state.lengthInches,
             this.state.lengthFeet
       );
+            // MATH FROM COMBINE DISTANCE UNITS COMES OUT INCORRECT.WORKS CORRECTLY IN CONSOLE. Puts 0 after height width and length for onboarding procress.
       console.log(this.state.heightFeet)
       console.log(heightFeet)
       console.log(this.state.heightInches)
