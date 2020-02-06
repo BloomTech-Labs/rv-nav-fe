@@ -13,6 +13,8 @@ import Button from "react-bootstrap/Button";
 import "./Vehicles.css";
 import axios from "axios";
 
+// Vehicles loading in harmburger menu and functionality for toggle edit and delete buttons. sends this state to update form for auto populate
+
 class Vehicles extends React.Component {
   state = {
     id: null,
@@ -130,6 +132,7 @@ Update = (id) => {
              this.setState({
                specifications:e
            })
+           //To split combined feet and inches from returned value from backend
            let heightFeetNew = Math.floor(e.height)
            let heightInchesNew = Math.round((e.height - heightFeetNew) * 12 )
            let widthFeetNew = Math.floor(e.width)
@@ -177,7 +180,7 @@ Update = (id) => {
             }
         </div>
         <div className="toggle-parent-vehicle">
-          {/* If on === true then renders component */}
+          {/* If updateForm === true then renders component */}
             {this.state.updateForm && 
                 <UpdateVehicleForm   specifications={this.state.specifications} toggleUpdateForm={this.toggleUpdateForm}/>
             }

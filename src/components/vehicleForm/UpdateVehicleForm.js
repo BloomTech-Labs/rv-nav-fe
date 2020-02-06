@@ -10,7 +10,7 @@ import firebase from "firebase";
 import { ReactComponent as Exit } from "../../assets/img/Exit.svg";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { ReactComponent as PlusSign } from "../../assets/img/lightIcons/plus (1).svg";
-
+// FORM FOR UPDATING YOUR VEHICLE
 class VehicleForm extends React.Component {
   constructor(props) {
     super(props);
@@ -252,16 +252,6 @@ class VehicleForm extends React.Component {
     return inchesCombined;
   };
 
-  // splitDistanceUnits = (combined) => {
-  //   // let inches = inchesIn;
-  //   // let feet = feetIn;
-  //   if (combined === "") {
-  //     combined = 0;
-  //   }
-  //   combined % 12
-  //   const split = combined +  / 12;
-  //   return split;
-  // };
 
   render() {
     console.log("UPDATE FORM PROPS", this.props);

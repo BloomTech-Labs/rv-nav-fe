@@ -6,10 +6,9 @@ import Form from "react-bootstrap/Form";
 import "./VehicleForm.css";
 import { NavLink } from "react-router-dom";
 import firebase from "firebase";
-
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { ReactComponent as PlusSign } from "../../assets/img/lightIcons/plus (1).svg";
-
+// ADD VEHICLE FORM FROM SELECT VEHICLE COMPONENT
 class VehicleForm extends React.Component {
   constructor(props) {
     super(props);

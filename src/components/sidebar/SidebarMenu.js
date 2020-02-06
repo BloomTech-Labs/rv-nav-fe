@@ -15,6 +15,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Vehicles from "../vehicleForm/Vehicles";
 
+// Items from hamburger drop down
+
 const SidebarMenu = props => {
   const [show, setShow] = useState({ on: false });
 

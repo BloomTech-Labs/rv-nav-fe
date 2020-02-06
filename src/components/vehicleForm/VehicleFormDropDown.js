@@ -9,7 +9,7 @@ import firebase from "firebase";
 import { ReactComponent as Exit } from "../../assets/img/Exit.svg";
 import { ReactComponent as BackArrow } from "../../assets/img/back.svg";
 import { ReactComponent as PlusSign } from "../../assets/img/lightIcons/plus (1).svg";
-
+// ADD VEHICLE FORM IN THE HAMBURGER DROPDOWN MENU
 class VehicleForm extends React.Component {
   constructor(props) {
     super(props);
