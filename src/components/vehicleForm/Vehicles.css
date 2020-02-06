@@ -118,12 +118,17 @@
   padding-right:15px;
   border-right:rgba(248, 249, 250, 0.7) 2px solid ;
   margin:0;
-  
+}
+.button-style-one-vehicle:hover{
+  cursor: pointer;
 }
 .button-style-two-vehicle{
   color:#00B2D9;
   padding-left:15px;
   margin:0;
+}
+.button-style-two-vehicle:hover{
+  cursor: pointer;
 }
 
 .form-wrapper-vehicle {
